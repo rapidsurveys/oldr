@@ -1,0 +1,113 @@
+112 1 VLAB Filelabel: RAM-OP DATA
+_Label1        1   2  30   0   0   0   0 112      Rapid nutrition and needs assessment survey for older people
+_Label2        1   3  30   0   0   0   0 112      HelpAge International - Version 1.05 (3 August 2017)
+_Label3        1   7  30   0   0   0   0 112      ad1                                             Date of data collection    
+_Label4       81   7  30   0   0   0   0 112  [NOT ENTERED]
+#ad2           1   9  30  81   9   0   2 112      ad2                                                         Team number    
+_Label5        1  11  30   0   0   0   0 112      ad3                                                  Name of enumerator    
+_Label6       81  11  30   0   0   0   0 112  [NOT ENTERED]
+_Label7        1  13  30   0   0   0   0 112      ad4                                                      Consent given?    
+_Label8       81  13  30   0   0   0   0 112  [NOT ENTERED]
+#psu           1  15  30  81  15   0   3 112      psu                                                PSU (cluster) number    
+#hh            1  17  30  81  17   0   2 112      hh                                                         Household ID    
+#id            1  19  30  81  19   0   2 112      id                                                            Person ID    
+_Label9        1  23  30   0   0   0   0 112      Demography and Situation
+#d1            1  25  30  81  25   0   1 112      d1                                    Who is answering these questions?    
+#d2            1  27  30  81  27   0   3 112      d2                                      How old are you (age in years)?    
+#d3            1  29  30  81  29   0   1 112      d3                                                                  Sex    
+#d4            1  31  30  81  31   0   1 112      d4                                                       Marital status    
+#d5            1  33  30  81  33   0   1 112      d5                                                   Do you live alone?    
+_Label10       1  37  30   0   0   0   0 112      Food Intake
+#f1            1  39  30  81  39   0   2 112      f1                                                     Number of meals:    
+_Label11       1  41  30   0   0   0   0 112      f2  Since this time yesterday did you eat any of the following foods...
+#f2a           1  43  30  81  43   0   1 112      f2a                                      Tinned, powdered or fresh milk    
+#f2b           1  45  30  81  45   0   1 112      f2b                               Sweetened or flavoured water, tea etc    
+#f2c           1  47  30  81  47   0   1 112      f2c                             Grains - injeera, maize, corn, rice etc    
+#f2d           1  49  30  81  49   0   1 112      f2d                                 Orange/yellow fruits and vegetables    
+#f2e           1  51  30  81  51   0   1 112      f2e                                                  Red palm oil/nutrs    
+#f2f           1  53  30  81  53   0   1 112      f2f                                         Dark green leafy vegetables    
+#f2g           1  55  30  81  55   0   1 112      f2g                        Roots or tubers - potatoes, false banana etc    
+#f2h           1  57  30  81  57   0   1 112      f2h                                            Lentils, beans, peas etc    
+#f2i           1  59  30  81  59   0   1 112      f2i                                          Other fruits or vegetables    
+#f2j           1  61  30  81  61   0   1 112      f2j                                   Organ meat - Liver, kidney, heart    
+#f2k           1  63  30  81  63   0   1 112      f2k            Meat - beef, pork, goat, lamb, veal, chicken, camel, etc    
+#f2l           1  65  30  81  65   0   1 112      f2l                                                 Fresh or dried fish    
+#f2m           1  67  30  81  67   0   1 112      f2m                                                Cheese, yogurt, milk    
+#f2n           1  69  30  81  69   0   1 112      f2n                                                                Eggs    
+#f2o           1  71  30  81  71   0   1 112      f2o                                            Oil, fat, ghee or butter    
+#f2p           1  73  30  81  73   0   1 112      f2p                                                           Mushrooms    
+#f2q           1  75  30  81  75   0   1 112      f2q                                              Grubs, snails, insects    
+#f2r           1  77  30  81  77   0   1 112      f2r                                             Sweets, buscuits, cakes    
+#f2s           1  79  30  81  79   0   1 112      f2s                 Salt, pepper, herbs, spices, or sauces / condiments    
+_Label12       1  83  30   0   0   0   0 112      Hunger - Ration - Relief
+#f3            1  85  30  81  85   0   1 112      f3                 How often was there ever no food to eat of any kind?    
+#f4            1  87  30  81  87   0   1 112      f4           How often did you/any household member go to sleep hungry?    
+#f5            1  89  30  81  89   0   1 112      f5            How often did you/any household member go without eating?    
+#f6            1  91  30  81  91   0   1 112      f6           Are you/anyone in household receiving regular food ration?    
+#f7            1  93  30  81  93   0   1 112      f7         Have you/anyone in household received non-food relief items?    
+_Label13       1  97  30   0   0   0   0 112      Disability (Washington Group)
+#wg1           1  99  30  81  99   0   1 112      wg1                        Difficulty seeing, even if wearing glasses?     
+#wg2           1 101  30  81 101   0   1 112      wg2                   Difficulty hearing, even if using a hearing aid?     
+#wg3           1 103  30  81 103   0   1 112      wg3                              Difficulty walking or climbing steps?     
+#wg4           1 105  30  81 105   0   1 112      wg4                           Difficulty remembering or concentrating?     
+#wg5           1 107  30  81 107   0   1 112      wg5                           Difficulty washing all over or dressing?     
+#wg6           1 109  30  81 109   0   1 112      wg6      Difficulty communicating, understanding, or being understood?     
+_Label14       1 112  30   0   0   0   0 112      Activities of Daily Living
+#a1            1 114  30  81 114   0   1 112      a1                                       Do you need help with bathing?    
+#a2            1 116  30  81 116   0   1 112      a2                                    Do you need help getting dressed?    
+#a3            1 118  30  81 118   0   1 112      a3                                Do you need help going to the toilet?    
+#a4            1 120  30  81 120   0   1 112      a4          Do you need someone to help you move from a bed to a chair?    
+#a5            1 122  30  81 122   0   1 112      a5        Are you partially or totally incontinent of bowel or bladder?    
+#a6            1 124  30  81 124   0   1 112      a6                       Do you need partial or total help with eating?    
+#a7            1 126  30  81 126   0   1 112      a7            Is someone taking care/helping you with daily activities?    
+#a8            1 128  30  81 128   0   1 112      a8                                   Do you have problems chewing food?    
+_Label15       1 132  30   0   0   0   0 112      Mental health
+#k6a           1 134  30  81 134   0   1 112      k6a       About how often during the past 30 days did you feel nervous?    
+#k6b           1 136  30  81 136   0   1 112      k6b     During the past 30 days, about how often did you feel hopeless?    
+#k6c           1 138  30  81 138   0   1 112      k6c                         How often did you feel restless or fidgety?    
+#k6d           1 140  30  81 140   0   1 112      k6d                  Feel so depressed that nothing could cheer you up?    
+#k6e           1 142  30  81 142   0   1 112      k6e               How often did you feel that everything was an effort?    
+#k6f           1 144  30  81 144   0   1 112      k6f                                   How often did you feel worthless?    
+_Label16       1 148  30   0   0   0   0 112      Dementia screen
+#ds1           1 150  30  81 150   0   1 112      ds1                                               What do we call this?    
+#ds2           1 152  30  81 152   0   1 112      ds2                                        What do we do with a hammer?    
+#ds3           1 154  30  81 154   0   1 112      ds3                                         What day of the week is it?    
+#ds4           1 156  30  81 156   0   1 112      ds4                                                 What is the season?    
+#ds5           1 158  30  81 158   0   1 112      ds5                                    Point to window then to the door    
+#ds6a          1 160  30  81 160   0   1 112      ds6a                                                              child    
+#ds6b          1 162  30  81 162   0   1 112      ds6b                                                              house    
+#ds6c          1 164  30  81 164   0   1 112      ds6c                                                               road    
+_Label17       1 168  30   0   0   0   0 112      Health Seeking and Healthcare  
+#h1            1 170  30  81 170   0   1 112      h1                                Do you suffer from long term disease?    
+#h2            1 172  30  81 172   0   1 112      h2                                Do you take drugs regularly for this?    
+#h3            1 174  30  81 174   0   1 112      h3                                                             Why not?    
+#h4            1 176  30  81 176   0   1 112      h4                               Have you been ill in the past 2 weeks?    
+#h5            1 178  30  81 178   0   1 112      h5       Went to the pharmacy/dispensary/health centre/clinic/hospital?    
+#h6            1 180  30  81 180   0   1 112      h6                                                             Why not?    
+_Label18       1 184  30   0   0   0   0 112      Income
+#m1            1 186  30  81 186   0   1 112      m1                             Do you have a personal source of income?    
+_Label19       1 188  30   0   0   0   0 112      m2                           Where does this income or money come from?
+#m2a           1 190  30  81 190   0   1 112      m2a                                   Agriculture / livestock / fishing    
+#m2b           1 192  30  81 192   0   1 112      m2b                                                      Wages / salary    
+#m2c           1 194  30  81 194   0   1 112      m2c                    Sale of charchoal, bricks, firewood, poles, etc.    
+#m2d           1 196  30  81 196   0   1 112      m2d                                                             Trading    
+#m2e           1 198  30  81 198   0   1 112      m2e                         Pension, investments, interest, rents, etc.    
+#m2f           1 200  30  81 200   0   1 112      m2f        Spending savings, sale of household goods, sale of livestock    
+#m2g           1 202  30  81 202   0   1 112      m2g                                               Aid / gifts / charity    
+#m2h           1 204  30  81 204   0   1 112      m2h                                       Cash transfer / cash vouchers    
+#m2i           1 206  30  81 206   0   1 112      m2i                                                               Other    
+_Label20       1 210  30   0   0   0   0 112      Water, Sanitation, Hygiene
+#w1            1 212  30  81 212   0   1 112      w1                          What is your main source of drinking water?    
+#w2            1 214  30  81 214   0   1 112      w2       What do you usually do to the water to make it safer to drink?    
+#w3            1 216  30  81 216   0   1 112      w3                                        What kind of toilet facility?    
+#w4            1 218  30  81 218   0   1 112      w4                    Do you share this facility with other households?    
+_Label21       1 222  30   0   0   0   0 112      Anthropometry and Screening Coverage
+#as1           1 224  30  81 224   0   3 112      as1                                                          MUAC in mm    
+#as2           1 226  30  81 226   0   1 112      as2      Has someone measured your arm like this in the previous month?    
+#as3           1 228  30  81 228   0   1 112      as3                                            Bilateral pitting oedema    
+#as4           1 230  30  81 230   0   1 112      as4     Has someone examined your feet like this in the previous month?    
+_Label22       1 234  30   0   0   0   0 112      Visual Acuity
+#va2a          1 236  30  81 236   0   1 112      va2a                                                         First time    
+#va2b          1 238  30  81 238   0   1 112      va2b                                                        Second time    
+#va2c          1 240  30  81 240   0   1 112      va2c                                                         Third time    
+#va2d          1 242  30  81 242   0   1 112      va2d                                                        Fourth time    

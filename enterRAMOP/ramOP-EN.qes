@@ -1,0 +1,244 @@
+
+     Rapid nutrition and needs assessment survey for older people
+     HelpAge International - Version 1.05 (3 August 2017)
+
+
+
+     ad1                                             Date of data collection     [NOT ENTERED]
+
+     ad2                                                         Team number     ##
+
+     ad3                                                  Name of enumerator     [NOT ENTERED]
+
+     ad4                                                      Consent given?     [NOT ENTERED]
+
+     psu                                                PSU (cluster) number     ###
+
+     hh                                                         Household ID     ##
+
+     id                                                            Person ID     ##
+
+
+
+     Demography and Situation
+
+     d1                                    Who is answering these questions?     #
+
+     d2                                      How old are you (age in years)?     ###
+
+     d3                                                                  Sex     #
+
+     d4                                                       Marital status     #
+
+     d5                                                   Do you live alone?     #
+
+
+
+     Food Intake
+
+     f1                                                     Number of meals:     ##
+
+     f2  Since this time yesterday did you eat any of the following foods...
+
+     f2a                                      Tinned, powdered or fresh milk     #
+
+     f2b                               Sweetened or flavoured water, tea etc     #
+
+     f2c                             Grains - injeera, maize, corn, rice etc     #
+
+     f2d                                 Orange/yellow fruits and vegetables     #
+
+     f2e                                                  Red palm oil/nutrs     #
+
+     f2f                                         Dark green leafy vegetables     #
+
+     f2g                        Roots or tubers - potatoes, false banana etc     #
+
+     f2h                                            Lentils, beans, peas etc     #
+
+     f2i                                          Other fruits or vegetables     #
+
+     f2j                                   Organ meat - Liver, kidney, heart     #
+
+     f2k            Meat - beef, pork, goat, lamb, veal, chicken, camel, etc     #
+
+     f2l                                                 Fresh or dried fish     #
+
+     f2m                                                Cheese, yogurt, milk     #
+
+     f2n                                                                Eggs     #
+
+     f2o                                            Oil, fat, ghee or butter     #
+
+     f2p                                                           Mushrooms     #
+
+     f2q                                              Grubs, snails, insects     #
+
+     f2r                                             Sweets, buscuits, cakes     #
+
+     f2s                 Salt, pepper, herbs, spices, or sauces / condiments     #
+
+
+
+     Hunger - Ration - Relief
+
+     f3                 How often was there ever no food to eat of any kind?     #
+
+     f4           How often did you/any household member go to sleep hungry?     #
+
+     f5            How often did you/any household member go without eating?     #
+
+     f6           Are you/anyone in household receiving regular food ration?     #
+
+     f7         Have you/anyone in household received non-food relief items?     #
+
+
+
+     Disability (Washington Group)
+
+     wg1                        Difficulty seeing, even if wearing glasses?      #
+
+     wg2                   Difficulty hearing, even if using a hearing aid?      #
+
+     wg3                              Difficulty walking or climbing steps?      #
+
+     wg4                           Difficulty remembering or concentrating?      #
+
+     wg5                           Difficulty washing all over or dressing?      #
+
+     wg6      Difficulty communicating, understanding, or being understood?      #
+
+
+     Activities of Daily Living
+
+     a1                                       Do you need help with bathing?     #
+
+     a2                                    Do you need help getting dressed?     #
+
+     a3                                Do you need help going to the toilet?     #
+
+     a4          Do you need someone to help you move from a bed to a chair?     #
+
+     a5        Are you partially or totally incontinent of bowel or bladder?     #
+
+     a6                       Do you need partial or total help with eating?     #
+
+     a7            Is someone taking care/helping you with daily activities?     #
+
+     a8                                   Do you have problems chewing food?     #
+
+
+
+     Mental health
+
+     k6a       About how often during the past 30 days did you feel nervous?     #
+
+     k6b     During the past 30 days, about how often did you feel hopeless?     #
+
+     k6c                         How often did you feel restless or fidgety?     #
+
+     k6d                  Feel so depressed that nothing could cheer you up?     #
+
+     k6e               How often did you feel that everything was an effort?     #
+
+     k6f                                   How often did you feel worthless?     #
+
+
+
+     Dementia screen
+
+     ds1                                               What do we call this?     #
+
+     ds2                                        What do we do with a hammer?     #
+
+     ds3                                         What day of the week is it?     #
+
+     ds4                                                 What is the season?     #
+
+     ds5                                    Point to window then to the door     #
+
+     ds6a                                                              child     #
+
+     ds6b                                                              house     #
+
+     ds6c                                                               road     #
+
+
+
+     Health Seeking and Healthcare
+
+     h1                                Do you suffer from long term disease?     #
+
+     h2                                Do you take drugs regularly for this?     #
+
+     h3                                                             Why not?     #
+
+     h4                               Have you been ill in the past 2 weeks?     #
+
+     h5       Went to the pharmacy/dispensary/health centre/clinic/hospital?     #
+
+     h6                                                             Why not?     #
+
+
+
+     Income
+
+     m1                             Do you have a personal source of income?     #
+
+     m2                           Where does this income or money come from?
+
+     m2a                                   Agriculture / livestock / fishing     #
+
+     m2b                                                      Wages / salary     #
+
+     m2c                    Sale of charchoal, bricks, firewood, poles, etc.     #
+
+     m2d                                                             Trading     #
+
+     m2e                         Pension, investments, interest, rents, etc.     #
+
+     m2f        Spending savings, sale of household goods, sale of livestock     #
+
+     m2g                                               Aid / gifts / charity     #
+
+     m2h                                       Cash transfer / cash vouchers     #
+
+     m2i                                                               Other     #
+
+
+
+     Water, Sanitation, Hygiene
+
+     w1                          What is your main source of drinking water?     #
+
+     w2       What do you usually do to the water to make it safer to drink?     #
+
+     w3                                        What kind of toilet facility?     #
+
+     w4                    Do you share this facility with other households?     #
+
+
+
+     Anthropometry and Screening Coverage
+
+     as1                                                          MUAC in mm     ###
+
+     as2      Has someone measured your arm like this in the previous month?     #
+
+     as3                                            Bilateral pitting oedema     #
+
+     as4     Has someone examined your feet like this in the previous month?     #
+
+
+
+     Visual Acuity
+
+     va2a                                                         First time     #
+
+     va2b                                                        Second time     #
+
+     va2c                                                         Third time     #
+
+     va2d                                                        Fourth time     #
+
+
