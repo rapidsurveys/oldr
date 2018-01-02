@@ -1,0 +1,117 @@
+GROUP,INDICATOR,LABEL,TYPE
+Survey,resp1,Respondent : SUBJECT,Proportion
+Survey,resp2,Respondent : FAMILY CARER,Proportion
+Survey,resp3,Respondent : OTHER CARER,Proportion
+Survey,resp4,Respondent : OTHER,Proportion
+Demography and situation,age,Mean self-reported age of respondent (years),Mean
+Demography and situation,ageGrp1,Self-reported age between 50 and 59 years,Proportion
+Demography and situation,ageGrp2,Self-reported age between 60 and 69 years,Proportion
+Demography and situation,ageGrp3,Self-reported age between 70 and 79 years,Proportion
+Demography and situation,ageGrp4,Self-reported age between 80 and 89 years,Proportion
+Demography and situation,ageGrp5,Self-reported age 90 years or older,Proportion
+Demography and situation,sex1,Sex : MALE,Proportion
+Demography and situation,sex2,Sex : FEMALE,Proportion
+Demography and situation,marital1,Marital status : SINGLE (NEVER MARRIED),Proportion
+Demography and situation,marital2,Marital status : MARRIED,Proportion
+Demography and situation,marital3,Marital status : LIVING TOGETHER,Proportion
+Demography and situation,marital4,Marital status : DIVORCED,Proportion
+Demography and situation,marital5,Marital status : WIDOWED,Proportion
+Demography and situation,marital6,Marital status : OTHER,Proportion
+Demography and situation,alone,Respondent lives alone,Proportion
+Diet,MF,Meal frequency (i.e. number of meals and snacks in previous 24 hours),Mean
+Diet,DDS,Dietary diversity (count from 11 food groups),Mean
+Diet,FG01,Consumed CEREALS (in previous 24 hours),Proportion
+Diet,FG02,Consumed ROOTS / TUBERS (in previous 24 hours),Proportion
+Diet,FG03,Consumed FRUITS / VEGETABLES (in previous 24 hours),Proportion
+Diet,FG04,Consumed MEAT (in previous 24 hours),Proportion
+Diet,FG05,Consumed EGGS (in previous 24 hours),Proportion
+Diet,FG06,Consumed FISH (in previous 24 hours),Proportion
+Diet,FG07,Consumed LEGUMES / NUTS / SEEDS (in previous 24 hours),Proportion
+Diet,FG08,Consumed MILK / MILK PRODUCTS (in previous 24 hours),Proportion
+Diet,FG09,Consumed FATS (in previous 24 hours),Proportion
+Diet,FG10,Consumed SUGARS (in previous 24 hours),Proportion
+Diet,FG11,Consumed OTHER (in previous 24 hours),Proportion
+Nutrients,proteinRich,PROTEIN rich foods in diet,Proportion
+Nutrients,pProtein,Protein rich plant sources of protein in diet,Proportion
+Nutrients,aProtein,Protein rich animal sources of protein in diet,Proportion
+Nutrients,pVitA,Plant sources of Vitamin A in diet,Proportion
+Nutrients,aVitA,Animal sources of Vitamin A in diet,Proportion
+Nutrients,xVitA,Any source of Vitamin A,Proportion
+Nutrients,ironRich,IRON rich foods in diet,Proportion
+Nutrients,caRich,CALCIUM rich foods in diet,Proportion
+Nutrients,znRich,ZINC rich foods in diet,Proportion
+Nutrients,vitB1,Vitamin B1 rich foods in diet,Proportion
+Nutrients,vitB2,Vitamin B2 rich foods in diet,Proportion
+Nutrients,vitB3,Vitamin B3 rich foods in diet,Proportion
+Nutrients,vitB6,Vitamin B6 rich foods in diet,Proportion
+Nutrients,vitB12,Vitamin B12 rich foods in diet,Proportion
+Nutrients,vitBcomplex,Vitamin B1 / B2 / B3 / B6 / B12 rich foods in diet,Proportion
+Food Security,HHS1,Little or no hunger in household (HHS = 0 / 1),Proportion
+Food Security,HHS2,Moderate hunger in household (HHS = 2 / 3),Proportion
+Food Security,HHS3,Severe hunger in household (HHS = 4 / 5 / 6),Proportion
+Activities of daily living,ADL01,Independent : Bathing,Proportion
+Activities of daily living,ADL02,Independent : Dressing,Proportion
+Activities of daily living,ADL03,Independent : Toileting,Proportion
+Activities of daily living,ADL04,Independent : Transferring (mobility),Proportion
+Activities of daily living,ADL05,Independent : Continence,Proportion
+Activities of daily living,ADL06,Independent : Feeding,Proportion
+Activities of daily living,scoreADL,Katz ADL score,Mean
+Activities of daily living,classADL1,Independent (Katz ADL score = 5/6),Proportion
+Activities of daily living,classADL2,Partial dependency (Katz ADL score = 3/4),Proportion
+Activities of daily living,classADL3,Severe dependency (Katz ADL score = 0/1/2),Proportion
+Activities of daily living,hasHelp,Respondent has someone to help them with activities of daily living,Proportion
+Mental health,K6,K6 psychological distress score,Mean
+Mental health,K6Case,Serious psychological distress (K6 > 12),Proportion
+Mental health,DS,Probable dementia by brief CSID screen,Proportion
+Health,H1,Long term disease requiring regular medication,Proportion
+Health,H2,Takes medication for long term disease requiring regular medication,Proportion
+Health,H31,Not taking drugs for long term disease : NO DRUGS AVAILABLE,Proportion
+Health,H32,Not taking drugs for long term disease : TOO EXPENSIVE / NO MONEY,Proportion
+Health,H33,Not taking drugs for long term disease : TOO OLD TO LOOK FOR CARE,Proportion
+Health,H34,Not taking drugs for long term disease : USE OF TRADITIONAL MEDICINE,Proportion
+Health,H35,Not taking drugs for long term disease : DRUGS DON'T HELP,Proportion
+Health,H36,Not taking drugs for long term disease : NO-ONE TO HELP ME,Proportion
+Health,H37,Not taking drugs for long term disease : NO NEED,Proportion
+Health,H38,Not taking drugs for long term disease : OTHER,Proportion
+Health,H39,Not taking drugs for long term disease : NO REASON GIVEN,Proportion
+Health,H4,Recent illness (i.e. in the previous 2 weeks),Proportion
+Health,H5,Accessed care for recent illness,Proportion
+Health,H61,Not accessing care for recent illness : NO DRUGS AVAILABLE,Proportion
+Health,H62,Not accessing care for recent illness : TOO EXPENSIVE / NO MONEY,Proportion
+Health,H63,Not accessing care for recent illness : TOO OLD TO LOOK FOR CARE,Proportion
+Health,H64,Not accessing care for recent illness : USE OF TRADITIONAL MEDICINE,Proportion
+Health,H65,Not accessing care for recent illness : DRUGS DON'T HELP,Proportion
+Health,H66,Not accessing care for recent illness : NO-ONE TO HELP ME,Proportion
+Health,H67,Not accessing care for recent illness : NO NEED,Proportion
+Health,H68,Not accessing care for recent illness : OTHER,Proportion
+Health,H69,Not accessing care for recent illness : NO REASON GIVEN,Proportion
+Income,M1,Has a personal source of income,Proportion
+Income,M2A,Source of income : Agriculture / fishing / livestock,Proportion
+Income,M2B,Source of income : Wages / salary,Proportion
+Income,M2C,Source of income : Sale of charcoal / bricks / etc.,Proportion
+Income,M2D,Source of income : Trading (e.g. market or shop),Proportion
+Income,M2E,Source of income : Investments,Proportion
+Income,M2F,Source of income : Spending savings / sales of assets,Proportion
+Income,M2G,Source of income : Charity,Proportion
+Income,M2H,Source of income : Cash transfer / social security,Proportion
+Income,M2I,Source of income : Other source(s) of income,Proportion
+WASH,W1,Improved source of drinking water,Proportion
+WASH,W2,Safe drinking water,Proportion
+WASH,W3,Improved sanitation facility,Proportion
+WASH,W4,Improved non-shared sanitation facility,Proportion
+Health,oedema,Bilateral pitting oedema (may not be nutritional),Proportion
+Relief,screened,Previously screened (MUAC or oedema),Proportion
+Health,poorVA,Visual impairment (visual acuity < 6 / 12) by tumbling E method,Proportion
+Health,chew,Problems chewing food (self-report),Proportion
+Health,hear,Poor hearing (self-report),Proportion
+Health,disN0,No impairment (hearing or visual or mobility),Proportion
+Health,disAny,Any impairment (hearing or visual or mobility),Proportion
+Health,disN1,One impairment (hearing or visual or mobility),Proportion
+Health,disN2,Two impairments (hearing or visual or mobility),Proportion
+Health,disN3,Three impairments (hearing and visual and mobility),Proportion
+Relief,food,Anyone in household receives a ration,Proportion
+Relief,NFRI,Received non-food relief items in previous month,Proportion
+Anthropometry,MUAC,MUAC (mm),Mean
+Anthropometry,GAM,Global acute malnutrition : GAM,Proportion
+Anthropometry,MAM,Moderate acute malnutrition : MAM,Proportion
+Anthropometry,SAM,Severe acute malnutrition : SAM,Proportion
