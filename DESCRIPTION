@@ -1,9 +1,28 @@
 Package: ramOP
-Title: What the Package Does (one line, title case)
+Title: An Implementation of Rapid Assessment Method for Older People in R
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: as.person(
+    c("Pascale Fritsh [aut]",
+      "Katja Siling [aut]",
+      "Ernest Guevarra <ernestgmd@gmail.com> [aut, cre]",
+      "Mark Myatt [aut]")
+      )
+Description: An implementaiton of the Rapid Assessment Method for Older People
+    (RAM-OP). RAM-OP was developed by HelpAge International, Valid International, 
+    and Brixton Health, with financial assistance from the Humanitarian 
+    Innovation Fund (HIF). It provides various functions that allow the user to
+    design and plan the assessment and analyse the collected data. RAM-OP
+    provides accurate and reliable estimates of the needs of older people. 
+    The method uses simple procedures, in a short time frame (i.e. about two 
+    weeks including training, data collection, data entry, and data analysis), 
+    and at considerably lower cost than other methods.
+Imports:
+    foreign,
+    car
 Depends: R (>= 3.4.3)
-License: What license is it under?
+License: AGPL
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
+URL: http://www.helpage.org/what-we-do/emergencies/ramop-rapid-assessment-method-for-older-people/
+BugReports: https://github.com/validmeasures/ramop/issues
