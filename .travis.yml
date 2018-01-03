@@ -8,8 +8,6 @@ os:
 
 r:
 - release
-- oldrelease
-- devel
 
 warnings_are_errors: true
 sudo: true
