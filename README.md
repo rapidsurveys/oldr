@@ -3,7 +3,7 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/validmeasures/ramOP.svg)]()
 [![GitHub release](https://img.shields.io/github/release/validmeasures/ramOP.svg)](https://github.com/validmeasures/ramOP/blob/master/NEWS.md)
 [![Travis](https://img.shields.io/travis/validmeasures/ramOP.svg?branch=master)](https://travis-ci.org/validmeasures/ramOP)
-[![Build status](https://ci.appveyor.com/api/projects/status/ey7aaj3jrkie2r7d?svg=true)](https://ci.appveyor.com/project/ernestguevarra/ramop)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/validmeasures/ramOP?branch=master&svg=true)](https://ci.appveyor.com/project/validmeasures/ramOP)
 [![codecov](https://codecov.io/gh/validmeasures/ramOP/branch/master/graph/badge.svg)](https://codecov.io/gh/validmeasures/ramOP)
 [![license](https://img.shields.io/github/license/validmeasures/ramOP.svg)](https://github.com/validmeasures/ramOP/blob/master/LICENSE.md)
 [![Github All Releases](https://img.shields.io/github/downloads/validmeasures/ramOP/latest/total.svg)](https://github.com/validmeasures/ramOP/archive/master.zip)
