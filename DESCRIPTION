@@ -19,7 +19,6 @@ Description: An implementaiton of the Rapid Assessment Method for Older People
 Imports:
     foreign,
     car
-Remotes: lme4/lme4
 Depends: R (>= 3.4.3)
 License: AGPL-3
 Encoding: UTF-8
