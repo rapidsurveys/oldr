@@ -1,10 +1,17 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
+sudo: false
 cache: packages
 
 r_github_packages:
   - r-lib/covr
+  - cran/foreign
+  - cran/car
+
+before_install:
+  - Rscript -e 'update.packages(ask = FALSE)'
 
 after_success:
   - Rscript -e 'covr::codecov()'
+
