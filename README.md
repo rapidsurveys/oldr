@@ -47,7 +47,7 @@ The following tools are currently available under the General Public Licence / F
 &nbsp;
 ## License
 
-This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE.md](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE.md) file for details
+This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE) file for details
 
 &nbsp;
 ## Acknowledgements
