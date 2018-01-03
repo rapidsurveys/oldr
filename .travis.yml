@@ -8,6 +8,15 @@ r_github_packages:
   - r-lib/covr
   - cran/foreign
   - cran/car
+  - cran/MASS
+  - mgcv
+  - nnet
+  - pbkrtest
+  - quantreg
+  - grDevices
+  - utils
+  - stats
+  - graphics
 
 before_install:
   - Rscript -e 'update.packages(ask = FALSE)'
