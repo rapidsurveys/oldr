@@ -1,6 +1,6 @@
 ###############################################################################
 #
-#'  Recode function
+#' Recoder function
 #'
 #' @param var Variable to recode
 #' @param recodes Character string of recode specifications:
@@ -65,7 +65,7 @@
 #' #
 #'
 #'
-recode <- function(var, recodes, afr, anr = TRUE, levels) {
+recoder <- function(var, recodes, afr, anr = TRUE, levels) {
   squeezeBlanks <- function(text) {
     gsub(" *", "",  text)
   }
