@@ -28,13 +28,9 @@ Statistics function (PROBIT) for bootstrap estimation
 
 # Example call to bootBW function:
 
-THRESHOLD <- 210
 
-bootP <- bootBW(x = indicators.ALL,
-                w = testPSU,
-                statistic = bootPROBIT,
-                params = "ADL01",
-                outputColumns = "ADL01",
-                replicates = 9)
+bootPROBIT(x = indicators.ALL,
+           params = "ADL01",
+           threshold = 210)
 
 }

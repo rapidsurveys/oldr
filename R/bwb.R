@@ -191,15 +191,6 @@ bootBW <- function(x, w, statistic, params, outputColumns, replicates = 400) {
 #' meanResults <- bootClassic(x = indicators.ALL,
 #'                            params = "ADL01")
 #'
-#' # Example call to bootBW function:
-#'
-#' bootP <- bootBW(x = indicators.ALL,
-#'                 w = testPSU,
-#'                 statistic = bootClassic,
-#'                 params = "ADL01",
-#'                 outputColumns = "ADL01",
-#'                 replicates = 9)
-#'
 bootClassic <- function(x, params) {
   result <- vector(mode = "numeric", length = length(params))
   for(i in 1:length(params)) {
@@ -226,14 +217,10 @@ bootClassic <- function(x, params) {
 #'
 #' # Example call to bootBW function:
 #'
-#' THRESHOLD <- 210
 #'
-#' bootP <- bootBW(x = indicators.ALL,
-#'                 w = testPSU,
-#'                 statistic = bootPROBIT,
-#'                 params = "ADL01",
-#'                 outputColumns = "ADL01",
-#'                 replicates = 9)
+#' bootPROBIT(x = indicators.ALL,
+#'            params = "ADL01",
+#'            threshold = 210)
 #'
 bootPROBIT <- function(x, params, threshold = THRESHOLD) {
   #

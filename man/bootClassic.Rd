@@ -28,13 +28,4 @@ Statistics function (simple proportion) for bootstrap estimation
 meanResults <- bootClassic(x = indicators.ALL,
                            params = "ADL01")
 
-# Example call to bootBW function:
-
-bootP <- bootBW(x = indicators.ALL,
-                w = testPSU,
-                statistic = bootClassic,
-                params = "ADL01",
-                outputColumns = "ADL01",
-                replicates = 9)
-
 }
