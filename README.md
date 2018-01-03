@@ -18,7 +18,7 @@
 
 ## Getting started
 
-The following tools are currently available under the General Public Licence / Free Documentation License (see [LICENSE.md](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE.md)), meaning that you are free to copy and adapt these tools:
+The following tools are currently available under the General Public Licence / Free Documentation License (see [LICENSE](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE)), meaning that you are free to copy and adapt these tools:
 
 * an English language manual / guidebook
 * a questionnaire (available in English and French)
