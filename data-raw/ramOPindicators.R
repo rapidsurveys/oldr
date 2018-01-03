@@ -56,25 +56,25 @@ psu <- svy$psu
 #    marital6  Marital status = OTHER
 #    alone     Respondent lives alone
 #
-resp1    <- recode(svy$d1, "1=1; 5:9=1; NA=1; else=0")
-resp2    <- recode(svy$d1, "2=1; else=0")
-resp3    <- recode(svy$d1, "3=1; else=0")
-resp4    <- recode(svy$d1, "4=1; else=0")
-age      <- recode(svy$d2, "888=NA; 999=NA")
-ageGrp1  <- recode(age,"50:59=1; NA=NA; else=0")
-ageGrp2  <- recode(age,"60:69=1; NA=NA; else=0")
-ageGrp3  <- recode(age,"70:79=1; NA=NA; else=0")
-ageGrp4  <- recode(age,"80:89=1; NA=NA; else=0")
-ageGrp5  <- recode(age,"90:hi=1; NA=NA; else=0")
-sex1     <- recode(svy$d3, "1=1; 2=0; else=NA")
-sex2     <- recode(svy$d3, "1=0; 2=1; else=NA")
-marital1 <- recode(svy$d4, "1=1; else=0")
-marital2 <- recode(svy$d4, "2=1; else=0")
-marital3 <- recode(svy$d4, "3=1; else=0")
-marital4 <- recode(svy$d4, "4=1; else=0")
-marital5 <- recode(svy$d4, "5=1; else=0")
-marital6 <- recode(svy$d4, "6=1; else=0")
-alone    <- recode(svy$d5, "1=1; else=0")
+resp1    <- recoder(svy$d1, "1=1; 5:9=1; NA=1; else=0")
+resp2    <- recoder(svy$d1, "2=1; else=0")
+resp3    <- recoder(svy$d1, "3=1; else=0")
+resp4    <- recoder(svy$d1, "4=1; else=0")
+age      <- recoder(svy$d2, "888=NA; 999=NA")
+ageGrp1  <- recoder(age,"50:59=1; NA=NA; else=0")
+ageGrp2  <- recoder(age,"60:69=1; NA=NA; else=0")
+ageGrp3  <- recoder(age,"70:79=1; NA=NA; else=0")
+ageGrp4  <- recoder(age,"80:89=1; NA=NA; else=0")
+ageGrp5  <- recoder(age,"90:hi=1; NA=NA; else=0")
+sex1     <- recoder(svy$d3, "1=1; 2=0; else=NA")
+sex2     <- recoder(svy$d3, "1=0; 2=1; else=NA")
+marital1 <- recoder(svy$d4, "1=1; else=0")
+marital2 <- recoder(svy$d4, "2=1; else=0")
+marital3 <- recoder(svy$d4, "3=1; else=0")
+marital4 <- recoder(svy$d4, "4=1; else=0")
+marital5 <- recoder(svy$d4, "5=1; else=0")
+marital6 <- recoder(svy$d4, "6=1; else=0")
+alone    <- recoder(svy$d5, "1=1; else=0")
 
 
 ################################################################################
@@ -125,31 +125,31 @@ alone    <- recode(svy$d5, "1=1; else=0")
 #
 #  Meal frequency
 #
-MF <- recode(svy$f1, "9=0; NA=0")
+MF <- recoder(svy$f1, "9=0; NA=0")
 
 ################################################################################
 #
 #  Recode dietary diversity data
 #
-svy$f2a <- recode(svy$f2a, "1=1; else=0")
-svy$f2b <- recode(svy$f2b, "1=1; else=0")
-svy$f2c <- recode(svy$f2c, "1=1; else=0")
-svy$f2d <- recode(svy$f2d, "1=1; else=0")
-svy$f2e <- recode(svy$f2e, "1=1; else=0")
-svy$f2f <- recode(svy$f2f, "1=1; else=0")
-svy$f2g <- recode(svy$f2g, "1=1; else=0")
-svy$f2h <- recode(svy$f2h, "1=1; else=0")
-svy$f2i <- recode(svy$f2i, "1=1; else=0")
-svy$f2j <- recode(svy$f2j, "1=1; else=0")
-svy$f2k <- recode(svy$f2k, "1=1; else=0")
-svy$f2l <- recode(svy$f2l, "1=1; else=0")
-svy$f2m <- recode(svy$f2m, "1=1; else=0")
-svy$f2n <- recode(svy$f2n, "1=1; else=0")
-svy$f2o <- recode(svy$f2o, "1=1; else=0")
-svy$f2p <- recode(svy$f2p, "1=1; else=0")
-svy$f2q <- recode(svy$f2q, "1=1; else=0")
-svy$f2r <- recode(svy$f2r, "1=1; else=0")
-svy$f2s <- recode(svy$f2s, "1=1; else=0")
+svy$f2a <- recoder(svy$f2a, "1=1; else=0")
+svy$f2b <- recoder(svy$f2b, "1=1; else=0")
+svy$f2c <- recoder(svy$f2c, "1=1; else=0")
+svy$f2d <- recoder(svy$f2d, "1=1; else=0")
+svy$f2e <- recoder(svy$f2e, "1=1; else=0")
+svy$f2f <- recoder(svy$f2f, "1=1; else=0")
+svy$f2g <- recoder(svy$f2g, "1=1; else=0")
+svy$f2h <- recoder(svy$f2h, "1=1; else=0")
+svy$f2i <- recoder(svy$f2i, "1=1; else=0")
+svy$f2j <- recoder(svy$f2j, "1=1; else=0")
+svy$f2k <- recoder(svy$f2k, "1=1; else=0")
+svy$f2l <- recoder(svy$f2l, "1=1; else=0")
+svy$f2m <- recoder(svy$f2m, "1=1; else=0")
+svy$f2n <- recoder(svy$f2n, "1=1; else=0")
+svy$f2o <- recoder(svy$f2o, "1=1; else=0")
+svy$f2p <- recoder(svy$f2p, "1=1; else=0")
+svy$f2q <- recoder(svy$f2q, "1=1; else=0")
+svy$f2r <- recoder(svy$f2r, "1=1; else=0")
+svy$f2s <- recoder(svy$f2s, "1=1; else=0")
 
 ################################################################################
 #
@@ -263,18 +263,18 @@ rm(vitBsources)
 #
 #  Recode component variables
 #
-svy$f3 <- recode(svy$f3, "1=1; 2=1; 3=2; else=0")
-svy$f4 <- recode(svy$f4, "1=1; 2=1; 3=2; else=0")
-svy$f5 <- recode(svy$f5, "1=1; 2=1; 3=2; else=0")
+svy$f3 <- recoder(svy$f3, "1=1; 2=1; 3=2; else=0")
+svy$f4 <- recoder(svy$f4, "1=1; 2=1; 3=2; else=0")
+svy$f5 <- recoder(svy$f5, "1=1; 2=1; 3=2; else=0")
 
 ################################################################################
 #
 #  Sum components and classify hunger into three separate indicator variables
 #
 sumHHS <- svy$f3 + svy$f4 + svy$f5
-HHS1 <- recode(sumHHS, "0:1=1; else=0")
-HHS2 <- recode(sumHHS, "2:3=1; else=0")
-HHS3 <- recode(sumHHS, "4:6=1; else=0")
+HHS1 <- recoder(sumHHS, "0:1=1; else=0")
+HHS2 <- recoder(sumHHS, "2:3=1; else=0")
+HHS3 <- recoder(sumHHS, "4:6=1; else=0")
 
 ###############################################################################
 #
@@ -326,12 +326,12 @@ rm(sumHHS)
 #    1 = Independence
 #    0 = Needs assistance or supervision
 #
-ADL01 <- recode(svy$a1, "2=1; else=0")    # Bathing
-ADL02 <- recode(svy$a2, "2=1; else=0")    # Dressing
-ADL03 <- recode(svy$a3, "2=1; else=0")    # Toileting
-ADL04 <- recode(svy$a4, "2=1; else=0")    # Transferring (mobility)
-ADL05 <- recode(svy$a5, "2=1; else=0")    # Continence
-ADL06 <- recode(svy$a6, "2=1; else=0")    # Feeding
+ADL01 <- recoder(svy$a1, "2=1; else=0")    # Bathing
+ADL02 <- recoder(svy$a2, "2=1; else=0")    # Dressing
+ADL03 <- recoder(svy$a3, "2=1; else=0")    # Toileting
+ADL04 <- recoder(svy$a4, "2=1; else=0")    # Transferring (mobility)
+ADL05 <- recoder(svy$a5, "2=1; else=0")    # Continence
+ADL06 <- recoder(svy$a6, "2=1; else=0")    # Feeding
 
 ################################################################################
 #
@@ -350,15 +350,15 @@ scoreADL <- ADL01 + ADL02 + ADL03 + ADL04 + ADL05 + ADL06
 #    classADL3    Severe dependency     scoreADL = 0,1,2
 #    ---------    ------------------    ----------------
 #
-classADL1 <- recode(scoreADL, "5:6=1; else=0")
-classADL2 <- recode(scoreADL, "3:4=1; else=0")
-classADL3 <- recode(scoreADL, "0:2=1; else=0")
+classADL1 <- recoder(scoreADL, "5:6=1; else=0")
+classADL2 <- recoder(scoreADL, "3:4=1; else=0")
+classADL3 <- recoder(scoreADL, "0:2=1; else=0")
 
 ################################################################################
 #
 #  Does the subject have someone to help with everyday activities?
 #
-hasHelp <- recode(svy$a7, "1=1; else=0")
+hasHelp <- recoder(svy$a7, "1=1; else=0")
 
 ################################################################################
 #
@@ -391,12 +391,12 @@ unmetNeed <- ifelse(scoreADL < 6 & hasHelp == 0, 1, 0)
 #
 #  Recode DON'T KNOW, REFUSED, NA and MISSING values to 5 (NONE)
 #
-svy$k6a <- recode(svy$k6a, "6:9=5")
-svy$k6b <- recode(svy$k6b, "6:9=5")
-svy$k6c <- recode(svy$k6c, "6:9=5")
-svy$k6d <- recode(svy$k6d, "6:9=5")
-svy$k6e <- recode(svy$k6e, "6:9=5")
-svy$k6f <- recode(svy$k6f, "6:9=5")
+svy$k6a <- recoder(svy$k6a, "6:9=5")
+svy$k6b <- recoder(svy$k6b, "6:9=5")
+svy$k6c <- recoder(svy$k6c, "6:9=5")
+svy$k6d <- recoder(svy$k6d, "6:9=5")
+svy$k6e <- recoder(svy$k6e, "6:9=5")
+svy$k6f <- recoder(svy$k6f, "6:9=5")
 
 ################################################################################
 #
@@ -414,7 +414,7 @@ K6 <- svy$k6a + svy$k6b + svy$k6c + svy$k6d + svy$k6e + svy$k6f
 #
 #  Apply case-definition for serious psychological distress(i.e. K6 > 12)
 #
-K6Case <- recode(K6, "0:12=0; 13:hi=1")
+K6Case <- recoder(K6, "0:12=0; 13:hi=1")
 
 
 ################################################################################
@@ -438,14 +438,14 @@ K6Case <- recode(K6, "0:12=0; 13:hi=1")
 #
 #  Recode scored components to 0 / 1 (with 1 = correct)
 #
-svy$ds1  <- recode(svy$ds1,  "1=1; else=0") # Nose
-svy$ds2  <- recode(svy$ds2,  "1=1; else=0") # Hammer
-svy$ds3  <- recode(svy$ds3,  "1=1; else=0") # Day of week
-svy$ds4  <- recode(svy$ds4,  "1=1; else=0") # Season
-svy$ds5  <- recode(svy$ds5,  "1=1; else=0") # Point to window then door
-svy$ds6a <- recode(svy$ds6a, "1=1; else=0") # Memory "CHILD"
-svy$ds6b <- recode(svy$ds6b, "1=1; else=0") # Memory "HOUSE"
-svy$ds6c <- recode(svy$ds6c, "1=1; else=0") # Memory "ROAD"
+svy$ds1  <- recoder(svy$ds1,  "1=1; else=0") # Nose
+svy$ds2  <- recoder(svy$ds2,  "1=1; else=0") # Hammer
+svy$ds3  <- recoder(svy$ds3,  "1=1; else=0") # Day of week
+svy$ds4  <- recoder(svy$ds4,  "1=1; else=0") # Season
+svy$ds5  <- recoder(svy$ds5,  "1=1; else=0") # Point to window then door
+svy$ds6a <- recoder(svy$ds6a, "1=1; else=0") # Memory "CHILD"
+svy$ds6b <- recoder(svy$ds6b, "1=1; else=0") # Memory "HOUSE"
+svy$ds6c <- recoder(svy$ds6c, "1=1; else=0") # Memory "ROAD"
 
 ################################################################################
 #
@@ -460,7 +460,7 @@ scoreCSID <- svy$ds1 + svy$ds2 + svy$ds3 + svy$ds4 + svy$ds5 + svy$ds6a + svy$ds
 #    0 = Normal (not probable dementia)
 #    1 = Probable dementia
 #
-DS <- recode(scoreCSID, "0:4=1; 5:8=0")
+DS <- recoder(scoreCSID, "0:4=1; 5:8=0")
 
 ################################################################################
 #
@@ -512,44 +512,44 @@ rm(scoreCSID)
 #
 #  Health indicators : CHRONIC CONDITIONS
 #
-svy$h1 <- recode(svy$h1, "1=1; else=2")
-H1 <- recode(svy$h1, "1=1; else=0")
-H2 <- ifelse(H1 == 0, NA, recode(svy$h2, "1=1; else=0"))
-H3 <- ifelse(H2 == 1, NA, recode(svy$h3, "NA=9"))
+svy$h1 <- recoder(svy$h1, "1=1; else=2")
+H1 <- recoder(svy$h1, "1=1; else=0")
+H2 <- ifelse(H1 == 0, NA, recoder(svy$h2, "1=1; else=0"))
+H3 <- ifelse(H2 == 1, NA, recoder(svy$h3, "NA=9"))
 #
 # Indicators for main reason for NOT taking drugs for chronic condition
 #
-H31 <- recode(H3, "1=1; NA=NA; else=0")
-H32 <- recode(H3, "2=1; NA=NA; else=0")
-H33 <- recode(H3, "3=1; NA=NA; else=0")
-H34 <- recode(H3, "4=1; NA=NA; else=0")
-H35 <- recode(H3, "5=1; NA=NA; else=0")
-H36 <- recode(H3, "6=1; NA=NA; else=0")
-H37 <- recode(H3, "7=1; NA=NA; else=0")
-H38 <- recode(H3, "8=1; NA=NA; else=0")
-H39 <- recode(H3, "9=1; NA=NA; else=0")
+H31 <- recoder(H3, "1=1; NA=NA; else=0")
+H32 <- recoder(H3, "2=1; NA=NA; else=0")
+H33 <- recoder(H3, "3=1; NA=NA; else=0")
+H34 <- recoder(H3, "4=1; NA=NA; else=0")
+H35 <- recoder(H3, "5=1; NA=NA; else=0")
+H36 <- recoder(H3, "6=1; NA=NA; else=0")
+H37 <- recoder(H3, "7=1; NA=NA; else=0")
+H38 <- recoder(H3, "8=1; NA=NA; else=0")
+H39 <- recoder(H3, "9=1; NA=NA; else=0")
 
 ################################################################################
 #
 #  Health indicators : RECENT DISEASE EPISODE
 #
-svy$h4 <- recode(svy$h4, "1=1; else=2")
-H4 <- recode(svy$h4, "1=1; else=0")
-H5 <- ifelse(H4 == 0, NA, recode(svy$h5, "1=1; else=0"))
-H6 <- ifelse(H5 == 1, NA, recode(svy$h6, "NA=9"))
+svy$h4 <- recoder(svy$h4, "1=1; else=2")
+H4 <- recoder(svy$h4, "1=1; else=0")
+H5 <- ifelse(H4 == 0, NA, recoder(svy$h5, "1=1; else=0"))
+H6 <- ifelse(H5 == 1, NA, recoder(svy$h6, "NA=9"))
 #
 #
 # Indicators for main reason for NOT accessing care for recent disease episode
 #
-H61 <- recode(H6, "1=1; NA=NA; else=0")
-H62 <- recode(H6, "2=1; NA=NA; else=0")
-H63 <- recode(H6, "3=1; NA=NA; else=0")
-H64 <- recode(H6, "4=1; NA=NA; else=0")
-H65 <- recode(H6, "5=1; NA=NA; else=0")
-H66 <- recode(H6, "6=1; NA=NA; else=0")
-H67 <- recode(H6, "7=1; NA=NA; else=0")
-H68 <- recode(H6, "8=1; NA=NA; else=0")
-H69 <- recode(H6, "9=1; NA=NA; else=0")
+H61 <- recoder(H6, "1=1; NA=NA; else=0")
+H62 <- recoder(H6, "2=1; NA=NA; else=0")
+H63 <- recoder(H6, "3=1; NA=NA; else=0")
+H64 <- recoder(H6, "4=1; NA=NA; else=0")
+H65 <- recoder(H6, "5=1; NA=NA; else=0")
+H66 <- recoder(H6, "6=1; NA=NA; else=0")
+H67 <- recoder(H6, "7=1; NA=NA; else=0")
+H68 <- recoder(H6, "8=1; NA=NA; else=0")
+H69 <- recoder(H6, "9=1; NA=NA; else=0")
 
 #
 # Clean-up
@@ -579,16 +579,16 @@ rm(H3, H6)
 #
 #  Create binary indicators
 #
-M1  <- recode(svy$m1,  "1=1; else=0") # Has a personal income
-M2A <- recode(svy$m2a, "1=1; else=0") # Agriculture / fishing / livestock
-M2B <- recode(svy$m2b, "1=1; else=0") # Wages / salary
-M2C <- recode(svy$m2c, "1=1; else=0") # Sale of charcoal / bricks / &c.
-M2D <- recode(svy$m2d, "1=1; else=0") # Trading (e.g. market or shop)
-M2E <- recode(svy$m2e, "1=1; else=0") # Investments
-M2F <- recode(svy$m2f, "1=1; else=0") # Spending savings / sale of assets
-M2G <- recode(svy$m2g, "1=1; else=0") # Charity
-M2H <- recode(svy$m2h, "1=1; else=0") # Cash transfer / social security
-M2I <- recode(svy$m2i, "1=1; else=0") # Other
+M1  <- recoder(svy$m1,  "1=1; else=0") # Has a personal income
+M2A <- recoder(svy$m2a, "1=1; else=0") # Agriculture / fishing / livestock
+M2B <- recoder(svy$m2b, "1=1; else=0") # Wages / salary
+M2C <- recoder(svy$m2c, "1=1; else=0") # Sale of charcoal / bricks / &c.
+M2D <- recoder(svy$m2d, "1=1; else=0") # Trading (e.g. market or shop)
+M2E <- recoder(svy$m2e, "1=1; else=0") # Investments
+M2F <- recoder(svy$m2f, "1=1; else=0") # Spending savings / sale of assets
+M2G <- recoder(svy$m2g, "1=1; else=0") # Charity
+M2H <- recoder(svy$m2h, "1=1; else=0") # Cash transfer / social security
+M2I <- recoder(svy$m2i, "1=1; else=0") # Other
 
 ################################################################################
 #
@@ -625,10 +625,10 @@ rm(checkForIncome)
 #
 #  Recode WASH data
 #
-svy$w1 <- recode(svy$w1, "1=1; else=0")
-svy$w2 <- recode(svy$w2, "1=1; else=0")
-svy$w3 <- recode(svy$w3, "1=1; else=0")
-svy$w4 <- recode(svy$w4, "1=1; else=0")
+svy$w1 <- recoder(svy$w1, "1=1; else=0")
+svy$w2 <- recoder(svy$w2, "1=1; else=0")
+svy$w3 <- recoder(svy$w3, "1=1; else=0")
+svy$w4 <- recoder(svy$w4, "1=1; else=0")
 
 ################################################################################
 #
@@ -655,8 +655,8 @@ W4 <- ifelse(svy$w3 == 1 & svy$w4 != 1, 1, 0)
 #
 #  Censor REFUSAL, NOT APPLICABLE, and MISSING values codes in MUAC and Oedema
 #
-MUAC <- recode(svy$as1, "777=NA; 888=NA; 999=NA")
-oedema <- recode(svy$as3, "1=1; else=0")
+MUAC <- recoder(svy$as1, "777=NA; 888=NA; 999=NA")
+oedema <- recoder(svy$as3, "1=1; else=0")
 
 ################################################################################
 #
@@ -685,10 +685,10 @@ screened <- ifelse(svy$as2 == 1 | svy$as4 == 1, 1, 0)
 #
 #  Create binary indicators
 #
-svy$va2a <- recode(svy$va2a, "1=1; else=0")
-svy$va2b <- recode(svy$va2b, "1=1; else=0")
-svy$va2c <- recode(svy$va2c, "1=1; else=0")
-svy$va2d <- recode(svy$va2d, "1=1; else=0")
+svy$va2a <- recoder(svy$va2a, "1=1; else=0")
+svy$va2b <- recoder(svy$va2b, "1=1; else=0")
+svy$va2c <- recoder(svy$va2c, "1=1; else=0")
+svy$va2d <- recoder(svy$va2d, "1=1; else=0")
 sumVA <- svy$va2a + svy$va2b + svy$va2c + svy$va2d
 poorVA <-  ifelse(sumVA < 3, 1, 0)
 
@@ -709,9 +709,9 @@ rm(sumVA)
 #    food  Anyone in HH receives a ration
 #    NFRI  Anyone in HH received non-food relief item(s) in previous month
 #
-chew <- recode(svy$a8, "1=1; else=0")
-food <- recode(svy$f6, "1=1; else=0")
-NFRI <- recode(svy$f7, "1=1; else=0")
+chew <- recoder(svy$a8, "1=1; else=0")
+food <- recoder(svy$f6, "1=1; else=0")
+NFRI <- recoder(svy$f7, "1=1; else=0")
 
 
 ################################################################################
@@ -732,12 +732,12 @@ NFRI <- recode(svy$f7, "1=1; else=0")
 #
 # Missing values
 #
-svy$wg1 <- recode(svy$wg1, "9=0; NA=0")
-svy$wg2 <- recode(svy$wg2, "9=0; NA=0")
-svy$wg3 <- recode(svy$wg3, "9=0; NA=0")
-svy$wg4 <- recode(svy$wg4, "9=0; NA=0")
-svy$wg5 <- recode(svy$wg5, "9=0; NA=0")
-svy$wg6 <- recode(svy$wg6, "9=0; NA=0")
+svy$wg1 <- recoder(svy$wg1, "9=0; NA=0")
+svy$wg2 <- recoder(svy$wg2, "9=0; NA=0")
+svy$wg3 <- recoder(svy$wg3, "9=0; NA=0")
+svy$wg4 <- recoder(svy$wg4, "9=0; NA=0")
+svy$wg5 <- recoder(svy$wg5, "9=0; NA=0")
+svy$wg6 <- recoder(svy$wg6, "9=0; NA=0")
 
 ################################################################################
 #
