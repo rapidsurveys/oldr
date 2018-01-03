@@ -14,7 +14,7 @@
 #' @export bootPROBIT
 #' @export fullTable
 #' @export pyramid.plot
-#' @export recoder
+#' @export recode
 #' @importFrom stats runif na.omit pnorm sd
 #' @importFrom graphics axTicks axis barplot
 #' @importFrom car powerTransform
