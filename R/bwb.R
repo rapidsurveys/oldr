@@ -43,8 +43,8 @@
 #' sample).
 #'
 #' The required statistic is applied to each replicate. The reported estimate
-#' consists of the \code{0.025th (95&#37 LCL)}, \code{0.5th (point estimate)}, and
-#' \code{0.975th (95&#37 UCL)} quantiles of the distribution of the statistic across
+#' consists of the \code{0.025th (95\% LCL)}, \code{0.5th (point estimate)}, and
+#' \code{0.975th (95\% UCL)} quantiles of the distribution of the statistic across
 #' all survey replicates.
 #'
 #' Early versions of the \code{BWB} did not resample observations within
@@ -85,11 +85,11 @@
 #'
 #' # Example call to bootBW function using RAM-OP test data:
 #'
-#' bootP <- bootBW(x = testSVY,
+#' bootP <- bootBW(x = indicators.ALL,
 #'                 w = testPSU,
 #'                 statistic = oneP,
-#'                 params = "d1",
-#'                 outputColumns = "d1",
+#'                 params = "ADL01",
+#'                 outputColumns = "ADL01",
 #'                 replicates = 9)
 #'
 #' # Example estimate with 95% CI:
@@ -188,16 +188,16 @@ bootBW <- function(x, w, statistic, params, outputColumns, replicates = 400) {
 #'
 #' # Example call to bootClassic function
 #'
-#' meanResults <- bootClassic(x = testSVY,
-#'                            params = "d1")
+#' meanResults <- bootClassic(x = indicators.ALL,
+#'                            params = "ADL01")
 #'
 #' # Example call to bootBW function:
 #'
-#' bootP <- bootBW(x = testSVY,
+#' bootP <- bootBW(x = indicators.ALL,
 #'                 w = testPSU,
 #'                 statistic = bootClassic,
-#'                 params = "d1",
-#'                 outputColumns = "d1",
+#'                 params = "ADL01",
+#'                 outputColumns = "ADL01",
 #'                 replicates = 9)
 #'
 bootClassic <- function(x, params) {
@@ -228,11 +228,11 @@ bootClassic <- function(x, params) {
 #'
 #' THRESHOLD <- 210
 #'
-#' bootP <- bootBW(x = testSVY,
+#' bootP <- bootBW(x = indicators.ALL,
 #'                 w = testPSU,
 #'                 statistic = bootPROBIT,
-#'                 params = "as1",
-#'                 outputColumns = "as1",
+#'                 params = "ADL01",
+#'                 outputColumns = "ADL01",
 #'                 replicates = 9)
 #'
 bootPROBIT <- function(x, params, threshold = THRESHOLD) {
