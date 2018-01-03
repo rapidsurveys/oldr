@@ -9,14 +9,14 @@ r_github_packages:
   - cran/foreign
   - cran/car
   - cran/MASS
-  - mgcv
-  - nnet
-  - pbkrtest
-  - quantreg
-  - grDevices
-  - utils
-  - stats
-  - graphics
+  - cran/mgcv
+  - cran/nnet
+  - cran/pbkrtest
+  - cran/quantreg
+  - cran/grDevices
+  - cran/utils
+  - cran/stats
+  - cran/graphics
 
 before_install:
   - Rscript -e 'update.packages(ask = FALSE)'
