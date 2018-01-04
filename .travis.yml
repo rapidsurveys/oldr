@@ -7,11 +7,17 @@ os:
 
 r:
   - release
+  - oldrelease
+  - devel
 
 warnings_are_errors: true
 sudo: required
 cache: packages
-group: deprecated-2017Q4
+
+addons:
+   apt:
+     packages:
+       - libxml2-dev # for XML, a dependency of quantreg
 
 r_github_packages:
   - r-lib/covr
