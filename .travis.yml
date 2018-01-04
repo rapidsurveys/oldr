@@ -3,14 +3,15 @@
 language: r
 
 os:
-- linux
+  - linux
 
 r:
-- release
+  - release
 
 warnings_are_errors: true
 sudo: required
 cache: packages
+group: deprecated-2017Q4
 
 r_github_packages:
   - r-lib/covr
