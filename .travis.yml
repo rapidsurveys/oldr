@@ -2,16 +2,8 @@
 
 language: r
 
-os:
-  - linux
-
-r:
-  - release
-  - oldrelease
-  - devel
-
 warnings_are_errors: true
-sudo: required
+sudo: false
 cache: packages
 
 addons:
