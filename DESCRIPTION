@@ -24,3 +24,6 @@ LazyData: true
 RoxygenNote: 6.0.1
 URL: http://www.helpage.org/what-we-do/emergencies/ramop-rapid-assessment-method-for-older-people/
 BugReports: https://github.com/validmeasures/ramop/issues
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
