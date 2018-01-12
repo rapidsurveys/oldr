@@ -4,8 +4,8 @@ context("Blocked weighted bootstrap")
 boot <- bootBW(x = indicators.ALL,
                w = testPSU,
                statistic = bootClassic,
-               params = "ADL01",
-               outputColumns = "ADL01",
+               params = c("ADL01", "ADL02", "ADL03", "ADL04", "ADL05", "ADL06"),
+               outputColumns = c("ADL01", "ADL02", "ADL03", "ADL04", "ADL05", "ADL06"),
                replicates = 9)
 
 test_that("boot is a data frame", {
@@ -14,4 +14,13 @@ test_that("boot is a data frame", {
 
 test_that("boot vectors are numeric", {
   expect_is(boot[ , 1], "numeric")
+  expect_is(boot[ , 2], "numeric")
+  expect_is(boot[ , 3], "numeric")
+  expect_is(boot[ , 4], "numeric")
+  expect_is(boot[ , 5], "numeric")
+  expect_is(boot[ , 6], "numeric")
+})
+
+test_that("boot names match params", {
+  expect_match(names(boot), "ADL01")
 })
