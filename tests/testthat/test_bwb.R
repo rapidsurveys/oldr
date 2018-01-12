@@ -29,3 +29,12 @@ test_that("boot names match params", {
   expect_match(names(boot)[5], "ADL05")
   expect_match(names(boot)[6], "ADL06")
 })
+
+test_that("boot row number is replicates", {
+  expect_equal(nrow(boot), 9)
+})
+
+test_that("boot column number is length of params", {
+  expect_equal(ncol(boot), 6)
+})
+
