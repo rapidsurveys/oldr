@@ -1,5 +1,5 @@
 library(ramOP)
-context("Blocked weighted bootstrap")
+context("Blocking weighted bootstrap")
 
 boot <- bootBW(x = indicators.ALL,
                w = testPSU,
