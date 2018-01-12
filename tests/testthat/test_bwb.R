@@ -22,7 +22,6 @@ test_that("boot vectors are numeric", {
 })
 
 test_that("boot names match params", {
-  expect_match(names(boot), c("ADL01", "ADL02", "ADL03", "ADL04", "ADL05", "ADL06"))
   expect_match(names(boot)[1], "ADL01")
   expect_match(names(boot)[2], "ADL02")
   expect_match(names(boot)[3], "ADL03")
