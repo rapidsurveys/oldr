@@ -13,5 +13,5 @@ test_that("boot is a data frame", {
 })
 
 test_that("boot vectors are numeric", {
-  expect_is(boot[1], "numeric")
+  expect_is(boot[ , 1], "numeric")
 })
