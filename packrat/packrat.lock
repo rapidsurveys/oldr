@@ -1,0 +1,229 @@
+PackratFormat: 1.4
+PackratVersion: 0.4.8.1
+RVersion: 3.4.3
+Repos: CRAN=https://cran.rstudio.com/
+
+Package: MASS
+Source: CRAN
+Version: 7.3-48
+Hash: e7356899b58b6076fa7e850f9e6f7d39
+
+Package: Matrix
+Source: CRAN
+Version: 1.2-12
+Hash: c134ceb3a533b93c266a93fd7e1b652c
+Requires: lattice
+
+Package: MatrixModels
+Source: CRAN
+Version: 0.4-1
+Hash: 60a5c75e57aae4a0ce76cb7422939aaf
+Requires: Matrix
+
+Package: R6
+Source: CRAN
+Version: 2.2.2
+Hash: b2366cd9d2f3851a5704b4e192b985c2
+
+Package: Rcpp
+Source: CRAN
+Version: 0.12.14
+Hash: f9a2a481350397e53b0768bf488329cd
+
+Package: RcppEigen
+Source: CRAN
+Version: 0.3.3.3.1
+Hash: 583bdf1dc4a9dc51c13c446246bd0a89
+Requires: Matrix, Rcpp
+
+Package: SparseM
+Source: CRAN
+Version: 1.77
+Hash: 08f1f60e1038957030bcd9f4a58d22d8
+
+Package: assertthat
+Source: CRAN
+Version: 0.2.0
+Hash: e8805df54c65ac96d50235c44a82615c
+
+Package: backports
+Source: CRAN
+Version: 1.1.2
+Hash: 5ae7b3466e529e4400951ca18c137e40
+
+Package: base64enc
+Source: CRAN
+Version: 0.1-3
+Hash: c590d29e555926af053055e23ee79efb
+
+Package: car
+Source: CRAN
+Version: 2.1-6
+Hash: 43c23d68bf56137724b83c7659fde443
+Requires: MASS, mgcv, nnet, pbkrtest, quantreg
+
+Package: cli
+Source: CRAN
+Version: 1.0.0
+Hash: f4239f89feb7ddc65821e4514e9734ae
+Requires: assertthat, crayon
+
+Package: crayon
+Source: CRAN
+Version: 1.3.4
+Hash: ff2840dd9b0d563fc80377a5a45510cd
+
+Package: digest
+Source: CRAN
+Version: 0.6.13
+Hash: cfce0bc7ed5ba0cdc47182698fae1d24
+
+Package: evaluate
+Source: CRAN
+Version: 0.10.1
+Hash: 54d95f4ec6d0300100413ed0127d89ae
+Requires: stringr
+
+Package: highr
+Source: CRAN
+Version: 0.6
+Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
+
+Package: htmltools
+Source: CRAN
+Version: 0.3.6
+Hash: 10db2fe4e1ac6057e5555db165a0d870
+Requires: Rcpp, digest
+
+Package: jsonlite
+Source: CRAN
+Version: 1.5
+Hash: 9c51936d8dd00b2f1d4fe9d10499694c
+
+Package: knitr
+Source: CRAN
+Version: 1.18
+Hash: 5be8a90c6aac24e7e0a4f18b829cc6e2
+Requires: digest, evaluate, highr, markdown, stringr, yaml
+
+Package: lattice
+Source: CRAN
+Version: 0.20-35
+Hash: 26b9d7f0d0cb4e1d1bbb97f867c82d89
+
+Package: lme4
+Source: CRAN
+Version: 1.1-15
+Hash: a1a457ca93395c5525cfcc9d14ea7249
+Requires: MASS, Matrix, Rcpp, RcppEigen, lattice, minqa, nlme, nloptr
+
+Package: magrittr
+Source: CRAN
+Version: 1.5
+Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: markdown
+Source: CRAN
+Version: 0.8
+Hash: 045d7c594d503b41f1c28946d076c8aa
+Requires: mime
+
+Package: mgcv
+Source: CRAN
+Version: 1.8-22
+Hash: ce8966e5576ec881696013bc4acc7d97
+Requires: Matrix, nlme
+
+Package: mime
+Source: CRAN
+Version: 0.5
+Hash: 463550cf44fb6f0a2359368f42eebe62
+
+Package: minqa
+Source: CRAN
+Version: 1.2.4
+Hash: 860f36fcff3e5bc62ecc97dab1a21d5f
+Requires: Rcpp
+
+Package: nlme
+Source: CRAN
+Version: 3.1-131
+Hash: 7f5580f9c481d6921298f224c391b308
+Requires: lattice
+
+Package: nloptr
+Source: CRAN
+Version: 1.0.4
+Hash: 8053df240a4635aeb54fc68c6de67709
+
+Package: nnet
+Source: CRAN
+Version: 7.3-12
+Hash: 42c83a1f063b40fd8bb6ad68ed528aa5
+
+Package: packrat
+Source: CRAN
+Version: 0.4.8-1
+Hash: 6ad605ba7b4b476d84be6632393f5765
+
+Package: pbkrtest
+Source: CRAN
+Version: 0.4-7
+Hash: f195c3a0f527f69c491569c5cbaaf1db
+Requires: MASS, Matrix, lme4
+
+Package: praise
+Source: CRAN
+Version: 1.0.0
+Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
+
+Package: quantreg
+Source: CRAN
+Version: 5.34
+Hash: 066533d583980031b8ce01a437db315e
+Requires: Matrix, MatrixModels, SparseM
+
+Package: rlang
+Source: CRAN
+Version: 0.1.6
+Hash: 8eb4b2dce38b8f663cb9364b28eaa76b
+
+Package: rmarkdown
+Source: CRAN
+Version: 1.8
+Hash: 2a7842e3cee62a79dd737d17e9e9d86b
+Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
+    rprojroot, stringr, yaml
+
+Package: rprojroot
+Source: CRAN
+Version: 1.3-1
+Hash: 669bbbe1a44a3fe1e9d076536439b709
+Requires: backports
+
+Package: stringi
+Source: CRAN
+Version: 1.1.6
+Hash: 4430faf2bcbe1b8de0d9be55bcfdcc0b
+
+Package: stringr
+Source: CRAN
+Version: 1.2.0
+Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
+Requires: magrittr, stringi
+
+Package: testthat
+Source: CRAN
+Version: 2.0.0
+Hash: 537114b476376c5773bf3c557f5bbd19
+Requires: R6, cli, crayon, digest, magrittr, praise, rlang, withr
+
+Package: withr
+Source: CRAN
+Version: 2.1.1
+Hash: a86856ae0b4a7c3daf9a3ef0097a403b
+
+Package: yaml
+Source: CRAN
+Version: 2.1.16
+Hash: 784ea5d8302d4a81f166a32a33c10711
