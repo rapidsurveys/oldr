@@ -19,8 +19,10 @@ Fill out a one-dimensional table to include a specified range of values
 }
 \examples{
 
-  xTable <- fullTable(x = sample(100),
-                      values = paste("a", 1:100, sep = ""))
+  xTable <- fullTable(x = sample(x = 5,
+                                 size = 100,
+                                 replace = TRUE),
+                      values = 1:5)
   xTable
 
 }
