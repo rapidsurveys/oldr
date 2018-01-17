@@ -1,8 +1,8 @@
 ################################################################################
 #
-#' Blocked Weighted Bootstrap
+#' \code{bbw}: Blocked Weighted Bootstrap
 #'
-#' The \code{blocked weighted bootstrap (BWB)} is an estimation technique for
+#' The \code{blocked weighted bootstrap (BBW)} is an estimation technique for
 #' use with data from two-stage cluster sampled surveys in which either prior
 #' weighting (e.g. \code{population proportional sampling} or \code{PPS} as
 #' used in \code{SMART} surveys) or posterior weighting (e.g. as used in
@@ -12,19 +12,21 @@
 #'
 #' The bootstrap technique is summarised in this
 #' \href{https://en.wikipedia.org/wiki/Bootstrapping_(statistics)}{article}.
-#' The \code{BWB} used in \code{RAM} and \code{S3M} is a modification to the
+#' The \code{BBW} used in \code{RAM} and \code{S3M} is a modification to the
 #' percentile bootstrap to include \code{blocking} and \code{weighting} to
 #' account for a complex sample design.
 #'
 #' With \code{RAM} and \code{S3M} surveys, the sample is complex in the sense
 #' that it is an unweighted cluster sample. Data analysis procedures need to
-#' account for the sample design. A \code{blocked weighted bootstrap (BWB)}
+#' account for the sample design. A \code{blocked weighted bootstrap (BBW)}
 #' can be used:
 #' \describe{
+#'
 #' \item{\code{Blocked}}{The block corresponds to the primary sampling unit
 #' (\code{PSU = cluster}). \code{PSUs} are resampled with replacement.
 #' Observations within the resampled \code{PSUs} are also sampled with
 #' replacement.}
+#'
 #' \item{\code{Weighted}}{\code{RAM} and \code{S3M} samples do not use
 #' \code{population proportional sampling (PPS)} to weight the sample prior to
 #' data collection (e.g. as is done with \code{SMART} surveys). This means that
@@ -38,6 +40,7 @@
 #' the weight is the population of each \code{PSU}. This procedure is very
 #' similar to the \code{fitness proportional selection} technique used in
 #' evolutionary computing.
+#'
 #' A total of \emph{m} \code{PSUs} are sampled with replacement for each
 #' bootstrap replicate (where \emph{m} is the number of \code{PSUs} in the survey
 #' sample).
@@ -47,7 +50,7 @@
 #' \code{0.975th (95\% UCL)} quantiles of the distribution of the statistic across
 #' all survey replicates.
 #'
-#' Early versions of the \code{BWB} did not resample observations within
+#' Early versions of the \code{BBW} did not resample observations within
 #' \code{PSUs} following:
 #'
 #' Cameron AC, Gelbach JB, Miller DL, Bootstrap-based improvements for
@@ -55,7 +58,7 @@
 #' 2008:90;414–427
 #'
 #' and used a large number (e.g. 3999) survey replicates. Current versions of
-#' the \code{BWB} resample observations within \code{PSUs} and use a smaller
+#' the \code{BBW} resample observations within \code{PSUs} and use a smaller
 #' number of survey replicates (e.g. n = 400). This is a more computationally
 #' efficient approach
 #'
