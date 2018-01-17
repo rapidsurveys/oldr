@@ -17,7 +17,7 @@ Description: An implementaiton of the Rapid Assessment Method for Older People
     weeks including training, data collection, data entry, and data analysis), 
     and at considerably lower cost than other methods.
 Imports: car,
-    bwb
+    bbw
 Depends: R (>= 3.0.1)
 License: AGPL-3
 Encoding: UTF-8
