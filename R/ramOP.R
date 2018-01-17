@@ -9,12 +9,8 @@
 #'
 #' @docType package
 #' @name ramOP
-#' @export bootBW
-#' @export bootClassic
-#' @export bootPROBIT
 #' @export fullTable
 #' @export pyramid.plot
-#' @export recode
 #' @importFrom stats runif na.omit pnorm sd
 #' @importFrom graphics axTicks axis barplot
 #' @importFrom car powerTransform
@@ -22,7 +18,7 @@
 NULL
 
 ## quiets concerns of R CMD check re: the psus and THRESHOLD that appear in bbw
-if(getRversion() >= "2.15.1")  utils::globalVariables(c("psu", "THRESHOLD"))
+## if(getRversion() >= "2.15.1")  utils::globalVariables(c("psu", "THRESHOLD"))
 
 
 ################################################################################
