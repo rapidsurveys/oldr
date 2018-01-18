@@ -9,6 +9,7 @@
 #'
 #' @docType package
 #' @name ramOP
+#' @export createOP
 #' @export fullTable
 #' @export pyramid.plot
 #' @importFrom stats runif na.omit pnorm sd
