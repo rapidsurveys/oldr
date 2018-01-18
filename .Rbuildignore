@@ -5,6 +5,7 @@
 ^appveyor\.yml$
 ^_config\.yml$
 ^LICENSE\.md$
+^LICENSE$
 ^.gitattributes$
 ^packrat/
 ^\.Rprofile$
