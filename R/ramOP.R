@@ -14,8 +14,6 @@
 #' @export pyramid.plot
 #' @importFrom stats runif na.omit pnorm sd
 #' @importFrom graphics axTicks axis barplot
-#' @importFrom car powerTransform
-#' @importFrom car bcPower
 NULL
 
 ## quiets concerns of R CMD check re: the psus and THRESHOLD that appear in bbw
