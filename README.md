@@ -1,12 +1,11 @@
 # Rapid Assessment Method for Older People (RAM-OP)
 
-[![GitHub top language](https://img.shields.io/github/languages/top/validmeasures/ramOP.svg)]()
-[![GitHub release](https://img.shields.io/github/release/validmeasures/ramOP.svg)](https://github.com/validmeasures/ramOP/blob/master/NEWS.md)
+[![CRAN](https://img.shields.io/cran/v/ramOP.svg)](https://cran.r-project.org/package=ramOP)
+[![CRAN](https://img.shields.io/cran/l/ramOP.svg)](https://CRAN.R-project.org/package=ramOP)
+[![CRAN](http://cranlogs.r-pkg.org/badges/ramOP)](https://CRAN.R-project.org/package=ramOP)
 [![Travis](https://img.shields.io/travis/validmeasures/ramOP.svg?branch=master)](https://travis-ci.org/validmeasures/ramOP)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/validmeasures/ramOP?branch=master&svg=true)](https://ci.appveyor.com/project/validmeasures/ramOP)
 [![codecov](https://codecov.io/gh/validmeasures/ramOP/branch/master/graph/badge.svg)](https://codecov.io/gh/validmeasures/ramOP)
-[![license](https://img.shields.io/github/license/validmeasures/ramOP.svg)](https://github.com/validmeasures/ramOP/blob/master/LICENSE.md)
-[![Github All Releases](https://img.shields.io/github/downloads/validmeasures/ramOP/latest/total.svg)](https://github.com/validmeasures/ramOP/archive/master.zip)
 
 [HelpAge International](http://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
 
