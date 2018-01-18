@@ -3,8 +3,6 @@
 export(createOP)
 export(fullTable)
 export(pyramid.plot)
-importFrom(car,bcPower)
-importFrom(car,powerTransform)
 importFrom(graphics,axTicks)
 importFrom(graphics,axis)
 importFrom(graphics,barplot)
