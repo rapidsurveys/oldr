@@ -7,7 +7,8 @@
 #'
 #' @section Indicators:
 #'
-#' Demographic
+#' \strong{Demographic}
+#'
 #' \describe{
 #' \item{\code{psu}}{Primary sampling unit}
 #' \item{\code{resp1}}{Respondent is SUBJECT}
@@ -31,7 +32,19 @@
 #' \item{\code{alone}}{Respondent lives alone}
 #' }
 #'
-#' Dietary intake indicators
+#' \cr
+#' \strong{Dietary intake indicators}
+#'
+#' These dietary intake indicators have been purpose-built for older people but
+#' the basic approach used is described in:
+#'
+#' \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
+#' and Individual Dietary Diversity. Rome, FAO
+#' \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+#'
+#' and extended to include indicators of probable adequate intake of a number of
+#' nutrients / micronutrients.
+#'
 #' \describe{
 #' \item{\code{MF}}{Meal frequenct}
 #' \item{\code{DDS}}{Dietary Diversity Score (count of 11 groups)}
@@ -62,28 +75,41 @@
 #' \item{\code{vitB12}}{Vitamin B12-rich foods}
 #' \item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
 #' }
-#' These dietary intake indicators have been purpose-built for older people but
-#' the basic approach used is described in:
 #'
-#'   Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
-#'   and Individual Dietary Diversity. Rome, FAO \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}
+#' \cr
+#' \strong{Household Hunger Scale (HHS)}
 #'
-#' and extended to include indicators of probable adequate intake of a number of
-#' nutrients / micronutrients.
+#' The HHS is described in:
 #'
-#' Household Hunger Scale (HHS)
+#' \cite{Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
+#' Scale: Indicator Definition and Measurement Guide. Washington DC,
+#' FANTA-2 Bridge, FHI 360
+#' \url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}}
+#'
 #' \describe{
 #' \item{\code{HHS1}}{Little or no hunger in household}
 #' \item{\code{HHS2}}{Moderate hunger in household}
 #' \item{\code{HHS3}}{Severe hunger in household}
 #' }
-#' The HHS is described in:
 #'
-#'   Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
-#'   Scale: Indicator Definition and Measurement Guide. Washington DC,
-#'   FANTA-2 Bridge, FHI 360 \url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}
+#' \cr
+#' \strong{Katz "Index of Independence in Activities of Daily Living" (ADL) score}
 #'
-#' Katz "Index of Independence in Activities of Daily Living" (ADL) score
+#' The Katz ADL score is described in:
+#'
+#' \cite{Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
+#' of illness in the aged. The Index of ADL: a standardized measure of
+#' biological and psychosocial function. JAMA, 1963, 185(12):914-9}
+#' \url{doi:10.1001/jama.1963.03060120024016}}
+#'
+#' \cite{Katz S, Down TD, Cash HR, Grotz, RC (1970). Progress in the development
+#' of the index of ADL. The Gerontologist, 10(1), 20-30
+#' \url{doi:10.1093/geront/10.4_Part_1.274}}
+#'
+#' \cite{Katz S (1983). Assessing self-maintenance: Activities of daily living,
+#' mobility and instrumental activities of daily living. JAGS, 31(12),
+#' 721-726 \url{doi:10.1111/j.1532-5415.1983.tb03391.x}}
+#'
 #' \describe{
 #' \item{\code{ADL01}}{Bathing}
 #' \item{\code{ADL02}}{Dressing}
@@ -98,43 +124,39 @@
 #' \item{\code{hasHelp}}{Have someone to help with everyday activities}
 #' \item{\code{unmetNeed}}{Need help but has no helper}
 #' }
-#' The Katz ADL score is described in :
-#'   Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
-#'   of illness in the aged. The Index of ADL: a standardized measure of
-#'   biological and psychosocial function. JAMA, 1963, 185(12):914-9
 #'
-#'   Katz S, Down TD, Cash HR, Grotz, RC (1970). Progress in the development
-#'   of the index of ADL. The Gerontologist, 10(1), 20-30
+#' \cr
+#' \strong{K6 Short form psychological distress score}
 #'
-#'   Katz S (1983). Assessing self-maintenance: Activities of daily living,
-#'   mobility and instrumental activities of daily living. JAGS, 31(12),
-#'   721-726
+#' The K6 score is described in:
 #'
-#' K6 Short form psychological distress score
+#' \cite{Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
+#' et al. (2002). Short screening scales to monitor population prevalences
+#' and trends in non-specific psychological distress. Psychological
+#' Medicine, 32(6), 959–976 \url{doi:10.1017/S0033291702006074}}
+#'
 #' \describe{
 #' \item{\code{K6}}{K6 score}
 #' \item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
 #' }
-#' The K6 score is described in:
 #'
-#'   Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
-#'   et al. (2002). Short screening scales to monitor population prevalences
-#'   and trends in non-specific psychological distress. Psychological
-#'   Medicine, 32(6), 959–976
+#' \cr
+#' \strong{Brief Community Screening Instrument for Dementia (CSID)}
 #'
-#' Brief Community Screening Instrument for Dementia (CSID)
+#' The CSID dementia screening tool is described in:
+#'
+#' \cite{Prince M, et al. (2010). A brief dementia screener suitable for use
+#' by non-specialists in resource poor settings - The cross-cultural
+#' derivation and validation of the brief Community Screening Instrument
+#' for Dementia. International Journal of Geriatric Psychiatry, 26(9),
+#' 899–907 \url{doi:10.1002/gps.2622}}
+#'
 #' \describe{
 #' \item{\code{DS}}{Probable dementia by CSID screen}
 #' }
-#' The CSID dementia screening tool is described in:
 #'
-#'   Prince M, et al. (2010). A brief dementia screener suitable for use
-#'   by non-specialists in resource poor settings - The cross-cultural
-#'   derivation and validation of the brief Community Screening Instrument
-#'   for Dementia. International Journal of Geriatric Psychiatry, 26(9),
-#'   899–907
-#'
-#' @section Health and health-seeking indicators:
+#' \cr
+#' \strong{Health and health-seeking indicators}
 #' \describe{
 #' \item{\code{H1}}{Chronic condition}
 #' \item{\code{H2}}{Takes drugs regularly for chronic condition}
@@ -159,8 +181,8 @@
 #' \item{\code{H68}}{Other}
 #' \item{\code{H69}}{No reason given}
 #' }
-#'
-#' Income and income sources:
+#' \cr
+#' \strong{Income and income sources}
 #' \describe{
 #' \item{\code{M1}}{Has a personal income}
 #' \item{\code{M2A}}{Agriculture / fishing / livestock}
@@ -174,42 +196,60 @@
 #' \item{\code{M2I}}{Other}
 #' }
 #'
-#' Water, sanitation and hygiene (WASH) indicators
+#'
+#' \cr
+#' \strong{Water, sanitation and hygiene (WASH) indicators}
+#'
+#' These are a (core) subset of indicators from:
+#'
+#' \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
+#' for Household Surveys. Geneva, WHO / UNICEF
+#' \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
+#'
 #' \describe{
 #' \item{\code{W1}}{Improved source of drinking water}
 #' \item{\code{W2}}{Safe drinking water (improved source OR adequate treatment)}
 #' \item{\code{W3}}{Improved sanitation facility}
 #' \item{\code{W4}}{Improved non-shared sanitation facility}
 #' }
-#' These are a (core) subset of indicators from:
 #'
-#'   WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
-#'   for Household Surveys. Geneva, WHO / UNICEF
-#'
-#' Anthropometry and screening
+#' \cr
+#' \strong{Anthropometry and screening}
 #' \describe{
 #' \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
 #' \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
 #' \item{\code{screened}}{Either MUAC or oedema checked previously}
 #' }
 #'
-#' Visual impairment by "Tumbling E" method
+#' \cr
+#' \strong{Visual impairment by "Tumbling E" method}
+#'
+#' The "Tumbling E" method is described in:
+#'
+#' \cite{Taylor HR (1978). Applying new design principles to the construction of an
+#' illiterate E Chart. Am J Optom & Physiol Optics 55:348
+#'
 #' \describe{
 #' \item{\code{poorVA}}{Poor visual acuity (correct in < 3 of 4 tests)}
 #' }
-#' The "Tumbling E" method is described in:
 #'
-#'   Taylor HR (1978). Applying new design principles to the construction of an
-#'   illiterate E Chart. Am J Optom & Physiol Optics 55:348
-#'
-#' Miscellaneous indicators
+#' \cr
+#' \strong{Miscellaneous indicators}
 #' \describe{
 #' \item{\code{chew}}{Problems chewing food}
 #' \item{\code{food}}{Anyone in HH receives a ration}
 #' \item{\code{NFRI}}{Anyone in HH received non-food relief item(s) in previous month}
 #' }
+#' \cr
+#' \strong{Washington Group on Disability}
 #'
-#' Washington Group on Disability
+#' See:
+#'
+#'   \url{http://www.washingtongroup-disability.com}
+#'   \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
+#'
+#' for details.
+#'
 #' \describe{
 #' \item{\code{wgVisionD0}}{Vision domain 0}
 #' \item{\code{wgVisionD1}}{Vision domain 1}
@@ -241,13 +281,6 @@
 #' \item{\code{wgP3}}{Overall 3}
 #' \item{\code{wgPM}}{Any disability}
 #' }
-#' See:
-#'
-#'   http://www.washingtongroup-disability.com
-#'
-#'   https://www.cdc.gov/nchs/washington_group/wg_documents.htm
-#'
-#' for details.
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #' @return Three dataframes of Older People indicators each with 138 variables:
