@@ -49,7 +49,6 @@ using the standard RAM-OP questionnaire.
 \item{\code{alone}}{Respondent lives alone}
 }
 
-\cr
 \strong{Dietary intake indicators}
 
 These dietary intake indicators have been purpose-built for older people but
@@ -93,7 +92,6 @@ nutrients / micronutrients.
 \item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
 }
 
-\cr
 \strong{Household Hunger Scale (HHS)}
 
 The HHS is described in:
@@ -109,14 +107,13 @@ FANTA-2 Bridge, FHI 360
 \item{\code{HHS3}}{Severe hunger in household}
 }
 
-\cr
 \strong{Katz "Index of Independence in Activities of Daily Living" (ADL) score}
 
 The Katz ADL score is described in:
 
 \cite{Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
 of illness in the aged. The Index of ADL: a standardized measure of
-biological and psychosocial function. JAMA, 1963, 185(12):914-9}
+biological and psychosocial function. JAMA, 1963, 185(12):914-9
 \url{doi:10.1001/jama.1963.03060120024016}}
 
 \cite{Katz S, Down TD, Cash HR, Grotz, RC (1970). Progress in the development
@@ -142,7 +139,6 @@ mobility and instrumental activities of daily living. JAGS, 31(12),
 \item{\code{unmetNeed}}{Need help but has no helper}
 }
 
-\cr
 \strong{K6 Short form psychological distress score}
 
 The K6 score is described in:
@@ -157,7 +153,6 @@ Medicine, 32(6), 959–976 \url{doi:10.1017/S0033291702006074}}
 \item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
 }
 
-\cr
 \strong{Brief Community Screening Instrument for Dementia (CSID)}
 
 The CSID dementia screening tool is described in:
@@ -172,8 +167,8 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 \item{\code{DS}}{Probable dementia by CSID screen}
 }
 
-\cr
 \strong{Health and health-seeking indicators}
+
 \describe{
 \item{\code{H1}}{Chronic condition}
 \item{\code{H2}}{Takes drugs regularly for chronic condition}
@@ -198,8 +193,9 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 \item{\code{H68}}{Other}
 \item{\code{H69}}{No reason given}
 }
-\cr
+
 \strong{Income and income sources}
+
 \describe{
 \item{\code{M1}}{Has a personal income}
 \item{\code{M2A}}{Agriculture / fishing / livestock}
@@ -213,8 +209,6 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 \item{\code{M2I}}{Other}
 }
 
-
-\cr
 \strong{Water, sanitation and hygiene (WASH) indicators}
 
 These are a (core) subset of indicators from:
@@ -230,34 +224,33 @@ for Household Surveys. Geneva, WHO / UNICEF
 \item{\code{W4}}{Improved non-shared sanitation facility}
 }
 
-\cr
 \strong{Anthropometry and screening}
+
 \describe{
 \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
 \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
 \item{\code{screened}}{Either MUAC or oedema checked previously}
 }
 
-\cr
 \strong{Visual impairment by "Tumbling E" method}
 
 The "Tumbling E" method is described in:
 
 \cite{Taylor HR (1978). Applying new design principles to the construction of an
-illiterate E Chart. Am J Optom & Physiol Optics 55:348
+illiterate E Chart. Am J Optom & Physiol Optics 55:348}
 
 \describe{
 \item{\code{poorVA}}{Poor visual acuity (correct in < 3 of 4 tests)}
 }
 
-\cr
 \strong{Miscellaneous indicators}
+
 \describe{
 \item{\code{chew}}{Problems chewing food}
 \item{\code{food}}{Anyone in HH receives a ration}
 \item{\code{NFRI}}{Anyone in HH received non-food relief item(s) in previous month}
 }
-\cr
+
 \strong{Washington Group on Disability}
 
 See:
