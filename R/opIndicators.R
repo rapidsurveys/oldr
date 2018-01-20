@@ -8,7 +8,6 @@
 #' @section Indicators:
 #'
 #' \strong{Demographic}
-#'
 #' \describe{
 #' \item{\code{psu}}{Primary sampling unit}
 #' \item{\code{resp1}}{Respondent is SUBJECT}
@@ -31,6 +30,7 @@
 #' \item{\code{marital6}}{Marital status = OTHER}
 #' \item{\code{alone}}{Respondent lives alone}
 #' }
+#' \cr
 #'
 #' \strong{Dietary intake indicators}
 #'
