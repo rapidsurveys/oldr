@@ -12,12 +12,25 @@
 #' @export createOP
 #' @export fullTable
 #' @export pyramid.plot
-#' @importFrom stats runif na.omit pnorm sd
-#' @importFrom graphics axTicks axis barplot
+#' @export estimateClassic
+#' @importFrom stats runif na.omit pnorm sd quantile
+#' @importFrom graphics axTicks axis barplot boxplot hist par
+#' @importFrom grDevices dev.off png
+#' @importFrom bbw bootBW bootClassic bootPROBIT
+#'
 NULL
 
 ## quiets concerns of R CMD check re: the psus and THRESHOLD that appear in bbw
-## if(getRversion() >= "2.15.1")  utils::globalVariables(c("psu", "THRESHOLD"))
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
+                                                        "indicators.MALES",
+                                                        "indicators.FEMALES",
+                                                        "psuData",
+                                                        "REPLICATES",
+                                                        "classicEstimates",
+                                                        "probitEstimates",
+                                                        "originalOrder",
+                                                        "estimates",
+                                                        "GROUP", "sexText"))
 
 
 ################################################################################

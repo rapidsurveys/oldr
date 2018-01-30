@@ -15,6 +15,9 @@
 #'                       values = 1:5)
 #'   xTable
 #'
+#
+################################################################################
+
 fullTable <- function(x, values) {
   tab <- NULL
   for(i in values) {
