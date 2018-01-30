@@ -82,7 +82,7 @@ test <- chartCSID(x = indicators.ALL, filename = "TEST")
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.CSID.png"))
+  expect_true(file.exists("TEST.dementia.png"))
 })
 
 test_that("is integer", {
@@ -93,7 +93,7 @@ test <- chartWG(x = indicators.ALL, filename = "TEST")
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.WG.png"))
+  expect_true(file.exists("TEST.disability.png"))
 })
 
 test_that("is integer", {
@@ -111,7 +111,9 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartIncome(x = indicators.ALL, filename = "TEST")
+test <- chartIncome(x.male = indicators.MALES,
+                    x.female = indicators.FEMALES,
+                    filename = "TEST")
 test
 
 test_that("output chart is present", {
