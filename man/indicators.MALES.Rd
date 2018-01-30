@@ -139,10 +139,10 @@
 \item{\code{wgCommunicatingD1}}{Communicating domain 1}
 \item{\code{wgCommunicatingD2}}{Communicating domain 2}
 \item{\code{wgCommunicatingD3}}{Communicating domain 3}
-\item{\code{wgP0}}{Overall prevalence 0}
-\item{\code{wgP1}}{Overall prevalence 1}
-\item{\code{wgP2}}{Overall prevalence 2}
-\item{\code{wgP3}}{Overall prevalence 3}
+\item{\code{wgP0}}{Overall prevalence domain 0}
+\item{\code{wgP1}}{Overall prevalence domain 1}
+\item{\code{wgP2}}{Overall prevalence domain 2}
+\item{\code{wgP3}}{Overall prevalence domain 3}
 \item{\code{wgPM}}{Overall prevalence}
 }}
 \usage{
