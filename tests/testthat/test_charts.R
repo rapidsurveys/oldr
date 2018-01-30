@@ -12,3 +12,13 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
+test <- chartMUAC(x = indicators.ALL, filename = "TEST")
+test
+
+test_that("output chart is present", {
+  expect_true(file.exists("TEST.MUAC.png"))
+})
+
+test_that("is integer", {
+  expect_is(test, "integer")
+})
