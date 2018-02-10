@@ -1,4 +1,4 @@
-Package: ramOP
+Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People in R
 Version: 0.0.0.9000
 Authors@R: as.person(
