@@ -1,4 +1,4 @@
 library(testthat)
-library(ramOP)
+library(oldr)
 
-test_check("ramOP")
+test_check("oldr")
