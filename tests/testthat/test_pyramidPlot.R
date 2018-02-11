@@ -1,3 +1,3 @@
-library(ramOP)
+library(oldr)
 context("Pyramid Plot")
 

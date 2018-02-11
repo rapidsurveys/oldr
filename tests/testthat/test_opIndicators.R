@@ -1,4 +1,4 @@
-library(ramOP)
+library(oldr)
 context("Create Older People Indicators")
 
 x <- createOP(testSVY)

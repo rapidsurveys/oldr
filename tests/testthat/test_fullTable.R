@@ -1,4 +1,4 @@
-library(ramOP)
+library(oldr)
 context("Full Table")
 
 xTable <- fullTable(x = sample(x = 5,
