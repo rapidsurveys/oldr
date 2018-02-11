@@ -9,3 +9,5 @@
 ^.gitattributes$
 ^packrat/
 ^\.Rprofile$
+^README\.Rmd$
+^README-.*\.png$

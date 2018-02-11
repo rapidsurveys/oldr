@@ -1,53 +1,88 @@
-# Rapid Assessment Method for Older People (RAM-OP)
 
-[![CRAN](https://img.shields.io/cran/v/ramOP.svg)](https://cran.r-project.org/package=ramOP)
-[![CRAN](https://img.shields.io/cran/l/ramOP.svg)](https://CRAN.R-project.org/package=ramOP)
-[![CRAN](http://cranlogs.r-pkg.org/badges/ramOP)](https://CRAN.R-project.org/package=ramOP)
-[![Travis](https://img.shields.io/travis/validmeasures/ramOP.svg?branch=master)](https://travis-ci.org/validmeasures/ramOP)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/validmeasures/ramOP?branch=master&svg=true)](https://ci.appveyor.com/project/validmeasures/ramOP)
-[![codecov](https://codecov.io/gh/validmeasures/ramOP/branch/master/graph/badge.svg)](https://codecov.io/gh/validmeasures/ramOP)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[HelpAge International](http://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
+# oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) in R
 
-* Use of a familiar *“household survey”* design employing a two-stage cluster sample design optimised to allow the use of a small primary sample (*m* ≥ 16 clusters) and a small overall (*n* ≥ 192) sample.
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
+[![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
+[![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
+[![Travis](https://img.shields.io/travis/validmeasures/oldr.svg?branch=master)](https://travis-ci.org/validmeasures/oldr)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/validmeasures/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/validmeasures/oldr)
+[![codecov](https://codecov.io/gh/validmeasures/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/validmeasures/oldr)
 
-* Assessment of multiple dimensions of need in older people (including prevalence of global, moderate and severe acute malnutrition) using, whenever possible, standard and well-tested indicators and question sets.
+[HelpAge International](http://www.helpage.org), [VALID
+International](http://www.validinternational.org), and [Brixton
+Health](http://www.brixtonhealth.com), with financial assistance from
+the [Humanitarian Innovation Fund
+(HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid
+Assessment Method for Older People (RAM-OP)** that provides accurate and
+reliable estimates of the needs of older people. The method uses simple
+procedures, in a short time frame (i.e. about two weeks including
+training, data collection, data entry, and data analysis), and at
+considerably lower cost than other methods. The **RAM-OP** method is
+based on the following principles:
 
-* Data analysis performed using modern computer-intensive methods to allow estimates of indicator levels to be made with useful precision using a small sample size.
+  - Use of a familiar *“household survey”* design employing a two-stage
+    cluster sample design optimised to allow the use of a small primary
+    sample (*m* ≥ 16 clusters) and a small overall (*n* ≥ 192) sample.
+
+  - Assessment of multiple dimensions of need in older people (including
+    prevalence of global, moderate and severe acute malnutrition) using,
+    whenever possible, standard and well-tested indicators and question
+    sets.
+
+  - Data analysis performed using modern computer-intensive methods to
+    allow estimates of indicator levels to be made with useful precision
+    using a small sample size.
 
 ## Getting started
 
-The following tools are currently available under the General Public Licence / Free Documentation License (see [LICENSE](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE)), meaning that you are free to copy and adapt these tools:
+The following tools are currently available under the General Public
+Licence / Free Documentation License (see
+[LICENSE](https://github.com/validmeasures/oldr/blob/master/LICENSE)),
+meaning that you are free to copy and adapt these tools:
 
-* an English language manual / guidebook
-* a questionnaire (available in English and French)
-* data entry and data checking software (available in English and French)
-* data analysis software
-
-### Prerequisites
+  - an English language manual / guidebook
+  - a questionnaire (available in English and French)
+  - data entry and data checking software (available in English and
+    French)
+  - data analysis software
 
 ### Installing
 
-&nbsp;
+This package is currently in active development in preparation for
+submission to the CRAN repository. The development version of `oldr` can
+be installed in R via the following commands:
+
+``` r
+# Install devtools
+# install.packages("devtools")
+devtools::install_github("validmeaures/oldr")
+```
+
 ## Built with
 
-* [EpiData](http://www.epidata.dk) for data entry of *pen and paper interviews (PAPI)*
-* [Open Data Kit](https://opendatakit.org) for data collection using electronic mobile devices
-* [R](https://www.r-project.org) and [RAnalyticFlow](http://r.analyticflow.com) for data analysis 
+  - [EpiData](http://www.epidata.dk) for data entry of *pen and paper
+    interviews (PAPI)*
+  - [Open Data Kit](https://opendatakit.org) for data collection using
+    electronic mobile devices
+  - [R](https://www.r-project.org) and
+    [RAnalyticFlow](http://r.analyticflow.com) for data analysis
 
-&nbsp;
 ## Authors
 
-* Pascale Fritsch
-* Ernest Guevarra
-* Katja Siling
-* Mark Myatt
+  - Pascale Fritsch
+  - Ernest Guevarra
+  - Katja Siling
+  - Mark Myatt
 
-&nbsp;
 ## License
 
-This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](https://github.com/ernestguevarra/ram-op/blob/master/LICENSE) file for details
-
-&nbsp;
-## Acknowledgements
-
+This project is licensed under the GNU Affero General Public License
+v3.0 - see the
+[LICENSE](https://github.com/validemeasures/oldr/blob/master/LICENSE)
+file for details
