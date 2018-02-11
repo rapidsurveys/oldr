@@ -1,14 +1,14 @@
 ################################################################################
 #
-#' \code{ramOP} Package
+#' \code{oldr} Package
 #'
 #' An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
 #'
 #' See the README at
-#' \href{https://github.com/validmeasures/ramOP#readme}{GitHub}
+#' \href{https://github.com/validmeasures/oldr#readme}{GitHub}
 #'
 #' @docType package
-#' @name ramOP
+#' @name oldr
 #' @importFrom stats runif na.omit pnorm sd quantile
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png
