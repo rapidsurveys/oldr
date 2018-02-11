@@ -28,7 +28,7 @@ based on the following principles:
 
   - Use of a familiar *“household survey”* design employing a two-stage
     cluster sample design optimised to allow the use of a small primary
-    sample (*m* ≥ 16 clusters) and a small overall (*n* ≥ 192) sample.
+    sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
 
   - Assessment of multiple dimensions of need in older people (including
     prevalence of global, moderate and severe acute malnutrition) using,
