@@ -21,4 +21,5 @@ Create table of RAM-OP results
   \dontrun{
     reportOP("TEST")
   }
+
 }

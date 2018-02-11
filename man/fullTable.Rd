@@ -24,5 +24,4 @@ Fill out a one-dimensional table to include a specified range of values
                                  replace = TRUE),
                       values = 1:5)
   xTable
-
 }
