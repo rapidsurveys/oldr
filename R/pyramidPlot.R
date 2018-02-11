@@ -7,9 +7,13 @@
 #' @param main Plot title
 #' @param xlab x-axis label
 #' @param ylab y-axis label
+#'
 #' @return Pyramid plot
+#'
 #' @examples
 #'   #
+#'
+#' @export
 #'
 #
 ################################################################################

@@ -5,13 +5,16 @@
 #' Create table of RAM-OP results
 #'
 #' @param FILENAME Prefix to append to report output filename
+#'
 #' @return Report of tabulated estimated results saved in CSV format in current
 #'     working directory
+#'
 #' @examples
 #'   #
 #'   \dontrun{
 #'     reportOP("TEST")
 #'   }
+#'
 #' @export
 #'
 #

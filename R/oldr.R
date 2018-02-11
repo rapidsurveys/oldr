@@ -9,10 +9,6 @@
 #'
 #' @docType package
 #' @name ramOP
-#' @export createOP
-#' @export fullTable
-#' @export pyramid.plot
-#' @export estimateClassic
 #' @importFrom stats runif na.omit pnorm sd quantile
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png

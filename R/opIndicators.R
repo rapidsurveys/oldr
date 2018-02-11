@@ -282,12 +282,18 @@
 #' \item{\code{indicators.MALES}}{Indicators dataframe for male respondents}
 #' \item{\code{indicators.FEMALES}}{Indicators dataframe for female repsondents}
 #' }
+#'
 #' @examples
 #'
 #' # Create indicators dataset from RAM-OP survey data collected from
 #' # Addis Ababa, Ethiopia
 #' createOP(testSVY)
 #'
+#' @export
+#'
+#
+################################################################################
+
 createOP <- function(svy) {
   #
   # psu    Cluster (PSU) identifier
