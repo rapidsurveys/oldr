@@ -39,50 +39,21 @@ based on the following principles:
     allow estimates of indicator levels to be made with useful precision
     using a small sample size.
 
-## Getting started
-
-The following tools are currently available under the General Public
-Licence / Free Documentation License (see
-[LICENSE](https://github.com/validmeasures/oldr/blob/master/LICENSE)),
-meaning that you are free to copy and adapt these tools:
-
-  - an English language manual / guidebook
-  - a questionnaire (available in English and French)
-  - data entry and data checking software (available in English and
-    French)
-  - data analysis software
-
-### Installing
+## Installing
 
 This package is currently in active development in preparation for
 submission to the CRAN repository. The development version of `oldr` can
-be installed in R via the following commands:
+be installed in `R` via the following commands:
 
 ``` r
-# Install devtools
 # install.packages("devtools")
-devtools::install_github("validmeaures/oldr")
+devtools::install_github("rapidsurveys/oldr")
 ```
 
-## Built with
+## Usage
 
-  - [EpiData](http://www.epidata.dk) for data entry of *pen and paper
-    interviews (PAPI)*
-  - [Open Data Kit](https://opendatakit.org) for data collection using
-    electronic mobile devices
-  - [R](https://www.r-project.org) and
-    [RAnalyticFlow](http://r.analyticflow.com) for data analysis
-
-## Authors
-
-  - Pascale Fritsch
-  - Ernest Guevarra
-  - Katja Siling
-  - Mark Myatt
-
-## License
-
-This project is licensed under the GNU Affero General Public License
-v3.0 - see the
-[LICENSE](https://github.com/validemeasures/oldr/blob/master/LICENSE)
-file for details
+This package contains functions that support in the data processing,
+analysis and visualisation of RAM-OP survey datasets collected using the
+standard RAM-OP survey questionnaire. For a more detailed description of
+the RAM-OP survey, read the [RAM-OP
+manual](https://ram.validmeasures.org/ramOPmanual).
