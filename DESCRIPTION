@@ -2,11 +2,11 @@ Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People in R
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Pascale", "Fritsch", role = "aut"),
-    person("Katja", "Silin", role = "aut"),
-    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", comment = c(ORCID = "0000-0002-4887-4415"), 
-                  email = "ernest@guevarra.io", role = c("aut", "cre")))
+                  email = "ernest@guevarra.io", role = c("aut", "cre")),
+    person("Pascale", "Fritsch", role = "aut"),
+    person("Katja", "Siling", role = "aut"),
+    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"))
 Description: An implementaiton of the Rapid Assessment Method for Older People
     (RAM-OP). RAM-OP was developed by HelpAge International, Valid International, 
     and Brixton Health, with financial assistance from the Humanitarian 
