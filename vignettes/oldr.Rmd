@@ -1,6 +1,6 @@
 ---
 title: "Rapid Assessment Method for Older People (RAM-OP)"
-author: "Mark Myatt and Ernest Guevarra"
+author: "Pascale Fritsch, Katja Siling, Ernest Guevarra and Mark Myatt"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,50 +16,25 @@ knitr::opts_chunk$set(
 )
 ```
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+Older people (generally defined as people aged sixty years and older) are a vulnerable group for malnutrition in humanitarian and developmental contexts. Due to their age they have specific nutritional needs, such as easily digestible and palatable food adapted to those with chewing problems, which is dense in nutrients. In famine and displacement situations where populations are dependent on food distributions, older people often find the general ration inappropriate to their tastes and needs, have difficulties accessing the distributions, or have difficulties transporting rations home. As a result, older people can become malnourished and in need of specifically targeted food interventions. In times of drought or food scarcity, older people tend to reduce their food intake in order to share or give up their ration to younger members of their families. They are then at risk of malnutrition.
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+Despite these potential vulnerabilities in humanitarian situations, older people are rarely identified as a group in need of specific nutritional or food assistance. Surveys and assessments almost always focus on children, and sometimes on pregnant and lactating women. Humanitarian workers argue that assessing the nutritional status and needs of older people is both costly and complicated. As a consequence, the nutritional status and needs of older people in crisis go unidentified and unaddressed.
 
-## Vignette Info
+HelpAge International, VALID International, and Brixton Health, with financial assistance from the Humanitarian Innovation Fund (HIF), have developed a Rapid Assessment Method for Older People (RAM-OP) that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The RAM-OP method is based on the following principles:
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+* Use of a familiar “household survey” design employing a two-stage cluster sample design optimised to allow the use of a small primary sample ( m ≥ 16 clusters) and a small overall ( n ≥ 192) sample.
 
-## Styles
+* Assessment of multiple dimensions of need in older people (including prevalence of global, moderate and severe acute malnutrition) using, whenever possible, standard and well-tested indicators and question sets.
+* Data analysis performed using modern computer-intensive methods to allow estimates of indicator levels to be made with useful precision using a small sample size.
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+The following tools are currently available under the General Public Licence / Free Documentation License, meaning that you are free to copy and adapt these tools:
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+* an English language manual / guidebook
 
-## Figures
+* a questionnaire (available in English and French)
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+* data entry and data checking software (available in English and French)
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
+* data analysis software.
 
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+We believe that the availability of a rapid, low-cost, and user-friendly method will encourage governments, UN agencies, as well as international and local non-governmental organisations to actively assess the situation of older people in humanitarian contexts, and implement, monitor, and evaluate relevant and timely responses to address their needs.
