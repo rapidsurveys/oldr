@@ -10,10 +10,10 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
-[![Travis](https://img.shields.io/travis/validmeasures/oldr.svg?branch=master)](https://travis-ci.org/validmeasures/oldr)
+[![Travis](https://img.shields.io/travis/rapidsurveys/oldr.svg?branch=master)](https://travis-ci.org/rapidsurveys/oldr)
 [![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/validmeasures/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/validmeasures/oldr)
-[![codecov](https://codecov.io/gh/validmeasures/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/validmeasures/oldr)
+Status](https://ci.appveyor.com/api/projects/status/github/rapidsurveys/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/rapidsurveys/oldr)
+[![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
 
 [HelpAge International](http://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton
