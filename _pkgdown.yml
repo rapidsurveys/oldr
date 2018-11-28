@@ -1,0 +1,6 @@
+title: oldr
+url: https://rapidsurveys.validmeasures.org/oldr
+template:
+  params:
+    bootswatch: sandstone
+    ganalytics: #UA-102485058-6
