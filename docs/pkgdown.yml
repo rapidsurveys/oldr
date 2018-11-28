@@ -3,6 +3,6 @@ pkgdown: 1.2.0
 pkgdown_sha: ~
 articles: []
 urls:
-  reference: https://rapidsurveys.validmeasures.org/oldr/reference
-  article: https://rapidsurveys.validmeasures.org/oldr/articles
+  reference: https://ram.validmeasures.org/oldr/reference
+  article: https://ram.validmeasures.org/oldr/articles
 

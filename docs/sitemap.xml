@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/index.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/index.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartADL.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartADL.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartAge.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartAge.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartCSID.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartCSID.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartDDS.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartDDS.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartHHS.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartHHS.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartIncome.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartIncome.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartK6.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartK6.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartMF.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartMF.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartMUAC.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartMUAC.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartWASH.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartWASH.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/chartWG.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/chartWG.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/createOP.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/createOP.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/estimateClassic.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/estimateClassic.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/estimateProbit.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/estimateProbit.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/fullTable.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/fullTable.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/indicators.ALL.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/indicators.ALL.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/indicators.FEMALES.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/indicators.FEMALES.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/indicators.MALES.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/indicators.MALES.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/mergeEstimates.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/mergeEstimates.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/oldr.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/oldr.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/pyramid.plot.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/pyramid.plot.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/reportOP.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/reportOP.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/testPSU.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/testPSU.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/reference/testSVY.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/reference/testSVY.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.validmeasures.org/oldr/articles/oldr.html</loc>
+    <loc>https://ram.validmeasures.org/oldr/articles/oldr.html</loc>
   </url>
 </urlset>
