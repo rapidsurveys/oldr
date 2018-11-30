@@ -175,9 +175,33 @@ server <- function(input, output, session) {
                   fill = FALSE)
   })
   #
+  # Input - village location data
+  #
+  settlements1 <- reactive({
+    inputFile <- input$settlementsData1
+    if(is.null(inputFile)) {
+      return(NULL)
+    }
+    read.csv(file = inputFile$datapath, header = TRUE, sep = ",")
+  })
+  #
+  # Input - village data
+  #
+  settlements2 <- reactive({
+    inputFile <- input$settlementsData2
+    if(is.null(inputFile)) {
+      return(NULL)
+    }
+    read.csv(file = inputFile$datapath, header = TRUE, sep = ",")
+  })
+  #
+  #
+  #
+
+  #
   # Plot country sampling grid
   #
-  observeEvent(input$mapSamplingPlotCountry, {
+  observeEvent(input$mapSamplingPlot, {
     if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "area") {
       mapSamplingPoint <- create_sp_grid(x = mapCountry(),
                                          area = input$mapSamplingGridArea,
@@ -201,7 +225,7 @@ server <- function(input, output, session) {
     # Convert to hexagonal SpatialPolygons
     #
     mapSamplingGrid <- HexPoints2SpatialPolygons(hex = mapSamplingPoint)
-    mapSamplingSettlements <- get_nearest_point(data = settlements,
+    mapSamplingSettlements <- get_nearest_point(data = settlements1(),
                                                 data.x = "COORD_X",
                                                 data.y = "COORD_Y",
                                                 query = mapSamplingPoint,
@@ -211,7 +235,7 @@ server <- function(input, output, session) {
     #
     output$samplingListDownloadCountry <- downloadHandler(
       filename = function() {
-        "countrySamplingList.csv"
+        "samplingList.csv"
       },
       content = function(file) {
         write.csv(mapSamplingSettlements, file)
