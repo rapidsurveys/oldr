@@ -33,10 +33,11 @@ if(!require(leaflet)) install.packages("leaflet")
 if(!require(ggmap)) install.packages("ggmap")
 if(!require(DT)) install.packages("DT")
 
-if(!require(liberia)) install_github("validmeasures/liberia")
 if(!require(spatialsampler)) install_github("validmeasures/spatialsampler")
 if(!require(odkr)) install_github("validmeasures/odkr")
-if(!require(zscorer)) install_github("nutriverse/zscorer")
 if(!require(sampsizer)) install_github("validmeasures/sampsizer")
+if(!require(gadmr)) install_github("SpatialWorks/gadmr")
 
 
+countries <- as.list(list_countries$iso3code)
+names(countries) <- list_countries$country
