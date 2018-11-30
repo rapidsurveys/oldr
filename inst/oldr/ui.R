@@ -86,16 +86,16 @@ ui <- dashboardPage(
       #
       tabItem(tabName = "design",
         fluidRow(
-          conditionalPanel(condition = "input.design == 'stage1'",
+          conditionalPanel(condition = "input.design == 'stage1a'",
             box(title = "Stage 1 sampling parameters",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4,
-                shinyjs::useShinyjs(),
-                selectInput(inputId = "mapSamplingLevel0",
-                            label = "Select country",
-                            choices = c("Select country" = "", countries),
-                            selected = NULL),
+              solidHeader = TRUE,
+              status = "danger",
+              width = 4,
+              shinyjs::useShinyjs(),
+              selectInput(inputId = "mapSamplingLevel0",
+                          label = "Select country",
+                          choices = c("Select country" = "", countries),
+                          selected = NULL),
               conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
                 selectInput(inputId = "mapSamplingLevel1",
                             label = "Select region/province",
@@ -197,6 +197,14 @@ ui <- dashboardPage(
               )
             )
           ),
+          conditionalPanel(condition = "input.design == 'stage1b'",
+            box(title = "Stage 2 sampling parameters",
+                solidHeader = TRUE,
+                status = "danger",
+                width = 4,
+                shinyjs::useShinyjs()
+            )
+          ),
           conditionalPanel(condition = "input.design == 'stage2'",
             box(title = "Stage 2 sampling parameters",
                 solidHeader = TRUE,
@@ -205,7 +213,7 @@ ui <- dashboardPage(
                 shinyjs::useShinyjs()
             )
           ),
-          tabBox(selected = "stage1",
+          tabBox(selected = "stage1a",
                  id = "design",
                  title = "Design",
                  width = 8,
@@ -219,9 +227,17 @@ ui <- dashboardPage(
                 )
               )
             ),
-            tabPanel(title = "Stage 1", value = "stage1",
+            tabPanel(title = "Stage 1 list-based", value = "stage1b",
               fluidRow(
-                box(title = "Stage 1 Sampling",
+                box(title = "Stage 1 list-based sampling",
+                    solidHeader = FALSE,
+                    status = "danger",
+                    width = 12)
+              )
+            ),
+            tabPanel(title = "Stage 1 Map-based", value = "stage1a",
+              fluidRow(
+                box(title = "Stage 1 map-based sampling",
                     solidHeader = FALSE,
                     status = "danger",
                     width = 12,
