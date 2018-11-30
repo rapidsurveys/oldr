@@ -174,4 +174,55 @@ server <- function(input, output, session) {
                   weight = 6,
                   fill = FALSE)
   })
+  #
+  # Plot country sampling grid
+  #
+  observeEvent(input$mapSamplingPlotCountry, {
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "area") {
+      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
+                                         area = input$mapSamplingGridArea,
+                                         country = input$mapSamplingLevel0)
+    }
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "n") {
+      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
+                                         n = input$mapSamplingGridNumber,
+                                         country = input$mapSamplingLevel0,
+                                         buffer = 2,
+                                         n.factor = 5,
+                                         fixed = TRUE)
+    }
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "d") {
+      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
+                                         d = input$mapSamplingGridDist,
+                                         country = input$mapSamplingLevel0,
+                                         buffer = 2)
+    }
+    #
+    # Convert to hexagonal SpatialPolygons
+    #
+    mapSamplingGrid <- HexPoints2SpatialPolygons(hex = mapSamplingPoint)
+    mapSamplingSettlements <- get_nearest_point(data = settlements,
+                                                data.x = "COORD_X",
+                                                data.y = "COORD_Y",
+                                                query = mapSamplingPoint,
+                                                n = input$mapSamplingSettlementsNumber)
+    #
+    #
+    #
+    output$samplingListDownloadCountry <- downloadHandler(
+      filename = function() {
+        "countrySamplingList.csv"
+      },
+      content = function(file) {
+        write.csv(mapSamplingSettlements, file)
+      }
+    )
+    #
+    # Output data table
+    #
+    output$mapSamplingTable <- DT::renderDataTable(
+      expr = mapSamplingSettlements,
+      options = list(scrollX = TRUE)
+    )
+  })
 }
