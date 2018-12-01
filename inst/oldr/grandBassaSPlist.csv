@@ -1,0 +1,390 @@
+"spid","FNAME","COORD_X","COORD_Y","admin1Name","admin2Name","CLNAME","EFEACODE","villageID","vnumber","index_key"
+1,"Pohkpa Village",-9.72628,5.60477,"Grand Bassa","District # 4","Grand Kola","0916007062","0101",13,1
+1,"Gbueban Village",-9.72023,5.61651,"Grand Bassa","District # 4","Grand Kola","0916007052","0102",13,2
+1,"Volugbo Village",-9.72694,5.62764,"Grand Bassa","District # 4","Grand Kola","0916007052","0103",13,3
+1,"Chipay Village",-9.73227,5.6294,"Grand Bassa","District # 4","Grand Kola","0916007052","0104",13,4
+1,"Karr Henry",-9.71053,5.63409,"Grand Bassa","District # 4","Grand Kola","0916007042","0105",13,5
+1,"Dehyusaweh Village",-9.73194,5.64273,"Grand Bassa","District # 4","Grand Kola","0916007042","0106",13,6
+1,"Jalaydaye",-9.69187,5.64664,"Grand Bassa","District # 4","Grand Kola","0916007042","0107",13,7
+1,"Clayehyee",-9.70148,5.65351,"Grand Bassa","District # 4","Grand Kola","0916007042","0108",13,8
+1,"David Villages",-9.72429,5.65512,"Grand Bassa","District # 4","Grand Kola","0916007032","0109",13,9
+1,"Chadeh Village",-9.6853,5.65824,"Grand Bassa","District # 4","Grand Kola","0916007032","0110",13,10
+1,"Peoland / Nemon",-9.718,5.66208,"Grand Bassa","District # 4","Grand Kola","0916007032","0111",13,11
+1,"Worwein Vilage",-9.68174,5.66689,"Grand Bassa","District # 4","Grand Kola","0916007032","0112",13,12
+1,"Readygar Village",-9.68456,5.67593,"Grand Bassa","District # 4","Grand Kola","0916007032","0113",13,13
+2,"Dugboryewh Village",-9.90565,5.74634,"Grand Bassa","District # 4","Neetorn","0916001062","0201",13,14
+2,"Goffa Village",-9.89284,5.75829,"Grand Bassa","District # 4","Neetorn","0916001062","0202",13,15
+2,"Konoe Village",-9.89783,5.76464,"Grand Bassa","District # 4","Neetorn","0916001062","0203",13,16
+2,"Naka",-9.91116,5.76609,"Grand Bassa","District # 4","Neetorn","0916001062","0204",13,17
+2,"Neeter",-9.94942,5.76839,"Grand Bassa","District # 4","Neetorn","0916001062","0205",13,18
+2,"Firestone Village",-9.94216,5.77114,"Grand Bassa","District # 4","Neetorn","0916001062","0206",13,19
+2,"Sweet Gaye",-9.92269,5.77225,"Grand Bassa","District # 4","Neetorn","0916001062","0207",13,20
+2,"Newcess",-9.97218,5.78926,"Grand Bassa","Neekreen","Harmonville","0910001072","0208",13,21
+2,"Duah Village",-9.90553,5.79524,"Grand Bassa","District # 4","Neetorn","0916001092","0209",13,22
+2,"Garmondeh / Troyea Vi",-9.89779,5.80032,"Grand Bassa","District # 4","Neetorn","0916001092","0210",13,23
+2,"Gborgar Village",-9.94722,5.81269,"Grand Bassa","Neekreen","Harmonville","0910001072","0211",13,24
+2,"Vaimah",-9.91928,5.81308,"Grand Bassa","District # 4","Neetorn","0916001092","0212",13,25
+2,"Zardah",-9.93857,5.81346,"Grand Bassa","Neekreen","Harmonville","0910001072","0213",13,26
+3,"Whea Village",-9.77521,5.7461,"Grand Bassa","District # 4","Little Kola","0916006052","0301",12,27
+3,"Kodou Village",-9.76375,5.74661,"Grand Bassa","District # 4","Little Kola","0916006052","0302",12,28
+3,"Portroyah Village",-9.76868,5.75021,"Grand Bassa","District # 4","Little Kola","0916006052","0303",12,29
+3,"Sammie Village",-9.79094,5.75769,"Grand Bassa","District # 4","Jogbahn","0916009112","0304",12,30
+3,"Zoepu Village",-9.78959,5.76082,"Grand Bassa","District # 4","Jogbahn","0916009112","0305",12,31
+3,"Glaydor Village",-9.79015,5.7661,"Grand Bassa","District # 4","Jogbahn","0916009112","0306",12,32
+3,"Gaye John",-9.75786,5.78181,"Grand Bassa","District # 4","Little Kola","0916006012","0307",12,33
+3,"Borbor",-9.76599,5.78251,"Grand Bassa","District # 4","Little Kola","0916006012","0308",12,34
+3,"Manneh",-9.76101,5.78272,"Grand Bassa","District # 4","Little Kola","0916006012","0309",12,35
+3,"Jubia",-9.77356,5.78435,"Grand Bassa","District # 4","Jogbahn","0916009092","0310",12,36
+3,"Borbor's Village",-9.77693,5.78834,"Grand Bassa","District # 4","Jogbahn","0916009092","0311",12,37
+3,"Wralakfa",-9.77814,5.79209,"Grand Bassa","District # 4","Jogbahn","0916009092","0312",12,38
+4,"Prayer",-9.99176,5.89524,"Grand Bassa","Neekreen","Harlardsville","0910003042","0401",13,39
+4,"Kaksbahn",-9.98729,5.89536,"Grand Bassa","Neekreen","Harlardsville","0910003042","0402",13,40
+4,"Rubein Village",-9.98894,5.90618,"Grand Bassa","Neekreen","Harlardsville","0910003042","0403",13,41
+4,"Guah Village",-9.99118,5.91032,"Grand Bassa","Neekreen","Harlardsville","0910003042","0404",13,42
+4,"Guah",-9.99148,5.91039,"Grand Bassa","Neekreen","Harlardsville","0910003042","0405",13,43
+4,"Joe Farmer",-9.99826,5.91355,"Grand Bassa","Neekreen","Harlardsville","0910003042","0406",13,44
+4,"Whob Village",-9.9869,5.91737,"Grand Bassa","Neekreen","Harlardsville","0910003032","0407",13,45
+4,"Logan",-9.99574,5.92498,"Grand Bassa","Neekreen","Neekreen","0910002042","0408",13,46
+4,"Kupue Village",-10.03163,5.93013,"Grand Bassa","Neekreen","Neekreen","0910002052","0409",13,47
+4,"Floh",-10.01391,5.93129,"Grand Bassa","Neekreen","Neekreen","0910002042","0410",13,48
+4,"Domah",-9.99385,5.93314,"Grand Bassa","Neekreen","Neekreen","0910002042","0411",13,49
+4,"Jeremiah Harris",-10.00789,5.93501,"Grand Bassa","Neekreen","Neekreen","0910002042","0412",13,50
+4,"Zoe",-10.01492,5.9378,"Grand Bassa","Neekreen","Neekreen","0910002052","0413",13,51
+5,"Kpehyou",-9.85483,5.8983,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005032","0501",13,52
+5,"Joynor Village",-9.8367,5.90075,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0502",13,53
+5,"Kpehpue",-9.8502,5.90178,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005032","0503",13,54
+5,"Kporkon",-9.8682,5.90326,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0504",13,55
+5,"Kpelle Village",-9.83527,5.9084,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0505",13,56
+5,"Wheigo",-9.85375,5.90842,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0506",13,57
+5,"James Zonoe",-9.85867,5.90861,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0507",13,58
+5,"Maye Village",-9.86459,5.91136,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005012","0508",13,59
+5,"Peter's Glay",-9.84655,5.91175,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0509",13,60
+5,"Kair's Village",-9.84354,5.91289,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0510",13,61
+5,"Memangar Village",-9.86007,5.91555,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005012","0511",13,62
+5,"Zeogar",-9.83477,5.91787,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005022","0512",13,63
+5,"Gboyah / Yeakai Villa",-9.86063,5.91817,"Grand Bassa","Neekreen","Blaynee (Portion of Dist.","0910005012","0513",13,64
+6,"Geezaye",-9.68018,5.88105,"Grand Bassa","District # 4","Jogbahn","0916009052","0601",13,65
+6,"Qwrakpo",-9.72567,5.88122,"Grand Bassa","District # 4","Jogbahn","0916009022","0602",13,66
+6,"Tarloe",-9.70901,5.88124,"Grand Bassa","District # 4","Jogbahn","0916009042","0603",13,67
+6,"Deabozohn",-9.65834,5.89179,"Grand Bassa","District # 4","Jogbahn","0916009052","0604",13,68
+6,"Gorzohn",-9.71094,5.89511,"Grand Bassa","District # 4","Jogbahn","0916009042","0605",13,69
+6,"Compound",-9.71197,5.90886,"Grand Bassa","District # 4","Jogbahn","0916009032","0606",13,70
+6,"Ben's",-9.70611,5.90887,"Grand Bassa","District # 4","Jogbahn","0916009032","0607",13,71
+6,"Korzohn",-9.71659,5.90965,"Grand Bassa","District # 4","Jogbahn","0916009032","0608",13,72
+6,"Margar Village",-9.68373,5.91353,"Grand Bassa","District # 4","Neepue","0916003042","0609",13,73
+6,"Gbor Joe",-9.68678,5.94103,"Grand Bassa","District # 4","Neepue","0916003042","0610",13,74
+6,"Wahn",-9.68036,5.94104,"Grand Bassa","District # 4","Neepue","0916003042","0611",13,75
+6,"Burtroyah",-9.71424,5.94144,"Grand Bassa","District # 4","Neepue","0916003022","0612",13,76
+6,"Tiah Village",-9.68309,5.95489,"Grand Bassa","District # 4","Neepue","0916003032","0613",13,77
+7,"Malikor's",-10.20923,6.02428,"Grand Bassa","District # 1","Sonniewein","0904002102","0701",13,78
+7,"Little Bassa",-10.21604,6.0335,"Grand Bassa","District # 1","Sonniewein","0904002102","0702",13,79
+7,"Samuel Browne",-10.21985,6.03846,"Grand Bassa","District # 1","Sonniewein","0904002112","0703",13,80
+7,"Barwain",-10.20392,6.05942,"Grand Bassa","District # 1","Sonniewein","0904002122","0704",13,81
+7,"Duo Village",-10.26446,6.06801,"Grand Bassa","District # 1","Whenzohn","0904001022","0705",13,82
+7,"Gor",-10.22238,6.07385,"Grand Bassa","District # 1","Sonniewein","0904002132","0706",13,83
+7,"Beanan Village",-10.24509,6.0815,"Grand Bassa","District # 1","Whenzohn","0904001022","0707",13,84
+7,"Gbargaye",-10.26581,6.08771,"Grand Bassa","District # 1","Whenzohn","0904001022","0708",13,85
+7,"Jahway Village",-10.25267,6.08974,"Grand Bassa","District # 1","Whenzohn","0904001022","0709",13,86
+7,"Kro",-10.22479,6.09043,"Grand Bassa","District # 1","Whenzohn","0904001022","0710",13,87
+7,"Zuah Village",-10.26367,6.09509,"Grand Bassa","Owensgrove","Doewein","0902003122","0711",13,88
+7,"Behzon Village",-10.27208,6.10135,"Grand Bassa","Owensgrove","Doewein","0902003122","0712",13,89
+7,"Wesseh Village",-10.27778,6.10142,"Grand Bassa","District # 1","Whenzohn","0904001022","0713",13,90
+8,"Bueh",-10.09518,6.03236,"Grand Bassa","St. John River City","Goingbo","0908009012","0801",13,91
+8,"Kpah",-10.11435,6.03396,"Grand Bassa","St. John River City","Goingbo","0908009012","0802",13,92
+8,"Gbarzee",-10.11144,6.03879,"Grand Bassa","St. John River City","Goingbo","0908009012","0803",13,93
+8,"Gbarzee Mission",-10.10907,6.04138,"Grand Bassa","St. John River City","Goingbo","0908009012","0804",13,94
+8,"Kollie",-10.08921,6.04267,"Grand Bassa","St. John River City","Goingbo","0908009012","0805",13,95
+8,"Janjay",-10.1199,6.04437,"Grand Bassa","St. John River City","Goingbo","0908009012","0806",13,96
+8,"Gbaquep",-10.09601,6.04492,"Grand Bassa","St. John River City","Goingbo","0908009012","0807",13,97
+8,"Quegar",-10.06866,6.05732,"Grand Bassa","St. John River City","Tarrwureh","0908010012","0808",13,98
+8,"Baa",-10.10409,6.058,"Grand Bassa","St. John River City","Goingbo","0908009012","0809",13,99
+8,"Tarpue",-10.10963,6.06595,"Grand Bassa","St. John River City","Goingbo","0908009012","0810",13,100
+8,"Yeasay",-10.09258,6.07313,"Grand Bassa","St. John River City","Tarrwureh","0908010012","0811",13,101
+8,"Karmour",-10.08749,6.0772,"Grand Bassa","St. John River City","Tarrwureh","0908010012","0812",13,102
+8,"Lay's Village",-10.09961,6.0808,"Grand Bassa","District # 1","Lloydsville","0904004072","0813",13,103
+9,"Gardea # 2",-9.92894,6.03541,"Grand Bassa","St. John River City","Vombo","0908003022","0901",13,104
+9,"Godgbarn",-9.94516,6.04063,"Grand Bassa","St. John River City","Vombo","0908003022","0902",13,105
+9,"Karyour",-9.93087,6.04667,"Grand Bassa","St. John River City","Vombo","0908003022","0903",13,106
+9,"Boegbah",-9.93088,6.04671,"Grand Bassa","St. John River City","Vombo","0908003022","0904",13,107
+9,"Laffiah",-9.949,6.04889,"Grand Bassa","St. John River City","Vombo","0908003022","0905",13,108
+9,"Amos Cleon",-9.94422,6.04924,"Grand Bassa","St. John River City","Vombo","0908003022","0906",13,109
+9,"Pastor",-9.93877,6.05115,"Grand Bassa","St. John River City","Vombo","0908003022","0907",13,110
+9,"Boe",-9.92126,6.05434,"Grand Bassa","St. John River City","Vombo","0908003032","0908",13,111
+9,"Togar",-9.93373,6.05585,"Grand Bassa","St. John River City","Vombo","0908003022","0909",13,112
+9,"Gbewillie",-9.95048,6.05925,"Grand Bassa","St. John River City","Vombo","0908003022","0910",13,113
+9,"Juah",-9.941,6.06108,"Grand Bassa","St. John River City","Vombo","0908003022","0911",13,114
+9,"Noway",-9.91721,6.06246,"Grand Bassa","St. John River City","Vombo","0908003032","0912",13,115
+9,"Leecoil",-9.9286,6.06647,"Grand Bassa","St. John River City","Vombo","0908003032","0913",13,116
+10,"Six New Camp",-9.77934,6.01778,"Grand Bassa","District # 4","L A C Plantation","0916011042","1001",13,117
+10,"Estate 2 Bongolo",-9.79118,6.02717,"Grand Bassa","District # 3","L A C Plantation","0914001202","1002",13,118
+10,"Cattle Bahn Camp",-9.75896,6.03039,"Grand Bassa","District # 4","L A C Plantation","0916011022","1003",13,119
+10,"Division 4.1 Office",-9.74918,6.03762,"Grand Bassa","District # 4","L A C Plantation","0916011022","1004",13,120
+10,"Six Old Camp",-9.7728,6.0408,"Grand Bassa","District # 3","L A C Plantation","0914001192","1005",13,121
+10,"Bear -Bear Camp",-9.74817,6.04695,"Grand Bassa","District # 4","L A C Plantation","0916011012","1006",13,122
+10,"Djueh Camp",-9.77246,6.0626,"Grand Bassa","District # 3","L A C Plantation","0914001182","1007",13,123
+10,"Kpain Camp",-9.79174,6.06612,"Grand Bassa","District # 3","L A C Plantation","0914001162","1008",13,124
+10,"Division 1.1 Office",-9.74269,6.07268,"Grand Bassa","District # 3","L A C Plantation","0914001172","1009",13,125
+10,"Zeanweah Camp",-9.75661,6.07408,"Grand Bassa","District # 3","L A C Plantation","0914001172","1010",13,126
+10,"Division 2.3 Office",-9.77205,6.07996,"Grand Bassa","District # 3","L A C Plantation","0914001162","1011",13,127
+10,"David Gboh Camp",-9.76509,6.08376,"Grand Bassa","District # 3","L A C Plantation","0914001172","1012",13,128
+10,"3 Old Camp",-9.77718,6.08635,"Grand Bassa","District # 3","L A C Plantation","0914001142","1013",13,129
+11,"Barzon Village",-10.33534,6.16606,"Grand Bassa","Owensgrove","Doewein","0902003132","1101",13,130
+11,"Palace Village",-10.31911,6.1679,"Grand Bassa","Owensgrove","Doewein","0902003132","1102",13,131
+11,"Nycgweh",-10.34057,6.17319,"Grand Bassa","Owensgrove","Doewein","0902003132","1103",13,132
+11,"Kugbeh Village",-10.33596,6.18527,"Grand Bassa","Owensgrove","Yeannah","0902002072","1104",13,133
+11,"Koezohn Village",-10.30929,6.18783,"Grand Bassa","Owensgrove","Yeannah","0902002072","1105",13,134
+11,"Cole's Village",-10.33951,6.19608,"Grand Bassa","Owensgrove","Yeannah","0902002072","1106",13,135
+11,"Garmah Village",-10.33068,6.20704,"Grand Bassa","Owensgrove","Yeannah","0902002082","1107",13,136
+11,"Dougbah",-10.34151,6.20776,"Grand Bassa","Owensgrove","Yeannah","0902002092","1108",13,137
+11,"Bar Village",-10.32437,6.20837,"Grand Bassa","Owensgrove","Yeannah","0902002082","1109",13,138
+11,"Bean's",-10.34756,6.21886,"Grand Bassa","Owensgrove","Yeannah","0902002092","1110",13,139
+11,"Troyahbarh village",-10.33073,6.21971,"Grand Bassa","Owensgrove","Yeannah","0902002092","1111",13,140
+11,"Sailama Village",-10.33153,6.22372,"Grand Bassa","Owensgrove","Yeannah","0902002012","1112",13,141
+11,"Borbor Village",-10.33046,6.2268,"Grand Bassa","Owensgrove","Yeannah","0902002012","1113",13,142
+12,"Wrue-Wah Village",-10.17805,6.17233,"Grand Bassa","District # 1","Doe","0904005062","1201",13,143
+12,"Peter Hata Village",-10.17955,6.17404,"Grand Bassa","District # 1","Doe","0904005062","1202",13,144
+12,"Zyne-Where Village",-10.17855,6.17446,"Grand Bassa","District # 1","Doe","0904005062","1203",13,145
+12,"Ruben Smith",-10.17931,6.17647,"Grand Bassa","District # 1","Doe","0904005062","1204",13,146
+12,"Johnny Garyah",-10.17377,6.17735,"Grand Bassa","District # 1","Doe","0904005062","1205",13,147
+12,"Beh",-10.17857,6.17853,"Grand Bassa","District # 1","Doe","0904005052","1206",13,148
+12,"Hard Time Village",-10.17721,6.18284,"Grand Bassa","District # 1","Doe","0904005052","1207",13,149
+12,"Goesuah",-10.17197,6.19803,"Grand Bassa","District # 1","Doe","0904005052","1208",13,150
+12,"John Clarke Village",-10.16806,6.19844,"Grand Bassa","District # 1","Doe","0904005052","1209",13,151
+12,"Tweah Zammes",-10.16514,6.20005,"Grand Bassa","District # 1","Doe","0904005052","1210",13,152
+12,"Woekpeh Juah",-10.16144,6.20317,"Grand Bassa","District # 1","Doe","0904005052","1211",13,153
+12,"Thomas Vonzih",-10.15873,6.20451,"Grand Bassa","District # 1","Doe","0904005052","1212",13,154
+12,"Sayli Village",-10.16567,6.21299,"Grand Bassa","District # 1","Doe","0904005042","1213",13,155
+13,"Worldwid  Mission",-10.00147,6.15823,"Grand Bassa","District # 2","Zuzohn","0906005022","1301",13,156
+13,"Trysee Village",-10.00325,6.15999,"Grand Bassa","District # 2","Zuzohn","0906005022","1302",13,157
+13,"Kolako Village",-10.03119,6.17832,"Grand Bassa","District # 2","Zuzohn","0906005022","1303",13,158
+13,"Glebah / Worfour Vill",-9.98246,6.17952,"Grand Bassa","District # 2","Bla-lar","0906004022","1304",13,159
+13,"Karyou Village",-10.03489,6.18874,"Grand Bassa","District # 2","Zuzohn","0906005022","1305",13,160
+13,"Charley Gio / Kpakpel",-10.00772,6.1908,"Grand Bassa","District # 2","Bla-lar","0906004022","1306",13,161
+13,"Krankie Village",-9.99039,6.19781,"Grand Bassa","District # 2","Bla-lar","0906004022","1307",13,162
+13,"Weamorgar",-10.012,6.19991,"Grand Bassa","District # 2","Zuzohn","0906005012","1308",13,163
+13,"Jacob Village",-10.04834,6.20139,"Grand Bassa","District # 2","Zuzohn","0906005022","1309",13,164
+13,"Dee Village",-10.04202,6.20634,"Grand Bassa","District # 2","Zuzohn","0906005012","1310",13,165
+13,"Gurtor Village",-10.01742,6.20865,"Grand Bassa","District # 2","Zuzohn","0906005012","1311",13,166
+13,"Payone Village",-10.03697,6.21661,"Grand Bassa","District # 2","Zuzohn","0906005012","1312",13,167
+13,"Matada Village",-10.02023,6.22564,"Grand Bassa","District # 2","Zuzohn","0906005012","1313",13,168
+14,"Bethlehem Village",-9.84148,6.15909,"Grand Bassa","District # 3","Gaye Peter","0914003162","1401",13,169
+14,"Kpalimue",-9.85787,6.17341,"Grand Bassa","District # 2","Marlord","0906002022","1402",13,170
+14,"Tokpah Village",-9.86017,6.18265,"Grand Bassa","District # 2","Marlord","0906002022","1403",13,171
+14,"Bozohn",-9.81866,6.18381,"Grand Bassa","District # 3","Gaye Peter","0914003172","1404",13,172
+14,"Lolayah Village",-9.8811,6.18869,"Grand Bassa","District # 2","Geeblee","0906003012","1405",13,173
+14,"Bigboy Village",-9.87564,6.18878,"Grand Bassa","District # 2","Geeblee","0906003012","1406",13,174
+14,"Gorworh Village",-9.85845,6.19172,"Grand Bassa","District # 2","Geeblee","0906003012","1407",13,175
+14,"Wrehyou",-9.83208,6.19616,"Grand Bassa","District # 3","Gaye Peter","0914003192","1408",13,176
+14,"Zuagar",-9.84368,6.20243,"Grand Bassa","District # 3","Gaye Peter","0914003192","1409",13,177
+14,"Samuel Village",-9.86067,6.20885,"Grand Bassa","District # 2","Marblee","0906001062","1410",13,178
+14,"Painyoucom Village",-9.84361,6.2142,"Grand Bassa","District # 2","Marblee","0906001062","1411",13,179
+14,"Sulonteh Village",-9.87098,6.21452,"Grand Bassa","District # 2","Marblee","0906001062","1412",13,180
+14,"Noryougbah Village",-9.8467,6.2254,"Grand Bassa","District # 2","Marblee","0906001062","1413",13,181
+15,"Weebo / Zedrew",-9.72008,6.16632,"Grand Bassa","District # 3","Zeewein-B","0914014012","1501",13,182
+15,"George Briggs / Tuku",-9.71402,6.16998,"Grand Bassa","District # 3","Zeewein-B","0914014012","1502",13,183
+15,"Wredyu",-9.71876,6.18913,"Grand Bassa","District # 3","Zeewein-B","0914014012","1503",13,184
+15,"Kargar / Yard",-9.64907,6.19257,"Grand Bassa","District # 3","Wodorgbah","0914008042","1504",13,185
+15,"Gud",-9.66366,6.21464,"Grand Bassa","District # 3","Wodorgbah","0914008032","1505",13,186
+15,"Manideh / Dowher",-9.6544,6.21528,"Grand Bassa","District # 3","Wodorgbah","0914008032","1506",13,187
+15,"Zlowein",-9.67045,6.22261,"Grand Bassa","District # 3","Wodorgbah","0914008032","1507",13,188
+15,"Dahn / Flanke",-9.72194,6.2235,"Grand Bassa","District # 3","Faitro","0914005042","1508",13,189
+15,"Zorwein",-9.67137,6.22441,"Grand Bassa","District # 3","Faitro","0914005032","1509",13,190
+15,"Borbor's",-9.67788,6.22985,"Grand Bassa","District # 3","Faitro","0914005032","1510",13,191
+15,"Garmana Village",-9.67148,6.23278,"Grand Bassa","District # 3","Faitro","0914005032","1511",13,192
+15,"Kofa Gborgar",-9.68753,6.23347,"Grand Bassa","District # 3","Faitro","0914005032","1512",13,193
+15,"Kona",-9.69182,6.23501,"Grand Bassa","District # 3","Faitro","0914005042","1513",13,194
+16,"Baye",-9.50432,6.14081,"Grand Bassa","District # 4","Kpogblen","0916005032","1601",13,195
+16,"Benzohn",-9.51006,6.15019,"Grand Bassa","District # 4","Kpogblen","0916005032","1602",13,196
+16,"Gueh",-9.52977,6.1528,"Grand Bassa","District # 4","Kpogblen","0916005022","1603",13,197
+16,"Mannah Whea Village",-9.56908,6.15733,"Grand Bassa","District # 4","Kpogblen","0916005012","1604",13,198
+16,"Refaco Camp",-9.54247,6.16029,"Grand Bassa","District # 4","Kpogblen","0916005022","1605",13,199
+16,"Kahyah",-9.48831,6.1606,"Grand Bassa","District # 4","Kpogblen","0916005042","1606",13,200
+16,"Bold Dollar",-9.55812,6.16995,"Grand Bassa","District # 4","Kpogblen","0916005012","1607",13,201
+16,"Farr",-9.57202,6.18068,"Grand Bassa","District # 4","Kpogblen","0916005012","1608",13,202
+16,"Morris Gbehgbeh",-9.58608,6.19161,"Grand Bassa","District # 3","Wodorgbah","0914008042","1609",13,203
+16,"Willie",-9.57828,6.21942,"Grand Bassa","District # 3","Wodorgbah","0914008022","1610",13,204
+16,"Boue Village",-9.57472,6.23488,"Grand Bassa","District # 3","Wodorgbah","0914008022","1611",13,205
+16,"Juah's",-9.53927,6.24239,"Grand Bassa","District # 3","Wodorgbah","0914008012","1612",13,206
+16,"Wodorgbah / Nimely Vi",-9.56627,6.24339,"Grand Bassa","District # 3","Wodorgbah","0914008022","1613",13,207
+17,"Buegbo",-10.25129,6.29394,"Grand Bassa","District # 1","Worrwein","0904010012","1701",13,208
+17,"Kiray Town/Buegba Vil",-10.27449,6.2968,"Grand Bassa","District # 1","Worrwein","0904010012","1702",13,209
+17,"Gio Village",-10.27862,6.31131,"Grand Bassa","District # 1","Worrwein","0904010012","1703",13,210
+17,"Nyuda",-10.21874,6.32795,"Grand Bassa","District # 1","Worrwein","0904010032","1704",13,211
+17,"Yanmoh",-10.22632,6.34267,"Grand Bassa","District # 1","Worrwein","0904010022","1705",13,212
+17,"Kpaliyelah",-10.25792,6.34487,"Grand Bassa","District # 1","Worrwein","0904010022","1706",13,213
+17,"Zinc Kitchen",-10.26585,6.34956,"Grand Bassa","District # 1","Worrwein","0904010022","1707",13,214
+17,"Kpannah/David",-10.21987,6.35725,"Grand Bassa","District # 1","Worrwein","0904010022","1708",13,215
+17,"Varney",-10.22772,6.3583,"Grand Bassa","District # 1","Worrwein","0904010022","1709",13,216
+17,"Robert Cebal",-10.2237,6.35841,"Grand Bassa","District # 1","Worrwein","0904010022","1710",13,217
+17,"David",-10.23535,6.36287,"Grand Bassa","District # 1","Worrwein","0904010022","1711",13,218
+17,"Bono/Daklhere Village",-10.23713,6.36411,"Grand Bassa","District # 1","Worrwein","0904010022","1712",13,219
+17,"Douweh/Wheeto Town",-10.26923,6.36805,"Grand Bassa","District # 1","Worrwein","0904010022","1713",13,220
+18,"Fred",-10.09515,6.29821,"Grand Bassa","District # 1","Sayewein","0904006042","1801",13,221
+18,"Whemyou",-10.10639,6.30312,"Grand Bassa","District # 1","Sayewein","0904006042","1802",13,222
+18,"Gber",-10.09143,6.32006,"Grand Bassa","District # 1","Sayewein","0904006042","1803",13,223
+18,"New Gbanga",-10.07776,6.32055,"Grand Bassa","District # 1","Sayewein","0904006042","1804",13,224
+18,"Isaac",-10.106,6.3275,"Grand Bassa","District # 1","Sayewein","0904006042","1805",13,225
+18,"Old Gbanga",-10.08982,6.32814,"Grand Bassa","District # 1","Sayewein","0904006042","1806",13,226
+18,"Fuafua-Weon",-10.10114,6.33161,"Grand Bassa","District # 1","Sayewein","0904006042","1807",13,227
+18,"Gerneo",-10.12192,6.33353,"Grand Bassa","District # 1","Sayewein","0904006032","1808",13,228
+18,"Bai",-10.1164,6.34792,"Grand Bassa","District # 1","Sayewein","0904006032","1809",13,229
+18,"Bai mission",-10.11313,6.3501,"Grand Bassa","District # 1","Sayewein","0904006032","1810",13,230
+18,"Nado",-10.10587,6.35486,"Grand Bassa","District # 1","Sayewein","0904006032","1811",13,231
+18,"Worhn",-10.10168,6.36061,"Grand Bassa","District # 1","Sayewein","0904006032","1812",13,232
+18,"Duayou",-10.0828,6.36428,"Grand Bassa","District # 1","Sayewein","0904006032","1813",13,233
+19,"Goegar Village",-9.94417,6.31249,"Grand Bassa","District # 2","Marblee","0906001012","1901",13,234
+19,"Ballah Village",-9.94497,6.31667,"Grand Bassa","District # 2","Marblee","0906001012","1902",13,235
+19,"Gargar's Village",-9.91556,6.32207,"Grand Bassa","District # 2","Marblee","0906001012","1903",13,236
+19,"Dolo",-9.92753,6.32355,"Grand Bassa","District # 2","Marblee","0906001012","1904",13,237
+19,"Zeon",-9.91002,6.32358,"Grand Bassa","District # 2","Marblee","0906001042","1905",13,238
+19,"Nyakpah Village",-9.93952,6.32911,"Grand Bassa","District # 2","Marblee","0906001012","1906",13,239
+19,"Budu",-9.92256,6.33168,"Grand Bassa","District # 2","Marblee","0906001012","1907",13,240
+19,"Gaye Flomo",-9.92382,6.33652,"Grand Bassa","District # 2","Marblee","0906001012","1908",13,241
+19,"Gbiahgaye",-9.935,6.3437,"Grand Bassa","District # 2","Marblee","0906001022","1909",13,242
+19,"Glabo Village #1",-9.95157,6.35191,"Grand Bassa","District # 2","Marblee","0906001022","1910",13,243
+19,"Waygron Village",-9.94089,6.35534,"Grand Bassa","District # 2","Marblee","0906001022","1911",13,244
+19,"Kpu-Jimmy",-9.92438,6.36126,"Grand Bassa","District # 2","Marblee","0906001022","1912",13,245
+19,"Zahn",-9.92307,6.36905,"Grand Bassa","District # 2","Marblee","0906001032","1913",13,246
+20,"Karr's / Gbah Tumah",-9.74091,6.31177,"Grand Bassa","District # 3","Dohnwein","0914006032","2001",13,247
+20,"Yarkpah",-9.73815,6.31679,"Grand Bassa","District # 3","Dohnwein","0914006032","2002",13,248
+20,"Logan Village # 1",-9.73553,6.3268,"Grand Bassa","District # 3","Dohnwein","0914006032","2003",13,249
+20,"Logan",-9.73473,6.33099,"Grand Bassa","District # 3","Dohnwein","0914006032","2004",13,250
+20,"Gonoe / Garvah",-9.80713,6.33337,"Grand Bassa","District # 2","Gogowein","0906006062","2005",13,251
+20,"Kaykay / Kpawoe / Bua",-9.80105,6.33637,"Grand Bassa","District # 2","Gogowein","0906006062","2006",13,252
+20,"Juah's",-9.80806,6.33726,"Grand Bassa","District # 2","Gogowein","0906006062","2007",13,253
+20,"Joemlue",-9.73951,6.34237,"Grand Bassa","District # 3","Dohnwein","0914006022","2008",13,254
+20,"Two Cent",-9.79818,6.34507,"Grand Bassa","District # 2","Gogowein","0906006052","2009",13,255
+20,"Teewaygar Village",-9.74363,6.34664,"Grand Bassa","District # 3","Dohnwein","0914006022","2010",13,256
+20,"Gbenyan Town # 1",-9.75305,6.35509,"Grand Bassa","District # 3","Dohnwein","0914006022","2011",13,257
+20,"Gbenyan Town # 2",-9.75615,6.35637,"Grand Bassa","District # 3","Dohnwein","0914006022","2012",13,258
+20,"Bahn / Peter G.Sahn",-9.76738,6.36549,"Grand Bassa","District # 2","Gogowein","0906006042","2013",13,259
+21,"John Kianue / Wee Zeo",-9.65114,6.30607,"Grand Bassa","District # 3","Deegba","0914007052","2101",13,260
+21,"Jah Fair",-9.645,6.3107,"Grand Bassa","District # 3","Deegba","0914007052","2102",13,261
+21,"Kiamue Giah",-9.64519,6.31767,"Grand Bassa","District # 3","Deegba","0914007052","2103",13,262
+21,"Goweh / John Nover",-9.64333,6.32229,"Grand Bassa","District # 3","Deegba","0914007052","2104",13,263
+21,"Barseegiah",-9.63572,6.33694,"Grand Bassa","District # 3","Deegba","0914007052","2105",13,264
+21,"Sawkpah",-9.64701,6.35185,"Grand Bassa","District # 3","Deegba","0914007062","2106",13,265
+21,"Winshue",-9.65695,6.35216,"Grand Bassa","District # 3","Deegba","0914007062","2107",13,266
+21,"James Pue",-9.58627,6.36309,"Grand Bassa","District # 3","Deegba","0914007042","2108",13,267
+21,"Jallah",-9.62522,6.36371,"Grand Bassa","District # 3","Deegba","0914007042","2109",13,268
+21,"Kassian Village",-9.62428,6.3679,"Grand Bassa","District # 3","Deegba","0914007042","2110",13,269
+21,"Momo",-9.58068,6.36983,"Grand Bassa","District # 3","Deegba","0914007042","2111",13,270
+21,"Garkpee",-9.60483,6.37101,"Grand Bassa","District # 3","Deegba","0914007042","2112",13,271
+21,"Manawon",-9.62273,6.37447,"Grand Bassa","District # 3","Deegba","0914007072","2113",13,272
+22,"Jackson",-9.42494,6.27273,"Grand Bassa","District # 3","Gbayah","0914009032","2201",13,273
+22,"Larway / James Zoko",-9.49237,6.2917,"Grand Bassa","District # 3","Gbayah","0914009032","2202",13,274
+22,"Dahn- Jimmy",-9.42615,6.29407,"Grand Bassa","District # 3","Gbayah","0914009032","2203",13,275
+22,"Suah / Dolo",-9.41038,6.29946,"Grand Bassa","District # 3","Gbayah","0914009032","2204",13,276
+22,"Geedyu",-9.42705,6.32084,"Grand Bassa","District # 3","Gbayah","0914009022","2205",13,277
+22,"Kpohn",-9.40288,6.32781,"Grand Bassa","District # 3","Gbayah","0914009022","2206",13,278
+22,"Boe-Wee",-9.4529,6.33242,"Grand Bassa","District # 3","Gbayah","0914009022","2207",13,279
+22,"Zeh Village",-9.47584,6.33451,"Grand Bassa","District # 3","Gbayah","0914009022","2208",13,280
+22,"Zohn",-9.49052,6.34016,"Grand Bassa","District # 3","Gbayah","0914009022","2209",13,281
+22,"Charlie's / Morflemh",-9.46496,6.34163,"Grand Bassa","District # 3","Gbayah","0914009022","2210",13,282
+22,"Wheazohn / Doun",-9.43678,6.34739,"Grand Bassa","District # 3","Gbayah","0914009022","2211",13,283
+22,"Karpee",-9.47426,6.35158,"Grand Bassa","District # 3","Gbayah","0914009022","2212",13,284
+22,"Gbodoe/ Goeh Village",-9.49931,6.37448,"Grand Bassa","District # 3","Pay-U-Way","0914013032","2213",13,285
+23,"Raccoon Village",-10.18663,6.45065,"Grand Bassa","District # 1","Mehwein","0904009022","2301",13,286
+23,"Matie / Sumo Village",-10.17936,6.46161,"Grand Bassa","District # 1","Mehwein","0904009012","2302",13,287
+23,"Yeah",-10.19224,6.46186,"Grand Bassa","District # 1","Mehwein","0904009012","2303",13,288
+23,"Gearge Ploms Village",-10.18897,6.46327,"Grand Bassa","District # 1","Mehwein","0904009012","2304",13,289
+23,"Heneny Smith Village",-10.17472,6.46334,"Grand Bassa","District # 1","Mehwein","0904009012","2305",13,290
+23,"Blo-Wheon",-10.15271,6.46396,"Grand Bassa","District # 1","Mehwein","0904009022","2306",13,291
+23,"Dolemue",-10.18592,6.46558,"Grand Bassa","District # 1","Mehwein","0904009012","2307",13,292
+23,"Bindaghoh/Mobay Villa",-10.18303,6.46735,"Grand Bassa","District # 1","Mehwein","0904009012","2308",13,293
+23,"Paye Village",-10.1517,6.47636,"Grand Bassa","District # 1","Gozohn","0904007022","2309",13,294
+23,"Paye Town/Framk Moeba",-10.17552,6.47971,"Grand Bassa","District # 1","Gozohn","0904007022","2310",13,295
+23,"Bondo/Dukuly Village",-10.20425,6.48286,"Grand Bassa","District # 1","Gozohn","0904007032","2311",13,296
+23,"Femah",-10.19637,6.49271,"Grand Bassa","District # 1","Gozohn","0904007032","2312",13,297
+23,"Kolleh Jimmy/Congo",-10.17362,6.49374,"Grand Bassa","District # 1","Gozohn","0904007022","2313",13,298
+24,"Nahndoe",-9.86265,6.4191,"Grand Bassa","District # 2","Gogowein","0906006022","2401",13,299
+24,"Gbeahgaveazohn",-9.86,6.43739,"Grand Bassa","District # 2","Gogowein","0906006012","2402",13,300
+24,"Mudeh",-9.85623,6.44044,"Grand Bassa","District # 2","Gogowein","0906006012","2403",13,301
+24,"Yahwea / Galawolo",-9.8552,6.44133,"Grand Bassa","District # 2","Gogowein","0906006012","2404",13,302
+24,"David Crawford",-9.85154,6.44532,"Grand Bassa","District # 2","Gogowein","0906006012","2405",13,303
+24,"Vlekpah",-9.81794,6.44684,"Grand Bassa","District # 2","Gogowein","0906006012","2406",13,304
+24,"Garva",-9.82405,6.4612,"Grand Bassa","District # 2","Gogowein","0906006012","2407",13,305
+24,"Bonnie Part",-9.80364,6.46132,"Grand Bassa","District # 2","Boeglayn","0906007052","2408",13,306
+24,"Gbogar / Daryou / Moo",-9.84679,6.46596,"Grand Bassa","District # 2","Gogowein","0906006012","2409",13,307
+24,"Whenzohn",-9.81606,6.47618,"Grand Bassa","District # 2","Gogowein","0906006012","2410",13,308
+24,"Doeneah Garway",-9.83624,6.47811,"Grand Bassa","District # 2","Gogowein","0906006012","2411",13,309
+24,"Kpoe Village",-9.82235,6.47974,"Grand Bassa","District # 2","Gogowein","0906006012","2412",13,310
+24,"Mamadee / Gbar Villag",-9.83387,6.48014,"Grand Bassa","District # 2","Gogowein","0906006012","2413",13,311
+25,"Kemoweh's Village",-9.70556,6.44547,"Grand Bassa","District # 2","Boeglayn","0906007052","2501",13,312
+25,"Gbango Village",-9.70123,6.45323,"Grand Bassa","District # 2","Boeglayn","0906007052","2502",13,313
+25,"Vionless's Village",-9.73628,6.49478,"Grand Bassa","District # 2","Boeglayn","0906007042","2503",13,314
+25,"Geezon",-9.72102,6.5059,"Grand Bassa","District # 2","Boeglayn","0906007032","2504",13,315
+25,"Gweh",-9.66498,6.50953,"Grand Bassa","District # 2","Boeglayn","0906007032","2505",13,316
+25,"Kyne's",-9.73589,6.51411,"Grand Bassa","District # 2","Boeglayn","0906007032","2506",13,317
+25,"Daydeah",-9.67926,6.51417,"Grand Bassa","District # 2","Boeglayn","0906007032","2507",13,318
+25,"Kwatoe",-9.65206,6.51569,"Grand Bassa","District # 2","Boeglayn","0906007032","2508",13,319
+25,"Jacob's / Gaye Moore",-9.7083,6.51693,"Grand Bassa","District # 2","Boeglayn","0906007032","2509",13,320
+25,"Gozohn",-9.66771,6.52317,"Grand Bassa","District # 2","Boeglayn","0906007032","2510",13,321
+25,"Gaye",-9.69784,6.52617,"Grand Bassa","District # 2","Boeglayn","0906007032","2511",13,322
+25,"Buebee",-9.68583,6.5275,"Grand Bassa","District # 2","Boeglayn","0906007032","2512",13,323
+25,"Gone",-9.67813,6.53909,"Grand Bassa","District # 2","Boeglayn","0906007012","2513",13,324
+26,"Jeremiah",-9.56512,6.43054,"Grand Bassa","District # 3","Deegba","0914007012","2601",13,325
+26,"Fiamah Village",-9.56079,6.43382,"Grand Bassa","District # 3","Deegba","0914007012","2602",13,326
+26,"Philips Vah",-9.55907,6.43736,"Grand Bassa","District # 3","Deegba","0914007012","2603",13,327
+26,"Whoeyoko",-9.55392,6.44207,"Grand Bassa","District # 3","Deegba","0914007012","2604",13,328
+26,"Nagbo",-9.47723,6.44269,"Grand Bassa","District # 3","Pay-U-Way","0914013032","2605",13,329
+26,"Sakpayah",-9.49124,6.45613,"Grand Bassa","District # 3","Pay-U-Way","0914013032","2606",13,330
+26,"Watchee",-9.49356,6.45811,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2607",13,331
+26,"Kpelle-Toe",-9.50077,6.45951,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2608",13,332
+26,"Gonn",-9.51696,6.46117,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2609",13,333
+26,"Gardea",-9.51862,6.46274,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2610",13,334
+26,"Tarr Town / Gbardyu",-9.50809,6.46962,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2611",13,335
+26,"Paw-Paw",-9.4867,6.47012,"Grand Bassa","District # 3","Pay-U-Way","0914013022","2612",13,336
+26,"Kpokon",-9.49038,6.48909,"Grand Bassa","District # 3","Pay-U-Way","0914013012","2613",13,337
+27,"Sammy Piso",-9.34639,6.43638,"Grand Bassa","District # 3","Jeuwein","0914010012","2701",13,338
+27,"New Zardyu",-9.40421,6.45469,"Grand Bassa","District # 3","Gbaniee","0914012042","2702",13,339
+27,"Gbogar",-9.38923,6.45825,"Grand Bassa","District # 3","Gbaniee","0914012042","2703",13,340
+27,"Kaka-Gbain / Vaingbon",-9.36446,6.46302,"Grand Bassa","District # 3","Jeuwein","0914010012","2704",13,341
+27,"Taylue",-9.41484,6.46724,"Grand Bassa","District # 3","Gbaniee","0914012032","2705",13,342
+27,"Gormah",-9.41022,6.47709,"Grand Bassa","District # 3","Gbaniee","0914012032","2706",13,343
+27,"Wee",-9.40851,6.48038,"Grand Bassa","District # 3","Gbaniee","0914012032","2707",13,344
+27,"Duo",-9.40067,6.48852,"Grand Bassa","District # 3","Gbaniee","0914012032","2708",13,345
+27,"Ceein",-9.37274,6.49147,"Grand Bassa","District # 3","Gbaniee","0914012032","2709",13,346
+27,"Garmondah Village",-9.40044,6.49194,"Grand Bassa","District # 3","Gbaniee","0914012032","2710",13,347
+27,"Ceezohn",-9.34804,6.51437,"Grand Bassa","District # 3","Gbaniee","0914012012","2711",13,348
+27,"Desoe",-9.39043,6.51822,"Grand Bassa","District # 3","Gbaniee","0914012022","2712",13,349
+27,"Saylor",-9.36392,6.52548,"Grand Bassa","District # 3","Gbaniee","0914012012","2713",13,350
+28,"Wroyonwon Diasaw",-9.28712,6.38963,"Grand Bassa","District # 3","Jeuwein","0914010022","2801",13,351
+28,"Moore Goffa Village /",-9.27136,6.4268,"Grand Bassa","District # 3","Jeuwein","0914010022","2802",13,352
+28,"George Solo",-9.31907,6.43089,"Grand Bassa","District # 3","Jeuwein","0914010012","2803",13,353
+28,"Deabaseh / Tompoe",-9.19451,6.43112,"Grand Bassa","District # 3","Jeuwein","0914010022","2804",13,354
+28,"Gbor-Larsaw / Jackson",-9.23406,6.44333,"Grand Bassa","District # 3","Jeuwein","0914010022","2805",13,355
+28,"Kondour",-9.26673,6.46337,"Grand Bassa","District # 3","Jeuwein","0914010012","2806",13,356
+28,"Yarpoe / Robert / Zeo",-9.18332,6.52509,"Grand Bassa","District # 3","Norwein","0914011012","2807",13,357
+28,"Sue",-9.21158,6.55922,"Grand Bassa","District # 3","Norwein","0914011062","2808",13,358
+28,"Zeongar",-9.27589,6.57229,"Grand Bassa","District # 3","Norwein","0914011032","2809",13,359
+28,"Karr's",-9.24777,6.57581,"Grand Bassa","District # 3","Norwein","0914011052","2810",13,360
+28,"Boe Wesseh",-9.25951,6.57631,"Grand Bassa","District # 3","Norwein","0914011052","2811",13,361
+28,"Wehgar",-9.23679,6.57655,"Grand Bassa","District # 3","Norwein","0914011052","2812",13,362
+28,"Kangba",-9.19614,6.5954,"Grand Bassa","District # 3","Norwein","0914011012","2813",13,363
+29,"Gblelawra",-9.76488,6.58894,"Grand Bassa","District # 2","Chan","0906010032","2901",13,364
+29,"Tar",-9.78628,6.59544,"Grand Bassa","District # 2","Chan","0906010032","2902",13,365
+29,"Memyo",-9.76697,6.60181,"Grand Bassa","District # 2","Chan","0906010032","2903",13,366
+29,"Mepol",-9.76174,6.60424,"Grand Bassa","District # 2","Chan","0906010032","2904",13,367
+29,"Gayezun /  Gaylor's",-9.77874,6.60748,"Grand Bassa","District # 2","Chan","0906010022","2905",13,368
+29,"Gargbo Village",-9.76481,6.61064,"Grand Bassa","District # 2","Chan","0906010022","2906",13,369
+29,"Kayar's",-9.76813,6.61748,"Grand Bassa","District # 2","Chan","0906010022","2907",13,370
+29,"Willie",-9.80179,6.62171,"Grand Bassa","District # 2","Gbor","0906008052","2908",13,371
+29,"Garneo Town",-9.75054,6.62724,"Grand Bassa","District # 2","Chan","0906010032","2909",13,372
+29,"Sawzohn",-9.79687,6.62881,"Grand Bassa","District # 2","Gbor","0906008052","2910",13,373
+29,"Juejay",-9.78579,6.64178,"Grand Bassa","District # 2","Gbor","0906008012","2911",13,374
+29,"Peablah/Peayanblah",-9.77796,6.64536,"Grand Bassa","District # 2","Gbor","0906008012","2912",13,375
+29,"Yeanay's",-9.75851,6.64664,"Grand Bassa","District # 2","Gbor","0906008042","2913",13,376
+30,"Kaikayoh",-9.65093,6.53674,"Grand Bassa","District # 2","Boeglayn","0906007012","3001",13,377
+30,"Borbawein",-9.66237,6.5614,"Grand Bassa","District # 2","Boeglayn","0906007022","3002",13,378
+30,"Taye",-9.61582,6.57858,"Grand Bassa","District # 2","Boeglayn","0906007022","3003",13,379
+30,"Wehngbo",-9.63959,6.58047,"Grand Bassa","District # 2","Boeglayn","0906007022","3004",13,380
+30,"Dennis",-9.687,6.59934,"Grand Bassa","District # 2","Jungle","0906009032","3005",13,381
+30,"Yokpo",-9.61056,6.60559,"Grand Bassa","District # 2","Boeglayn","0906007022","3006",13,382
+30,"Whankai's",-9.67189,6.61159,"Grand Bassa","District # 2","Jungle","0906009032","3007",13,383
+30,"James Naloo Village",-9.67494,6.62781,"Grand Bassa","District # 2","Jungle","0906009022","3008",13,384
+30,"Whinee Village",-9.68086,6.62811,"Grand Bassa","District # 2","Jungle","0906009022","3009",13,385
+30,"Weasay",-9.66576,6.62887,"Grand Bassa","District # 2","Jungle","0906009022","3010",13,386
+30,"Daniel / Marborle",-9.69757,6.63799,"Grand Bassa","District # 2","Jungle","0906009022","3011",13,387
+30,"Jumoe Town / Gomu Vil",-9.64104,6.64462,"Grand Bassa","District # 2","Jungle","0906009012","3012",13,388
+30,"Malomkai's",-9.6723,6.65638,"Grand Bassa","District # 2","Jungle","0906009012","3013",13,389
