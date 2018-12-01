@@ -26,7 +26,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
                                                         "probitEstimates",
                                                         "originalOrder",
                                                         "estimates",
-                                                        "GROUP", "sexText"))
+                                                        "GROUP", "sexText",
+                                                        "sex1", "sex2"))
 
 
 ################################################################################
