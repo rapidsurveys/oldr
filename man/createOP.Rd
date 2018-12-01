@@ -18,7 +18,7 @@ Three dataframes of Older People indicators each with 138 variables:
 }
 }
 \description{
-Create older people indicators dataframe from survey survey data collected
+Create older people indicators dataframe from survey data collected
 using the standard RAM-OP questionnaire.
 }
 \section{Indicators}{
@@ -47,7 +47,7 @@ using the standard RAM-OP questionnaire.
 \item{\code{marital6}}{Marital status = OTHER}
 \item{\code{alone}}{Respondent lives alone}
 }
-\cr
+
 
 \strong{Dietary intake indicators}
 
