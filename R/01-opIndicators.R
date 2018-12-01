@@ -306,8 +306,7 @@ create_op_food <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of male older people indicators on demography and
-#'     situation
+#' @return A dataframe of male older people indicators on food intake
 #'
 #' @examples
 #'
@@ -335,8 +334,7 @@ create_op_food_males <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of male older people indicators on demography and
-#'     situation
+#' @return A dataframe of male older people indicators on food intake
 #'
 #' @examples
 #'
@@ -411,6 +409,61 @@ create_op_hunger <- function(svy) {
   return(hunger.indicators.ALL)
 }
 
+
+################################################################################
+#
+#' create_op_hunger_males
+#'
+#' Create male older people indicators dataframe for household hunger
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on household hunger
+#'
+#' @examples
+#'
+#' # Create household hunger indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_hunger_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_hunger_males <- function(svy) {
+  food.indicators.MALES <- subset(create_op_hunger(svy = svy), sex1 == 1)
+  return(food.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_hunger_females
+#'
+#' Create female older people indicators dataframe for household hunger
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on household hunger
+#'
+#' @examples
+#'
+#' # Create household hunger indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_hunger_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_hunger_females <- function(svy) {
+  food.indicators.FEMALES <- subset(create_op_hunger(svy = svy), sex2 == 1)
+  return(food.indicators.FEMALES)
+}
 
 ################################################################################
 #
