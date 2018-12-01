@@ -438,4 +438,79 @@ server <- function(input, output, session) {
     expr = psuDataset(),
     options = list(scrollX = TRUE)
   )
+  #
+  # Survey dataset
+  #
+  surveyDataset <- reactive({
+    inputFile <- input$inputDataSurvey
+    if(is.null(inputFile)) {
+      return(NULL)
+    }
+    read.csv(file = inputFile$datapath, header = TRUE, sep = ",")
+  })
+  #
+  #
+  #
+  output$surveyDataDescription <- renderUI({
+    HTML("
+      <p>This is the data collected by the survey questionnaire.</p>
+    ")
+  })
+  #
+  # Output survey dataset table
+  #
+  output$surveyDataTable<- DT::renderDataTable(
+    expr = surveyDataset(),
+    options = list(scrollX = TRUE)
+  )
+  #
+  # Proces data description
+  #
+  output$indicatorsDescription <- renderUI({
+    HTML("
+      <p>RAM-OP surveys collect and report on data for a broad range of
+         indicators relevant to older people.</p>
+
+      <p>These indicators cover the following dimensions:</p>
+
+      <ul>
+        <li>Demography and situation</li>
+        <li>Food intake</li>
+        <li>Severe food insecurity</li>
+        <li>Disability</li>
+        <li>Activities of daily living</li>
+        <li>Mental health and well-being</li>
+        <li>Dementia</li>
+        <li>Health and health-seeking behaviour</li>
+        <li>Sources of income</li>
+        <li>Water, sanitation, and hygiene</li>
+        <li>Anthropometry and screening coverage</li>
+        <li>Visual impairment</li>
+      </ul>
+
+      <p>Data for a small group of miscellaneous indicators are also collected
+         and reported.</p>
+
+      <p>The RAM-OP indicator set has been designed on a modular basis. Each
+         module is a set of indicators relating to a single dimension from the
+         list given above and is collected using a dedicated set of questions
+         and measurements. This means that the RAM-OP questionnaire also
+         consists of a set of modules.</p>
+    ")
+  })
+  #
+  # Process data
+  #
+  observeEvent(input$inputProcessAction, {
+    indicators.ALL <- reactive({
+      oldr::createOP(svy = req(surveyDataset()))
+    })
+    #
+    #
+    #
+    output$indicatorsDataTable <- DT::renderDataTable(
+      expr = indicators.ALL(),
+      options = list(scrollX = TRUE)
+    )
+  })
 }
