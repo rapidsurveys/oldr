@@ -303,87 +303,56 @@ ui <- dashboardPage(
               solidHeader = TRUE,
               status = "danger",
               width = 4,
-              checkboxGroupInput(inputId = "inputIndicators",
-                                 label = "Which indicators are to process?",
-                                 choices = c("IMAM coverage",
-                                             "Vitamin A supplementation coverage",
-                                             "FeFol supplementation coverage",
-                                             "Micronutrient powder supplementation coverage",
-                                             "Infant and young child feeding counselling coverage"),
-                                 selected = c("IMAM coverage",
-                                              "Vitamin A supplementation coverage",
-                                              "FeFol supplementation coverage",
-                                              "Micronutrient powder supplementation coverage",
-                                              "Infant and young child feeding counselling coverage")
-              ),
-              br(),
+              #checkboxGroupInput(inputId = "inputIndicators",
+              #                   label = "Which indicators to process?",
+              #                   choices = c("Demography and situation",
+              #                               "Food intake",
+              #                               "Severe food insecurity",
+              #                               "Disability",
+              #                               "Activities of daily living",
+              #                               "Mental health and well-being",
+              #                               "Dementia",
+              #                               "Health and health-seeking behaviour",
+              #                               "Sources of income",
+              #                               "Water, sanitation, and hygiene",
+              #                               "Anthopometry and screening coverage",
+              #                               "Visual impairment"),
+              #                   selected = c("Demography and situation",
+              #                                "Food intake",
+              #                                "Severe food insecurity",
+              #                                "Disability",
+              #                                "Activities of daily living",
+              #                                "Mental health and well-being",
+              #                                "Dementia",
+              #                                "Health and health-seeking behaviour",
+              #                                "Sources of income",
+              #                                "Water, sanitation, and hygiene",
+              #                                "Anthopometry and screening coverage",
+              #                                "Visual impairment")
+              #),
+              uiOutput("indicatorsDescription"),
+              hr(),
               actionButton(inputId = "inputProcessAction",
-                           label = "Process",
+                           label = "Process Indicators",
                            icon = icon(name = "database",
                                        lib = "font-awesome",
-                                       class = "fa-lg"))
+                                       class = "fa-lg")
+              )
             )
           ),
-          conditionalPanel(condition = "input.process == 'checkData'",
-            box(title = "Check data parameters",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4)
-          ),
-          conditionalPanel(condition = "input.process == 'coverageData'",
+          conditionalPanel(condition = "input.process == 'surveyData'",
             box(title = "Input Coverage Data",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4,
-              radioButtons(inputId = "inputDataType2",
-                           label = "How will coverage data be inputted?",
-                           choices = c("Upload data file" = "upload",
-                                       "Get data from ODK server" = "odk")
-              ),
-              br(),
-              conditionalPanel(condition = "input.inputDataType2 == 'upload'",
-                fileInput(inputId = "inputDataRaw2",
-                          label = "Upload raw coverage data to process",
-                          accept = c("text/csv",
-                                     "text/comma-separated-values,text/plain",
-                                     ".csv"))
-              ),
-              conditionalPanel(condition = "input.inputDataType2 == 'odk'",
-                radioButtons(inputId = "inputOdkData2",
-                             label = "Pull data from ODK remote or local?",
-                             choices = c(Remote = "remote", Local = "local")
-                ),
-                br(),
-                conditionalPanel(condition = "input.inputOdkData2 == 'remote'",
-                  textInput(inputId = "inputOdkUrl2",
-                            label = "Remote URL",
-                            placeholder = "https://odk.ona.io"),
-                  textInput(inputId = "inputOdkUsername2",
-                            label = "Username",
-                            value = "cadnihead"),
-                  textInput(inputId = "inputOdkPassword2",
-                            label = "Password",
-                            value = "kEv-hAB-Arb-6Cn"),
-                  textInput(inputId = "inputOdkFormId2a",
-                            label = "Form ID",
-                            value = "liberiaCoverage")
-                ),
-                conditionalPanel(condition = "input.inputOdkData2 == 'local'",
-                  textInput(inputId = "inputOdkDirectory2",
-                            label = "Where is the local ODK directory located?",
-                            value = getwd()),
-                  textInput(inputId = "inputOdkFormId2b",
-                            label = "Form ID",
-                            value = "liberiaCoverage")
-                ),
-                conditionalPanel(condition = "input.inputOdkFormId2a != ' ' | input.inputOdkFormId2a != ' '",
-                  actionButton(inputId = "inputDataAction2",
-                               label = "Pull data",
-                               icon = icon(name = "arrow-down",
-                                           lib = "font-awesome",
-                                           class = "fa-lg"))
-                )
-              )
+              solidHeader = TRUE,
+              status = "danger",
+              width = 4,
+              uiOutput("surveyDataDescription"),
+              hr(),
+              fileInput(inputId = "inputDataSurvey",
+                        label = "Upload survey dataset",
+                        buttonLabel = "Upload",
+                        accept = c("text/csv",
+                                   "text/comma-separated-values,text/plain",
+                                   ".csv"))
             )
           ),
           conditionalPanel(condition = "input.process == 'psuData'",
@@ -391,6 +360,8 @@ ui <- dashboardPage(
               solidHeader = TRUE,
               status = "danger",
               width = 4,
+              uiOutput("psuDataDescription"),
+              hr(),
               fileInput(inputId = "inputDataPSU",
                         buttonLabel = "Upload",
                         label = "Upload PSU dataset",
@@ -405,33 +376,21 @@ ui <- dashboardPage(
                  side = "right",
                  width = 8,
             tabPanel(title = "Process Indicators", value = "processData",
-              fluidRow()
+              DT::dataTableOutput("indicatorsDataTable")
             ),
-            tabPanel(title = "Check Data",
-                     value = "checkData",
-              fluidRow()
-            ),
-            tabPanel(title = "Coverage Data", value = "coverageData",
-              fluidRow(
-                conditionalPanel(condition = "input.inputDataRaw2.length > 0",
-                  box(title = NULL,
-                      width = 12,
-                      status = "danger",
-                      DT::dataTableOutput("surveyDataTable")
-                  )
-                )
-              )
+            tabPanel(title = "Survey Dataset", value = "surveyData",
+              #uiOutput("surveyDataDescription"),
+              #br(),
+              #hr(),
+              #br(),
+              DT::dataTableOutput("surveyDataTable")
             ),
             tabPanel(title = "PSU Dataset", value = "psuData",
-              fluidRow(
-                conditionalPanel(condition = "input.inputDataPSU.length > 0",
-                  box(title = NULL, width = 12, status = "danger",
-                    uiOutput("psuDataDescription"),
-                    hr(),
-                    DT::dataTableOutput("psuDataTable")
-                  )
-                )
-              )
+              #uiOutput("psuDataDescription"),
+              #br(),
+              #hr(),
+              #br(),
+              DT::dataTableOutput("psuDataTable")
             )
           )
         )
