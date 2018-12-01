@@ -5,9 +5,9 @@
 #' Create older people indicators dataframe for demography and situation from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
-#' @section Indicators:
+#' @section Indicators: Demography and situation
 #'
-#' \strong{Demographic}
+#' \strong{Demography}
 #' \describe{
 #' \item{\code{psu}}{Primary sampling unit}
 #' \item{\code{resp1}}{Respondent is SUBJECT}
@@ -118,7 +118,7 @@ create_op_demo_males <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of male older people indicators on demography and
+#' @return A dataframe of female older people indicators on demography and
 #'     situation
 #'
 #' @examples
@@ -145,8 +145,7 @@ create_op_demo_females <- function(svy) {
 #' Create older people indicators for food intake from survey data collected
 #' using the standard RAM-OP questionnaire
 #'
-#' @section Indicators
-#' \strong{Dietary intake indicators}
+#' @section Indicators: Dietary intake indicators
 #'
 #' These dietary intake indicators have been purpose-built for older people but
 #' the basic approach used is described in:
@@ -334,7 +333,7 @@ create_op_food_males <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of male older people indicators on food intake
+#' @return A dataframe of female older people indicators on food intake
 #'
 #' @examples
 #'
@@ -360,8 +359,7 @@ create_op_food_females <- function(svy) {
 #' Create older people indicators for severe food insecurity from survey data
 #' collected using the standard RAM-OP questionnaire
 #'
-#' @section Indicators
-#' \strong{Household Hunger Scale (HHS)}
+#' @section Indicators: Household Hunger Scale (HHS)
 #'
 #' The HHS is described in:
 #'
@@ -447,7 +445,7 @@ create_op_hunger_males <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of male older people indicators on household hunger
+#' @return A dataframe of female older people indicators on household hunger
 #'
 #' @examples
 #'
@@ -464,6 +462,197 @@ create_op_hunger_females <- function(svy) {
   food.indicators.FEMALES <- subset(create_op_hunger(svy = svy), sex2 == 1)
   return(food.indicators.FEMALES)
 }
+
+
+################################################################################
+#
+#' create_op_adl
+#'
+#' Create older people indicators dataframe on adl from survey data
+#' collected using the standard RAM-OP questionnaire
+#'
+#' @section Indicators: Katz "Index of Independence in Activities of Daily Living" (ADL) score
+#'
+#' The Katz ADL score is described in:
+#'
+#' \cite{Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
+#' of illness in the aged. The Index of ADL: a standardized measure of
+#' biological and psychosocial function. JAMA, 1963, 185(12):914-9
+#' \url{doi:10.1001/jama.1963.03060120024016}}
+#'
+#' \cite{Katz S, Down TD, Cash HR, Grotz, RC (1970). Progress in the development
+#' of the index of ADL. The Gerontologist, 10(1), 20-30
+#' \url{doi:10.1093/geront/10.4_Part_1.274}}
+#'
+#' \cite{Katz S (1983). Assessing self-maintenance: Activities of daily living,
+#' mobility and instrumental activities of daily living. JAGS, 31(12),
+#' 721-726 \url{doi:10.1111/j.1532-5415.1983.tb03391.x}}
+#'
+#' \describe{
+#' \item{\code{ADL01}}{Bathing}
+#' \item{\code{ADL02}}{Dressing}
+#' \item{\code{ADL03}}{Toileting}
+#' \item{\code{ADL04}}{Transferring (mobility)}
+#' \item{\code{ADL05}}{Continence}
+#' \item{\code{ADL06}}{Feeding}
+#' \item{\code{scoreADL}}{ADL Score}
+#' \item{\code{classADL1}}{Severity of dependence 1}
+#' \item{\code{classADL2}}{Severity of dependence 2}
+#' \item{\code{classADL3}}{Severity of dependence 3}
+#' \item{\code{hasHelp}}{Have someone to help with everyday activities}
+#' \item{\code{unmetNeed}}{Need help but has no helper}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on adl
+#'
+#' @examples
+#'
+#' # Create adl indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_adl(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_adl <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Katz "Index of Independence in Activities of Daily Living" (ADL) score
+  #
+  #  Recode ADL (activities of daily living) score data
+  #
+  ADL01 <- bbw::recode(svy$a1, "2=1; else=0")    # Bathing
+  ADL02 <- bbw::recode(svy$a2, "2=1; else=0")    # Dressing
+  ADL03 <- bbw::recode(svy$a3, "2=1; else=0")    # Toileting
+  ADL04 <- bbw::recode(svy$a4, "2=1; else=0")    # Transferring (mobility)
+  ADL05 <- bbw::recode(svy$a5, "2=1; else=0")    # Continence
+  ADL06 <- bbw::recode(svy$a6, "2=1; else=0")    # Feeding
+  #
+  #  Create ADL score (items summed over all six activities / dimensions)
+  #
+  scoreADL <- ADL01 + ADL02 + ADL03 + ADL04 + ADL05 + ADL06
+  #
+  #  Severity of dependence (from Katz ADL score)
+  #
+  classADL1 <- bbw::recode(scoreADL, "5:6=1; else=0")
+  classADL2 <- bbw::recode(scoreADL, "3:4=1; else=0")
+  classADL3 <- bbw::recode(scoreADL, "0:2=1; else=0")
+  #
+  #  Does the subject have someone to help with everyday activities?
+  #
+  hasHelp <- bbw::recode(svy$a7, "1=1; else=0")
+  #
+  #  Does the subject need help but has no helper?
+  #
+  #  Note : Denominator is entire sample so the indicator is the proportion of
+  #         the population with unmet ADl help needs
+  #
+  unmetNeed <- ifelse(scoreADL < 6 & hasHelp == 0, 1, 0)
+  #
+  #  K6 : Short form psychological distress score
+  #
+  #  Recode DON'T KNOW, REFUSED, NA and MISSING values to 5 (NONE)
+  #
+  svy$k6a <- bbw::recode(svy$k6a, "6:9=5")
+  svy$k6b <- bbw::recode(svy$k6b, "6:9=5")
+  svy$k6c <- bbw::recode(svy$k6c, "6:9=5")
+  svy$k6d <- bbw::recode(svy$k6d, "6:9=5")
+  svy$k6e <- bbw::recode(svy$k6e, "6:9=5")
+  svy$k6f <- bbw::recode(svy$k6f, "6:9=5")
+  #
+  #  Reverse coding & create K6 score (i.e. as the sum of individual item scores)
+  #
+  svy$k6a <- 5 - svy$k6a
+  svy$k6b <- 5 - svy$k6b
+  svy$k6c <- 5 - svy$k6d
+  svy$k6d <- 5 - svy$k6d
+  svy$k6e <- 5 - svy$k6e
+  svy$k6f <- 5 - svy$k6f
+  K6 <- svy$k6a + svy$k6b + svy$k6c + svy$k6d + svy$k6e + svy$k6f
+  #
+  #  Apply case-definition for serious psychological distress(i.e. K6 > 12)
+  #
+  K6Case <- bbw::recode(K6, "0:12=0; 13:hi=1")
+  #
+  adl.indicators.ALL <- data.frame(psu, sex1, sex2,
+                                          ADL01, ADL02, ADL03, ADL04, ADL05, ADL06, scoreADL,
+                                          classADL1, classADL2, classADL3, hasHelp, unmetNeed,
+                                          K6, K6Case)
+  #
+  return(adl.indicators.ALL)
+}
+
+################################################################################
+#
+#' create_op_adl__males
+#'
+#' Create male older people indicators dataframe for adl
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on adl
+#'
+#' @examples
+#'
+#' # Create disablity indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_adl_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_adl_males <- function(svy) {
+  food.indicators.MALES <- subset(create_op_adl(svy = svy), sex1 == 1)
+  return(food.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_adl_females
+#'
+#' Create female older people indicators dataframe for adl
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on adl
+#'
+#' @examples
+#'
+#' # Create adl indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_adl_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_adl_females <- function(svy) {
+  food.indicators.FEMALES <- subset(create_op_adl(svy = svy), sex2 == 1)
+  return(food.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_
+#'
+#'
+#
+################################################################################
 
 ################################################################################
 #
