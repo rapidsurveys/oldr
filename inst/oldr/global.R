@@ -33,6 +33,7 @@ if(!require(leaflet)) install.packages("leaflet")
 if(!require(ggmap)) install.packages("ggmap")
 if(!require(DT)) install.packages("DT")
 
+if(!require(oldr)) install_github("rapidsurveys/oldr")
 if(!require(spatialsampler)) install_github("validmeasures/spatialsampler")
 if(!require(odkr)) install_github("validmeasures/odkr")
 if(!require(sampsizer)) install_github("validmeasures/sampsizer")
