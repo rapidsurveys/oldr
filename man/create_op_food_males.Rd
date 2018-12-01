@@ -10,8 +10,7 @@ create_op_food_males(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on demography and
-    situation
+A dataframe of male older people indicators on food intake
 }
 \description{
 Create male older people indicators dataframe for food intake
