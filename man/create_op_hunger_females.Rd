@@ -10,7 +10,7 @@ create_op_hunger_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on household hunger
+A dataframe of female older people indicators on household hunger
 }
 \description{
 Create female older people indicators dataframe for household hunger

@@ -10,7 +10,7 @@ create_op_demo_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on demography and
+A dataframe of female older people indicators on demography and
     situation
 }
 \description{

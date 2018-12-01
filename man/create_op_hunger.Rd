@@ -16,6 +16,23 @@ A dataframe of older people indicators on housedhold hunger
 Create older people indicators for severe food insecurity from survey data
 collected using the standard RAM-OP questionnaire
 }
+\section{Indicators}{
+ Household Hunger Scale (HHS)
+
+The HHS is described in:
+
+\cite{Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
+Scale: Indicator Definition and Measurement Guide. Washington DC,
+FANTA-2 Bridge, FHI 360
+\url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}}
+
+\describe{
+\item{\code{HHS1}}{Little or no hunger in household}
+\item{\code{HHS2}}{Moderate hunger in household}
+\item{\code{HHS3}}{Severe hunger in household}
+}
+}
+
 \examples{
 # Create household hunger indicators dataset from RAM-OP survey data
 # collected from Addis Ababa, Ethiopia

@@ -17,9 +17,9 @@ Create older people indicators dataframe for demography and situation from
 survey data collected using the standard RAM-OP questionnaire
 }
 \section{Indicators}{
+ Demography and situation
 
-
-\strong{Demographic}
+\strong{Demography}
 \describe{
 \item{\code{psu}}{Primary sampling unit}
 \item{\code{resp1}}{Respondent is SUBJECT}
