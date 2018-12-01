@@ -87,7 +87,7 @@ ui <- dashboardPage(
       tabItem(tabName = "design",
         fluidRow(
           conditionalPanel(condition = "input.design == 'stage1a'",
-            box(title = "Stage 1 sampling parameters",
+            box(title = "Stage 1 map-based sampling parameters",
               solidHeader = TRUE,
               status = "danger",
               width = 4,
@@ -154,7 +154,7 @@ ui <- dashboardPage(
                                lib = "font-awesome",
                                class = "fa-lg")
                   ),
-                  downloadButton(outputId = "samplingListDownload",
+                  downloadButton(outputId = "samplingListDownload1",
                                  label = "",
                                  icon = icon(name = "download",
                                  lib = "font-awesome",
@@ -165,7 +165,7 @@ ui <- dashboardPage(
             )
           ),
           conditionalPanel(condition = "input.design == 'stage1b'",
-            box(title = "Stage 2 sampling parameters",
+            box(title = "Stage 1 list-based sampling parameters",
               solidHeader = TRUE,
               status = "danger",
               width = 4,
@@ -175,6 +175,31 @@ ui <- dashboardPage(
                         accept = c("text/csv",
                                    "text/comma-separated-values,text/plain",
                                    ".csv")
+              ),
+              selectInput(inputId = "sortVariable",
+                          label = "Sort village data by",
+                          choices = c("Select variable to sort list" = ""),
+                          selected = ""),
+              br(),
+              conditionalPanel(condition = "input.sortVariable",
+                actionButton(inputId = "mapSamplingList",
+                             label = "",
+                             icon = icon(name = "th",
+                                         lib = "font-awesome",
+                                         class = "fa-lg")
+                ),
+                actionButton(inputId = "mapSamplingListReset",
+                             label = "",
+                             icon = icon(name = "refresh",
+                                         lib = "font-awesome",
+                                         class = "fa-lg")
+                ),
+                downloadButton(outputId = "samplingListDownload2",
+                               label = "",
+                               icon = icon(name = "download",
+                                           lib = "font-awesome",
+                                           class = "fa-lg")
+                )
               )
             )
           ),
@@ -203,17 +228,29 @@ ui <- dashboardPage(
             tabPanel(title = "Stage 1 list-based", value = "stage1b",
               fluidRow(
                 box(title = "Stage 1 list-based sampling",
-                    solidHeader = FALSE,
+                  solidHeader = FALSE,
+                  status = "danger",
+                  width = 12,
+                  DT::dataTableOutput("settlementsTable2")
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.mapSamplingList > 0",
+                  box(title = "Stage 1 sample list",
+                    solidHeader = TRUE,
                     status = "danger",
-                    width = 12)
+                    width = 12,
+                    DT::dataTableOutput("mapSamplingTable2")
+                  )
+                )
               )
             ),
             tabPanel(title = "Stage 1 Map-based", value = "stage1a",
               fluidRow(
                 box(title = "Stage 1 map-based sampling",
-                    solidHeader = FALSE,
-                    status = "danger",
-                    width = 12,
+                  solidHeader = FALSE,
+                  status = "danger",
+                  width = 12,
                   leafletOutput("mapSampling", height = 500)
                 )
               ),
@@ -223,7 +260,7 @@ ui <- dashboardPage(
                       solidHeader = TRUE,
                       status = "danger",
                       width = 12,
-                      DT::dataTableOutput("mapSamplingTable")
+                      DT::dataTableOutput("mapSamplingTable1")
                   )
                 )
               )
@@ -235,19 +272,24 @@ ui <- dashboardPage(
       # Body output when 'collect' menu is selected
       #
       tabItem(tabName = "collect",
-        tabBox(selected = "papi",
-               title = "Collect",
-               width = 12,
-               side = "right",
+        tabBox(selected = "questionnaire",
+          title = "Collect",
+          width = 12,
+          side = "right",
           tabPanel(title = "Open Data Kit",
-                   value = "odk",
+            value = "odk",
             h4("Digital data collection using Open Data Kit"),
             uiOutput("collectOdk")
           ),
-          tabPanel(title = "Pen and paper",
-                   value = "papi",
-            h4("Pen and Paper Interviews"),
-            uiOutput("collectPapi")
+          tabPanel(title = "EpiData",
+            value = "epidata",
+            h4("EpiData"),
+            uiOutput("collectEpiData")
+          ),
+          tabPanel(title = "Questionnaire",
+            value = "questionnaire",
+            h4("The RAM-OP Questionnaire"),
+            uiOutput("questionnaireOP")
           )
         )
       ),
@@ -258,9 +300,9 @@ ui <- dashboardPage(
         fluidRow(
           conditionalPanel(condition = "input.process == 'processData'",
             box(title = "Indicators",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4,
+              solidHeader = TRUE,
+              status = "danger",
+              width = 4,
               checkboxGroupInput(inputId = "inputIndicators",
                                  label = "Which indicators are to process?",
                                  choices = c("IMAM coverage",
@@ -344,63 +386,22 @@ ui <- dashboardPage(
               )
             )
           ),
-          conditionalPanel(condition = "input.process == 'villageData'",
-            box(title = "Input Village Data",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4,
-              radioButtons(inputId = "inputDataType1",
-                           label = "How will village data be inputted?",
-                           choices = c("Upload data file" = "upload",
-                                       "Get data from ODK server" = "odk")),
-              br(),
-              conditionalPanel(condition = "input.inputDataType1 == 'upload'",
-                fileInput(inputId = "inputDataRaw1",
-                          label = "Upload raw village data to process",
-                          accept = c("text/csv",
-                                     "text/comma-separated-values,text/plain",
-                                     ".csv"))
-              ),
-              conditionalPanel(condition = "input.inputDataType1 == 'odk'",
-                radioButtons(inputId = "inputOdkData1",
-                             label = "Pull data from ODK remote or local?",
-                             choices = c(Remote = "remote", Local = "local")),
-                br(),
-                conditionalPanel(condition = "input.inputOdkData1 == 'remote'",
-                  textInput(inputId = "inputOdkUrl1",
-                            label = "Remote URL",
-                            placeholder = "https://ona.io/cadnihead"),
-                  textInput(inputId = "inputOdkUsername1",
-                            label = "Username",
-                            value = "cadnihead"),
-                  textInput(inputId = "inputOdkPassword1",
-                            label = "Password",
-                            value = "kEv-hAB-Arb-6Cn"),
-                  textInput(inputId = "inputOdkFormId1a",
-                            label = "Form ID",
-                            value = "liberiaVillageForm")
-                ),
-                conditionalPanel(condition = "input.inputOdkData1 == 'local'",
-                  textInput(inputId = "inputOdkDirectory1",
-                            label = "Where is the local ODK directory located?",
-                            value = getwd()),
-                  textInput(inputId = "inputOdkFormId1b",
-                            label = "Form ID",
-                            value = "liberiaVillageForm")
-                ),
-                conditionalPanel(condition = "input.inputOdkFormId1a != ' ' | input.inputOdkFormId1b != ' '",
-                  actionButton(inputId = "inputDataAction1",
-                               label = "Pull data",
-                               icon = icon(name = "arrow-down",
-                                           lib = "font-awesome",
-                                           class = "fa-lg"))
-                )
-              )
+          conditionalPanel(condition = "input.process == 'psuData'",
+            box(title = "PSU Dataset",
+              solidHeader = TRUE,
+              status = "danger",
+              width = 4,
+              fileInput(inputId = "inputDataPSU",
+                        buttonLabel = "Upload",
+                        label = "Upload PSU dataset",
+                        accept = c("text/csv",
+                                   "text/comma-separated-values,text/plain",
+                                   ".csv"))
             )
           ),
           tabBox(title = "Process",
                  id = "process",
-                 selected = "villageData",
+                 selected = "psuData",
                  side = "right",
                  width = 8,
             tabPanel(title = "Process Indicators", value = "processData",
@@ -421,11 +422,13 @@ ui <- dashboardPage(
                 )
               )
             ),
-            tabPanel(title = "Village Data", value = "villageData",
+            tabPanel(title = "PSU Dataset", value = "psuData",
               fluidRow(
-                conditionalPanel(condition = "input.inputDataRaw1.length > 0",
+                conditionalPanel(condition = "input.inputDataPSU.length > 0",
                   box(title = NULL, width = 12, status = "danger",
-                      DT::dataTableOutput("villageDataTable")
+                    uiOutput("psuDataDescription"),
+                    hr(),
+                    DT::dataTableOutput("psuDataTable")
                   )
                 )
               )

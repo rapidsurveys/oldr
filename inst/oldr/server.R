@@ -197,7 +197,51 @@ server <- function(input, output, session) {
   #
   #
   #
-
+  output$settlementsTable2 <- DT::renderDataTable(
+    expr = settlements2(),
+    options = list(scrollX = TRUE)
+  )
+  #
+  # Select sorting variable
+  #
+  observeEvent(input$settlementsData2, {
+    updateSelectInput(session,
+                      inputId = "sortVariable",
+                      label = "Sort village data by",
+                      choices = c("Select variable to sort list" = "",
+                                  names(settlements2())),
+                      selected = "")
+  })
+  #
+  # Sampling using list
+  #
+  observeEvent(input$mapSamplingList, {
+    samplingInterval <- floor(nrow(settlements2()) / 16)
+    randomStart <- sample(x = 1:samplingInterval, size = 1)
+    selectRows <- seq(from = randomStart, to = nrow(settlements2()), by = samplingInterval)
+    #
+    #
+    #
+    mapSamplingSettlements <- settlements2()[order(settlements2()[ , input$sortVariable]), ][selectRows, ]
+    #
+    #
+    #
+    output$samplingListDownload2 <- downloadHandler(
+      filename = function() {
+        "samplingList.csv"
+      },
+      content = function(file) {
+        write.csv(mapSamplingSettlements, file)
+      }
+    )
+    #
+    # Output data table
+    #
+    output$mapSamplingTable2 <- DT::renderDataTable(
+      expr = mapSamplingSettlements,
+      options = list(scrollX = TRUE)
+    )
+  })
   #
   # Plot country sampling grid
   #
@@ -233,7 +277,7 @@ server <- function(input, output, session) {
     #
     #
     #
-    output$samplingListDownloadCountry <- downloadHandler(
+    output$samplingListDownload <- downloadHandler(
       filename = function() {
         "samplingList.csv"
       },
@@ -244,9 +288,154 @@ server <- function(input, output, session) {
     #
     # Output data table
     #
-    output$mapSamplingTable <- DT::renderDataTable(
+    output$mapSamplingTable1 <- DT::renderDataTable(
       expr = mapSamplingSettlements,
       options = list(scrollX = TRUE)
     )
   })
+  #
+  ##############################################################################
+  #
+  # Collect
+  #
+  ##############################################################################
+  #
+  # The RAM-OP Questionnaire
+  #
+  output$questionnaireOP <- renderUI({
+    HTML("
+      <p>The entire RAM-OP questionnaire is presented here. This questionnaire
+         is composed of many tested and validated components. The order of the
+         questions and the format of the questionnaire have been tested in
+         several settings (Chad, Dadaab Camps, South Sudan, Ethiopia, and
+         Tanzania) over a period of three years. It is strongly recommended
+         that you do not change the questionnaire, other than translating it
+         into a language other than English and necessary localisation (i.e.
+         adapting the questions to meet the language, cultural, and other
+         requirements of a specific target population in order to ensure that
+         the words, names, terms, and concepts used are culturally appropriate
+         and understandable to them), unless you are very sure of what you are
+         doing. Modifying the questionnaire may have one or more of the
+         following consequences:</p>
+      &nbsp;
+      <ul>
+        <li><strong>Modifying the order of the questions or adding
+            questions: </strong>The links with the data entry, data checking,
+            and data analysis software will be broken. You will have to modify
+            the software to accommodate your changes.</li>
+        <li><strong>Modifying the variable names: </strong>The links with the
+            data entry, data checking, and data analysis software will be
+            broken. You will have to modify the software to accommodate your
+            changes.</li>
+        <li><strong>Modifying content or the phrasing of questions: </strong>
+            All questions have been tested and are formulated for accuracy and
+            reliability (precision). Modifying them may lead to loss of acuracy
+            (bias) and precision.</li>
+      </ul>
+      &nbsp;
+      <p>When translating the questionnaire you should check if validated
+         question sets for each indicator module are already available in your
+         local language. This is likely to be the case for the food intake,
+         severe food insecurity, activities of daily living, mental health and
+         well-being, dementia, water / sanitation / hygiene, and visual
+         impairment indicator modules. There may also be local language training
+         modules and guidelines available for these modules.</p>
+
+      <p>Localisation is recommended for:</p>
+      &nbsp;
+      <ul>
+      <li><strong>Food groups: </strong>Remove inappropriate foodstuffs and
+          give examples of local foodstuffs.</li>
+      <li><strong>Income sources: </strong>Review income types and income
+          categories.</li>
+      </ul>
+      &nbsp;
+      <p>The question numbers used on the questionnaire are the names of
+         variables used in the RAM-OP data entry, data checking, and data
+         analysis software. Leaving these as they are will be helpful if you
+         intend to use the RAM-OP data-entry and data-analysis software.</p>
+
+      <p>The questionnaire can be downloaded (in ODT and PDF format) from
+         <a href='http://www.brixtonhealth.com/qesRAMOP.zip' target='_blank'>http://www.brixtonhealth.com/qesRAMOP.zip</a>
+    ")
+  })
+  #
+  # EpiData
+  #
+  output$collectEpiData <- renderUI({
+    HTML("
+      <p><strong><a href='http://www.epidata.dk' target='_blank'>EpiData Entry</a></strong> is used
+         for simple or programmed data entry and data documentation. Entry
+         handles simple forms or related systems optimised documentation and
+         error detection features, e.g. double entry verification, list of ID
+         numbers in several files, codebook overview of data, date added to
+         backup and encryption procedures.</p>
+      &nbsp;
+      <h5>Download EpiData</h5>
+      <p><strong><a href='http://www.epidata.dk' target='_blank'>EpiData Entry</a></strong> can be
+         downloaded from <a href='http://www.epidata.dk/php/downloadc.php?file=setup_epidata.exe'>here</a>.</p>
+
+      <p>EpiData software installation can be as simple as copying the program files.
+         For example, it can be run from a USB pin (memory stick) and is small (<2.5mb).</p>
+      &nbsp;
+      <h5>Download RAM-OP EpiData forms</h5>
+      <p>The RAM-OP EpiData forms can be accessed in both English and French:</p>
+      &nbsp;
+      <ul>
+        <li><a href='https://www.dropbox.com/s/2kudlxjqcqn8wph/RAMOP%20data%20entry%20files%20%28English%29.zip?dl=0'>English</a></li>
+        <li><a href='https://www.dropbox.com/s/c1ox1m8zb7ebjml/RAMOP%20data%20entry%20files%20%28French%29.zip?dl=0'>French</a></li>
+      </ul>
+    ")
+  })
+  #
+  # Open Data Kit
+  #
+  output$collectOdk <- renderUI({
+    HTML("
+      <p><strong>RAM-OP</strong> can be implemented using the
+         <a target='_blank' href='https://opendatakit.org'><strong>Open Data Kit</strong></a>
+         digital data collection system. The study instrument has been encoded
+         into the electronic data entry system platform.</p>
+
+      <p>The <strong>XLSForm</strong> and <strong>XForm</strong> formats for use
+         in digital data collection and instructions on how to use them can be
+         obtained <a target='_blank' href='https://github.com/rapidsurveys/ramOPodk'><strong>here</strong></a>.</p>
+    ")
+  })
+  #
+  ##############################################################################
+  #
+  # Process
+  #
+  ##############################################################################
+  #
+  # PSU dataset
+  #
+  psuDataset <- reactive({
+    inputFile <- input$inputDataPSU
+    if(is.null(inputFile)) {
+      return(NULL)
+    }
+    read.csv(file = inputFile$datapath, header = TRUE, sep = ",")
+  })
+  #
+  #
+  #
+  output$psuDataDescription <- renderUI({
+    HTML("
+      <p>This is a short and narrow file with one record per primary sampling unit (PSU) and just two variables:</p>
+      &nbsp;
+      <ul>
+        <li><strong>psu: </strong>The PSU identifier. This <strong>must</strong> use the same coding system used to identify PSUs that is used in the main RAM-OP dataset.</li>
+        <li><strong>pop: </strong>The population of the PSU.</li>
+      </ul>
+    ")
+  })
+  #
+  # Output psu dataset table
+  #
+  output$psuDataTable<- DT::renderDataTable(
+    expr = psuDataset(),
+    options = list(scrollX = TRUE)
+  )
 }
