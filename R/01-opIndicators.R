@@ -1,6 +1,6 @@
 ################################################################################
 #
-#' create_op_demo_all
+#' create_op_demo
 #'
 #' Create older people indicators dataframe for demography and situation from
 #' survey data collected using the standard RAM-OP questionnaire
@@ -39,14 +39,14 @@
 #'
 #' # Create demography and situation indicators dataset from RAM-OP survey data
 #' # collected from Addis Ababa, Ethiopia
-#' create_op_demo_all(testSVY)
+#' create_op_demo(testSVY)
 #'
 #' @export
 #'
 #
 ################################################################################
 
-create_op_demo_all <- function(svy) {
+create_op_demo <- function(svy) {
   ##
   psu <- svy$psu
   ##
@@ -104,7 +104,7 @@ create_op_demo_all <- function(svy) {
 ################################################################################
 
 create_op_demo_males <- function(svy) {
-  demo.indicators.MALES <- subset(create_op_demo_all(svy = svy), sex1 == 1)
+  demo.indicators.MALES <- subset(create_op_demo(svy = svy), sex1 == 1)
   return(demo.indicators.MALES)
 }
 
@@ -133,11 +133,283 @@ create_op_demo_males <- function(svy) {
 ################################################################################
 
 create_op_demo_females <- function(svy) {
-  demo.indicators.FEMALES <- subset(create_op_demo_all(svy = svy), sex2 == 1)
+  demo.indicators.FEMALES <- subset(create_op_demo(svy = svy), sex2 == 1)
   return(demo.indicators.FEMALES)
 }
 
 
+################################################################################
+#
+#' create_op_food
+#'
+#' Create older people indicators for food intake from survey data collected
+#' using the standard RAM-OP questionnaire
+#'
+#' @section Indicators
+#' \strong{Dietary intake indicators}
+#'
+#' These dietary intake indicators have been purpose-built for older people but
+#' the basic approach used is described in:
+#'
+#' \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
+#' and Individual Dietary Diversity. Rome, FAO
+#' \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+#'
+#' and extended to include indicators of probable adequate intake of a number of
+#' nutrients / micronutrients.
+#'
+#' \describe{
+#' \item{\code{MF}}{Meal frequenct}
+#' \item{\code{DDS}}{Dietary Diversity Score (count of 11 groups)}
+#' \item{\code{FG01}}{Cereals}
+#' \item{\code{FG02}}{Roots and tubers}
+#' \item{\code{FG03}}{Fruits and vegetables}
+#' \item{\code{FG04}}{All meat}
+#' \item{\code{FG05}}{Eggs}
+#' \item{\code{FG06}}{Fish}
+#' \item{\code{FG07}}{Legumes, nuts and seeds}
+#' \item{\code{FG08}}{Milk and milk products}
+#' \item{\code{FG09}}{Fats}
+#' \item{\code{FG10}}{Sugar}
+#' \item{\code{FG11}}{Other}
+#' \item{\code{proteinRich}}{Protein rich foods}
+#' \item{\code{pProtein}}{Protein rich plant sources of protein}
+#' \item{\code{aProtein}}{Protein rich animal sources of protein}
+#' \item{\code{pVitA}}{Plant sources of vitamin A}
+#' \item{\code{aVitA}}{Animal sources of vitamin A}
+#' \item{\code{xVitA}}{Any source of vitamin A}
+#' \item{\code{ironRich}}{Iron rich foods}
+#' \item{\code{caRich}}{Calcium rich foods}
+#' \item{\code{znRich}}{Zinc rich foods}
+#' \item{\code{vitB1}}{Vitamin B1-rich foods}
+#' \item{\code{vitB2}}{Vitamin B2-rich foods}
+#' \item{\code{vitB3}}{Vitamin B3-rich foods}
+#' \item{\code{vitB6}}{Vitamin B6-rich foods}
+#' \item{\code{vitB12}}{Vitamin B12-rich foods}
+#' \item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionniare
+#'
+#' @return A dataframe of older people indicators on food intake
+#'
+#' @examples
+#'
+#' # Create food intake indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_food(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_food <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Dietary intake indicators
+  #
+  #  Meal frequency
+  #
+  MF <- bbw::recode(svy$f1, "9=0; NA=0")
+  #
+  #  Recode dietary diversity data
+  #
+  svy$f2a <- bbw::recode(svy$f2a, "1=1; else=0")
+  svy$f2b <- bbw::recode(svy$f2b, "1=1; else=0")
+  svy$f2c <- bbw::recode(svy$f2c, "1=1; else=0")
+  svy$f2d <- bbw::recode(svy$f2d, "1=1; else=0")
+  svy$f2e <- bbw::recode(svy$f2e, "1=1; else=0")
+  svy$f2f <- bbw::recode(svy$f2f, "1=1; else=0")
+  svy$f2g <- bbw::recode(svy$f2g, "1=1; else=0")
+  svy$f2h <- bbw::recode(svy$f2h, "1=1; else=0")
+  svy$f2i <- bbw::recode(svy$f2i, "1=1; else=0")
+  svy$f2j <- bbw::recode(svy$f2j, "1=1; else=0")
+  svy$f2k <- bbw::recode(svy$f2k, "1=1; else=0")
+  svy$f2l <- bbw::recode(svy$f2l, "1=1; else=0")
+  svy$f2m <- bbw::recode(svy$f2m, "1=1; else=0")
+  svy$f2n <- bbw::recode(svy$f2n, "1=1; else=0")
+  svy$f2o <- bbw::recode(svy$f2o, "1=1; else=0")
+  svy$f2p <- bbw::recode(svy$f2p, "1=1; else=0")
+  svy$f2q <- bbw::recode(svy$f2q, "1=1; else=0")
+  svy$f2r <- bbw::recode(svy$f2r, "1=1; else=0")
+  svy$f2s <- bbw::recode(svy$f2s, "1=1; else=0")
+  #
+  #  Dietary diversity
+  #
+  FG01 <- svy$f2c
+  FG02 <- svy$f2g
+  FG03 <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2i == 1, 1, 0)
+  FG04 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q == 1, 1, 0)
+  FG05 <- svy$f2n
+  FG06 <- svy$f2l
+  FG07 <- svy$f2h
+  FG08 <- ifelse(svy$f2a == 1 | svy$f2m == 1, 1, 0)
+  FG09 <- ifelse(svy$f2e == 1 | svy$f2o == 1, 1, 0)
+  FG10 <- svy$f2r
+  FG11 <- ifelse(svy$f2b == 1 | svy$f2p == 1 | svy$f2s == 1, 1, 0)
+  #
+  # Sum food groups to 'DDS'
+  #
+  DDS <- FG01 + FG02 + FG03 + FG04 + FG05 + FG06 + FG07 + FG08 + FG09 + FG10 + FG11
+  #
+  #  Protein rich foods in diet from aminal, plant, and all sources
+  #
+  aProtein <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q ==1 | svy$f2n == 1 | svy$f2a == 1 | svy$f2m == 1, 1, 0)
+  pProtein <- ifelse(svy$f2h == 1 | svy$f2p == 1, 1, 0)
+  proteinRich <- ifelse(aProtein == 1 | pProtein == 1, 1, 0)
+  #
+  #  Micronutrient intake (vitamin A, iron, calcium, zinc)
+  #
+  pVitA    <- ifelse(svy$f2d == 1 | svy$f2e == 1 | svy$f2f == 1, 1, 0)
+  aVitA    <- ifelse(svy$f2a == 1 | svy$f2j == 1 | svy$f2m == 1 | svy$f2n == 1, 1, 0)
+  xVitA    <- ifelse(pVitA == 1 | aVitA == 1, 1, 0)
+  ironRich <- ifelse(svy$f2f == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
+  caRich   <- ifelse(svy$f2a == 1 | svy$f2m == 1, 1, 0)
+  znRich   <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2p == 1 | svy$f2q == 1, 1, 0)
+  #
+  #  Micronutrient intake (B vitamins)
+  #
+  vitB1  <- ifelse(svy$f2a == 1 | svy$f2e == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1 | svy$f2p == 1, 1, 0)
+  vitB2  <- ifelse(svy$f2a == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1, 1, 0)
+  vitB3  <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
+  vitB6  <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2i == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
+  vitB12 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1, 1, 0)
+  vitBsources <- vitB1 + vitB2 + vitB3 + vitB6 + vitB12
+  vitBcomplex <- ifelse(vitBsources == 5, 1, 0)
+  ##
+  food.indicators.ALL <- data.frame(psu, sex1, sex2, MF, DDS,
+                                    FG01, FG02, FG03, FG04, FG05, FG06,
+                                    FG07, FG08, FG09, FG10, FG11,
+                                    proteinRich, pProtein, aProtein,
+                                    pVitA, aVitA, xVitA,
+                                    ironRich,
+                                    caRich,
+                                    znRich,
+                                    vitB1, vitB2, vitB3, vitB6, vitB12,
+                                    vitBcomplex)
+  ##
+  return(food.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_food_males
+#'
+#' Create male older people indicators dataframe for food intake
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on demography and
+#'     situation
+#'
+#' @examples
+#'
+#' # Create food intake indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_food_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_food_males <- function(svy) {
+  food.indicators.MALES <- subset(create_op_food(svy = svy), sex1 == 1)
+  return(food.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_food_females
+#'
+#' Create female older people indicators dataframe for food intake
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on demography and
+#'     situation
+#'
+#' @examples
+#'
+#' # Create food intake indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_food_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_food_females <- function(svy) {
+  food.indicators.FEMALES <- subset(create_op_food(svy = svy), sex2 == 1)
+  return(food.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_hunger
+#'
+#' Create older people indicators for severe food insecurity from survey data
+#' collected using the standard RAM-OP questionnaire
+#'
+#' @section Indicators
+#' \strong{Household Hunger Scale (HHS)}
+#'
+#' The HHS is described in:
+#'
+#' \cite{Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
+#' Scale: Indicator Definition and Measurement Guide. Washington DC,
+#' FANTA-2 Bridge, FHI 360
+#' \url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}}
+#'
+#' \describe{
+#' \item{\code{HHS1}}{Little or no hunger in household}
+#' \item{\code{HHS2}}{Moderate hunger in household}
+#' \item{\code{HHS3}}{Severe hunger in household}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on housedhold hunger
+#'
+#' @examples
+#' # Create household hunger indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_hunger(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_hunger <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Sum components and classify hunger into three separate indicator variables
+  #
+  sumHHS <- svy$f3 + svy$f4 + svy$f5
+  HHS1 <- bbw::recode(sumHHS, "0:1=1; else=0")
+  HHS2 <- bbw::recode(sumHHS, "2:3=1; else=0")
+  HHS3 <- bbw::recode(sumHHS, "4:6=1; else=0")
+  #
+  hunger.indicators.ALL <- data.frame(psu, sex1, sex2, HHS1, HHS2, HHS3)
+  #
+  return(hunger.indicators.ALL)
+}
 
 
 ################################################################################
