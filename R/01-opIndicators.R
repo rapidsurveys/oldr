@@ -1,8 +1,150 @@
 ################################################################################
 #
+#' create_op_demo_all
+#'
+#' Create older people indicators dataframe for demography and situation from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @section Indicators:
+#'
+#' \strong{Demographic}
+#' \describe{
+#' \item{\code{psu}}{Primary sampling unit}
+#' \item{\code{resp1}}{Respondent is SUBJECT}
+#' \item{\code{resp2}}{Respondent is FAMILY CARER}
+#' \item{\code{resp3}}{Respondent is OTHER CARER}
+#' \item{\code{resp4}}{Respondent is OTHER}
+#' \item{\code{age}}{Age of respondent (years)}
+#' \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
+#' \item{\code{ageGrp2}}{Age of respondent is between 50 and 59 years}
+#' \item{\code{ageGrp3}}{Age of respondent is between 50 and 59 years}
+#' \item{\code{ageGrp4}}{Age of respondent is between 50 and 59 years}
+#' \item{\code{ageGrp5}}{Age of respondent is between 50 and 59 years}
+#' \item{\code{sex1}}{Male}
+#' \item{\code{sex2}}{Female}
+#' \item{\code{marital1}}{Marital status = SINGLE}
+#' \item{\code{marital2}}{Marital status = MARRIED}
+#' \item{\code{marital3}}{Marital status = LIVING TOGETHER}
+#' \item{\code{marital4}}{Marital status = DIVORCED}
+#' \item{\code{marital5}}{Marital status = SEPARATED}
+#' \item{\code{marital6}}{Marital status = OTHER}
+#' \item{\code{alone}}{Respondent lives alone}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on demography and situation
+#'
+#' @examples
+#'
+#' # Create demography and situation indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_demo_all(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_demo_all <- function(svy) {
+  ##
+  psu <- svy$psu
+  ##
+  resp1    <- bbw::recode(svy$d1, "1=1; 5:9=1; NA=1; else=0")
+  resp2    <- bbw::recode(svy$d1, "2=1; else=0")
+  resp3    <- bbw::recode(svy$d1, "3=1; else=0")
+  resp4    <- bbw::recode(svy$d1, "4=1; else=0")
+  age      <- bbw::recode(svy$d2, "888=NA; 999=NA")
+  ageGrp1  <- bbw::recode(age,"50:59=1; NA=NA; else=0")
+  ageGrp2  <- bbw::recode(age,"60:69=1; NA=NA; else=0")
+  ageGrp3  <- bbw::recode(age,"70:79=1; NA=NA; else=0")
+  ageGrp4  <- bbw::recode(age,"80:89=1; NA=NA; else=0")
+  ageGrp5  <- bbw::recode(age,"90:hi=1; NA=NA; else=0")
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  marital1 <- bbw::recode(svy$d4, "1=1; else=0")
+  marital2 <- bbw::recode(svy$d4, "2=1; else=0")
+  marital3 <- bbw::recode(svy$d4, "3=1; else=0")
+  marital4 <- bbw::recode(svy$d4, "4=1; else=0")
+  marital5 <- bbw::recode(svy$d4, "5=1; else=0")
+  marital6 <- bbw::recode(svy$d4, "6=1; else=0")
+  alone    <- bbw::recode(svy$d5, "1=1; else=0")
+  ##
+  demo.indicators.ALL <- data.frame(psu, resp1, resp2, resp3, resp4,
+                                    age, ageGrp1, ageGrp2, ageGrp3, ageGrp4, ageGrp5,
+                                    sex1, sex2, marital1, marital2, marital3,
+                                    marital4, marital5, marital6,
+                                    alone)
+  ##
+  return(demo.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_demo_males
+#'
+#' Create male older people indicators dataframe for demography and situation
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on demography and
+#'     situation
+#'
+#' @examples
+#'
+#' # Create demography and situation indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_demo_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_demo_males <- function(svy) {
+  demo.indicators.MALES <- subset(create_op_demo_all(svy = svy), sex1 == 1)
+  return(demo.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_demo_females
+#'
+#' Create female older people indicators dataframe for demography and situation
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on demography and
+#'     situation
+#'
+#' @examples
+#'
+#' # Create demography and situation indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_demo_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_demo_females <- function(svy) {
+  demo.indicators.FEMALES <- subset(create_op_demo_all(svy = svy), sex2 == 1)
+  return(demo.indicators.FEMALES)
+}
+
+
+
+
+################################################################################
+#
 #' createOP
 #'
-#' Create older people indicators dataframe from survey survey data collected
+#' Create older people indicators dataframe from survey data collected
 #' using the standard RAM-OP questionnaire.
 #'
 #' @section Indicators:
@@ -30,7 +172,7 @@
 #' \item{\code{marital6}}{Marital status = OTHER}
 #' \item{\code{alone}}{Respondent lives alone}
 #' }
-#' \cr
+#'
 #'
 #' \strong{Dietary intake indicators}
 #'
