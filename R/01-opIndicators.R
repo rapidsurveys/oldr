@@ -1749,6 +1749,113 @@ create_op_visual_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_misc
+#'
+#' Create older people indicators dataframe for miscellaneous indicators from
+#' survey data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Miscellaneous indicators
+#'
+#' \describe{
+#' \item{\code{chew}}{Problems chewing food}
+#' \item{\code{food}}{Anyone in HH receives a ration}
+#' \item{\code{NFRI}}{Anyone in HH received non-food relief item(s) in previous month}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people miscellaneous indicators
+#'
+#' @examples
+#'
+#' # Create miscellaneous indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_misc(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_misc <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Miscellaneous indicators
+  #
+  chew <- bbw::recode(svy$a8, "1=1; else=0")
+  food <- bbw::recode(svy$f6, "1=1; else=0")
+  NFRI <- bbw::recode(svy$f7, "1=1; else=0")
+  #
+  misc.indicators.ALL <- data.frame(psu, sex1, sex2, chew, food, NFRI)
+  #
+  return(misc.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_misc_males
+#'
+#' Create male older people indicators dataframe for miscellaneous indicators
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people miscellaneous indicators
+#'
+#' @examples
+#'
+#' # Create miscellaneous indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_misc_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_misc_males <- function(svy) {
+  misc.indicators.MALES <- subset(create_op_misc(svy = svy), sex1 == 1)
+  return(misc.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_misc_females
+#'
+#' Create female older people indicators dataframe for miscellaneous indicators
+#' from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people miscellaneous indicators
+#'
+#' @examples
+#'
+#' # Create miscellaneous indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_misc_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_misc_females <- function(svy) {
+  misc.indicators.FEMALES <- subset(create_op_misc(svy = svy), sex2 == 1)
+  return(misc.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
