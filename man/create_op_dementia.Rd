@@ -17,9 +17,7 @@ Create older people indicators dataframe for dementia from survey data
 collected using the standard RAM-OP questionnaire.
 }
 \section{Indicators}{
-
-
-\strong{Brief Community Screening Instrument for Dementia (CSID)}
+ Brief Community Screening Instrument for Dementia (CSID)
 
 The CSID dementia screening tool is described in:
 
