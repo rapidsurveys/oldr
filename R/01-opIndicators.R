@@ -1520,6 +1520,120 @@ create_op_wash_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_anthro
+#'
+#' Create older people indicators dataframe for anthropometry from survey data
+#' collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Anthropometry and screening
+#'
+#' \describe{
+#' \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
+#' \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
+#' \item{\code{screened}}{Either MUAC or oedema checked previously}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on anthropometry
+#'
+#' @examples
+#'
+#' # Create anthropometry indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_anthro(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_anthro <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Anthropometry and screening
+  #
+  #  Censor REFUSAL, NOT APPLICABLE, and MISSING values codes in MUAC and Oedema
+  #
+  MUAC <- bbw::recode(svy$as1, "777=NA; 888=NA; 999=NA")
+  oedema <- bbw::recode(svy$as3, "1=1; else=0")
+  #
+  ##############################################################################
+  #
+  #  Screening for GAM, MAM, SAM (i.e. either MUAC or oedema checked previously)
+  #
+  screened <- ifelse(svy$as2 == 1 | svy$as4 == 1, 1, 0)
+  #
+  anthro.indicators.ALL <- data.frame(psu, sex1, sex2, MUAC, oedema, screened)
+  #
+  return(anthro.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_anthro_males
+#'
+#' Create male older people indicators dataframe for anthropometry from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on anthropometry
+#'
+#' @examples
+#'
+#' # Create anthropometry indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_anthro_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_anthro_males <- function(svy) {
+  anthro.indicators.MALES <- subset(create_op_anthro(svy = svy), sex1 == 1)
+  return(anthro.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_anthro_females
+#'
+#' Create female older people indicators dataframe for anthropometry from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on anthropometry
+#'
+#' @examples
+#'
+#' # Create anthropometry indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_anthro_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_anthro_females <- function(svy) {
+  anthro.indicators.FEMALES <- subset(create_op_anthro(svy = svy), sex2 == 1)
+  return(anthro.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
