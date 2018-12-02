@@ -920,6 +920,62 @@ create_op_mental <- function(svy) {
 
 ################################################################################
 #
+#' create_op_mental_males
+#'
+#' Create male older people indicators dataframe for mental health from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on mental health
+#'
+#' @examples
+#'
+#' # Create mental health indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_mental_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_mental_males <- function(svy) {
+  mental.indicators.MALES <- subset(create_op_mental(svy = svy), sex1 == 1)
+  return(mental.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_mental_females
+#'
+#' Create female older people indicators dataframe for mental health from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on mental health
+#'
+#' @examples
+#'
+#' # Create mental health indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_mental_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_mental_females <- function(svy) {
+  mental.indicators.FEMALES <- subset(create_op_mental(svy = svy), sex2 == 1)
+  return(mental.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
