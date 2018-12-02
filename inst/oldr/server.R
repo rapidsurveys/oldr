@@ -495,8 +495,8 @@ server <- function(input, output, session) {
   #
   observeEvent(input$inputProcessAction, {
     indicators.ALL <- reactive({
-      oldr::create_op_all(svy = req(surveyDataset()),
-                          indicators = input$inputIndicators)
+      isolate(oldr::create_op_all(svy = req(surveyDataset()),
+                          indicators = input$inputIndicators))
     })
     #
     #

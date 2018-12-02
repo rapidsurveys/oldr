@@ -185,20 +185,17 @@ ui <- dashboardPage(
                 actionButton(inputId = "mapSamplingList",
                              label = "",
                              icon = icon(name = "th",
-                                         lib = "font-awesome",
-                                         class = "fa-lg")
+                                         lib = "font-awesome")
                 ),
                 actionButton(inputId = "mapSamplingListReset",
                              label = "",
                              icon = icon(name = "refresh",
-                                         lib = "font-awesome",
-                                         class = "fa-lg")
+                                         lib = "font-awesome")
                 ),
                 downloadButton(outputId = "samplingListDownload2",
                                label = "",
                                icon = icon(name = "download",
-                                           lib = "font-awesome",
-                                           class = "fa-lg")
+                                           lib = "font-awesome")
                 )
               )
             )
@@ -212,10 +209,10 @@ ui <- dashboardPage(
             )
           ),
           tabBox(selected = "stage1a",
-                 id = "design",
-                 title = "Design",
-                 width = 8,
-                 side = "right",
+            id = "design",
+            title = "Design",
+            width = 8,
+            side = "right",
             tabPanel(title = "Stage 2", value = "stage2",
               uiOutput("stage2SamplingDescription")
             ),
@@ -308,10 +305,19 @@ ui <- dashboardPage(
               ),
               hr(),
               actionButton(inputId = "inputProcessAction",
-                           label = "Process Indicators",
+                           label = "",
                            icon = icon(name = "database",
-                                       lib = "font-awesome",
-                                       class = "fa-lg")
+                                       lib = "font-awesome")
+              ),
+              actionButton(inputId = "refreshIndicatorData",
+                           label = "",
+                           icon = icon(name = "refresh",
+                                       lib = "font-awesome")
+              ),
+              actionButton(inputId = "downloadIndicatorData",
+                           label = "",
+                           icon = icon(name = "download",
+                                       lib = "font-awesome")
               )
             )
           ),
