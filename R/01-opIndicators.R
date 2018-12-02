@@ -1634,6 +1634,121 @@ create_op_anthro_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_visual
+#'
+#' Create older people indicators dataframe for visual impairment from survey
+#' data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Visual impairment by "Tumbling E" method
+#'
+#' The "Tumbling E" method is described in:
+#'
+#' \cite{Taylor HR (1978). Applying new design principles to the construction of an
+#' illiterate E Chart. Am J Optom & Physiol Optics 55:348}
+#'
+#' \describe{
+#' \item{\code{poorVA}}{Poor visual acuity (correct in < 3 of 4 tests)}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on visual impairment
+#'
+#' @examples
+#'
+#' # Create visual impairment indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_visual(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_visual <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Visual impairment by "Tumbling E" method
+  #
+  #  Create binary indicators
+  #
+  svy$va2a <- bbw::recode(svy$va2a, "1=1; else=0")
+  svy$va2b <- bbw::recode(svy$va2b, "1=1; else=0")
+  svy$va2c <- bbw::recode(svy$va2c, "1=1; else=0")
+  svy$va2d <- bbw::recode(svy$va2d, "1=1; else=0")
+  sumVA <- svy$va2a + svy$va2b + svy$va2c + svy$va2d
+  poorVA <-  ifelse(sumVA < 3, 1, 0)
+  #
+  visual.indicators.ALL <- data.frame(psu, sex1, sex2, poorVA)
+  #
+  return(visual.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_visual_males
+#'
+#' Create male older people indicators dataframe for visual impairment from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on visual impairment
+#'
+#' @examples
+#'
+#' # Create visual impairment indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_visual_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_visual_males <- function(svy) {
+  visual.indicators.MALES <- subset(create_op_visual(svy = svy), sex1 == 1)
+  return(visual.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_visual_females
+#'
+#' Create female older people indicators dataframe for visual impairment from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on visual impairment
+#'
+#' @examples
+#'
+#' # Create visual impairment indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_visual_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_visual_females <- function(svy) {
+  visual.indicators.FEMALES <- subset(create_op_visual(svy = svy), sex2 == 1)
+  return(visual.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
