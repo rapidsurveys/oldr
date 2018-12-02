@@ -503,7 +503,7 @@ server <- function(input, output, session) {
     #
     output$indicatorsDataTable <- DT::renderDataTable(
       expr = indicators.ALL(),
-      options = list(scrollX = TRUE, pageLength = 30)
+      options = list(scrollX = TRUE, pageLength = 20)
     )
   })
 }
