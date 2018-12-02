@@ -423,10 +423,13 @@ server <- function(input, output, session) {
   #
   output$psuDataDescription <- renderUI({
     HTML("
-      <p>This is a short and narrow file with one record per primary sampling unit (PSU) and just two variables:</p>
+      <p>This is a short and narrow file with one record per primary sampling
+         unit (PSU) and just two variables:</p>
       &nbsp;
       <ul>
-        <li><strong>psu: </strong>The PSU identifier. This <strong>must</strong> use the same coding system used to identify PSUs that is used in the main RAM-OP dataset.</li>
+        <li><strong>psu: </strong>The PSU identifier. This <strong>must</strong>
+            use the same coding system used to identify PSUs that is used in the
+            main RAM-OP dataset.</li>
         <li><strong>pop: </strong>The population of the PSU.</li>
       </ul>
     ")
@@ -471,22 +474,11 @@ server <- function(input, output, session) {
       <p>RAM-OP surveys collect and report on data for a broad range of
          indicators relevant to older people.</p>
 
-      <p>These indicators cover the following dimensions:</p>
-
-      <ul>
-        <li>Demography and situation</li>
-        <li>Food intake</li>
-        <li>Severe food insecurity</li>
-        <li>Disability</li>
-        <li>Activities of daily living</li>
-        <li>Mental health and well-being</li>
-        <li>Dementia</li>
-        <li>Health and health-seeking behaviour</li>
-        <li>Sources of income</li>
-        <li>Water, sanitation, and hygiene</li>
-        <li>Anthropometry and screening coverage</li>
-        <li>Visual impairment</li>
-      </ul>
+      <p>These indicators cover the following dimensions: demography and situation,
+         food intake, severe food insecurity, disability, activities of daily living,
+         mental health and well-being, dementia, health and health-seeking behaviour,
+         sources of income, water, sanitation, and hygiene, anthropometry and
+         screening coverage, and visual impairment.</p>
 
       <p>Data for a small group of miscellaneous indicators are also collected
          and reported.</p>
@@ -503,14 +495,15 @@ server <- function(input, output, session) {
   #
   observeEvent(input$inputProcessAction, {
     indicators.ALL <- reactive({
-      oldr::createOP(svy = req(surveyDataset()))
+      oldr::create_op_all(svy = req(surveyDataset()),
+                          indicators = input$inputIndicators)
     })
     #
     #
     #
     output$indicatorsDataTable <- DT::renderDataTable(
       expr = indicators.ALL(),
-      options = list(scrollX = TRUE)
+      options = list(scrollX = TRUE, pageLength = 30)
     )
   })
 }
