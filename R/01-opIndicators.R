@@ -468,8 +468,8 @@ create_op_hunger_females <- function(svy) {
 #
 #' create_op_adl
 #'
-#' Create older people indicators dataframe on adl from survey data
-#' collected using the standard RAM-OP questionnaire
+#' Create older people indicators dataframe on acitvities of daily living
+#' from survey data collected using the standard RAM-OP questionnaire
 #'
 #' @section Indicators: Katz "Index of Independence in Activities of Daily Living" (ADL) score
 #'
@@ -505,12 +505,12 @@ create_op_hunger_females <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of older people indicators on adl
+#' @return A dataframe of older people indicators on activities of daily living
 #'
 #' @examples
 #'
-#' # Create adl indicators dataset from RAM-OP survey data
-#' # collected from Addis Ababa, Ethiopia
+#' # Create activities of daily living indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
 #' create_op_adl(testSVY)
 #'
 #' @export
@@ -557,6 +557,336 @@ create_op_adl <- function(svy) {
   #
   unmetNeed <- ifelse(scoreADL < 6 & hasHelp == 0, 1, 0)
   #
+  adl.indicators.ALL <- data.frame(psu, sex1, sex2,
+                                          ADL01, ADL02, ADL03, ADL04, ADL05, ADL06, scoreADL,
+                                          classADL1, classADL2, classADL3, hasHelp, unmetNeed)
+  #
+  return(adl.indicators.ALL)
+}
+
+################################################################################
+#
+#' create_op_adl_males
+#'
+#' Create male older people indicators dataframe for activities of daily
+#' living from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on activities of daily
+#'     living
+#'
+#' @examples
+#'
+#' # Create activities of daily living indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
+#' create_op_adl_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_adl_males <- function(svy) {
+  adl.indicators.MALES <- subset(create_op_adl(svy = svy), sex1 == 1)
+  return(adl.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_adl_females
+#'
+#' Create female older people indicators dataframe for activities of daily
+#' living from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on activities of daily
+#'     living
+#'
+#' @examples
+#'
+#' # Create activities of daily living indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
+#' create_op_adl_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_adl_females <- function(svy) {
+  adl.indicators.FEMALES <- subset(create_op_adl(svy = svy), sex2 == 1)
+  return(adl.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_disability
+#'
+#' Create older people indicators dataframe on disability from survey data
+#' collected using the standard RAM-OP questionnaire
+#'
+#' @section Indicators: Washington Group on Disability
+#'
+#' See:
+#'
+#'   \url{http://www.washingtongroup-disability.com}
+#'   \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
+#'
+#' for details.
+#'
+#' \describe{
+#' \item{\code{wgVisionD0}}{Vision domain 0}
+#' \item{\code{wgVisionD1}}{Vision domain 1}
+#' \item{\code{wgVisionD2}}{Vision domain 2}
+#' \item{\code{wgVisionD3}}{Vision domain 3}
+#' \item{\code{wgHearingD0}}{Hearing domain 0}
+#' \item{\code{wgHearingD1}}{Hearing domain 1}
+#' \item{\code{wgHearingD2}}{Hearing domain 2}
+#' \item{\code{wgHearingD3}}{Hearing domain 3}
+#' \item{\code{wgMobilityD0}}{Mobility domain 0}
+#' \item{\code{wgMobilityD1}}{Mobility domain 1}
+#' \item{\code{wgMobilityD2}}{Mobility domain 2}
+#' \item{\code{wgMobilityD3}}{Mobility domain 3}
+#' \item{\code{wgRememberingD0}}{Remembering domain 0}
+#' \item{\code{wgRememberingD1}}{Remembering domain 1}
+#' \item{\code{wgRememberingD2}}{Remembering domain 2}
+#' \item{\code{wgRememberingD3}}{Remembering domain 3}
+#' \item{\code{wgSelfCareD0}}{Self-care domain 0}
+#' \item{\code{wgSelfCareD1}}{Self-care domain 1}
+#' \item{\code{wgSelfCareD2}}{Self-care domain 2}
+#' \item{\code{wgSelfCareD3}}{Self-care domain 3}
+#' \item{\code{wgCommunicatingD0}}{Communication domain 0}
+#' \item{\code{wgCommunicatingD1}}{Communication domain 1}
+#' \item{\code{wgCommunicatingD2}}{Communication domain 2}
+#' \item{\code{wgCommunicatingD3}}{Communication domain 3}
+#' \item{\code{wgP0}}{Overall 0}
+#' \item{\code{wgP1}}{Overall 1}
+#' \item{\code{wgP2}}{Overall 2}
+#' \item{\code{wgP3}}{Overall 3}
+#' \item{\code{wgPM}}{Any disability}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on disability
+#'
+#' @examples
+#'
+#' # Create disability indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_disability(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_disability <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  ##############################################################################
+  #
+  #  Washington Group (WG) short set of question designed to identify people with a
+  #  disability in a census or survey format.
+  #
+  # Missing values
+  #
+  svy$wg1 <- bbw::recode(svy$wg1, "9=0; NA=0")
+  svy$wg2 <- bbw::recode(svy$wg2, "9=0; NA=0")
+  svy$wg3 <- bbw::recode(svy$wg3, "9=0; NA=0")
+  svy$wg4 <- bbw::recode(svy$wg4, "9=0; NA=0")
+  svy$wg5 <- bbw::recode(svy$wg5, "9=0; NA=0")
+  svy$wg6 <- bbw::recode(svy$wg6, "9=0; NA=0")
+  #
+  ##############################################################################
+  #
+  # Vision domain
+  #
+  wgVisionD0 <- ifelse(svy$wg1 == 0, 1, 0)
+  wgVisionD1 <- ifelse(svy$wg1 == 1 | svy$wg1 == 2 | svy$wg1 == 3, 1, 0)
+  wgVisionD2 <- ifelse(svy$wg1 == 2 | svy$wg1 == 3, 1, 0)
+  wgVisionD3 <- ifelse(svy$wg1 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Hearing domain
+  #
+  wgHearingD0 <- ifelse(svy$wg2 == 0, 1, 0)
+  wgHearingD1 <- ifelse(svy$wg2 == 1 | svy$wg2 == 2 | svy$wg2 == 3, 1, 0)
+  wgHearingD2 <- ifelse(svy$wg2 == 2 | svy$wg2 == 3, 1, 0)
+  wgHearingD3 <- ifelse(svy$wg2 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Mobility domain
+  #
+  wgMobilityD0 <- ifelse(svy$wg3 == 0, 1, 0)
+  wgMobilityD1 <- ifelse(svy$wg3 == 1 | svy$wg3 == 2 | svy$wg3 == 3, 1, 0)
+  wgMobilityD2 <- ifelse(svy$wg3 == 2 | svy$wg3 == 3, 1, 0)
+  wgMobilityD3 <- ifelse(svy$wg3 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Remembering domain
+  #
+  wgRememberingD0 <- ifelse(svy$wg4 == 0, 1, 0)
+  wgRememberingD1 <- ifelse(svy$wg4 == 1 | svy$wg4 == 2 | svy$wg4 == 3, 1, 0)
+  wgRememberingD2 <- ifelse(svy$wg4 == 2 | svy$wg4 == 3, 1, 0)
+  wgRememberingD3 <- ifelse(svy$wg4 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Self-care domain
+  #
+  wgSelfCareD0 <- ifelse(svy$wg5 == 0, 1, 0)
+  wgSelfCareD1 <- ifelse(svy$wg5 == 1 | svy$wg5 == 2 | svy$wg5 == 3, 1, 0)
+  wgSelfCareD2 <- ifelse(svy$wg5 == 2 | svy$wg5 == 3, 1, 0)
+  wgSelfCareD3 <- ifelse(svy$wg5 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Communicating domain
+  #
+  wgCommunicatingD0 <- ifelse(svy$wg6 == 0, 1, 0)
+  wgCommunicatingD1 <- ifelse(svy$wg6 == 1 | svy$wg6 == 2 | svy$wg6 == 3, 1, 0)
+  wgCommunicatingD2 <- ifelse(svy$wg6 == 2 | svy$wg6 == 3, 1, 0)
+  wgCommunicatingD3 <- ifelse(svy$wg6 == 3, 1, 0)
+  #
+  ##############################################################################
+  #
+  # Overall prevalence
+  #
+  wgP0 <- ifelse(wgVisionD0 + wgHearingD0 + wgMobilityD0 + wgRememberingD0 + wgSelfCareD0 + wgCommunicatingD0 == 6, 1, 0)
+  wgP1 <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  0, 1, 0)
+  wgP2 <- ifelse(wgVisionD2 + wgHearingD2 + wgMobilityD2 + wgRememberingD2 + wgSelfCareD2 + wgCommunicatingD2 >  0, 1, 0)
+  wgP3 <- ifelse(wgVisionD3 + wgHearingD3 + wgMobilityD3 + wgRememberingD3 + wgSelfCareD3 + wgCommunicatingD3 >  0, 1, 0)
+  wgPM <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  1, 1, 0)
+  #
+  disability.indicators.ALL <- data.frame(psu, sex1, sex2,
+                                          wgVisionD0, wgVisionD1, wgVisionD2,
+                                          wgVisionD3, wgHearingD0, wgHearingD1,
+                                          wgHearingD2, wgHearingD3,wgMobilityD0,
+                                          wgMobilityD1, wgMobilityD2, wgMobilityD3,
+                                          wgRememberingD0, wgRememberingD1,
+                                          wgRememberingD2, wgRememberingD3,
+                                          wgSelfCareD0, wgSelfCareD1,
+                                          wgSelfCareD2, wgSelfCareD3,
+                                          wgCommunicatingD0, wgCommunicatingD1,
+                                          wgCommunicatingD2, wgCommunicatingD3,
+                                          wgP0, wgP1, wgP2, wgP3, wgPM)
+  #
+  return(disability.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_disability_males
+#'
+#' Create male older people indicators dataframe for disability from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on disability
+#'
+#' @examples
+#'
+#' # Create disability indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_disability_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_disability_males <- function(svy) {
+  disability.indicators.MALES <- subset(create_op_disability(svy = svy), sex1 == 1)
+  return(disability.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_disability_females
+#'
+#' Create female older people indicators dataframe for disability from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on disability
+#'
+#' @examples
+#'
+#' # Create disability indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_disability_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_disability_females <- function(svy) {
+  disability.indicators.FEMALES <- subset(create_op_disability(svy = svy), sex2 == 1)
+  return(disability.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_mental
+#'
+#' Create older people indicators dataframe for mental health from survey data
+#' collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators:
+#'
+#' #' \strong{K6 Short form psychological distress score}
+#'
+#' The K6 score is described in:
+#'
+#' \cite{Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
+#' et al. (2002). Short screening scales to monitor population prevalences
+#' and trends in non-specific psychological distress. Psychological
+#' Medicine, 32(6), 959–976 \url{doi:10.1017/S0033291702006074}}
+#'
+#' \describe{
+#' \item{\code{K6}}{K6 score}
+#' \item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on mental health
+#'
+#' @examples
+#'
+#' # Create mental health indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_mental(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_mental <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
   #  K6 : Short form psychological distress score
   #
   #  Recode DON'T KNOW, REFUSED, NA and MISSING values to 5 (NONE)
@@ -582,77 +912,11 @@ create_op_adl <- function(svy) {
   #
   K6Case <- bbw::recode(K6, "0:12=0; 13:hi=1")
   #
-  adl.indicators.ALL <- data.frame(psu, sex1, sex2,
-                                          ADL01, ADL02, ADL03, ADL04, ADL05, ADL06, scoreADL,
-                                          classADL1, classADL2, classADL3, hasHelp, unmetNeed,
-                                          K6, K6Case)
+  mental.indicators.ALL <- data.frame(psu, sex1, sex2, K6, K6Case)
   #
-  return(adl.indicators.ALL)
+  return(mental.indicators.ALL)
 }
 
-################################################################################
-#
-#' create_op_adl__males
-#'
-#' Create male older people indicators dataframe for adl
-#' from survey data collected using the standard RAM-OP questionnaire
-#'
-#' @param svy A dataframe collected using the standard RAM-OP questionnaire
-#'
-#' @return A dataframe of male older people indicators on adl
-#'
-#' @examples
-#'
-#' # Create disablity indicators dataset from RAM-OP survey data
-#' # collected from Addis Ababa, Ethiopia
-#' create_op_adl_males(testSVY)
-#'
-#' @export
-#'
-#
-################################################################################
-
-create_op_adl_males <- function(svy) {
-  food.indicators.MALES <- subset(create_op_adl(svy = svy), sex1 == 1)
-  return(food.indicators.MALES)
-}
-
-
-################################################################################
-#
-#' create_op_adl_females
-#'
-#' Create female older people indicators dataframe for adl
-#' from survey data collected using the standard RAM-OP questionnaire
-#'
-#' @param svy A dataframe collected using the standard RAM-OP questionnaire
-#'
-#' @return A dataframe of female older people indicators on adl
-#'
-#' @examples
-#'
-#' # Create adl indicators dataset from RAM-OP survey data
-#' # collected from Addis Ababa, Ethiopia
-#' create_op_adl_females(testSVY)
-#'
-#' @export
-#'
-#
-################################################################################
-
-create_op_adl_females <- function(svy) {
-  food.indicators.FEMALES <- subset(create_op_adl(svy = svy), sex2 == 1)
-  return(food.indicators.FEMALES)
-}
-
-
-################################################################################
-#
-#' create_op_
-#'
-#'
-#
-################################################################################
 
 ################################################################################
 #
