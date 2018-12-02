@@ -976,6 +976,132 @@ create_op_mental_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_dementia
+#'
+#' Create older people indicators dataframe for dementia from survey data
+#' collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators:
+#'
+#' \strong{Brief Community Screening Instrument for Dementia (CSID)}
+#'
+#' The CSID dementia screening tool is described in:
+#'
+#' \cite{Prince M, et al. (2010). A brief dementia screener suitable for use
+#' by non-specialists in resource poor settings - The cross-cultural
+#' derivation and validation of the brief Community Screening Instrument
+#' for Dementia. International Journal of Geriatric Psychiatry, 26(9),
+#' 899–907 \url{doi:10.1002/gps.2622}}
+#'
+#' \describe{
+#' \item{\code{DS}}{Probable dementia by CSID screen}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on dementia
+#'
+#' @examples
+#'
+#' # Create dementia indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_dementia(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_dementia <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Recode scored components to 0 / 1 (with 1 = correct)
+  #
+  svy$ds1  <- bbw::recode(svy$ds1,  "1=1; else=0") # Nose
+  svy$ds2  <- bbw::recode(svy$ds2,  "1=1; else=0") # Hammer
+  svy$ds3  <- bbw::recode(svy$ds3,  "1=1; else=0") # Day of week
+  svy$ds4  <- bbw::recode(svy$ds4,  "1=1; else=0") # Season
+  svy$ds5  <- bbw::recode(svy$ds5,  "1=1; else=0") # Point to window then door
+  svy$ds6a <- bbw::recode(svy$ds6a, "1=1; else=0") # Memory "CHILD"
+  svy$ds6b <- bbw::recode(svy$ds6b, "1=1; else=0") # Memory "HOUSE"
+  svy$ds6c <- bbw::recode(svy$ds6c, "1=1; else=0") # Memory "ROAD"
+  #
+  #  Sum correct items into CSID score
+  #
+  scoreCSID <- svy$ds1 + svy$ds2 + svy$ds3 + svy$ds4 + svy$ds5 + svy$ds6a + svy$ds6b + svy$ds6c
+  #
+  #  Classify dementia :
+  #
+  DS <- bbw::recode(scoreCSID, "0:4=1; 5:8=0")
+  #
+  dementia.indicators.ALL <- data.frame(psu, sex1, sex2, DS)
+  #
+  return(dementia.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_dementia_males
+#'
+#' Create male older people indicators dataframe for dementia from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on dementia
+#'
+#' @examples
+#'
+#' # Create dementia indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_dementia_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_dementia_males <- function(svy) {
+  dementia.indicators.MALES <- subset(create_op_dementia(svy = svy), sex1 == 1)
+  return(dementia.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_dementia_females
+#'
+#' Create female older people indicators dataframe for dementia from survey
+#' data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on dementia
+#'
+#' @examples
+#'
+#' # Create dementia indicators dataset from RAM-OP survey data collected
+#' # from Addis Ababa, Ethiopia
+#' create_op_dementia_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_dementia_females <- function(svy) {
+  dementia.indicators.FEMALES <- subset(create_op_dementia(svy = svy), sex2 == 1)
+  return(dementia.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
