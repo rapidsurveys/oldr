@@ -1262,6 +1262,134 @@ create_op_health_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_income
+#'
+#' Create older people indicators dataframe for income from survey data collected
+#' using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Income and income sources
+#'
+#' \describe{
+#' \item{\code{M1}}{Has a personal income}
+#' \item{\code{M2A}}{Agriculture / fishing / livestock}
+#' \item{\code{M2B}}{Wages / salary}
+#' \item{\code{M2C}}{Sale of charcoal / bricks / &c.}
+#' \item{\code{M2D}}{Trading (e.g. market or shop)}
+#' \item{\code{M2E}}{Investments}
+#' \item{\code{M2F}}{Spending savings / sale of assets}
+#' \item{\code{M2G}}{Charity}
+#' \item{\code{M2H}}{Cash transfer / Social security}
+#' \item{\code{M2I}}{Other}
+#' }
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on income
+#'
+#' @examples
+#'
+#' # Create income indicators dataset from RAM-OP survey data collected from
+#' # Addis Ababa, Ethiopia
+#' create_op_income(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_income <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Income and income sources
+  #
+  #  Create binary indicators
+  #
+  M1  <- bbw::recode(svy$m1,  "1=1; else=0") # Has a personal income
+  M2A <- bbw::recode(svy$m2a, "1=1; else=0") # Agriculture / fishing / livestock
+  M2B <- bbw::recode(svy$m2b, "1=1; else=0") # Wages / salary
+  M2C <- bbw::recode(svy$m2c, "1=1; else=0") # Sale of charcoal / bricks / &c.
+  M2D <- bbw::recode(svy$m2d, "1=1; else=0") # Trading (e.g. market or shop)
+  M2E <- bbw::recode(svy$m2e, "1=1; else=0") # Investments
+  M2F <- bbw::recode(svy$m2f, "1=1; else=0") # Spending savings / sale of assets
+  M2G <- bbw::recode(svy$m2g, "1=1; else=0") # Charity
+  M2H <- bbw::recode(svy$m2h, "1=1; else=0") # Cash transfer / social security
+  M2I <- bbw::recode(svy$m2i, "1=1; else=0") # Other
+  #
+  ##############################################################################
+  #
+  #  Check for any income (return 'correct' result in M1)
+  #
+  checkForIncome <- M1 + M2A + M2B + M2C + M2D + M2E + M2F + M2G + M2H + M2I
+  M1 <- ifelse(checkForIncome > 0, 1, 0)
+  #
+  income.indicators.ALL <- data.frame(psu, sex1, sex2,M1, M2A, M2B, M2C, M2D,
+                                      M2E, M2F, M2G, M2H, M2I)
+  #
+  return(income.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_income_males
+#'
+#' Create male older people indicators dataframe for income from survey data
+#' collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on income
+#'
+#' @examples
+#'
+#' # Create income indicators dataset from RAM-OP survey data collected from
+#' # Addis Ababa, Ethiopia
+#' create_op_income_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_income_males <- function(svy) {
+  income.indicators.MALES <- subset(create_op_income(svy = svy), sex1 == 1)
+  return(income.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_income_females
+#'
+#' Create female older people indicators dataframe for income from survey data
+#' collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on income
+#'
+#' @examples
+#'
+#' # Create income indicators dataset from RAM-OP survey data collected from
+#' # Addis Ababa, Ethiopia
+#' create_op_income_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_income_females <- function(svy) {
+  income.indicators.FEMALES <- subset(create_op_income(svy = svy), sex2 == 1)
+  return(income.indicators.FEMALES)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
