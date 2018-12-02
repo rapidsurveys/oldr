@@ -2,7 +2,7 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_adl_males}
 \alias{create_op_adl_males}
-\title{create_op_adl__males}
+\title{create_op_adl_males}
 \usage{
 create_op_adl_males(svy)
 }
@@ -10,16 +10,17 @@ create_op_adl_males(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on adl
+A dataframe of male older people indicators on activities of daily
+    living
 }
 \description{
-Create male older people indicators dataframe for adl
-from survey data collected using the standard RAM-OP questionnaire
+Create male older people indicators dataframe for activities of daily
+living from survey data collected using the standard RAM-OP questionnaire
 }
 \examples{
 
-# Create disablity indicators dataset from RAM-OP survey data
-# collected from Addis Ababa, Ethiopia
+# Create activities of daily living indicators dataset from RAM-OP survey
+# data collected from Addis Ababa, Ethiopia
 create_op_adl_males(testSVY)
 
 }

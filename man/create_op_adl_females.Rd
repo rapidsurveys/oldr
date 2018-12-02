@@ -10,16 +10,17 @@ create_op_adl_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on adl
+A dataframe of female older people indicators on activities of daily
+    living
 }
 \description{
-Create female older people indicators dataframe for adl
-from survey data collected using the standard RAM-OP questionnaire
+Create female older people indicators dataframe for activities of daily
+living from survey data collected using the standard RAM-OP questionnaire
 }
 \examples{
 
-# Create adl indicators dataset from RAM-OP survey data
-# collected from Addis Ababa, Ethiopia
+# Create activities of daily living indicators dataset from RAM-OP survey
+# data collected from Addis Ababa, Ethiopia
 create_op_adl_females(testSVY)
 
 }

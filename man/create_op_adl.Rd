@@ -10,11 +10,11 @@ create_op_adl(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on adl
+A dataframe of older people indicators on activities of daily living
 }
 \description{
-Create older people indicators dataframe on adl from survey data
-collected using the standard RAM-OP questionnaire
+Create older people indicators dataframe on acitvities of daily living
+from survey data collected using the standard RAM-OP questionnaire
 }
 \section{Indicators}{
  Katz "Index of Independence in Activities of Daily Living" (ADL) score
@@ -52,8 +52,8 @@ mobility and instrumental activities of daily living. JAGS, 31(12),
 
 \examples{
 
-# Create adl indicators dataset from RAM-OP survey data
-# collected from Addis Ababa, Ethiopia
+# Create activities of daily living indicators dataset from RAM-OP survey
+# data collected from Addis Ababa, Ethiopia
 create_op_adl(testSVY)
 
 }

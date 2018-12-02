@@ -2,7 +2,7 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{createOP}
 \alias{createOP}
-\title{create_op_}
+\title{createOP}
 \usage{
 createOP(svy)
 }
@@ -18,9 +18,6 @@ Three dataframes of Older People indicators each with 138 variables:
 }
 }
 \description{
-createOP
-}
-\details{
 Create older people indicators dataframe from survey data collected
 using the standard RAM-OP questionnaire.
 }
