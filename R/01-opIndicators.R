@@ -849,9 +849,7 @@ create_op_disability_females <- function(svy) {
 #' Create older people indicators dataframe for mental health from survey data
 #' collected using the standard RAM-OP questionnaire.
 #'
-#' @section Indicators:
-#'
-#' #' \strong{K6 Short form psychological distress score}
+#' @section Indicators: K6 Short form psychological distress score
 #'
 #' The K6 score is described in:
 #'
@@ -981,9 +979,7 @@ create_op_mental_females <- function(svy) {
 #' Create older people indicators dataframe for dementia from survey data
 #' collected using the standard RAM-OP questionnaire.
 #'
-#' @section Indicators:
-#'
-#' \strong{Brief Community Screening Instrument for Dementia (CSID)}
+#' @section Indicators: Brief Community Screening Instrument for Dementia (CSID)
 #'
 #' The CSID dementia screening tool is described in:
 #'
@@ -1097,6 +1093,170 @@ create_op_dementia_males <- function(svy) {
 create_op_dementia_females <- function(svy) {
   dementia.indicators.FEMALES <- subset(create_op_dementia(svy = svy), sex2 == 1)
   return(dementia.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_health
+#'
+#' Create older people indicators dataframe for health and health-seeking
+#' behaviours from survey data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Health and health-seeking indicators
+#'
+#' \describe{
+#' \item{\code{H1}}{Chronic condition}
+#' \item{\code{H2}}{Takes drugs regularly for chronic condition}
+#' \item{\code{H31}}{No drugs available}
+#' \item{\code{H32}}{Too expensive / no money}
+#' \item{\code{H33}}{Too old to look for care}
+#' \item{\code{H34}}{Use traditional medicine}
+#' \item{\code{H35}}{Drugs don't help}
+#' \item{\code{H36}}{No-one to help me}
+#' \item{\code{H37}}{No need}
+#' \item{\code{H38}}{Other}
+#' \item{\code{H39}}{No reason given}
+#' \item{\code{H4}}{Recent disease episode}
+#' \item{\code{H5}}{Accessed care for recent disease episode}
+#' \item{\code{H61}}{No drugs available}
+#' \item{\code{H62}}{Too expensive / no money}
+#' \item{\code{H63}}{Too old to look for care}
+#' \item{\code{H64}}{Use traditional medicine}
+#' \item{\code{H65}}{Drugs don't help}
+#' \item{\code{H66}}{No-one to help me}
+#' \item{\code{H67}}{No need}
+#' \item{\code{H68}}{Other}
+#' \item{\code{H69}}{No reason given}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on health and health-seeking
+#'     behaviour
+#'
+#' @examples
+#'
+#' # Create health and health-seeking behaviour indicators dataset from RAM-OP
+#' # survey data collected from Addis Ababa, Ethiopia
+#' create_op_health(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_health <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  #  Health indicators : CHRONIC CONDITIONS
+  #
+  svy$h1 <- bbw::recode(svy$h1, "1=1; else=2")
+  H1 <- bbw::recode(svy$h1, "1=1; else=0")
+  H2 <- ifelse(H1 == 0, NA, bbw::recode(svy$h2, "1=1; else=0"))
+  H3 <- ifelse(H2 == 1, NA, bbw::recode(svy$h3, "NA=9"))
+  #
+  # Indicators for main reason for NOT taking drugs for chronic condition
+  #
+  H31 <- bbw::recode(H3, "1=1; NA=NA; else=0")
+  H32 <- bbw::recode(H3, "2=1; NA=NA; else=0")
+  H33 <- bbw::recode(H3, "3=1; NA=NA; else=0")
+  H34 <- bbw::recode(H3, "4=1; NA=NA; else=0")
+  H35 <- bbw::recode(H3, "5=1; NA=NA; else=0")
+  H36 <- bbw::recode(H3, "6=1; NA=NA; else=0")
+  H37 <- bbw::recode(H3, "7=1; NA=NA; else=0")
+  H38 <- bbw::recode(H3, "8=1; NA=NA; else=0")
+  H39 <- bbw::recode(H3, "9=1; NA=NA; else=0")
+  #
+  ##############################################################################
+  #
+  #  Health indicators : RECENT DISEASE EPISODE
+  #
+  svy$h4 <- bbw::recode(svy$h4, "1=1; else=2")
+  H4 <- bbw::recode(svy$h4, "1=1; else=0")
+  H5 <- ifelse(H4 == 0, NA, bbw::recode(svy$h5, "1=1; else=0"))
+  H6 <- ifelse(H5 == 1, NA, bbw::recode(svy$h6, "NA=9"))
+  #
+  # Indicators for main reason for NOT accessing care for recent disease episode
+  #
+  H61 <- bbw::recode(H6, "1=1; NA=NA; else=0")
+  H62 <- bbw::recode(H6, "2=1; NA=NA; else=0")
+  H63 <- bbw::recode(H6, "3=1; NA=NA; else=0")
+  H64 <- bbw::recode(H6, "4=1; NA=NA; else=0")
+  H65 <- bbw::recode(H6, "5=1; NA=NA; else=0")
+  H66 <- bbw::recode(H6, "6=1; NA=NA; else=0")
+  H67 <- bbw::recode(H6, "7=1; NA=NA; else=0")
+  H68 <- bbw::recode(H6, "8=1; NA=NA; else=0")
+  H69 <- bbw::recode(H6, "9=1; NA=NA; else=0")
+  #
+  health.indicators.ALL <- data.frame(psu, sex1, sex2,
+                                      H1, H2, H31, H32, H33, H34, H35, H36, H37,
+                                      H38, H39, H4, H5, H61, H62, H63, H64, H65,
+                                      H66, H67, H68, H69)
+  #
+  return(health.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_health_males
+#'
+#' Create male older people indicators dataframe for health and health-seeking
+#' behaviours from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on health and
+#'     health-seeking behaviours
+#'
+#' @examples
+#'
+#' # Create health and health-seeking behaviours indicators dataset from RAM-OP
+#' # survey data collected from Addis Ababa, Ethiopia
+#' create_op_health_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_health_males <- function(svy) {
+  health.indicators.MALES <- subset(create_op_health(svy = svy), sex1 == 1)
+  return(health.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_health_females
+#'
+#' Create female older people indicators dataframe for health and health-seeking
+#' behaviours from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on health and
+#'     health-seeking behaviours
+#'
+#' @examples
+#'
+#' # Create health and health-seeking behaviours indicators dataset from RAM-OP
+#' # survey data collected from Addis Ababa, Ethiopia
+#' create_op_health_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_health_females <- function(svy) {
+  health.indicators.FEMALES <- subset(create_op_health(svy = svy), sex2 == 1)
+  return(health.indicators.FEMALES)
 }
 
 
