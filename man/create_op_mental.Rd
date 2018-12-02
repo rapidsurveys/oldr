@@ -17,9 +17,7 @@ Create older people indicators dataframe for mental health from survey data
 collected using the standard RAM-OP questionnaire.
 }
 \section{Indicators}{
-
-
-#' \strong{K6 Short form psychological distress score}
+ K6 Short form psychological distress score
 
 The K6 score is described in:
 
