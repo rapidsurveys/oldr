@@ -1281,6 +1281,7 @@ create_op_health_females <- function(svy) {
 #' \item{\code{M2H}}{Cash transfer / Social security}
 #' \item{\code{M2I}}{Other}
 #' }
+#'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
 #' @return A dataframe of older people indicators on income
@@ -1385,6 +1386,135 @@ create_op_income_males <- function(svy) {
 create_op_income_females <- function(svy) {
   income.indicators.FEMALES <- subset(create_op_income(svy = svy), sex2 == 1)
   return(income.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_wash
+#'
+#' Create older people indicators dataframe for water, sanitation and hygiene
+#' from survey data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Water, sanitation and hygiene (WASH) indicators
+#'
+#' These are a (core) subset of indicators from:
+#'
+#' \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
+#' for Household Surveys. Geneva, WHO / UNICEF
+#' \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
+#'
+#' \describe{
+#' \item{\code{W1}}{Improved source of drinking water}
+#' \item{\code{W2}}{Safe drinking water (improved source OR adequate treatment)}
+#' \item{\code{W3}}{Improved sanitation facility}
+#' \item{\code{W4}}{Improved non-shared sanitation facility}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on water, sanitation and
+#'     hygiene
+#'
+#' @examples
+#'
+#' # Create water, sanitation and hygiene indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
+#' create_op_wash(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_wash <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Water, Sanitation, and Hygiene (WASH) indicators
+  #
+  #  Recode WASH data
+  #
+  svy$w1 <- bbw::recode(svy$w1, "1=1; else=0")
+  svy$w2 <- bbw::recode(svy$w2, "1=1; else=0")
+  svy$w3 <- bbw::recode(svy$w3, "1=1; else=0")
+  svy$w4 <- bbw::recode(svy$w4, "1=1; else=0")
+  #
+  ##############################################################################
+  #
+  #  Create WASH indicators
+  #
+  W1 <- svy$w1
+  W2 <- ifelse(svy$w1 == 1 | svy$w2 == 1, 1, 0)
+  W3 <- svy$w3
+  W4 <- ifelse(svy$w3 == 1 & svy$w4 != 1, 1, 0)
+  #
+  wash.indicators.ALL <- data.frame(psu, sex1, sex2, W1, W2, W3, W4)
+  #
+  return(wash.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_wash_males
+#'
+#' Create male older people indicators dataframe for water, sanitation and
+#' hygiene from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on water, sanitation and
+#'     hygiene
+#'
+#' @examples
+#'
+#' # Create water, sanitation and hygiene indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
+#' create_op_wash_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_wash_males <- function(svy) {
+  wash.indicators.MALES <- subset(create_op_wash(svy = svy), sex1 == 1)
+  return(wash.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_wash_females
+#'
+#' Create female older people indicators dataframe for water, sanitation and
+#' hygiene from survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on water, sanitation
+#'     and hygiene
+#'
+#' @examples
+#'
+#' # Create water, sanitation and hygiene indicators dataset from RAM-OP survey
+#' # data collected from Addis Ababa, Ethiopia
+#' create_op_wash_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_wash_females <- function(svy) {
+  wash.indicators.FEMALES <- subset(create_op_wash(svy = svy), sex2 == 1)
+  return(wash.indicators.FEMALES)
 }
 
 
