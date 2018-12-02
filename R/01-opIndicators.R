@@ -1856,6 +1856,150 @@ create_op_misc_females <- function(svy) {
 
 ################################################################################
 #
+#' create_op_all
+#'
+#' Create older people indicators dataframe from survey data collected
+#' using the standard RAM-OP questionnaire.
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
+#'
+#' @return A dataframe of older people indicators
+#'
+#' @examples
+#'
+#' create_op_all(svy = testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_all <- function(svy, indicators = c("demo", "food", "hunger",
+                                              "disability", "adl", "mental",
+                                              "dementia", "health", "income",
+                                              "wash", "anthro", "visual",
+                                              "misc")) {
+  #
+  #
+  #
+  psu <- svy$psu
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  indicators.ALL <- data.frame(psu, sex1, sex2)
+  #
+  #
+  #
+  if("demo" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_demo(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("food" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_food(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("hunger" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_hunger(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("disability" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_disability(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("adl" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_adl(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("mental" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_mental(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("dementia" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_dementia(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("health" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_health(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("income" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_income(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("wash" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_wash(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("anthro" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_anthro(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("visual" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_visual(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("misc" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_misc(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  return(indicators.ALL)
+}
+
+
+################################################################################
+#
 #' createOP
 #'
 #' Create older people indicators dataframe from survey data collected
