@@ -532,7 +532,7 @@ server <- function(input, output, session) {
     })
     ##
     classicEstimates <- reactive({
-      isolate(estimateClassic(x = indicatorsDF(), w = psuDataset(),
+      isolate(estimateClassic(x = indicatorsDF(), w = req(psuDataset()),
                               indicators = input$analyseIndicators,
                               params = get_variables(indicators = input$analyseIndicators),
                               replicates = input$replicates))
@@ -540,21 +540,16 @@ server <- function(input, output, session) {
     ##
     probitEstimates <- reactive({
       ##
-      if("muac" %in% input$analyseIndicators) {
-        isolate(estimateProbit(x = indicatorsDF(), w = psuDataset(),
+      NULL
+      ##
+      if("anthro" %in% input$analyseIndicators) {
+        isolate(estimateProbit(x = indicatorsDF(), w = req(psuDataset()),
                                replicates = input$replicates))
       }
     })
     ##
     results <- reactive({
-      ##
-      if("muac" %in% input$analyseIndicators) {
-        isolate(mergeEstimates(x = classicEstimates(), y = probitEstimates()))
-      }
-      ##
-      if(!"muac" %in% input$analyseIndicators) {
-        isolate(classicEstimates())
-      }
+      isolate(mergeEstimates(x = classicEstimates(), y = probitEstimates()))
     })
     ##
     output$resultsTable <- DT::renderDataTable(
