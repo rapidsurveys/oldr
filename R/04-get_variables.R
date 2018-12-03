@@ -25,7 +25,7 @@
 get_variables <- function(indicators = c("demo", "food", "hunger", "adl",
                                          "disability", "mental", "dementia",
                                          "health", "income", "wash", "anthro",
-                                         "screening", "visual", "misc")) {
+                                         "oedema", "screening", "visual", "misc")) {
   ##
   vars <- NULL
   ##
