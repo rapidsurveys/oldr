@@ -5,7 +5,7 @@
 #' An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
 #'
 #' See the README at
-#' \href{https://github.com/validmeasures/oldr#readme}{GitHub}
+#' \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
 #'
 #' @docType package
 #' @name oldr
@@ -13,6 +13,9 @@
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png
 #' @importFrom bbw bootBW bootClassic bootPROBIT
+#' @importFrom car powerTransform
+#' @importFrom car bcPower
+#'
 #'
 NULL
 
