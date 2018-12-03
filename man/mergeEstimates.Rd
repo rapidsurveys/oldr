@@ -4,7 +4,7 @@
 \alias{mergeEstimates}
 \title{mergeEstimates}
 \usage{
-mergeEstimates(x = classicEstimates, y = probitEstimates)
+mergeEstimates(x, y)
 }
 \arguments{
 \item{x}{Classic estimates data frame}

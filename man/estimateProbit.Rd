@@ -4,8 +4,8 @@
 \alias{estimateProbit}
 \title{estimateProbit}
 \usage{
-estimateProbit(x, w, statistic = bootPROBIT, params = "MUAC",
-  outputColumns = "MUAC", replicates = 399)
+estimateProbit(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
+  params = "MUAC", outputColumns = "MUAC", replicates = 399)
 }
 \arguments{
 \item{x}{Indicators dataset produced by createOP with primary sampling unit (PSU)
@@ -14,8 +14,11 @@ in column named \code{PSU}}
 \item{w}{A data frame with primary sampling unit (PSU) in column named \code{psu}
 and survey weight (i.e. PSU population) in column named \code{pop}}
 
-\item{statistic}{A function operating on data in \code{x}; fixed to
-\code{bootPROBIT} to perform probit estimation}
+\item{gam.stat}{A function operating on data in \code{x} to estimate
+GAM prevalence for older people. Fixed to \code{probit_gam}}
+
+\item{sam.stat}{A function operating on data in \code{x} to estimate
+SAM prevalence for older people. Fixed to \code{probit_sam}}
 
 \item{params}{Parameters (named columns in \code{x}) passed to the function
 specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
@@ -23,7 +26,8 @@ to probit estimation}
 
 \item{outputColumns}{Names of columns in output data frame; fixed to \code{MUAC}}
 
-\item{replicates}{Number of bootstrap replicates}
+\item{replicates}{Number of bootstrap replicate
+case and non-case}
 }
 \value{
 Dataframe of boot estimates using bootPROBIT function
@@ -33,9 +37,9 @@ estimateProbit
 }
 \examples{
   #
-  test <- estimateClassic(x = indicators.ALL,
-                          w = testPSU,
-                          replicates = 9)
+  test <- estimateProbit(x = indicators.ALL,
+                         w = testPSU,
+                         replicates = 9)
 
   test
 }

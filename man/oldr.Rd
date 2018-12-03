@@ -10,5 +10,5 @@ An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
 }
 \details{
 See the README at
-\href{https://github.com/validmeasures/oldr#readme}{GitHub}
+\href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
 }
