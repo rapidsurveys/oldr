@@ -617,19 +617,58 @@ server <- function(input, output, session) {
     # Demographic results
     #
     output$demoTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
+    #
+    #
+    #
+    observeEvent(input$viewAgeTable, {
+      showModal(
+        modalDialog(
+          DT::dataTableOutput("demoTable"), easyClose = TRUE
+        )
+      )
+    })
     #
     # Demographic results - age
     #
-    output$demoTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+    output$ageTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
+    #
+    # Demographic results - age for Males
+    #
+    output$ageTableMales <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.MALES", "LCL.MALES", "UCL.MALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Demographic results - age for Males
+    #
+    output$ageTableFemales <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Demographic results - age plots
+    #
+    output$agePlot <- renderPlot({
+      x <- create_op_all(surveyDataset())
+      sexText <- ifelse(x$sex1 == 1, "Male", "Female")
+      ageGroup <- bbw::recode(x$age, "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
 
+      pyramid.plot(x = ageGroup,
+                   g = sexText,
+                   main = "",
+                   xlab = "     Male    /    Female",
+                   ylab = "Age Groups")
+    })
     #
     # Food intake results
     #

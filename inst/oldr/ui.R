@@ -78,6 +78,12 @@ ui <- dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     #
+    # Adjust width of modal
+    #
+    tags$head(
+      tags$style(".modal-dialog{ width:1000px}")
+    ),
+    #
     # Body outputs for every menu item on sidebar
     #
     tabItems(
@@ -475,8 +481,32 @@ ui <- dashboardPage(
             ),
             tabPanel(title = "Demography",
               value = "demo",
-              h4("Demography and Situation"),
-              DT::dataTableOutput("demoTable")
+              br(),
+              fluidRow(
+                box(title = "Age Structure by Sex", status = "danger",
+                  solidHeader = TRUE, width = 6,
+                  plotOutput(outputId = "agePlot"),
+                  actionButton(inputId = "viewAgeTable",
+                               label = "View Data Table",
+                               icon = icon(name = "view",
+                                           lib = "font-awesome")
+                  )
+                ),
+                box(title = "All", status = "danger",
+                  solidHeader = FALSE, width = 6,
+                  DT::dataTableOutput("ageTable")
+                )
+              ),
+              fluidRow(
+                box(title = "Males", status = "danger",
+                  solidHeader = FALSE, width = 6,
+                  DT::dataTableOutput("ageTableMales")
+                ),
+                box(title = "Females", status = "danger",
+                  solidHeader = FALSE, width = 6,
+                  DT::dataTableOutput("ageTableFemales")
+                )
+              )
             ),
             tabPanel(title = "Respondents",
               value = "survey",
