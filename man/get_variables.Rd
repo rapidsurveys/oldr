@@ -6,7 +6,7 @@
 \usage{
 get_variables(indicators = c("demo", "food", "hunger", "adl",
   "disability", "mental", "dementia", "health", "income", "wash", "anthro",
-  "screening", "visual", "misc"))
+  "oedema", "screening", "visual", "misc"))
 }
 \arguments{
 \item{indicators}{A character vector of indicator set names. Indicator set
