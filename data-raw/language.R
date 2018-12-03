@@ -15,4 +15,4 @@ language <- read.table(file = "data-raw/ramOP.language.csv",
 #
 # Save language file as internal package data
 #
-devtools::use_data(language, pkg = ".", internal = TRUE, overwrite = TRUE)
+usethis::use_data(language, pkg = ".", internal = TRUE, overwrite = TRUE)
