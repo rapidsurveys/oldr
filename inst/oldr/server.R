@@ -549,7 +549,7 @@ server <- function(input, output, session) {
     results <- reactive({
       ##
       if("muac" %in% input$analyseIndicators) {
-        isolate(mergeEstimates(x = classicEstimates, y = probitEstimates))
+        isolate(mergeEstimates(x = classicEstimates(), y = probitEstimates()))
       }
       ##
       if(!"muac" %in% input$analyseIndicators) {
