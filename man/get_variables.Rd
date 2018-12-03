@@ -6,14 +6,14 @@
 \usage{
 get_variables(indicators = c("demo", "food", "hunger", "adl",
   "disability", "mental", "dementia", "health", "income", "wash", "anthro",
-  "visual", "misc"))
+  "screening", "visual", "misc"))
 }
 \arguments{
 \item{indicators}{A character vector of indicator set names. Indicator set
 names are \code{demo}, \code{food}, \code{hunger}, \code{disability},
 \code{adl}, \code{mental}, \code{dementia}, \code{health}, \code{income},
-\code{wash}, \code{anthro}, \code{visual}, and \code{misc}. Default is
-all indicator sets.}
+\code{wash}, \code{anthro}, \code{screening}, \code{visual}, and \code{misc}.
+Default is all indicator sets.}
 }
 \value{
 A vector of variable names
