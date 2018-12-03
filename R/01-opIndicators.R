@@ -1529,8 +1529,6 @@ create_op_wash_females <- function(svy) {
 #'
 #' \describe{
 #' \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
-#' \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
-#' \item{\code{screened}}{Either MUAC or oedema checked previously}
 #' }
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
@@ -1562,15 +1560,8 @@ create_op_anthro <- function(svy) {
   #  Censor REFUSAL, NOT APPLICABLE, and MISSING values codes in MUAC and Oedema
   #
   MUAC <- bbw::recode(svy$as1, "777=NA; 888=NA; 999=NA")
-  oedema <- bbw::recode(svy$as3, "1=1; else=0")
   #
-  ##############################################################################
-  #
-  #  Screening for GAM, MAM, SAM (i.e. either MUAC or oedema checked previously)
-  #
-  screened <- ifelse(svy$as2 == 1 | svy$as4 == 1, 1, 0)
-  #
-  anthro.indicators.ALL <- data.frame(psu, sex1, sex2, MUAC, oedema, screened)
+  anthro.indicators.ALL <- data.frame(psu, sex1, sex2, MUAC)
   #
   return(anthro.indicators.ALL)
 }
@@ -1629,6 +1620,214 @@ create_op_anthro_males <- function(svy) {
 create_op_anthro_females <- function(svy) {
   anthro.indicators.FEMALES <- subset(create_op_anthro(svy = svy), sex2 == 1)
   return(anthro.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_oedema
+#'
+#' Create older people indicators dataframe for oedema prevalence from survey
+#' data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Oedema prevalence
+#'
+#' \describe{
+#' \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on oedema prevalence
+#'
+#' @examples
+#'
+#' # Create oedema prevalence indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_oedema(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_oedema <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Screening
+  #
+  #  Censor REFUSAL, NOT APPLICABLE, and MISSING values codes in MUAC and Oedema
+  #
+  oedema <- bbw::recode(svy$as3, "1=1; else=0")
+  #
+  oedema.indicators.ALL <- data.frame(psu, sex1, sex2, oedema)
+  #
+  return(oedema.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_oedema_males
+#'
+#' Create male older people indicators dataframe for oedema prevalence from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on oedema prevalence
+#'
+#' @examples
+#'
+#' # Create oedema prevalence indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_oedema_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_oedema_males <- function(svy) {
+  oedema.indicators.MALES <- subset(create_op_oedema(svy = svy), sex1 == 1)
+  return(oedema.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_oedema_females
+#'
+#' Create female older people indicators dataframe for oedema prevalence from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on oedema prevalence
+#'
+#' @examples
+#'
+#' # Create oedema prevalence indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_oedema_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_oedema_females <- function(svy) {
+  oedema.indicators.FEMALES <- subset(create_op_oedema(svy = svy), sex2 == 1)
+  return(oedema.indicators.FEMALES)
+}
+
+
+################################################################################
+#
+#' create_op_screening
+#'
+#' Create older people indicators dataframe for screening coverage from survey
+#' data collected using the standard RAM-OP questionnaire.
+#'
+#' @section Indicators: Screening Coverage
+#'
+#' \describe{
+#' \item{\code{screened}}{Either MUAC or oedema checked previously}
+#' }
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of older people indicators on screening coverage
+#'
+#' @examples
+#'
+#' # Create screening coverage indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_screening(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_screening <- function(svy) {
+  #
+  psu <- svy$psu
+  #
+  sex1     <- bbw::recode(svy$d3, "1=1; 2=0; else=NA")
+  sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
+  #
+  ##############################################################################
+  #
+  #  Screening for GAM, MAM, SAM (i.e. either MUAC or oedema checked previously)
+  #
+  screened <- ifelse(svy$as2 == 1 | svy$as4 == 1, 1, 0)
+  #
+  screening.indicators.ALL <- data.frame(psu, sex1, sex2, screened)
+  #
+  return(screening.indicators.ALL)
+}
+
+
+################################################################################
+#
+#' create_op_screening_males
+#'
+#' Create male older people indicators dataframe for screening coverage from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of male older people indicators on screening coverage
+#'
+#' @examples
+#'
+#' # Create screening coverage indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_screening_males(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_screening_males <- function(svy) {
+  screening.indicators.MALES <- subset(create_op_screening(svy = svy), sex1 == 1)
+  return(screening.indicators.MALES)
+}
+
+
+################################################################################
+#
+#' create_op_screening_females
+#'
+#' Create female older people indicators dataframe for screening coverage from
+#' survey data collected using the standard RAM-OP questionnaire
+#'
+#' @param svy A dataframe collected using the standard RAM-OP questionnaire
+#'
+#' @return A dataframe of female older people indicators on screening coverage
+#'
+#' @examples
+#'
+#' # Create screening coverage indicators dataset from RAM-OP survey data
+#' # collected from Addis Ababa, Ethiopia
+#' create_op_screening_females(testSVY)
+#'
+#' @export
+#'
+#
+################################################################################
+
+create_op_screening_females <- function(svy) {
+  screening.indicators.FEMALES <- subset(create_op_screening(svy = svy), sex2 == 1)
+  return(screening.indicators.FEMALES)
 }
 
 
@@ -1878,8 +2077,8 @@ create_op_misc_females <- function(svy) {
 create_op_all <- function(svy, indicators = c("demo", "food", "hunger",
                                               "disability", "adl", "mental",
                                               "dementia", "health", "income",
-                                              "wash", "anthro", "visual",
-                                              "misc")) {
+                                              "wash", "anthro", "oedema",
+                                              "screening", "visual", "misc")) {
   #
   #
   #
@@ -1973,6 +2172,22 @@ create_op_all <- function(svy, indicators = c("demo", "food", "hunger",
   if("anthro" %in% indicators) {
     indicators.ALL <- data.frame(indicators.ALL,
                                  subset(create_op_anthro(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("oedema" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_oedema(svy = svy),
+                                        select = c(-psu, -sex1, -sex2)))
+  }
+  #
+  #
+  #
+  if("screening" %in% indicators) {
+    indicators.ALL <- data.frame(indicators.ALL,
+                                 subset(create_op_screening(svy = svy),
                                         select = c(-psu, -sex1, -sex2)))
   }
   #
