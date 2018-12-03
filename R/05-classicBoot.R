@@ -42,8 +42,8 @@
 estimateClassic  <- function(x, w, statistic = bootClassic,
                              indicators = c("demo", "food", "hunger", "adl",
                                             "disability", "mental", "dementia",
-                                            "health", "income", "wash",
-                                            "visual", "misc"),
+                                            "health", "oedema", "screening",
+                                            "income", "wash", "visual", "misc"),
                              params = get_variables(indicators),
                              outputColumns = params, replicates = 399) {
   #
