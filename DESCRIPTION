@@ -19,7 +19,8 @@ Description: An implementaiton of the Rapid Assessment Method for Older People
 License: AGPL-3
 Depends: R (>= 3.0.1)
 Imports: bbw,
-    car
+    car,
+    shiny
 Suggests: knitr,
     rmarkdown,
     testthat
