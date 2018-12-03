@@ -21,8 +21,6 @@ collected using the standard RAM-OP questionnaire.
 
 \describe{
 \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
-\item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
-\item{\code{screened}}{Either MUAC or oedema checked previously}
 }
 }
 

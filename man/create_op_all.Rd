@@ -6,7 +6,7 @@
 \usage{
 create_op_all(svy, indicators = c("demo", "food", "hunger", "disability",
   "adl", "mental", "dementia", "health", "income", "wash", "anthro",
-  "visual", "misc"))
+  "oedema", "screening", "visual", "misc"))
 }
 \arguments{
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
