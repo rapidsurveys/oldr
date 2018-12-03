@@ -97,7 +97,7 @@ get_variables <- function(indicators = c("demo", "food", "hunger", "adl",
   }
   ##
   if("screening" %in% indicators) {
-    vars <- c(vars, "oedema")
+    vars <- c(vars, "screened")
   }
   ##
   if("visual" %in% indicators) {
