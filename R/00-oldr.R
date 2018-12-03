@@ -30,7 +30,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
                                                         "originalOrder",
                                                         "estimates",
                                                         "GROUP", "sexText",
-                                                        "sex1", "sex2"))
+                                                        "sex1", "sex2",
+                                                        "INDICATOR"))
 
 
 ################################################################################
