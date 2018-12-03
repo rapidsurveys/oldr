@@ -143,19 +143,13 @@ ui <- dashboardPage(
                 br(),
                 conditionalPanel(condition = "input.mapSamplingLevel0 != '' & input.settlementsData1 != null",
                   actionButton(inputId = "mapSamplingPlot",
-                               label = "",
+                               label = "Sample",
                                icon = icon(name = "th",
                                lib = "font-awesome",
                                class = "fa-lg")
                   ),
-                  actionButton(inputId = "mapSamplingPlotReset",
-                               label = "",
-                               icon = icon(name = "refresh",
-                               lib = "font-awesome",
-                               class = "fa-lg")
-                  ),
                   downloadButton(outputId = "samplingListDownload1",
-                                 label = "",
+                                 label = "Download",
                                  icon = icon(name = "download",
                                  lib = "font-awesome",
                                  class = "fa-lg")
@@ -183,17 +177,12 @@ ui <- dashboardPage(
               br(),
               conditionalPanel(condition = "input.sortVariable",
                 actionButton(inputId = "mapSamplingList",
-                             label = "",
+                             label = "Sample",
                              icon = icon(name = "th",
                                          lib = "font-awesome")
                 ),
-                actionButton(inputId = "mapSamplingListReset",
-                             label = "",
-                             icon = icon(name = "refresh",
-                                         lib = "font-awesome")
-                ),
                 downloadButton(outputId = "samplingListDownload2",
-                               label = "",
+                               label = "Download",
                                icon = icon(name = "download",
                                            lib = "font-awesome")
                 )
@@ -308,19 +297,14 @@ ui <- dashboardPage(
               ),
               hr(),
               actionButton(inputId = "inputProcessAction",
-                           label = "",
+                           label = "Process",
                            icon = icon(name = "database",
                                        lib = "font-awesome")
               ),
-              actionButton(inputId = "refreshIndicatorData",
-                           label = "",
-                           icon = icon(name = "refresh",
-                                       lib = "font-awesome")
-              ),
-              actionButton(inputId = "downloadIndicatorData",
-                           label = "",
-                           icon = icon(name = "download",
-                                       lib = "font-awesome")
+              downloadButton(outputId = "downloadIndicatorData",
+                             label = "Download",
+                             icon = icon(name = "download",
+                                         lib = "font-awesome")
               )
             )
           ),
@@ -419,7 +403,13 @@ ui <- dashboardPage(
             actionButton(inputId = "analysisAction",
                          label = "Analyse",
                          icon = icon(name = "line-chart",
-                                     lib = "font-awesome"))
+                                     lib = "font-awesome")
+            ),
+            downloadButton(outputId = "analysisDownload",
+                           label = "Download",
+                           icon = icon(name = "download",
+                                       lib = "font-awesome")
+            )
           ),
           box(title = "Analyse",
             solidHeader = FALSE,

@@ -505,6 +505,17 @@ server <- function(input, output, session) {
       expr = indicators.ALL(),
       options = list(scrollX = TRUE, pageLength = 20)
     )
+    #
+    #
+    #
+    output$downloadIndicatorData <- downloadHandler(
+      filename = function() {
+        "indicators.ALL.csv"
+      },
+      content = function(file) {
+        write.csv(indicators.ALL(), file)
+      }
+    )
   })
   #
   ##############################################################################
@@ -515,8 +526,13 @@ server <- function(input, output, session) {
   #
   observeEvent(input$analysisAction, {
     ##
+    indicatorsDF <- reactive({
+      isolate(create_op_all(svy = req(surveyDataset()),
+                            indicators = input$analyseIndicators))
+    })
+    ##
     classicEstimates <- reactive({
-      isolate(estimateClassic(x = indicators.ALL(), w = psuDataset(),
+      isolate(estimateClassic(x = indicatorsDF(), w = psuDataset(),
                               indicators = input$analyseIndicators,
                               params = get_variables(indicators = input$analyseIndicators),
                               replicates = input$replicates))
@@ -525,7 +541,7 @@ server <- function(input, output, session) {
     probitEstimates <- reactive({
       ##
       if("muac" %in% input$analyseIndicators) {
-        isolate(estimateProbit(x = indicators.ALL(), w = psuDataset(),
+        isolate(estimateProbit(x = indicatorsDF(), w = psuDataset(),
                                replicates = input$replicates))
       }
     })
@@ -544,6 +560,17 @@ server <- function(input, output, session) {
     output$resultsTable <- DT::renderDataTable(
       expr = results(),
       options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    #
+    #
+    output$analysisDownload <- downloadHandler(
+      filename = function() {
+        "results.ALL.csv"
+      },
+      content = function(file) {
+        write.csv(results(), file)
+      }
     )
   })
 }
