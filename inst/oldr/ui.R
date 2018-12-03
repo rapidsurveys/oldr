@@ -383,7 +383,7 @@ ui <- dashboardPage(
         fluidRow(
           box(title = "Analysis Parameters", solidHeader = TRUE,
             status = "danger", width = 4,
-            checkboxGroupInput(inputId = "inputIndicators",
+            checkboxGroupInput(inputId = "analyseIndicators",
                                label = "Select indicators to process",
                                choices = c("Demography and situation" = "demo",
                                            "Food intake" = "food",
@@ -418,7 +418,8 @@ ui <- dashboardPage(
           box(title = "Analyse",
             solidHeader = FALSE,
             status = "danger",
-            width = 8
+            width = 8,
+            DT::dataTableOutput("resultsTable")
           )
         )
       ),

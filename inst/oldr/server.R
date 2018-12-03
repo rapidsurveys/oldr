@@ -495,14 +495,47 @@ server <- function(input, output, session) {
   #
   observeEvent(input$inputProcessAction, {
     indicators.ALL <- reactive({
-      isolate(oldr::create_op_all(svy = req(surveyDataset()),
-                          indicators = input$inputIndicators))
+      isolate(create_op_all(svy = req(surveyDataset()),
+                            indicators = input$inputIndicators))
     })
     #
     #
     #
     output$indicatorsDataTable <- DT::renderDataTable(
       expr = indicators.ALL(),
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+  })
+  #
+  ##############################################################################
+  #
+  # Analyse
+  #
+  ##############################################################################
+  #
+  observeEvent(input$analysisAction, {
+    ##
+    classicEstimates <- reactive({
+      isolate(estimateClassic(x = indicators.ALL(), w = psuDataset(),
+                              indicators = input$analyseIndicators,
+                              params = get_variables(indicators = input$analyseIndicators),
+                              replicates = input$replicates))
+    })
+    ##
+    probitEstimates <- reactive({
+      ##
+      if("muac" %in% input$analyseIndicators) {
+        isolate(estimateProbit(x = indicators.ALL(), w = psuDataset(),
+                               replicates = input$replicates))
+      }
+    })
+    ##
+    results <- reactive({
+      isolate(mergeEstimates(x = classicEstimates, y = probitEstimates))
+    })
+    ##
+    output$resultsTable <- DT::renderDataTable(
+      expr = results(),
       options = list(scrollX = TRUE, pageLength = 20)
     )
   })
