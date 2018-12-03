@@ -339,10 +339,10 @@ ui <- dashboardPage(
             )
           ),
           tabBox(title = "Process",
-                 id = "process",
-                 selected = "psuData",
-                 side = "right",
-                 width = 8,
+            id = "process",
+            selected = "psuData",
+            side = "right",
+            width = 8,
             tabPanel(title = "Process Indicators", value = "processData",
               DT::dataTableOutput("indicatorsDataTable")
             ),
@@ -423,7 +423,95 @@ ui <- dashboardPage(
       # Body output when 'report' menu is selected
       #
       tabItem(tabName = "report",
-        box(title = "Report", solidHeader = FALSE, status = "danger", width = 12)
+        fluidRow(
+          tabBox(title = "",
+            id = "report",
+            selected = "survey",
+            side = "right",
+            width = 12,
+            tabPanel(title = "Misc",
+              value = "misc",
+              h4("Miscellaneous Indicators")),
+            tabPanel(title = "Visual",
+              value = "visual",
+              h4("Visual Impairment")),
+            tabPanel(title = "Screening",
+              value = "screening",
+              h4("Screening Coverage")),
+            tabPanel(title = "Oedema",
+              value = "oedema",
+              h4("Oedema Prevalence")),
+            tabPanel(title = "Anthropometry",
+              value = "anthro",
+              h4("Anthropometry")),
+            tabPanel(title = "WASH",
+              value = "wash",
+              h4("Water, Sanitation and Hygiene")),
+            tabPanel(title = "Income",
+              value = "income",
+              h4("Sources of Income")),
+            tabPanel(title = "Health",
+              value = "health",
+              h4("Health and Health-Seeking Behaviour")),
+            tabPanel(title = "Dementia",
+              value = "dementia",
+              h4("Dementia")),
+            tabPanel(title = "Mental",
+              value = "mental",
+              h4("Mental Health")),
+            tabPanel(title = "ADL",
+              value = "adl",
+              h4("Activities of Daily Living")),
+            tabPanel(title = "Disability",
+              value = "disability",
+              h4("Disability")),
+            tabPanel(title = "Hunger",
+              value = "hunger",
+              h4("Severe Food Insecurity")),
+            tabPanel(title = "Diet",
+              value = "food",
+              h4("Food Intake"),
+              DT::dataTableOutput("foodTable")
+            ),
+            tabPanel(title = "Demography",
+              value = "demo",
+              h4("Demography and Situation"),
+              DT::dataTableOutput("demoTable")
+            ),
+            tabPanel(title = "Respondents",
+              value = "survey",
+              br(),
+              fluidRow(
+                box(title = "Survey Respondents", status = "danger",
+                  solidHeader = TRUE,
+                  width = 6,
+                  plotOutput(outputId = "surveyPlot")
+                ),
+                box(title = "All", status = "danger",
+                  solidHeader = FALSE,
+                  width = 6,
+                  DT::dataTableOutput("surveyTable")
+                )
+              ),
+              br(),
+              br(),
+              fluidRow(
+                box(title = "Males", status = "danger",
+                  solidHeader = FALSE,
+                  width = 6,
+                  DT::dataTableOutput("surveyTableMales")
+                ),
+                box(title = "Females", status = "danger",
+                  solidHeader = FALSE,
+                  width = 6,
+                  DT::dataTableOutput("surveyTableFemales")
+                )
+              ),
+              br(),
+              br()
+            )
+          )
+        )
       )
     )
   )

@@ -199,7 +199,7 @@ server <- function(input, output, session) {
   #
   output$settlementsTable2 <- DT::renderDataTable(
     expr = settlements2(),
-    options = list(scrollX = TRUE)
+    options = list(scrollX = TRUE, pageLength = 20)
   )
   #
   # Select sorting variable
@@ -231,7 +231,7 @@ server <- function(input, output, session) {
         "samplingList.csv"
       },
       content = function(file) {
-        write.csv(mapSamplingSettlements, file)
+        write.csv(mapSamplingSettlements, file, row.names = FALSE)
       }
     )
     #
@@ -239,7 +239,7 @@ server <- function(input, output, session) {
     #
     output$mapSamplingTable2 <- DT::renderDataTable(
       expr = mapSamplingSettlements,
-      options = list(scrollX = TRUE)
+      options = list(scrollX = TRUE, pageLength = 20)
     )
   })
   #
@@ -282,7 +282,7 @@ server <- function(input, output, session) {
         "samplingList.csv"
       },
       content = function(file) {
-        write.csv(mapSamplingSettlements, file)
+        write.csv(mapSamplingSettlements, file, row.names = FALSE)
       }
     )
     #
@@ -290,7 +290,7 @@ server <- function(input, output, session) {
     #
     output$mapSamplingTable1 <- DT::renderDataTable(
       expr = mapSamplingSettlements,
-      options = list(scrollX = TRUE)
+      options = list(scrollX = TRUE, pageLength = 20)
     )
   })
   #
@@ -439,7 +439,7 @@ server <- function(input, output, session) {
   #
   output$psuDataTable<- DT::renderDataTable(
     expr = psuDataset(),
-    options = list(scrollX = TRUE)
+    options = list(scrollX = TRUE, pageLength = 20)
   )
   #
   # Survey dataset
@@ -464,7 +464,7 @@ server <- function(input, output, session) {
   #
   output$surveyDataTable<- DT::renderDataTable(
     expr = surveyDataset(),
-    options = list(scrollX = TRUE)
+    options = list(scrollX = TRUE, pageLength = 20)
   )
   #
   # Proces data description
@@ -513,7 +513,7 @@ server <- function(input, output, session) {
         "indicators.ALL.csv"
       },
       content = function(file) {
-        write.csv(indicators.ALL(), file)
+        write.csv(indicators.ALL(), file, row.names = FALSE)
       }
     )
   })
@@ -552,6 +552,12 @@ server <- function(input, output, session) {
       isolate(mergeEstimates(x = classicEstimates(), y = probitEstimates()))
     })
     ##
+    prettyResults <- reactive({
+      data.frame(results()[ , c("GROUP", "INDICATOR", "LABEL", "TYPE")],
+                 round(results()[ , !names(results()) %in% c("GROUP", "INDICATOR", "LABEL", "TYPE")],
+                       digits = 2))
+    })
+    ##
     output$resultsTable <- DT::renderDataTable(
       expr = results(),
       options = list(scrollX = TRUE, pageLength = 20)
@@ -567,6 +573,71 @@ server <- function(input, output, session) {
         write.csv(results(), file)
       }
     )
+    #
+    # Survey respondents results plot - ALL
+    #
+    output$surveyPlot <- renderPlot({
+      x <- results()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = SET, y = EST, fill = INDICATOR)) +
+        geom_col(width = 0.5) +
+        labs(x = "", y = "Proportion") +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_fill_manual(name = "Respondent",
+                          values = brewer.pal(n = 4, name = "Pastel1"),
+                          labels = c("Subject", "Family Carer", "Other Carer", "Other")) +
+        themeSettings +
+        theme(legend.position = "top")
+    })
+    #
+    # Survey respondents results - ALL
+    #
+    output$surveyTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Survey respondents results - MALES
+    #
+    output$surveyTableMales <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.MALES", "LCL.MALES", "UCL.MALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Survey respondents results - FEMALES
+    #
+    output$surveyTableFemales <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Demographic results
+    #
+    output$demoTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Demographic results - age
+    #
+    output$demoTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+
+    #
+    # Food intake results
+    #
+    output$foodTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "food"), ],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
   })
   #
   ##############################################################################
@@ -575,5 +646,4 @@ server <- function(input, output, session) {
   #
   ##############################################################################
   #
-
 }
