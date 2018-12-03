@@ -18,7 +18,7 @@
 #
 ################################################################################
 
-mergeEstimates <- function(x = classicEstimates, y = probitEstimates) {
+mergeEstimates <- function(x, y) {
   #
   # Merge rows
   #
