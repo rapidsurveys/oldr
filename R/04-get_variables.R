@@ -8,8 +8,8 @@
 #' @param indicators A character vector of indicator set names. Indicator set
 #'     names are \code{demo}, \code{food}, \code{hunger}, \code{disability},
 #'     \code{adl}, \code{mental}, \code{dementia}, \code{health}, \code{income},
-#'     \code{wash}, \code{anthro}, \code{visual}, and \code{misc}. Default is
-#'     all indicator sets.
+#'     \code{wash}, \code{anthro}, \code{screening}, \code{visual}, and \code{misc}.
+#'     Default is all indicator sets.
 #'
 #' @return A vector of variable names
 #'
@@ -25,7 +25,7 @@
 get_variables <- function(indicators = c("demo", "food", "hunger", "adl",
                                          "disability", "mental", "dementia",
                                          "health", "income", "wash", "anthro",
-                                         "visual", "misc")) {
+                                         "screening", "visual", "misc")) {
   ##
   vars <- NULL
   ##
@@ -89,7 +89,15 @@ get_variables <- function(indicators = c("demo", "food", "hunger", "adl",
   }
   ##
   if("anthro" %in% indicators) {
-    vars <- c(vars, "MUAC", "oedema", "screened")
+    vars <- c(vars, "MUAC")
+  }
+  ##
+  if("oedema" %in% indicators) {
+    vars <- c(vars, "oedema")
+  }
+  ##
+  if("screening" %in% indicators) {
+    vars <- c(vars, "oedema")
   }
   ##
   if("visual" %in% indicators) {
