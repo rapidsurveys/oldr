@@ -6,11 +6,14 @@
 #'
 #' @param x Indicators dataset produced by createOP
 #' @param filename Prefix to add to output chart filename
+#'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
 #'     directory
+#'
 #' @examples
 #'   # Create age by sex pyramid plot using \code{indicators.ALL} dataset
 #'   chartAge(x = indicators.ALL, filename = "TEST")
+#'
 #' @export
 #'
 #
