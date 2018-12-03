@@ -5,20 +5,24 @@
 #' @param x Indicators dataset produced by createOP with primary sampling unit (PSU)
 #'     in column named \code{PSU}
 #' @param w A data frame with primary sampling unit (PSU) in column named \code{psu}
-#'   and survey weight (i.e. PSU population) in column named \code{pop}
-#' @param statistic A function operating on data in \code{x}; fixed to
-#'     \code{bootPROBIT} to perform probit estimation
+#'     and survey weight (i.e. PSU population) in column named \code{pop}
+#' @param gam.stat A function operating on data in \code{x} to estimate
+#'     GAM prevalence for older people. Fixed to \code{probit_gam}
+#' @param sam.stat A function operating on data in \code{x} to estimate
+#'     SAM prevalence for older people. Fixed to \code{probit_sam}
 #' @param params Parameters (named columns in \code{x}) passed to the function
-#'   specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
-#'   to probit estimation
+#'     specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
+#'     to probit estimation
 #' @param outputColumns Names of columns in output data frame; fixed to \code{MUAC}
-#' @param replicates Number of bootstrap replicates
+#' @param replicates Number of bootstrap replicate
+#'     case and non-case
+#'
 #' @return Dataframe of boot estimates using bootPROBIT function
 #' @examples
 #'   #
-#'   test <- estimateClassic(x = indicators.ALL,
-#'                           w = testPSU,
-#'                           replicates = 9)
+#'   test <- estimateProbit(x = indicators.ALL,
+#'                          w = testPSU,
+#'                          replicates = 9)
 #'
 #'   test
 #' @export
@@ -26,30 +30,34 @@
 #
 ################################################################################
 
-estimateProbit <- function(x, w, statistic = bootPROBIT,
+estimateProbit <- function(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
                            params = "MUAC", outputColumns = "MUAC",
                            replicates = 399) {
   #
   # Blocking weighted bootstrap (GAM)
   #
-  THRESHOLD <- 210
-  bootGAM.ALL <- bootBW(x = indicators.ALL, w = psuData, statistic = bootPROBIT,
-                        params = params, outputColumns = params, replicates = REPLICATES)
-  bootGAM.MALES <- bootBW(x = indicators.MALES, w = psuData, statistic = bootPROBIT,
-                          params = params, outputColumns = params, replicates = REPLICATES)
-  bootGAM.FEMALES <- bootBW(x = indicators.FEMALES, w = psuData, statistic = bootPROBIT,
-                            params = params, outputColumns = params, replicates = REPLICATES)
+  bootGAM.ALL <- bootBW(x = x, w = w, statistic = gam.stat,
+                        params = params, outputColumns = params,
+                        replicates = replicates)
+  bootGAM.MALES <- bootBW(x = x[x$sex1 == 1, ], w = w, statistic = gam.stat,
+                          params = params, outputColumns = params,
+                          replicates = replicates)
+  bootGAM.FEMALES <- bootBW(x = x[x$sex2 == 1, ], w = w, statistic = gam.stat,
+                            params = params, outputColumns = params,
+                            replicates = replicates)
   names(bootGAM.ALL) <- names(bootGAM.MALES) <- names(bootGAM.FEMALES) <- "GAM"
   #
   # Blocking weighted bootstrap (SAM)
   #
-  THRESHOLD <- 185
-  bootSAM.ALL <- bootBW(x = indicators.ALL, w = psuData, statistic = bootPROBIT,
-                        params = params, outputColumns = params, replicates = REPLICATES)
-  bootSAM.MALES <- bootBW(x = indicators.MALES, w = psuData, statistic = bootPROBIT,
-                          params = params, outputColumns = params, replicates = REPLICATES)
-  bootSAM.FEMALES <- bootBW(x = indicators.FEMALES, w = psuData, statistic = bootPROBIT,
-                            params = params, outputColumns = params, replicates = REPLICATES)
+  bootSAM.ALL <- bootBW(x = x, w = w, statistic = sam.stat,
+                        params = params, outputColumns = params,
+                                 replicates = replicates)
+  bootSAM.MALES <- bootBW(x = x[x$sex1 ==1, ], w = w, statistic = sam.stat,
+                          params = params, outputColumns = params,
+                          replicates = replicates)
+  bootSAM.FEMALES <- bootBW(x = x[x$sex2 ==1, ], w = w, statistic = sam.stat,
+                            params = params, outputColumns = params,
+                            replicates = replicates)
   names(bootSAM.ALL) <- names(bootSAM.MALES) <- names(bootSAM.FEMALES) <- "SAM"
   #
   # MAM is GAM - SAM
@@ -89,4 +97,5 @@ estimateProbit <- function(x, w, statistic = bootPROBIT,
   names(probitEstimates) <- c("LCL.ALL", "EST.ALL", "UCL.ALL",
                               "LCL.MALES", "EST.MALES", "UCL.MALES",
                               "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES", "INDICATOR")
+  return(probitEstimates)
 }
