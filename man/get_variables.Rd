@@ -4,7 +4,9 @@
 \alias{get_variables}
 \title{get_variables}
 \usage{
-get_variables(indicators)
+get_variables(indicators = c("demo", "food", "hunger", "adl",
+  "disability", "mental", "dementia", "health", "income", "wash", "anthro",
+  "visual", "misc"))
 }
 \arguments{
 \item{indicators}{A character vector of indicator set names. Indicator set
