@@ -22,13 +22,16 @@ mergeEstimates <- function(x, y) {
   #
   # Merge rows
   #
-  estimates <- rbind(classicEstimates, probitEstimates)
+  estimates <- rbind(x, y)
   #
   # Merge 'estimates' data.frame and 'language' data.frame in prepartion for reporting
   # and maintaining the original row ordering of the 'language' data.frame ...
   #
-  language$originalOrder <- 1:nrow(estimates)
-  estimates <- merge(estimates, language, by = "INDICATOR")
+  temp <- subset(language, subset = INDICATOR %in% estimates$INDICATOR)
+
+  temp$originalOrder <- 1:nrow(estimates)
+
+  estimates <- merge(estimates, temp, by = "INDICATOR")
   estimates <- estimates[order(estimates$originalOrder), ]
   estimates <- subset(estimates, select = -originalOrder)
   return(estimates)
