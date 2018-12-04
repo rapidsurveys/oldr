@@ -21,4 +21,5 @@ Age by sex (pyramid plot)
 \examples{
   # Create age by sex pyramid plot using \\code{indicators.ALL} dataset
   chartAge(x = indicators.ALL, filename = "TEST")
+
 }
