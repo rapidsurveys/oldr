@@ -196,7 +196,7 @@ ui <- dashboardPage(
             )
           ),
           conditionalPanel(condition = "input.design == 'stage2'",
-            box(title = "Stage 2 sampling parameters",
+            box(title = "Stage 2 sampling",
                 solidHeader = TRUE,
                 status = "danger",
                 width = 4,
@@ -245,24 +245,26 @@ ui <- dashboardPage(
       # Body output when 'collect' menu is selected
       #
       tabItem(tabName = "collect",
-        tabBox(selected = "questionnaire",
-          title = "Collect",
-          width = 12,
-          side = "right",
-          tabPanel(title = "Open Data Kit",
-            value = "odk",
-            h4("Digital data collection using Open Data Kit"),
-            uiOutput("collectOdk")
-          ),
-          tabPanel(title = "EpiData",
-            value = "epidata",
-            h4("EpiData"),
-            uiOutput("collectEpiData")
-          ),
-          tabPanel(title = "Questionnaire",
-            value = "questionnaire",
-            h4("The RAM-OP Questionnaire"),
-            uiOutput("questionnaireOP")
+        fluidRow(
+          tabBox(selected = "questionnaire",
+            title = "Collect",
+            width = 12,
+            side = "right",
+            tabPanel(title = "Open Data Kit",
+              value = "odk",
+              h4("Digital data collection using Open Data Kit"),
+              uiOutput("collectOdk")
+            ),
+            tabPanel(title = "EpiData",
+              value = "epidata",
+              h4("EpiData"),
+              uiOutput("collectEpiData")
+            ),
+            tabPanel(title = "Questionnaire",
+              value = "questionnaire",
+              h4("The RAM-OP Questionnaire"),
+              uiOutput("questionnaireOP")
+            )
           )
         )
       ),
