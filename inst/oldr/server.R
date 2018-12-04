@@ -553,9 +553,9 @@ server <- function(input, output, session) {
     })
     ##
     prettyResults <- reactive({
-      data.frame(results()[ , c("GROUP", "INDICATOR", "LABEL", "TYPE")],
-                 round(results()[ , !names(results()) %in% c("GROUP", "INDICATOR", "LABEL", "TYPE")],
-                       digits = 2))
+      x <- data.frame(results()[ , c("GROUP", "INDICATOR", "LABEL", "TYPE")],
+                      round(results()[ , !names(results()) %in% c("GROUP", "INDICATOR", "LABEL", "TYPE")],
+                            digits = 2))
     })
     ##
     output$resultsTable <- DT::renderDataTable(
@@ -726,7 +726,7 @@ server <- function(input, output, session) {
         geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 1)) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
         themeSettings +
         theme(legend.position = "top")
     })
@@ -757,7 +757,7 @@ server <- function(input, output, session) {
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
         geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
-        labs(x = "", y = "Mean") +
+        labs(x = "", y = "Mean No. of Meals per Day") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5)) +
         themeSettings +
@@ -788,12 +788,36 @@ server <- function(input, output, session) {
     output$fgPlot <- renderPlot({
       x <- results()[results()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      y$SET[y$SET == "EST.ALL"] <- "All"
+      y$SET[y$SET == "EST.MALES"] <- "Males"
+      y$SET[y$SET == "EST.FEMALES"] <- "Females"
+      y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
       ggplot(data = y, aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
         labs(x = "", y = "Proportion") +
         facet_wrap( ~ SET) +
-        scale_y_continuous(limits = c(0, 1)) +
-        themeSettings
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        themeSettings +
+        theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    })
+    #
+    # Food group consumption results
+    #
+    output$fgTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # food intake table modal
+    #
+    observeEvent(input$viewFGTable, {
+      showModal(
+        modalDialog(
+          title = "Food groups consumption",
+          DT::dataTableOutput("fgTable"), easyClose = TRUE
+        )
+      )
     })
   })
   #
