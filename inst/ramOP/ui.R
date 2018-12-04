@@ -480,24 +480,28 @@ ui <- dashboardPage(
               value = "food",
               br(),
               fluidRow(
-                box(title = "Meal Frequency", status = "danger",
-                  solidHeader = TRUE, width = 6,
-                  plotOutput(outputId = "mealPlot"),
-                  actionButton(inputId = "viewMealTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Meal Frequency", status = "danger",
+                    solidHeader = TRUE, width = 6,
+                    plotOutput(outputId = "mealPlot"),
+                    actionButton(inputId = "viewMealTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 )
               ),
               fluidRow(
-                box(title = "Consumption per food group", status = "danger",
-                  solidHeader = TRUE, width = 12,
-                  plotOutput(outputId = "fgPlot"),
-                  actionButton(inputId = "viewFGTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Consumption per food group", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "fgPlot"),
+                    actionButton(inputId = "viewFGTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 )
               )
@@ -506,33 +510,39 @@ ui <- dashboardPage(
               value = "demo",
               br(),
               fluidRow(
-                box(title = "Age Structure by Sex", status = "danger",
-                  solidHeader = TRUE, width = 6,
-                  plotOutput(outputId = "agePlot"),
-                  actionButton(inputId = "viewAgeTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Age Structure by Sex", status = "danger",
+                    solidHeader = TRUE, width = 6,
+                    plotOutput(outputId = "agePlot"),
+                    actionButton(inputId = "viewAgeTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 ),
-                box(title = "Marital Status", status = "danger",
-                  solidHeader = TRUE, width = 6,
-                  plotOutput(outputId = "maritalPlot"),
-                  actionButton(inputId = "viewMaritalTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Marital Status", status = "danger",
+                    solidHeader = TRUE, width = 6,
+                    plotOutput(outputId = "maritalPlot"),
+                    actionButton(inputId = "viewMaritalTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 )
               ),
               fluidRow(
-                box(title = "Respondents living alone", status = "danger",
-                  solidHeader = TRUE, width = 6,
-                  plotOutput(outputId = "alonePlot"),
-                  actionButton(inputId = "viewAloneTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Respondents living alone", status = "danger",
+                    solidHeader = TRUE, width = 6,
+                    plotOutput(outputId = "alonePlot"),
+                    actionButton(inputId = "viewAloneTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 )
               )
@@ -541,14 +551,16 @@ ui <- dashboardPage(
               value = "survey",
               br(),
               fluidRow(
-                box(title = "Survey Respondents", status = "danger",
-                  solidHeader = TRUE,
-                  width = 6,
-                  plotOutput(outputId = "surveyPlot"),
-                  actionButton(inputId = "viewSurveyTable",
-                               label = "View Data Table",
-                               icon = icon(name = "eye",
-                                           lib = "font-awesome")
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Survey Respondents", status = "danger",
+                    solidHeader = TRUE,
+                    width = 6,
+                    plotOutput(outputId = "surveyPlot"),
+                    actionButton(inputId = "viewSurveyTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
                   )
                 )
               )

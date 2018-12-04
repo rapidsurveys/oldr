@@ -650,7 +650,7 @@ server <- function(input, output, session) {
     # Survey respondents results - ALL
     #
     output$surveyTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResults()[prettyResults()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
