@@ -296,6 +296,63 @@ server <- function(input, output, session) {
   #
   ##############################################################################
   #
+  # Stage 2 sampling
+  #
+  ##############################################################################
+  #
+  #
+  #
+  output$stage2SamplingSummary <- renderUI({
+    HTML("
+      <p>The second stage within-community sample uses a method called
+         <em>map-segment-sample</em>. This method takes the within-community
+         sample from all parts of a sampled community.</p>
+    ")
+  })
+  #
+  #
+  #
+  output$stage2SamplingDescription <- renderUI({
+    HTML("
+         <p>The second stage (within-community) sample uses a
+            <em>map-segment-sample</em> approach:</p>
+
+            <ul>
+              <li><strong>Map:</strong> Make a rough map of the community to be
+                  sampled. It is helpful to think of communities as being made
+                  of ribbons (i.e. lines of dwellings located along roads,
+                  tracks, or rivers) and clusters of dwellings.
+
+                  <br/>
+
+                  <p>Here is an example of a ribbon of dwellings:</p>
+
+              <img <img src='https://ram.validmeasures.org/ramOPmanual/figures/stage2sample1.png' width = '400px'>
+
+                  &nbsp;
+
+                  <p>Here is an example of a cluster of dwellings:</p>
+
+              <img <img src='https://ram.validmeasures.org/ramOPmanual/figures/stage2sample2.png' width = '400px'>
+
+              <li><strong>Segment:</strong> Divide the community into ribbon and cluster segments \
+                  defined by the physical layout of the community being sampled.</li>
+
+              <li><strong>Sample:</strong> Ribbons and clusters are sampled in different ways:
+
+                <p><strong>Ribbons</strong> are sampled using systematic sampling.</p>
+                <p><strong>Clusters</strong> are sampled using a random walk method.</p>
+
+                <strong>Note:</strong> If a small community is selected that is
+                likely to have fewer than the required number of eligible persons
+                then all eligible persons in that community are sampled by moving
+                door-to-door.</li>
+            </ul>
+         ")
+  })
+  #
+  ##############################################################################
+  #
   # Collect
   #
   ##############################################################################

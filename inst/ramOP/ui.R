@@ -197,10 +197,10 @@ ui <- dashboardPage(
           ),
           conditionalPanel(condition = "input.design == 'stage2'",
             box(title = "Stage 2 sampling",
-                solidHeader = TRUE,
-                status = "danger",
-                width = 4,
-                shinyjs::useShinyjs()
+              solidHeader = TRUE,
+              status = "danger",
+              width = 4,
+              uiOutput("stage2SamplingSummary")
             )
           ),
           tabBox(selected = "stage1a",
