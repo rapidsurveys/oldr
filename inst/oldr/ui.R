@@ -476,8 +476,29 @@ ui <- dashboardPage(
               h4("Severe Food Insecurity")),
             tabPanel(title = "Diet",
               value = "food",
-              h4("Food Intake"),
-              DT::dataTableOutput("foodTable")
+              br(),
+              fluidRow(
+                box(title = "Meal Frequency", status = "danger",
+                  solidHeader = TRUE, width = 6,
+                  plotOutput(outputId = "mealPlot"),
+                  actionButton(inputId = "viewMealTable",
+                               label = "View Data Table",
+                               icon = icon(name = "eye",
+                                           lib = "font-awesome")
+                  )
+                )
+              ),
+              fluidRow(
+                box(title = "Consumption per food group", status = "danger",
+                  solidHeader = TRUE, width = 12,
+                  plotOutput(outputId = "fgPlot"),
+                  actionButton(inputId = "viewFGTable",
+                               label = "View Data Table",
+                               icon = icon(name = "eye",
+                                           lib = "font-awesome")
+                  )
+                )
+              )
             ),
             tabPanel(title = "Demography",
               value = "demo",
@@ -496,6 +517,17 @@ ui <- dashboardPage(
                   solidHeader = TRUE, width = 6,
                   plotOutput(outputId = "maritalPlot"),
                   actionButton(inputId = "viewMaritalTable",
+                               label = "View Data Table",
+                               icon = icon(name = "eye",
+                                           lib = "font-awesome")
+                  )
+                )
+              ),
+              fluidRow(
+                box(title = "Respondents living alone", status = "danger",
+                  solidHeader = TRUE, width = 6,
+                  plotOutput(outputId = "alonePlot"),
+                  actionButton(inputId = "viewAloneTable",
                                label = "View Data Table",
                                icon = icon(name = "eye",
                                            lib = "font-awesome")

@@ -717,13 +717,84 @@ server <- function(input, output, session) {
       )
     })
     #
+    # Alone results plot - ALL
+    #
+    output$alonePlot <- renderPlot({
+      x <- results()[results()$INDICATOR == "alone", ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = SET, y = EST)) +
+        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        labs(x = "", y = "Proportion") +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 1)) +
+        themeSettings +
+        theme(legend.position = "top")
+    })
+    #
+    # Demographic results - marital status
+    #
+    output$aloneTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR == "alone", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 10)
+    )
+    #
+    # alone table modal
+    #
+    observeEvent(input$viewAloneTable, {
+      showModal(
+        modalDialog(
+          title = "Respondents living alone",
+          DT::dataTableOutput("aloneTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Meal frequency results plot - ALL
+    #
+    output$mealPlot <- renderPlot({
+      x <- results()[results()$INDICATOR == "MF", ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = SET, y = EST)) +
+        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        labs(x = "", y = "Mean") +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5)) +
+        themeSettings +
+        theme(legend.position = "top")
+    })
+    #
     # Food intake results
     #
-    output$foodTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "food"), ],
+    output$mealTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% "MF", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
+    #
+    # food intake table modal
+    #
+    observeEvent(input$viewMealTable, {
+      showModal(
+        modalDialog(
+          title = "Meal frequency",
+          DT::dataTableOutput("mealTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # food group consumption results plot - ALL
+    #
+    output$fgPlot <- renderPlot({
+      x <- results()[results()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        labs(x = "", y = "Proportion") +
+        facet_wrap( ~ SET) +
+        scale_y_continuous(limits = c(0, 1)) +
+        themeSettings
+    })
   })
   #
   ##############################################################################
