@@ -488,23 +488,18 @@ ui <- dashboardPage(
                   plotOutput(outputId = "agePlot"),
                   actionButton(inputId = "viewAgeTable",
                                label = "View Data Table",
-                               icon = icon(name = "view",
+                               icon = icon(name = "eye",
                                            lib = "font-awesome")
                   )
                 ),
-                box(title = "All", status = "danger",
-                  solidHeader = FALSE, width = 6,
-                  DT::dataTableOutput("ageTable")
-                )
-              ),
-              fluidRow(
-                box(title = "Males", status = "danger",
-                  solidHeader = FALSE, width = 6,
-                  DT::dataTableOutput("ageTableMales")
-                ),
-                box(title = "Females", status = "danger",
-                  solidHeader = FALSE, width = 6,
-                  DT::dataTableOutput("ageTableFemales")
+                box(title = "Marital Status", status = "danger",
+                  solidHeader = TRUE, width = 6,
+                  plotOutput(outputId = "maritalPlot"),
+                  actionButton(inputId = "viewMaritalTable",
+                               label = "View Data Table",
+                               icon = icon(name = "eye",
+                                           lib = "font-awesome")
+                  )
                 )
               )
             ),
@@ -515,30 +510,14 @@ ui <- dashboardPage(
                 box(title = "Survey Respondents", status = "danger",
                   solidHeader = TRUE,
                   width = 6,
-                  plotOutput(outputId = "surveyPlot")
-                ),
-                box(title = "All", status = "danger",
-                  solidHeader = FALSE,
-                  width = 6,
-                  DT::dataTableOutput("surveyTable")
+                  plotOutput(outputId = "surveyPlot"),
+                  actionButton(inputId = "viewSurveyTable",
+                               label = "View Data Table",
+                               icon = icon(name = "eye",
+                                           lib = "font-awesome")
+                  )
                 )
-              ),
-              br(),
-              br(),
-              fluidRow(
-                box(title = "Males", status = "danger",
-                  solidHeader = FALSE,
-                  width = 6,
-                  DT::dataTableOutput("surveyTableMales")
-                ),
-                box(title = "Females", status = "danger",
-                  solidHeader = FALSE,
-                  width = 6,
-                  DT::dataTableOutput("surveyTableFemales")
-                )
-              ),
-              br(),
-              br()
+              )
             )
           )
         )

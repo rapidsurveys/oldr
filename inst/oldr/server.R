@@ -593,10 +593,21 @@ server <- function(input, output, session) {
     # Survey respondents results - ALL
     #
     output$surveyTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL")],
+      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
+    #
+    # Survey table modal
+    #
+    observeEvent(input$viewSurveyTable, {
+      showModal(
+        modalDialog(
+          title = "Survey Respondents",
+          DT::dataTableOutput("surveyTable"), easyClose = TRUE
+        )
+      )
+    })
     #
     # Survey respondents results - MALES
     #
@@ -622,23 +633,24 @@ server <- function(input, output, session) {
       options = list(scrollX = TRUE, pageLength = 20)
     )
     #
-    #
-    #
-    observeEvent(input$viewAgeTable, {
-      showModal(
-        modalDialog(
-          DT::dataTableOutput("demoTable"), easyClose = TRUE
-        )
-      )
-    })
-    #
     # Demographic results - age
     #
     output$ageTable <- DT::renderDataTable(
       prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
+      options = list(scrollX = TRUE, pageLength = 10)
     )
+    #
+    # Age table modal
+    #
+    observeEvent(input$viewAgeTable, {
+      showModal(
+        modalDialog(
+          title = "Survey respondents age",
+          DT::dataTableOutput("ageTable"), easyClose = TRUE
+        )
+      )
+    })
     #
     # Demographic results - age for Males
     #
@@ -666,8 +678,43 @@ server <- function(input, output, session) {
       pyramid.plot(x = ageGroup,
                    g = sexText,
                    main = "",
-                   xlab = "     Male    /    Female",
+                   xlab = "        Male    /    Female",
                    ylab = "Age Groups")
+    })
+    #
+    # Marital results plot - ALL
+    #
+    output$maritalPlot <- renderPlot({
+      x <- results()[results()$INDICATOR %in% c("marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = SET, y = EST, fill = INDICATOR)) +
+        geom_col(width = 0.5) +
+        labs(x = "", y = "Proportion") +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_fill_manual(name = "Marital Status",
+                          values = brewer.pal(n = 6, name = "Pastel1"),
+                          labels = c("Single", "Married", "Living together", "Divorced", "Widowed", "Other")) +
+        themeSettings +
+        theme(legend.position = "top")
+    })
+    #
+    # Demographic results - marital status
+    #
+    output$maritalTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR %in% c("age", "marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 10)
+    )
+    #
+    # Marital table modal
+    #
+    observeEvent(input$viewMaritalTable, {
+      showModal(
+        modalDialog(
+          title = "Marital Status",
+          DT::dataTableOutput("maritalTable"), easyClose = TRUE
+        )
+      )
     })
     #
     # Food intake results
