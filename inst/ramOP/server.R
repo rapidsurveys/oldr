@@ -592,7 +592,7 @@ server <- function(input, output, session) {
 
       progress <- Progress$new()
       on.exit(progress$close())
-      progress$set(message = "Bootstrapping with classical estimator", value = 0.5)
+      progress$set(message = "Bootstrapping with classical estimator", value = 0.7)
 
       isolate(estimateClassic(x = indicatorsDF(), w = req(psuDataset()),
                               indicators = input$analyseIndicators,
@@ -604,7 +604,7 @@ server <- function(input, output, session) {
 
       progress <- Progress$new()
       on.exit(progress$close())
-      progress$set(message = "Bootstrapping with probit estimator", value = 0.5)
+      progress$set(message = "Bootstrapping with probit estimator", value = 0.7)
 
       ##
       NULL
@@ -647,7 +647,7 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST, fill = INDICATOR)) +
-        geom_col(width = 0.5) +
+        geom_col(width = 0.7) +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_fill_manual(name = "Respondent",
@@ -755,7 +755,7 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR %in% c("marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST, fill = INDICATOR)) +
-        geom_col(width = 0.5) +
+        geom_col(width = 0.7) +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_fill_manual(name = "Marital Status",
@@ -790,7 +790,7 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR == "alone", ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
-        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
@@ -823,7 +823,7 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR == "MF", ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
-        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
         labs(x = "", y = "Mean No. of Meals per Day") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5)) +
@@ -834,7 +834,7 @@ server <- function(input, output, session) {
     # Food intake results
     #
     output$mealTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% "MF", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResults()[results()$INDICATOR == "MF", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
@@ -860,7 +860,7 @@ server <- function(input, output, session) {
       y$SET[y$SET == "EST.FEMALES"] <- "Females"
       y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
       ggplot(data = y, aes(x = INDICATOR, y = EST)) +
-        geom_col(width = 0.5, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
         labs(x = "", y = "Proportion") +
         facet_wrap( ~ SET) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
@@ -885,6 +885,66 @@ server <- function(input, output, session) {
           DT::dataTableOutput("fgTable"), easyClose = TRUE
         )
       )
+    })
+    #
+    # DDS results plot - ALL
+    #
+    output$ddsPlot <- renderPlot({
+      x <- results()[results()$INDICATOR == "DDS", ]
+      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = y, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
+        labs(x = "", y = "Mean Dietary Diversity Score") +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
+        themeSettings +
+        theme(legend.position = "top")
+    })
+    #
+    # DDS results
+    #
+    output$ddsTable <- DT::renderDataTable(
+      prettyResults()[results()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # DDS table modal
+    #
+    observeEvent(input$viewDDSTable, {
+      showModal(
+        modalDialog(
+          title = "Mean Dietary Diversity Score",
+          DT::dataTableOutput("ddsTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Raw DDS score histogram plot
+    #
+    output$ddsHistPlot <- renderPlot({
+      x <- indicatorsDF()[ , c("sex1", "DDS")]
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+      x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
+      ggplot(data = x, aes(x = DDS)) +
+        geom_bar(width = 0.7, fill = "#993300", colour = "#993300") +
+        labs(x = "Dietary Diversity Score", y = "Frequency") +
+        facet_wrap( ~ sex1) +
+        scale_x_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
+        #scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        themeSettings
+    })
+    #
+    # Raw DDS boxplots
+    #
+    output$ddsBoxPlot <- renderPlot({
+      x <- indicatorsDF()[ , c("sex1", "DDS")]
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+      x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
+      ggplot(data = x, aes(y = DDS, x = sex1)) +
+        geom_boxplot(notch = TRUE, width = 0.7, colour = "#993300", size = 1) +
+        labs(x = "", y = "Dietary Diversity Score") +
+        themeSettings
     })
   })
   #

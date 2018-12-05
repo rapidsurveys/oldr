@@ -491,6 +491,37 @@ ui <- dashboardPage(
                     )
                   )
                 )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Mean Dietary Diversity Score", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "ddsPlot"),
+                    actionButton(inputId = "viewDDSTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Dietary Diversity Score Distriubtion - Histogram",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "ddsHistPlot")
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Dietary Diversity Score Distribution - Boxplot",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "ddsBoxPlot")
+                  )
+                )
               )
             ),
             tabPanel(title = "Demography",
@@ -560,38 +591,35 @@ ui <- dashboardPage(
       #
       tabItem(tabName = "report",
         fluidRow(
-          box(title = "Report parameters",
-            solidHeader = FALSE,
-            status = "danger",
-            width = 12,
-            box(title = "Report type",
-              solidHeader = TRUE,
-              status = "success",
-              width = 4,
-              checkboxGroupInput(inputId = "reportType",
-                                 label = "Select report type to generate",
-                                 choices = c("HTML" = "html",
-                                             "PDF" = "pdf"),
-                                 selected = c("html", "pdf")
-              )
-            ),
-            box(title = "Report directory",
-              solidHeader = TRUE,
-              status = "warning",
-              width = 4,
-              textInput(inputId = "reportDir",
-                label = "Enter directory to save report",
-                value = "")
-            ),
-            box(title = "",
-              solidHeader = TRUE,
-              status = "primary",
-              width = 4,
-              actionButton(inputId = "reportGenerate",
-                           label = "Generate report",
-                           icon = icon(name = "file-text",
-                                       lib = "font-awesome")
-              )
+          box(title = "Report type",
+            solidHeader = TRUE,
+            status = "info",
+            width = 4,
+            checkboxGroupInput(inputId = "reportType",
+                               label = "Select report type to generate",
+                               inline = TRUE,
+                               choices = c("HTML" = "html",
+                                           "PDF" = "pdf"),
+                               selected = c("html", "pdf")
+            )
+          ),
+          box(title = "Report directory",
+            solidHeader = TRUE,
+            status = "warning",
+            width = 4,
+            textInput(inputId = "reportDir",
+              label = "Enter directory to save report",
+              value = "")
+          ),
+          box(title = "Report",
+            solidHeader = TRUE,
+            status = "success",
+            width = 4,
+            p("Click on button to generate RAM-OP report"),
+            actionButton(inputId = "reportGenerate",
+                         label = "Generate report",
+                         icon = icon(name = "file-text",
+                                     lib = "font-awesome")
             )
           )
         )
