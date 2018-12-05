@@ -419,70 +419,57 @@ ui <- dashboardPage(
                                        lib = "font-awesome")
             )
           ),
-          box(title = "Analyse",
-            solidHeader = FALSE,
-            status = "danger",
-            width = 8,
-            DT::dataTableOutput("resultsTable")
-          )
-        )
-      ),
-      #
-      # Body output when 'report' menu is selected
-      #
-      tabItem(tabName = "report",
-        fluidRow(
           tabBox(title = "",
-            id = "report",
+            id = "analyse",
             selected = "survey",
+            width = 8,
             side = "right",
-            width = 12,
             tabPanel(title = "Misc",
-              value = "misc",
-              h4("Miscellaneous Indicators")),
+                     value = "misc",
+                     h4("Miscellaneous Indicators")),
             tabPanel(title = "Visual",
-              value = "visual",
-              h4("Visual Impairment")),
+                     value = "visual",
+                     h4("Visual Impairment")),
             tabPanel(title = "Screening",
-              value = "screening",
-              h4("Screening Coverage")),
+                     value = "screening",
+                     h4("Screening Coverage")),
             tabPanel(title = "Oedema",
-              value = "oedema",
-              h4("Oedema Prevalence")),
+                     value = "oedema",
+                     h4("Oedema Prevalence")),
             tabPanel(title = "Anthropometry",
-              value = "anthro",
-              h4("Anthropometry")),
+                     value = "anthro",
+                     h4("Anthropometry")),
             tabPanel(title = "WASH",
-              value = "wash",
-              h4("Water, Sanitation and Hygiene")),
+                     value = "wash",
+                     h4("Water, Sanitation and Hygiene")),
             tabPanel(title = "Income",
-              value = "income",
-              h4("Sources of Income")),
+                     value = "income",
+                     h4("Sources of Income")),
             tabPanel(title = "Health",
-              value = "health",
-              h4("Health and Health-Seeking Behaviour")),
+                     value = "health",
+                     h4("Health and Health-Seeking Behaviour")),
             tabPanel(title = "Dementia",
-              value = "dementia",
-              h4("Dementia")),
+                     value = "dementia",
+                     h4("Dementia")),
             tabPanel(title = "Mental",
-              value = "mental",
-              h4("Mental Health")),
+                     value = "mental",
+                     h4("Mental Health")),
             tabPanel(title = "ADL",
-              value = "adl",
-              h4("Activities of Daily Living")),
+                     value = "adl",
+                     h4("Activities of Daily Living")),
             tabPanel(title = "Disability",
-              value = "disability",
-              h4("Disability")),
+                     value = "disability",
+                     h4("Disability")),
             tabPanel(title = "Hunger",
-              value = "hunger",
-              h4("Severe Food Insecurity")),
+                     value = "hunger",
+                     h4("Severe Food Insecurity")),
             tabPanel(title = "Diet",
               value = "food",
               br(),
               fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
                   box(title = "Meal Frequency", status = "danger",
-                    solidHeader = TRUE, width = 6,
+                    solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "mealPlot"),
                     actionButton(inputId = "viewMealTable",
                                  label = "View Data Table",
@@ -508,22 +495,23 @@ ui <- dashboardPage(
             ),
             tabPanel(title = "Demography",
               value = "demo",
-              br(),
               fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
                   box(title = "Age Structure by Sex", status = "danger",
-                    solidHeader = TRUE, width = 6,
+                    solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "agePlot"),
                     actionButton(inputId = "viewAgeTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    label = "View Data Table",
+                    icon = icon(name = "eye",
+                                lib = "font-awesome")
                     )
                   )
-                ),
+                )
+              ),
+              fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
                   box(title = "Marital Status", status = "danger",
-                    solidHeader = TRUE, width = 6,
+                    solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "maritalPlot"),
                     actionButton(inputId = "viewMaritalTable",
                                  label = "View Data Table",
@@ -536,7 +524,7 @@ ui <- dashboardPage(
               fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
                   box(title = "Respondents living alone", status = "danger",
-                    solidHeader = TRUE, width = 6,
+                    solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "alonePlot"),
                     actionButton(inputId = "viewAloneTable",
                                  label = "View Data Table",
@@ -547,14 +535,13 @@ ui <- dashboardPage(
                 )
               )
             ),
-            tabPanel(title = "Respondents",
-              value = "survey",
-              br(),
+            tabPanel(title = "Respondents", value = "survey",
               fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
-                  box(title = "Survey Respondents", status = "danger",
+                  box(title = "Survey Respondents",
+                    status = "danger",
                     solidHeader = TRUE,
-                    width = 6,
+                    width = 12,
                     plotOutput(outputId = "surveyPlot"),
                     actionButton(inputId = "viewSurveyTable",
                                  label = "View Data Table",
@@ -565,6 +552,19 @@ ui <- dashboardPage(
                 )
               )
             )
+          )
+        )
+      ),
+      #
+      # Body output when 'report' menu is selected
+      #
+      tabItem(tabName = "report",
+        fluidRow(
+          tabBox(title = "",
+            id = "report",
+            selected = "survey",
+            side = "right",
+            width = 12
           )
         )
       )

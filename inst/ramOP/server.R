@@ -589,6 +589,11 @@ server <- function(input, output, session) {
     })
     ##
     classicEstimates <- reactive({
+
+      progress <- Progress$new()
+      on.exit(progress$close())
+      progress$set(message = "Bootstrapping with classical estimator", value = 0.5)
+
       isolate(estimateClassic(x = indicatorsDF(), w = req(psuDataset()),
                               indicators = input$analyseIndicators,
                               params = get_variables(indicators = input$analyseIndicators),
@@ -596,6 +601,11 @@ server <- function(input, output, session) {
     })
     ##
     probitEstimates <- reactive({
+
+      progress <- Progress$new()
+      on.exit(progress$close())
+      progress$set(message = "Bootstrapping with probit estimator", value = 0.5)
+
       ##
       NULL
       ##
