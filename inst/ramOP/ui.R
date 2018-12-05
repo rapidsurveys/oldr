@@ -560,11 +560,39 @@ ui <- dashboardPage(
       #
       tabItem(tabName = "report",
         fluidRow(
-          tabBox(title = "",
-            id = "report",
-            selected = "survey",
-            side = "right",
-            width = 12
+          box(title = "Report parameters",
+            solidHeader = FALSE,
+            status = "danger",
+            width = 12,
+            box(title = "Report type",
+              solidHeader = TRUE,
+              status = "success",
+              width = 4,
+              checkboxGroupInput(inputId = "reportType",
+                                 label = "Select report type to generate",
+                                 choices = c("HTML" = "html",
+                                             "PDF" = "pdf"),
+                                 selected = c("html", "pdf")
+              )
+            ),
+            box(title = "Report directory",
+              solidHeader = TRUE,
+              status = "warning",
+              width = 4,
+              textInput(inputId = "reportDir",
+                label = "Enter directory to save report",
+                value = "")
+            ),
+            box(title = "",
+              solidHeader = TRUE,
+              status = "primary",
+              width = 4,
+              actionButton(inputId = "reportGenerate",
+                           label = "Generate report",
+                           icon = icon(name = "file-text",
+                                       lib = "font-awesome")
+              )
+            )
           )
         )
       )
