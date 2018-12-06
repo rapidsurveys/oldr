@@ -1098,20 +1098,47 @@ server <- function(input, output, session) {
     output$vitAPlot <- renderPlot({
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("pVitA", "aVitA", "xVitA"), ]
 
-      x$INDICATOR <- ifelse(x$INDICATOR == "pVitA", "Plant sources of vitamin A",
-                            ifelse(x$INDICATOR == "aVitA", "Animal sources of vitamin A", "Vitamin A-rich foods consumption"))
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
 
-      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources of vitamin A",
-                                                    "Plant sources of vitamin A",
-                                                    "Vitamin A-rich foods consumption"))
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
 
-      ggplot(x, aes(x = SET, y = EST)) +
+      x$INDICATOR <- ifelse(x$INDICATOR == "pVitA", "Plant sources\nof vitamin A",
+                            ifelse(x$INDICATOR == "aVitA", "Animal sources\nof vitamin A", "Vitamin A-rich\nfoods consumption"))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources\nof vitamin A",
+                                                    "Plant sources\nof vitamin A",
+                                                    "Vitamin A-rich\nfoods consumption"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
-        facet_wrap( ~ INDICATOR) +
-        scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        theme_ram
+        #facet_wrap( ~ INDICATOR) +
+        #scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupVitA == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupVitA == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$errorVitA) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot + theme_ram
     })
     #
     # Vitamin B results
