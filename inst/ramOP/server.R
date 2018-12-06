@@ -1092,17 +1092,22 @@ server <- function(input, output, session) {
     output$otherVitPlot <- renderPlot({
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("ironRich", "caRich", "znRich"), ]
 
-      x$INDICATOR <- ifelse(x$INDICATOR == "ironRich", "Iron-rich foods consumption",
-                            ifelse(x$INDICATOR == "caRich", "Calcium-rich foods consumption", "Zinc-rich foods consumption"))
+      x$INDICATOR <- ifelse(x$INDICATOR == "ironRich", "Iron-rich\nfoods\nconsumption",
+                            ifelse(x$INDICATOR == "caRich", "Calcium-rich\nfoods\nconsumption", "Zinc-rich\nfoods\nconsumption"))
 
-      chartPlot <- ggplot(x[x$SET == "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
         scale_y_continuous(limits = c(0, 1),
                            breaks = seq(from = 0, to = 1, by = 0.2))
 
       if(input$groupOtherVit == "sex") {
-        chartPlot <- ggplot(x[x$SET != "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
           geom_col(width = 0.7, fill = "white", colour = "gray70") +
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
@@ -1111,7 +1116,7 @@ server <- function(input, output, session) {
       }
 
       if(input$groupOtherVit == "indicator") {
-        chartPlot <- ggplot(x[x$SET != "EST.ALL", ], aes(x = SET, y = EST)) +
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
           geom_col(width = 0.7, fill = "white", colour = "gray70") +
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
@@ -1120,7 +1125,7 @@ server <- function(input, output, session) {
       }
 
       if(input$groupOtherVit == "no") {
-        chartPlot <- ggplot(x[x$SET == "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+        chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
           geom_col(width = 0.7, fill = "white", colour = "gray70") +
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
@@ -1128,7 +1133,8 @@ server <- function(input, output, session) {
       }
 
       if(input$errorOtherVit) {
-        chartPlot <- chartPlot + geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.2)
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
       }
 
       chartPlot + theme_ram

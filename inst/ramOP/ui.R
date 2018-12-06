@@ -379,7 +379,7 @@ ui <- dashboardPage(
           box(title = "Analysis Parameters", solidHeader = TRUE,
             status = "danger", width = 4,
             checkboxGroupInput(inputId = "analyseIndicators",
-                               label = "Select indicators to process",
+                               label = "Select indicators to analyse",
                                choices = c("Demography and situation" = "demo",
                                            "Food intake" = "food",
                                            "Severe food insecurity" = "hunger",
@@ -571,23 +571,29 @@ ui <- dashboardPage(
                     status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "otherVitPlot"),
-                    selectInput(inputId = "groupOtherVit",
-                                label = "Stratify by",
-                                selected = "",
-                                width = "30%",
-                                choices = c("Stratify by" = "",
-                                            "No stratification" = "no",
-                                            "Sex" = "sex",
-                                            "Indicator" = "indicator")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewOtherVitTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
                     ),
-                    checkboxInput(inputId = "errorOtherVit",
-                                label = "Confidence interval",
-                                value = FALSE,
-                                width = "30%"),
-                    actionButton(inputId = "viewOtherVitTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupOtherVit",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorOtherVit",
+                                  label = "Confidence interval",
+                                  value = FALSE,
+                                  width = "200px")
                     )
                   )
                 )
