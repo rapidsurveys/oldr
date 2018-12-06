@@ -791,16 +791,16 @@ server <- function(input, output, session) {
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
 
-      chartPlot + theme_ram
-
       if(input$errorAlone) {
-        chartPlot +
+        chartPlot <- chartPlot +
           geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70") +
           theme_ram
       }
+
+      chartPlot + theme_ram
     })
     #
-    # Demographic results - marital status
+    # Demographic results - living alone
     #
     output$aloneTable <- DT::renderDataTable(
       prettyResultsLong()[prettyResultsLong()$INDICATOR == "alone", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
@@ -822,9 +822,9 @@ server <- function(input, output, session) {
     # Meal frequency results plot - ALL
     #
     output$mealPlot <- renderPlot({
-      x <- results()[results()$INDICATOR == "MF", ]
-      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      ggplot(data = y, aes(x = SET, y = EST)) +
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "MF", ]
+      #y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+      ggplot(data = x, aes(x = SET, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Mean No. of Meals per Day") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
