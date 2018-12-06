@@ -658,9 +658,15 @@ server <- function(input, output, session) {
     # Survey respondents results plot - ALL
     #
     output$surveyPlot <- renderPlot({
-      x <- results()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), ]
-      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      ggplot(data = y, aes(x = SET, y = EST, fill = INDICATOR)) +
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), ]
+      #y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      ggplot(data = x, aes(x = SET, y = EST, fill = INDICATOR)) +
         geom_col(width = 0.7) +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
@@ -886,18 +892,6 @@ server <- function(input, output, session) {
       }
 
       chartPlot + theme_ram
-
-      #y$SET[y$SET == "EST.ALL"] <- "All"
-      #y$SET[y$SET == "EST.MALES"] <- "Males"
-      #y$SET[y$SET == "EST.FEMALES"] <- "Females"
-      #y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
-      #ggplot(data = y, aes(x = INDICATOR, y = EST)) +
-      #  geom_col(width = 0.7, fill = "white", colour = "gray50") +
-      #  labs(x = "", y = "Proportion") +
-      #  facet_wrap( ~ SET) +
-      #  scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-      #  theme_ram +
-      #  theme(axis.text.x = element_text(angle = 90, hjust = 1))
     })
     #
     # Food group consumption results
