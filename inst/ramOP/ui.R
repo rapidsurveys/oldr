@@ -564,10 +564,29 @@ ui <- dashboardPage(
                     status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "proteinPlot"),
-                    actionButton(inputId = "viewProteinTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                              lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewProteinTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                                lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupProtein",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorProtein",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )
@@ -578,10 +597,29 @@ ui <- dashboardPage(
                     status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "vitAPlot"),
-                    actionButton(inputId = "viewVitATable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewVitATable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupVitA",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorVitA",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )
