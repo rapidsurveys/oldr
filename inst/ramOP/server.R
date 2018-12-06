@@ -625,6 +625,20 @@ server <- function(input, output, session) {
                             digits = 2))
     })
     ##
+    prettyResultsLong <- reactive({
+
+      temp <- subset(prettyResults(), select = c(-LCL.ALL, -LCL.MALES, -LCL.FEMALES, -UCL.ALL, -UCL.MALES, -UCL.FEMALES))
+      x <- gather(temp, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
+
+      temp <- subset(prettyResults(), select = c(-EST.ALL, -EST.MALES, -EST.FEMALES, -UCL.ALL, -UCL.MALES, -UCL.FEMALES))
+      y <- gather(temp, key = "SET", value = "LCL", LCL.ALL, LCL.MALES, LCL.FEMALES)
+
+      temp <- subset(prettyResults(), select = c(-LCL.ALL, -LCL.MALES, -LCL.FEMALES, -EST.ALL, -EST.MALES, -EST.FEMALES))
+      z <- gather(temp, key = "SET", value = "UCL", UCL.ALL, UCL.MALES, UCL.FEMALES)
+
+      xyz <- data.frame(x, "LCL" = y[ , "LCL"], "UCL" = z[ , "UCL"])
+    })
+    ##
     output$resultsTable <- DT::renderDataTable(
       expr = results(),
       options = list(scrollX = TRUE, pageLength = 20)
@@ -637,7 +651,7 @@ server <- function(input, output, session) {
         "results.ALL.csv"
       },
       content = function(file) {
-        write.csv(results(), file)
+        write.csv(results(), file, row.names = FALSE)
       }
     )
     #
@@ -653,14 +667,15 @@ server <- function(input, output, session) {
         scale_fill_manual(name = "Respondent",
                           values = brewer.pal(n = 4, name = "Pastel1"),
                           labels = c("Subject", "Family Carer", "Other Carer", "Other")) +
-        themeSettings +
+        theme_ram +
         theme(legend.position = "top")
     })
     #
     # Survey respondents results - ALL
     #
     output$surveyTable <- DT::renderDataTable(
-      prettyResults()[prettyResults()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
@@ -676,26 +691,11 @@ server <- function(input, output, session) {
       )
     })
     #
-    # Survey respondents results - MALES
-    #
-    output$surveyTableMales <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.MALES", "LCL.MALES", "UCL.MALES")],
-      rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
-    )
-    #
-    # Survey respondents results - FEMALES
-    #
-    output$surveyTableFemales <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("INDICATOR", "LABEL", "TYPE", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
-      rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
-    )
-    #
     # Demographic results
     #
     output$demoTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% get_variables(indicators = "demo") & !results()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR %in% get_variables(indicators = "demo") & !prettyResults()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% get_variables(indicators = "demo") & !prettyResults()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), c("LABEL", "TYPE", "SET", "ESTL", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
@@ -703,9 +703,10 @@ server <- function(input, output, session) {
     # Demographic results - age
     #
     output$ageTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 10)
+      options = list(scrollX = TRUE, pageLength = 20)
     )
     #
     # Age table modal
@@ -719,33 +720,17 @@ server <- function(input, output, session) {
       )
     })
     #
-    # Demographic results - age for Males
-    #
-    output$ageTableMales <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.MALES", "LCL.MALES", "UCL.MALES")],
-      rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
-    )
-    #
-    # Demographic results - age for Males
-    #
-    output$ageTableFemales <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("age", "ageGrp1", "ageGrp2", "ageGrp3", "ageGrp4"), c("LABEL", "TYPE", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
-      rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
-    )
-    #
     # Demographic results - age plots
     #
     output$agePlot <- renderPlot({
-      x <- create_op_all(surveyDataset())
+      x <- indicatorsDF() #create_op_all(surveyDataset())
       sexText <- ifelse(x$sex1 == 1, "Male", "Female")
       ageGroup <- bbw::recode(x$age, "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
 
       pyramid.plot(x = ageGroup,
                    g = sexText,
                    main = "",
-                   xlab = "        Male    /    Female",
+                   xlab = "                    Male    /    Female",
                    ylab = "Age Groups")
     })
     #
@@ -761,16 +746,17 @@ server <- function(input, output, session) {
         scale_fill_manual(name = "Marital Status",
                           values = brewer.pal(n = 6, name = "Pastel1"),
                           labels = c("Single", "Married", "Living together", "Divorced", "Widowed", "Other")) +
-        themeSettings +
+        theme_ram +
         theme(legend.position = "top")
     })
     #
     # Demographic results - marital status
     #
     output$maritalTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("age", "marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR %in% c("age", "marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("age", "marital1", "marital2", "marital3", "marital4", "marital5", "marital6"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 10)
+      options = list(scrollX = TRUE, pageLength = 7)
     )
     #
     # Marital table modal
@@ -790,18 +776,19 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR == "alone", ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
-        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        themeSettings +
+        theme_ram +
         theme(legend.position = "top")
     })
     #
     # Demographic results - marital status
     #
     output$aloneTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR == "alone", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR == "alone", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "alone", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 10)
     )
@@ -823,18 +810,19 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR == "MF", ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
-        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Mean No. of Meals per Day") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5)) +
-        themeSettings +
+        theme_ram +
         theme(legend.position = "top")
     })
     #
     # Food intake results
     #
     output$mealTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR == "MF", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR == "MF", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "MF", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
@@ -860,20 +848,21 @@ server <- function(input, output, session) {
       y$SET[y$SET == "EST.FEMALES"] <- "Females"
       y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
       ggplot(data = y, aes(x = INDICATOR, y = EST)) +
-        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Proportion") +
         facet_wrap( ~ SET) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        themeSettings +
+        theme_ram +
         theme(axis.text.x = element_text(angle = 90, hjust = 1))
     })
     #
     # Food group consumption results
     #
     output$fgTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
-      options = list(scrollX = TRUE, pageLength = 20)
+      options = list(scrollX = TRUE, pageLength = 11)
     )
     #
     # food intake table modal
@@ -893,18 +882,19 @@ server <- function(input, output, session) {
       x <- results()[results()$INDICATOR == "DDS", ]
       y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
       ggplot(data = y, aes(x = SET, y = EST)) +
-        geom_col(width = 0.7, fill = "#993300", colour = "#993300") +
+        geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Mean Dietary Diversity Score") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
-        themeSettings +
+        theme_ram +
         theme(legend.position = "top")
     })
     #
     # DDS results
     #
     output$ddsTable <- DT::renderDataTable(
-      prettyResults()[results()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      #prettyResults()[prettyResults()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "DDS", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 20)
     )
@@ -927,12 +917,12 @@ server <- function(input, output, session) {
       x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
       x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
       ggplot(data = x, aes(x = DDS)) +
-        geom_bar(width = 0.7, fill = "#993300", colour = "#993300") +
+        geom_bar(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "Dietary Diversity Score", y = "Frequency") +
         facet_wrap( ~ sex1) +
-        scale_x_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
-        #scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        themeSettings
+        scale_x_continuous(limits = c(0, 11), breaks = seq(from = 0, to = max(x$DDS), by = 5)) +
+        #scale_y_continuous(breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
     })
     #
     # Raw DDS boxplots
@@ -942,9 +932,206 @@ server <- function(input, output, session) {
       x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
       x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
       ggplot(data = x, aes(y = DDS, x = sex1)) +
-        geom_boxplot(notch = TRUE, width = 0.7, colour = "#993300", size = 1) +
+        geom_boxplot(notch = TRUE, width = 0.7, colour = "gray70", size = 1) +
         labs(x = "", y = "Dietary Diversity Score") +
-        themeSettings
+        scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
+        theme_ram
+    })
+    #
+    # Protein results
+    #
+    output$proteinTable <- DT::renderDataTable(
+      #prettyResults()[prettyResults()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("proteinRich", "pProtein", "aProtein"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Protein table modal
+    #
+    observeEvent(input$viewProteinTable, {
+      showModal(
+        modalDialog(
+          title = "Consumption of foods rich in protein",
+          DT::dataTableOutput("proteinTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Protein plot
+    #
+    output$proteinPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("proteinRich", "pProtein", "aProtein"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "pProtein", "Plant sources of protein",
+                       ifelse(x$INDICATOR == "aProtein", "Animal sources of protein", "Protein-rich foods consumption"))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources of protein",
+                                                    "Protein sources of protein",
+                                                    "Protein-rich foods consumption"))
+
+      ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        facet_wrap( ~ INDICATOR) +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
+    })
+    #
+    # Vitamin A results
+    #
+    output$vitATable <- DT::renderDataTable(
+      #prettyResults()[prettyResults()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("pVitA", "aVitA", "xVitA"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Vitamin A table modal
+    #
+    observeEvent(input$viewVitATable, {
+      showModal(
+        modalDialog(
+          title = "Consumption of foods rich in vitamin A",
+          DT::dataTableOutput("vitATable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Vitamin A plot
+    #
+    output$vitAPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("pVitA", "aVitA", "xVitA"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "pVitA", "Plant sources of vitamin A",
+                            ifelse(x$INDICATOR == "aVitA", "Animal sources of vitamin A", "Vitamin A-rich foods consumption"))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources of vitamin A",
+                                                    "Plant sources of vitamin A",
+                                                    "Vitamin A-rich foods consumption"))
+
+      ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        facet_wrap( ~ INDICATOR) +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
+    })
+    #
+    # Vitamin B results
+    #
+    output$vitBTable <- DT::renderDataTable(
+      #prettyResults()[prettyResults()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("vitB1", "vitB2", "vitB3", "vitB6", "vitB12", "vitBcomplex"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Vitamin B table modal
+    #
+    observeEvent(input$viewVitBTable, {
+      showModal(
+        modalDialog(
+          title = "Consumption of foods rich in vitamin B",
+          DT::dataTableOutput("vitBTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Vitamin B plot
+    #
+    output$vitBPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("vitB1", "vitB2", "vitB3", "vitB6", "vitB12", "vitBcomplex"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "vitB1", "Vitamin B1",
+                       ifelse(x$INDICATOR == "vitB2", "Vitamin B2",
+                         ifelse(x$INDICATOR == "vitB3", "Vitamin B3",
+                           ifelse(x$INDICATOR == "vitB6", "Vitamin B6",
+                             ifelse(x$INDICATOR == "vitB12", "Vitamin B12", "Vitamin B complex")))))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Vitamin B1",
+                                                    "Vitamin B2",
+                                                    "Vitamin B3",
+                                                    "Vitamin B6",
+                                                    "Vitamin B12",
+                                                    "Vitamin B complex"))
+
+      ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        facet_wrap( ~ INDICATOR) +
+        scale_x_discrete(labels = c("All", "Males", "Females")) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
+    })
+    #
+    # Other vitamin and minerals results
+    #
+    output$otherVitTable <- DT::renderDataTable(
+      #prettyResults()[prettyResults()$INDICATOR == "DDS", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("ironRich", "caRich", "znRich"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Other vitamin and minerals table modal
+    #
+    observeEvent(input$viewOtherVitTable, {
+      showModal(
+        modalDialog(
+          title = "Consumption of foods rich in iron, calcium and zinc",
+          DT::dataTableOutput("otherVitTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Vitamin B plot
+    #
+    output$otherVitPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("ironRich", "caRich", "znRich"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "ironRich", "Iron-rich foods consumption",
+                            ifelse(x$INDICATOR == "caRich", "Calcium-rich foods consumption", "Zinc-rich foods consumption"))
+
+      chartPlot <- ggplot(x[x$SET == "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupOtherVit == "sex") {
+        chartPlot <- ggplot(x[x$SET != "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupOtherVit == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "EST.ALL", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$groupOtherVit == "no") {
+        chartPlot <- ggplot(x[x$SET == "EST.ALL", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2))
+      }
+
+      if(input$errorOtherVit) {
+        chartPlot <- chartPlot + geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.2)
+      }
+
+      chartPlot + theme_ram
     })
   })
   #

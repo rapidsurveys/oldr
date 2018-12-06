@@ -47,17 +47,18 @@ countries <- as.list(list_countries$iso3code)
 names(countries) <- list_countries$country
 
 
-themeSettings <- theme_bw() +
-  theme(panel.border = element_rect(colour = "#993300",
+theme_ram <- theme_bw() +
+  theme(panel.border = element_rect(colour = "gray70",
                                     size = 0.5),
         panel.grid.major = element_line(linetype = 1,
                                         size = 0.2,
                                         colour = "gray90"),
         panel.grid.minor = element_line(linetype = 0),
-        strip.background = element_rect(colour = "#993300",
-                                        fill = "#993300"),
-        strip.text = element_text(colour = "white"),
+        strip.background = element_rect(colour = "gray70",
+                                        fill = "gray70"),
+        strip.text = element_text(colour = "white", size = 12),
         legend.key = element_rect(linetype = 0),
-        axis.text.x = element_text(size = 10),
-        axis.text.y = element_text(size = 10),
-        axis.ticks = element_line(colour = "#993300", size = 0.5))
+        axis.title = element_text(size = 12),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.ticks = element_line(colour = "gray70", size = 0.5))

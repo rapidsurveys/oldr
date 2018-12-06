@@ -522,6 +522,75 @@ ui <- dashboardPage(
                     plotOutput(outputId = "ddsBoxPlot")
                   )
                 )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Consumption of protein-rich foods",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "proteinPlot"),
+                    actionButton(inputId = "viewProteinTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                              lib = "font-awesome")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Consumption of vitamin A-rich foods",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "vitAPlot"),
+                    actionButton(inputId = "viewVitATable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Consumption of vitamin B-rich foods",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "vitBPlot"),
+                    actionButton(inputId = "viewVitBTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Consumption of foods rich in other vitamins and minerals",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "otherVitPlot"),
+                    selectInput(inputId = "groupOtherVit",
+                                label = "Stratify by",
+                                selected = "",
+                                width = "30%",
+                                choices = c("Stratify by" = "",
+                                            "No stratification" = "no",
+                                            "Sex" = "sex",
+                                            "Indicator" = "indicator")
+                    ),
+                    checkboxInput(inputId = "errorOtherVit",
+                                label = "Confidence interval",
+                                value = FALSE,
+                                width = "30%"),
+                    actionButton(inputId = "viewOtherVitTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
+                  )
+                )
               )
             ),
             tabPanel(title = "Demography",
