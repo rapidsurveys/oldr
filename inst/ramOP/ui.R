@@ -471,10 +471,18 @@ ui <- dashboardPage(
                   box(title = "Meal Frequency", status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "mealPlot"),
-                    actionButton(inputId = "viewMealTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewMealTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorMeal",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )
@@ -516,10 +524,18 @@ ui <- dashboardPage(
                   box(title = "Mean Dietary Diversity Score", status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "ddsPlot"),
-                    actionButton(inputId = "viewDDSTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewDDSTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorDDS",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )

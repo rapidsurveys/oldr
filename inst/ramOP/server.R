@@ -823,14 +823,24 @@ server <- function(input, output, session) {
     #
     output$mealPlot <- renderPlot({
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "MF", ]
-      #y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      ggplot(data = x, aes(x = SET, y = EST)) +
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = SET, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Mean No. of Meals per Day") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5)) +
-        theme_ram +
-        theme(legend.position = "top")
+        scale_y_continuous(limits = c(0, 3), breaks = seq(from = 0, to = 3, by = 0.5))
+
+      if(input$errorMeal) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot + theme_ram
     })
     #
     # Food intake results
@@ -926,15 +936,25 @@ server <- function(input, output, session) {
     # DDS results plot - ALL
     #
     output$ddsPlot <- renderPlot({
-      x <- results()[results()$INDICATOR == "DDS", ]
-      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      ggplot(data = y, aes(x = SET, y = EST)) +
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "DDS", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = SET, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Mean Dietary Diversity Score") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
-        theme_ram +
-        theme(legend.position = "top")
+        scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1))
+
+      if(input$errorDDS) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot + theme_ram
     })
     #
     # DDS results
@@ -979,7 +999,7 @@ server <- function(input, output, session) {
       x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
       x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
       ggplot(data = x, aes(y = DDS, x = sex1)) +
-        geom_boxplot(notch = TRUE, width = 0.7, colour = "gray70", size = 1) +
+        geom_boxplot(notch = TRUE, width = 0.3, colour = "gray70", size = 1) +
         labs(x = "", y = "Dietary Diversity Score") +
         scale_y_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1)) +
         theme_ram
@@ -1014,7 +1034,7 @@ server <- function(input, output, session) {
                        ifelse(x$INDICATOR == "aProtein", "Animal sources of protein", "Protein-rich foods consumption"))
 
       x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources of protein",
-                                                    "Protein sources of protein",
+                                                    "Plant sources of protein",
                                                     "Protein-rich foods consumption"))
 
       ggplot(x, aes(x = SET, y = EST)) +
