@@ -841,19 +841,63 @@ server <- function(input, output, session) {
     # food group consumption results plot - ALL
     #
     output$fgPlot <- renderPlot({
-      x <- results()[results()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), ]
-      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      y$SET[y$SET == "EST.ALL"] <- "All"
-      y$SET[y$SET == "EST.MALES"] <- "Males"
-      y$SET[y$SET == "EST.FEMALES"] <- "Females"
-      y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
-      ggplot(data = y, aes(x = INDICATOR, y = EST)) +
-        geom_col(width = 0.7, fill = "white", colour = "gray50") +
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("FG01", "FG02", "FG03", "FG04", "FG05", "FG06", "FG07", "FG08", "FG09", "FG10", "FG11"), ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
-        facet_wrap( ~ SET) +
-        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        theme_ram +
-        theme(axis.text.x = element_text(angle = 90, hjust = 1))
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupFG == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupFG == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$groupFG == "no") {
+        chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2))
+      }
+
+      if(input$errorFG) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot + theme_ram
+
+      #y$SET[y$SET == "EST.ALL"] <- "All"
+      #y$SET[y$SET == "EST.MALES"] <- "Males"
+      #y$SET[y$SET == "EST.FEMALES"] <- "Females"
+      #y$SET <- factor(y$SET, levels = c("All", "Males", "Females"))
+      #ggplot(data = y, aes(x = INDICATOR, y = EST)) +
+      #  geom_col(width = 0.7, fill = "white", colour = "gray50") +
+      #  labs(x = "", y = "Proportion") +
+      #  facet_wrap( ~ SET) +
+      #  scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+      #  theme_ram +
+      #  theme(axis.text.x = element_text(angle = 90, hjust = 1))
     })
     #
     # Food group consumption results

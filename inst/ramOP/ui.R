@@ -484,10 +484,29 @@ ui <- dashboardPage(
                   box(title = "Consumption per food group", status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "fgPlot"),
-                    actionButton(inputId = "viewFGTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewFGTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupFG",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorFG",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )
