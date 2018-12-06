@@ -651,10 +651,18 @@ ui <- dashboardPage(
                   box(title = "Respondents living alone", status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "alonePlot"),
-                    actionButton(inputId = "viewAloneTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewAloneTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                        checkboxInput(inputId = "errorAlone",
+                                      label = "Confidence interval",
+                                      value = FALSE,
+                                      width = "200px")
                     )
                   )
                 )

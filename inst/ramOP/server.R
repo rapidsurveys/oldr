@@ -659,7 +659,6 @@ server <- function(input, output, session) {
     #
     output$surveyPlot <- renderPlot({
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("resp1", "resp2", "resp3", "resp4"), ]
-      #y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
 
       x$SET <- ifelse(x$SET == "EST.ALL", "All",
                  ifelse(x$SET == "EST.MALES", "Males", "Females"))
@@ -779,21 +778,31 @@ server <- function(input, output, session) {
     # Alone results plot - ALL
     #
     output$alonePlot <- renderPlot({
-      x <- results()[results()$INDICATOR == "alone", ]
-      y <- gather(x, key = "SET", value = "EST", EST.ALL, EST.MALES, EST.FEMALES)
-      ggplot(data = y, aes(x = SET, y = EST)) +
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "alone", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = SET, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "", y = "Proportion") +
         scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
-        theme_ram +
-        theme(legend.position = "top")
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
+
+      chartPlot + theme_ram
+
+      if(input$errorAlone) {
+        chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70") +
+          theme_ram
+      }
     })
     #
     # Demographic results - marital status
     #
     output$aloneTable <- DT::renderDataTable(
-      #prettyResults()[prettyResults()$INDICATOR == "alone", c("LABEL", "TYPE", "EST.ALL", "LCL.ALL", "UCL.ALL", "EST.MALES", "LCL.MALES", "UCL.MALES", "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES")],
       prettyResultsLong()[prettyResultsLong()$INDICATOR == "alone", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
       rownames = FALSE,
       options = list(scrollX = TRUE, pageLength = 10)
