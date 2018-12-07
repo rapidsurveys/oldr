@@ -1351,6 +1351,81 @@ server <- function(input, output, session) {
       chartPlot +
         theme_ram
     })
+    #
+    # Actvities of daily living table
+    #
+    output$adlTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("ADL01", "ADL02", "ADL03", "ADL04", "ADL05", "ADL06"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Activities of daily living modal
+    #
+    observeEvent(input$viewADLTable, {
+      showModal(
+        modalDialog(
+          title = "Activities of daily living",
+          DT::dataTableOutput("adlTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Activities of daily living plot
+    #
+    output$adlPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("ADL01", "ADL02", "ADL03", "ADL04", "ADL05", "ADL06"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "ADL01", "Bathing",
+                       ifelse(x$INDICATOR == "ADL02", "Dressing",
+                         ifelse(x$INDICATOR == "ADL03", "Toileting",
+                           ifelse(x$INDICATOR == "ADL04", "Transferring",
+                             ifelse(x$INDICATOR == "ADL05", "Continence", "Feeding")))))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Bathing",
+                                                    "Dressing",
+                                                    "Toileting",
+                                                    "Transferring",
+                                                    "Continence",
+                                                    "Feeding"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupADL == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupADL == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$errorADL) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
   })
   #
   ##############################################################################

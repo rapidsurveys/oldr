@@ -35,6 +35,7 @@ if(!require(DT)) install.packages("DT")
 if(!require(tidyr)) install.packages("tidyr")
 if(!require(ggplot2)) install.packages("ggplot2")
 if(!require(RColorBrewer)) install.packages("RColorBrewer")
+if(!require(shinyWidgets)) install.packages("shinyWidgets")
 
 if(!require(oldr)) install_github("rapidsurveys/oldr")
 if(!require(spatialsampler)) install_github("validmeasures/spatialsampler")
