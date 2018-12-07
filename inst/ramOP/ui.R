@@ -489,8 +489,7 @@ ui <- dashboardPage(
                                   width = "200px",
                                   choices = c("Stratify by" = "",
                                               "No stratification" = "no",
-                                              "Sex" = "sex",
-                                              "Indicator" = "indicator")
+                                              "Sex" = "sex")
                       )
                     )
                   )

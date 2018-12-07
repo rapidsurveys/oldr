@@ -982,8 +982,8 @@ server <- function(input, output, session) {
         chartPlot <- ggplot(data = x, aes(x = DDS)) +
           geom_bar(width = 0.7, fill = "white", colour = "gray50") +
           labs(x = "Dietary Diversity Score", y = "Frequency") +
-          scale_x_continuous(limits = c(0, 11),
-                             breaks = seq(from = 0, to = 11, by = 1)) +
+          scale_x_discrete(limits = 0:11,
+                           breaks = seq(from = 0, to = 11, by = 1)) +
           facet_wrap( ~ sex1)
       }
 
@@ -1044,8 +1044,6 @@ server <- function(input, output, session) {
       chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
-        #facet_wrap( ~ INDICATOR) +
-        #scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
 
       if(input$groupProtein == "sex") {
@@ -1112,8 +1110,6 @@ server <- function(input, output, session) {
       chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
-        #facet_wrap( ~ INDICATOR) +
-        #scale_x_discrete(labels = c("All", "Males", "Females")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
 
       if(input$groupVitA == "sex") {
@@ -1542,6 +1538,122 @@ server <- function(input, output, session) {
 
       if(input$groupADLhist == "sex") {
         chartPlot <- chartPlot + facet_wrap( ~ sex1)
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Kessler 6 table
+    #
+    output$kesslerTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "K6", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Kessler 6 modal
+    #
+    observeEvent(input$viewKesslerTable, {
+      showModal(
+        modalDialog(
+          title = "Kessler-6 psychological distress score",
+          DT::dataTableOutput("kesslerTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Kessler 6 plot
+    #
+    output$kesslerPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "K6", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Mean Kessler-6 score") +
+        scale_y_continuous(limits = c(0, 24),
+                           breaks = seq(from = 0, to = 24, by = 2))
+
+      if(input$errorKessler) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Kessler 6 histogram
+    #
+    output$kesslerHist <- renderPlot({
+      x <- indicatorsDF()
+
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+
+      x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = K6)) +
+        geom_bar(width = 0.7, fill = "white", colour = "gray70") +
+        scale_x_discrete(limits = 0:24,
+                         breaks = seq(from = 0, to = 24, by = 2)) +
+        labs(x = "Kessler-6 Pyschological Distress Score", y = "Frequency") +
+        theme_ram
+
+      if(input$groupKessler == "sex") {
+        chartPlot <- ggplot(data = x, aes(x = K6)) +
+          geom_bar(width = 0.7, fill = "white", colour = "gray70") +
+          scale_x_discrete(limits = 0:24,
+                           breaks = seq(from = 0, to = 24, by = 2)) +
+          labs(x = "Kessler-6 Pyschological Distress Score", y = "Frequency") +
+          facet_wrap( ~ sex1) +
+          theme_ram
+      }
+
+      chartPlot
+    })
+    #
+    #
+    #
+    output$kesslerBoxplot<- renderPlot({
+      x <- indicatorsDF()
+
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+
+      x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = sex1, y = K6)) +
+        geom_boxplot(notch = TRUE, width = 0.3, colour = "gray70", size = 1) +
+        labs(x = "", y = "Kessler-6 Pyschological Distress Score") +
+        scale_y_continuous(limits = c(0, 24), breaks = seq(from = 0, to = 24, by = 2)) +
+        theme_ram
+
+      chartPlot
+    })
+    #
+    # Severe psychological distress
+    #
+    output$severeDistressPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "K6Case", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorDistress) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
       }
 
       chartPlot +
