@@ -981,14 +981,25 @@ server <- function(input, output, session) {
     #
     output$ddsHistPlot <- renderPlot({
       x <- indicatorsDF()[ , c("sex1", "DDS")]
+
       x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
       x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
-      ggplot(data = x, aes(x = DDS)) +
+
+      chartPlot <- ggplot(data = x, aes(x = DDS)) +
         geom_bar(width = 0.7, fill = "white", colour = "gray50") +
         labs(x = "Dietary Diversity Score", y = "Frequency") +
-        facet_wrap( ~ sex1) +
-        scale_x_continuous(limits = c(0, 11), breaks = seq(from = 0, to = max(x$DDS), by = 5)) +
-        #scale_y_continuous(breaks = seq(from = 0, to = 1, by = 0.2)) +
+        scale_x_continuous(limits = c(0, 11), breaks = seq(from = 0, to = 11, by = 1))
+
+      if(input$groupDDS == "sex") {
+        chartPlot <- ggplot(data = x, aes(x = DDS)) +
+          geom_bar(width = 0.7, fill = "white", colour = "gray50") +
+          labs(x = "Dietary Diversity Score", y = "Frequency") +
+          scale_x_continuous(limits = c(0, 11),
+                             breaks = seq(from = 0, to = 11, by = 1)) +
+          facet_wrap( ~ sex1)
+      }
+
+      chartPlot +
         theme_ram
     })
     #
@@ -1166,25 +1177,53 @@ server <- function(input, output, session) {
     output$vitBPlot <- renderPlot({
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("vitB1", "vitB2", "vitB3", "vitB6", "vitB12", "vitBcomplex"), ]
 
-      x$INDICATOR <- ifelse(x$INDICATOR == "vitB1", "Vitamin B1",
-                       ifelse(x$INDICATOR == "vitB2", "Vitamin B2",
-                         ifelse(x$INDICATOR == "vitB3", "Vitamin B3",
-                           ifelse(x$INDICATOR == "vitB6", "Vitamin B6",
-                             ifelse(x$INDICATOR == "vitB12", "Vitamin B12", "Vitamin B complex")))))
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
 
-      x$INDICATOR <- factor(x$INDICATOR, levels = c("Vitamin B1",
-                                                    "Vitamin B2",
-                                                    "Vitamin B3",
-                                                    "Vitamin B6",
-                                                    "Vitamin B12",
-                                                    "Vitamin B complex"))
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
 
-      ggplot(x, aes(x = SET, y = EST)) +
+      x$INDICATOR <- ifelse(x$INDICATOR == "vitB1", "B1",
+                       ifelse(x$INDICATOR == "vitB2", "B2",
+                         ifelse(x$INDICATOR == "vitB3", "B3",
+                           ifelse(x$INDICATOR == "vitB6", "B6",
+                             ifelse(x$INDICATOR == "vitB12", "B12", "B complex")))))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("B1",
+                                                    "B2",
+                                                    "B3",
+                                                    "B6",
+                                                    "B12",
+                                                    "B complex"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
-        facet_wrap( ~ INDICATOR) +
-        scale_x_discrete(labels = c("All", "Males", "Females")) +
-        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2)) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupVitB == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupVitB == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$errorVitB) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
         theme_ram
     })
     #
@@ -1259,6 +1298,75 @@ server <- function(input, output, session) {
       }
 
       chartPlot + theme_ram
+    })
+    #
+    # Household hunger scale
+    #
+    output$hhsTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("HHS1", "HHS2", "HHS3"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Household hunger scale modal
+    #
+    observeEvent(input$viewHHSTable, {
+      showModal(
+        modalDialog(
+          title = "Household Hunger Scale",
+          DT::dataTableOutput("hhsTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # HHS plot
+    #
+    output$hhsPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("HHS1", "HHS2", "HHS3"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "HHS1", "No or little\nhunger",
+                        ifelse(x$INDICATOR == "HHS2", "Moderate\nhunger", "Severe\nhunger"))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("No or little\nhunger",
+                                                    "Moderate\nhunger",
+                                                    "Severe\nhunger"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$groupHHS == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET)
+      }
+
+      if(input$groupHHS == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR)
+      }
+
+      if(input$errorHHS) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
     })
   })
   #

@@ -461,8 +461,41 @@ ui <- dashboardPage(
                      value = "disability",
                      h4("Disability")),
             tabPanel(title = "Hunger",
-                     value = "hunger",
-                     h4("Severe Food Insecurity")),
+              value = "hunger",
+              br(),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Household hunger scale", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "hhsPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewHHSTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupHHS",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorHHS",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              )
+            ),
             tabPanel(title = "Diet",
               value = "food",
               br(),
@@ -545,7 +578,17 @@ ui <- dashboardPage(
                   box(title = "Dietary Diversity Score Distriubtion - Histogram",
                     status = "danger",
                     solidHeader = TRUE, width = 12,
-                    plotOutput(outputId = "ddsHistPlot")
+                    plotOutput(outputId = "ddsHistPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupDDS",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex")
+                      )
+                    )
                   )
                 )
               ),
@@ -630,10 +673,29 @@ ui <- dashboardPage(
                     status = "danger",
                     solidHeader = TRUE, width = 12,
                     plotOutput(outputId = "vitBPlot"),
-                    actionButton(inputId = "viewVitBTable",
-                                 label = "View Data Table",
-                                 icon = icon(name = "eye",
-                                             lib = "font-awesome")
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewVitBTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupVitB",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorVitB",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
                     )
                   )
                 )
