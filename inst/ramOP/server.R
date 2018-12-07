@@ -29,6 +29,11 @@ server <- function(input, output, session) {
   #
   mapCountry <- reactive({
     if(input$mapSamplingLevel0 != "") {
+
+      progress <- Progress$new()
+      on.exit(progress$close())
+      progress$set(message = paste("Retrieving map of ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0], sep = ""), value = 0.7)
+
       gadmr::get_map(format = "gpkg",
                      country = input$mapSamplingLevel0,
                      layer = 1)
