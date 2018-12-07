@@ -487,6 +487,42 @@ ui <- dashboardPage(
                     )
                   )
                 )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Katz ADL score", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput("adlScorePlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewADLScoreTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorADLscore",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Activities of daily living classification",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput("adlClassPlot"),
+                    actionButton(inputId = "viewADLClassTable",
+                                 label = "View Data Table",
+                                 icon = icon(name = "eye",
+                                             lib = "font-awesome")
+                    )
+                  )
+                )
               )
             ),
             tabPanel(title = "Disability",

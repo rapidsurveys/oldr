@@ -1426,6 +1426,96 @@ server <- function(input, output, session) {
       chartPlot +
         theme_ram
     })
+    #
+    # ADL score
+    #
+    output$adlScoreTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "scoreADL", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Activities of daily living score modal
+    #
+    observeEvent(input$viewADLScoreTable, {
+      showModal(
+        modalDialog(
+          title = "Katz ADL Score",
+          DT::dataTableOutput("adlScoreTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # ADL score plot
+    #
+    output$adlScorePlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "scoreADL", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Meanl ADL Score") +
+        scale_y_continuous(limits = c(0, 6),
+                           breaks = seq(from = 0, to = 6, by = 1))
+
+      if(input$errorADLscore) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # ADL Classification table
+    #
+    output$adlClassTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("classADL1", "classADL2", "classADL3"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # ADL Classification modal
+    #
+    observeEvent(input$viewADLClassTable, {
+      showModal(
+        modalDialog(
+          title = "Activities of daily living classification",
+          DT::dataTableOutput("adlClassTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Activities of daily living classification plot
+    #
+    output$adlClassPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("classADL1", "classADL2", "classADL3"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "classADL1", "Independent",
+                            ifelse(x$INDICATOR == "classADL2", "Partial\ndependency","Severe\ndependency"))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Independent",
+                                                    "Partial\ndependency",
+                                                    "Severe\ndependency"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST, fill = INDICATOR)) +
+        geom_col(width = 0.7) +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      chartPlot +
+        theme_ram
+    })
   })
   #
   ##############################################################################
