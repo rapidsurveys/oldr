@@ -452,8 +452,84 @@ ui <- dashboardPage(
                      value = "dementia",
                      h4("Dementia")),
             tabPanel(title = "Mental",
-                     value = "mental",
-                     h4("Mental Health")),
+              value = "mental",
+              br(),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Kessler-6 psychological distress score",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "kesslerPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewKesslerTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorKessler",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Kessler-6 psychological distress score distribution",
+                    status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "kesslerHist"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupKessler",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Kessler-6 psychological distress score boxplot",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "kesslerBoxplot")
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Severe psychological distress",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "severeDistressPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewDistressTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorDistress",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              )
+            ),
             tabPanel(title = "ADL",
               value = "adl",
               br(),
