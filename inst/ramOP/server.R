@@ -860,7 +860,8 @@ server <- function(input, output, session) {
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
         scale_y_continuous(limits = c(0, 1),
-                           breaks = seq(from = 0, to = 1, by = 0.2))
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
 
       if(input$groupFG == "sex") {
         chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
@@ -868,7 +869,9 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          facet_wrap( ~ SET)
+          facet_wrap( ~ SET) +
+          theme_ram +
+          theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
       }
 
       if(input$groupFG == "indicator") {
@@ -877,7 +880,8 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          facet_wrap( ~ INDICATOR)
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
       }
 
       if(input$groupFG == "no") {
@@ -885,7 +889,8 @@ server <- function(input, output, session) {
           geom_col(width = 0.7, fill = "white", colour = "gray70") +
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
-                             breaks = seq(from = 0, to = 1, by = 0.2))
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          theme_ram
       }
 
       if(input$errorFG) {
@@ -893,7 +898,7 @@ server <- function(input, output, session) {
           geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
       }
 
-      chartPlot + theme_ram
+      chartPlot
     })
     #
     # Food group consumption results
@@ -1029,12 +1034,12 @@ server <- function(input, output, session) {
 
       x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
 
-      x$INDICATOR <- ifelse(x$INDICATOR == "pProtein", "Plant sources\nof protein",
-                       ifelse(x$INDICATOR == "aProtein", "Animal sources\nof protein", "Protein-rich\nfoods consumption"))
+      x$INDICATOR <- ifelse(x$INDICATOR == "pProtein", "Plant\nsources\nof protein",
+                       ifelse(x$INDICATOR == "aProtein", "Animal\nsources\nof protein", "Protein-rich\nfoods\nconsumption"))
 
-      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources\nof protein",
-                                                    "Plant sources\nof protein",
-                                                    "Protein-rich\nfoods consumption"))
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal\nsources\nof protein",
+                                                    "Plant\nsources\nof protein",
+                                                    "Protein-rich\nfoods\nconsumption"))
 
       chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
@@ -1097,12 +1102,12 @@ server <- function(input, output, session) {
 
       x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
 
-      x$INDICATOR <- ifelse(x$INDICATOR == "pVitA", "Plant sources\nof vitamin A",
-                            ifelse(x$INDICATOR == "aVitA", "Animal sources\nof vitamin A", "Vitamin A-rich\nfoods consumption"))
+      x$INDICATOR <- ifelse(x$INDICATOR == "pVitA", "Plant\nsources of\nvitamin A",
+                            ifelse(x$INDICATOR == "aVitA", "Animal\nsources of\nvitamin A", "Vitamin A-rich\nfoods\nconsumption"))
 
-      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal sources\nof vitamin A",
-                                                    "Plant sources\nof vitamin A",
-                                                    "Vitamin A-rich\nfoods consumption"))
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Animal\nsources of\nvitamin A",
+                                                    "Plant\nsources of\nvitamin A",
+                                                    "Vitamin A-rich\nfoods\nconsumption"))
 
       chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
@@ -1398,7 +1403,8 @@ server <- function(input, output, session) {
         geom_col(width = 0.7, fill = "white", colour = "gray70") +
         labs(x = "", y = "Proportion") +
         scale_y_continuous(limits = c(0, 1),
-                           breaks = seq(from = 0, to = 1, by = 0.2))
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
 
       if(input$groupADL == "sex") {
         chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
@@ -1406,7 +1412,9 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          facet_wrap( ~ SET)
+          facet_wrap( ~ SET) +
+          theme_ram +
+          theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
       }
 
       if(input$groupADL == "indicator") {
@@ -1415,7 +1423,8 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          facet_wrap( ~ INDICATOR)
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
       }
 
       if(input$errorADL) {
@@ -1423,8 +1432,7 @@ server <- function(input, output, session) {
           geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
       }
 
-      chartPlot +
-        theme_ram
+      chartPlot
     })
     #
     # ADL score
