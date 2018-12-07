@@ -1452,7 +1452,7 @@ server <- function(input, output, session) {
       x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "scoreADL", ]
 
       x$SET <- ifelse(x$SET == "EST.ALL", "All",
-                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+                 ifelse(x$SET == "EST.MALES", "Males", "Females"))
 
       x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
 
@@ -1512,6 +1512,28 @@ server <- function(input, output, session) {
         labs(x = "", y = "Proportion") +
         scale_y_continuous(limits = c(0, 1),
                            breaks = seq(from = 0, to = 1, by = 0.2))
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # ADL histogram
+    #
+    output$adlHistPlot <- renderPlot({
+      x <- indicatorsDF()
+
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+
+      x$sex1 <- factor(x$sex1, levels = c("Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = scoreADL)) +
+        geom_bar(width = 0.7, fill = "white", colour = "gray70") +
+        scale_y_continuous(breaks = seq(from = 0, to = max(table(x$scoreADL)), by = 20)) +
+        scale_x_continuous(breaks = seq(from = 0, to = 6, by = 1))
+
+      if(input$groupADLhist == "sex") {
+        chartPlot <- chartPlot + facet_wrap( ~ sex1)
+      }
 
       chartPlot +
         theme_ram

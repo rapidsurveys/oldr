@@ -523,6 +523,24 @@ ui <- dashboardPage(
                     )
                   )
                 )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Katz ADL score histogram", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "adlHistPlot"),
+                    div(style="display: inline-block;vertical-align:middle",
+                      selectInput(inputId = "groupADLhist",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex")
+                      )
+                    )
+                  )
+                )
               )
             ),
             tabPanel(title = "Disability",
