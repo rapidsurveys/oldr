@@ -455,8 +455,40 @@ ui <- dashboardPage(
                      value = "mental",
                      h4("Mental Health")),
             tabPanel(title = "ADL",
-                     value = "adl",
-                     h4("Activities of Daily Living")),
+              value = "adl",
+              br(),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Activities of daily living", status = "danger",
+                    solidHeader = TRUE, width = 12,
+                    plotOutput(outputId = "adlPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewADLTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupADL",
+                                  label = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorADL",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              )
+            ),
             tabPanel(title = "Disability",
                      value = "disability",
                      h4("Disability")),

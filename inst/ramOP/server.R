@@ -246,34 +246,12 @@ server <- function(input, output, session) {
   # Plot country sampling grid
   #
   observeEvent(input$mapSamplingPlot, {
-    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "area") {
-      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
-                                         area = input$mapSamplingGridArea,
-                                         country = input$mapSamplingLevel0)
-    }
-    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "n") {
-      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
-                                         n = input$mapSamplingGridNumber,
-                                         country = input$mapSamplingLevel0,
-                                         buffer = 2,
-                                         n.factor = 5,
-                                         fixed = TRUE)
-    }
-    if(input$mapSamplingLevel0 != "" & input$mapSamplingSpec == "d") {
-      mapSamplingPoint <- create_sp_grid(x = mapCountry(),
-                                         d = input$mapSamplingGridDist,
-                                         country = input$mapSamplingLevel0,
-                                         buffer = 2)
-    }
-    #
-    # Convert to hexagonal SpatialPolygons
-    #
-    mapSamplingGrid <- HexPoints2SpatialPolygons(hex = mapSamplingPoint)
-    mapSamplingSettlements <- get_nearest_point(data = settlements1(),
-                                                data.x = "COORD_X",
-                                                data.y = "COORD_Y",
-                                                query = mapSamplingPoint,
-                                                n = input$mapSamplingSettlementsNumber)
+    mapSamplingPoint <- create_sp_grid(x = mapCountry(),
+                                       n = 16,
+                                       country = input$mapSamplingLevel0,
+                                       buffer = 2,
+                                       n.factor = 5,
+                                       fixed = TRUE)
     #
     #
     #
