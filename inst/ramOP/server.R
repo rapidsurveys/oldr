@@ -1529,7 +1529,8 @@ server <- function(input, output, session) {
       chartPlot <- ggplot(data = x, aes(x = scoreADL)) +
         geom_bar(width = 0.7, fill = "white", colour = "gray70") +
         scale_y_continuous(breaks = seq(from = 0, to = max(table(x$scoreADL)), by = 20)) +
-        scale_x_continuous(breaks = seq(from = 0, to = 6, by = 1))
+        scale_x_continuous(breaks = seq(from = 0, to = 6, by = 1)) +
+        labs(x = "ADL Score", y = "Frequency")
 
       if(input$groupADLhist == "sex") {
         chartPlot <- chartPlot + facet_wrap( ~ sex1)
