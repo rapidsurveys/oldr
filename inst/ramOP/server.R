@@ -1659,6 +1659,123 @@ server <- function(input, output, session) {
       chartPlot +
         theme_ram
     })
+    #
+    # Dementia table
+    #
+    output$dsTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "DS", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Dementia modal
+    #
+    observeEvent(input$viewDSTable, {
+      showModal(
+        modalDialog(
+          title = "Probable dementia by brief CSID screen",
+          DT::dataTableOutput("dsTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Dementia plot
+    #
+    output$dsPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "DS", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorDS) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Health-seeking for long-term illness table
+    #
+    output$healthTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H1", "H2"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Health-seeking for long-termm illness modal
+    #
+    observeEvent(input$viewHealthTable, {
+      showModal(
+        modalDialog(
+          title = "Health-seeking behaviour for a long-term illness",
+          DT::dataTableOutput("healthTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Health-seeking for long-term illness plot
+    #
+    output$healthPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H1", "H2"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "H1", "Long term disease\nrequiring regular medication", "Takes medication for\nlong term disease\nrequiring regular medication")
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Long term disease\nrequiring regular medication",
+                                                    "Takes medication for\nlong term disease\nrequiring regular medication"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        coord_flip() +
+        theme_ram
+
+      if(input$groupHealth == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ SET) +
+          theme_ram #+
+          #theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+      }
+
+      if(input$groupHealth == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorHealth) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################

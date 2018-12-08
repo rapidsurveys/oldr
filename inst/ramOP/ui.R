@@ -446,11 +446,70 @@ ui <- dashboardPage(
                      value = "income",
                      h4("Sources of Income")),
             tabPanel(title = "Health",
-                     value = "health",
-                     h4("Health and Health-Seeking Behaviour")),
+              value = "health",
+              br(),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Health-seeking behaviour for a long-term illness",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "healthPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewHealthTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupHealth",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorHealth",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              )
+            ),
             tabPanel(title = "Dementia",
-                     value = "dementia",
-                     h4("Dementia")),
+              value = "dementia",
+              br(),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Probable dementia by brief CSID screen",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "dsPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewDSTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorDS",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
+              )
+            ),
             tabPanel(title = "Mental",
               value = "mental",
               br(),
