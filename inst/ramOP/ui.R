@@ -481,6 +481,40 @@ ui <- dashboardPage(
                     )
                   )
                 )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Reasons for not taking medication for long-term illness requiring regular medication",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "reasonsPlot1"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewReasonsTable1",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupReasons1",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex",
+                                              "Indicator" = "indicator")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      checkboxInput(inputId = "errorReasons1",
+                                    label = "Confidence interval",
+                                    value = FALSE,
+                                    width = "200px")
+                    )
+                  )
+                )
               )
             ),
             tabPanel(title = "Dementia",

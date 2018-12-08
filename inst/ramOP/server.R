@@ -1743,7 +1743,6 @@ server <- function(input, output, session) {
         labs(x = "", y = "Proportion") +
         scale_y_continuous(limits = c(0, 1),
                            breaks = seq(from = 0, to = 1, by = 0.2)) +
-        coord_flip() +
         theme_ram
 
       if(input$groupHealth == "sex") {
@@ -1752,10 +1751,8 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          coord_flip() +
           facet_wrap( ~ SET) +
-          theme_ram #+
-          #theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+          theme_ram
       }
 
       if(input$groupHealth == "indicator") {
@@ -1764,7 +1761,6 @@ server <- function(input, output, session) {
           labs(x = "", y = "Proportion") +
           scale_y_continuous(limits = c(0, 1),
                              breaks = seq(from = 0, to = 1, by = 0.2)) +
-          coord_flip() +
           facet_wrap( ~ INDICATOR) +
           theme_ram
       }
