@@ -2528,6 +2528,94 @@ server <- function(input, output, session) {
       chartPlot +
         theme_ram
     })
+    #
+    # Food ration table
+    #
+    output$foodTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "food", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # food ration modal
+    #
+    observeEvent(input$viewFoodTable, {
+      showModal(
+        modalDialog(
+          title = "Anyone in household recieves a ration",
+          DT::dataTableOutput("foodTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # food ration plot
+    #
+    output$foodPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "food", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorFood) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # NFRI table
+    #
+    output$nfriTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "NFRI", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # NFRI modal
+    #
+    observeEvent(input$viewNFRITable, {
+      showModal(
+        modalDialog(
+          title = "Received non-food relief items in previous month",
+          DT::dataTableOutput("nfriTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # NFRI plot
+    #
+    output$nfriPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "NFRI", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorNFRI) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
   })
   #
   ##############################################################################

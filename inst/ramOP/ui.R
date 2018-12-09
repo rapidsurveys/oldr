@@ -481,7 +481,7 @@ ui <- dashboardPage(
                     width = 12,
                     plotOutput(outputId = "nfriPlot"),
                     div(style="display: inline-block;vertical-align:middle;",
-                      actionButton(inputId = "viewNFRIPlot",
+                      actionButton(inputId = "viewNFRITable",
                                    label = "View Data Table",
                                    icon = icon(name = "eye",
                                                lib = "font-awesome")
