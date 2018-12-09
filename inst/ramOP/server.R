@@ -2142,6 +2142,80 @@ server <- function(input, output, session) {
 
       chartPlot
     })
+    #
+    # WASH table
+    #
+    output$washTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("W1", "W2", "W3", "W4"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # WASH modal
+    #
+    observeEvent(input$viewWASHTable, {
+      showModal(
+        modalDialog(
+          title = "Water, sanitation and hygiene services coverage",
+          DT::dataTableOutput("washTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # WASH plot
+    #
+    output$washPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("W1", "W2", "W3", "W4"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "W1", "Improved source\nof drinking water",
+                       ifelse(x$INDICATOR == "W2", "Safe drinking\nwater",
+                         ifelse(x$INDICATOR == "W3", "Improved\nsanitation facility", "Improved non-shared\nsanitation facility")))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Improved source\nof drinking water",
+                                                    "Safe drinking\nwater",
+                                                    "Improved\nsanitation facility",
+                                                    "Improved non-shared\nsanitation facility"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
+
+      if(input$groupWASH == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET) +
+          theme_ram +
+          theme(axis.text.x = element_text(angle = 30, vjust = 1, hjust=1))
+      }
+
+      if(input$groupWASH == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorWASH) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################
