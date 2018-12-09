@@ -1858,6 +1858,74 @@ server <- function(input, output, session) {
 
       chartPlot
     })
+    #
+    # Health-seeking for recent illness illness table
+    #
+    output$recentTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H4", "H5"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Health-seeking for recent illness modal
+    #
+    observeEvent(input$viewRecentTable, {
+      showModal(
+        modalDialog(
+          title = "Health-seeking behaviour for a recent illness",
+          DT::dataTableOutput("recentTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Health-seeking for recent illness plot
+    #
+    output$recentPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H4", "H5"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "H4", "Illness in\nthe previous\n2 weeks)", "Accessed care\nfor\nrecent illness")
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Illness in\nthe previous\n2 weeks)", "Accessed care\nfor\nrecent illness"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        theme_ram
+
+      if(input$groupRecent == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ SET) +
+          theme_ram
+      }
+
+      if(input$groupRecent == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorRecent) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################

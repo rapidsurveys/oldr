@@ -817,14 +817,14 @@ ui <- dashboardPage(
                       )
                     ),
                     div(style="display: inline-block;vertical-align:middle;",
-                      selectInput(inputId = "groupRecentTable",
+                      selectInput(inputId = "groupRecent",
                                   label = "",
                                   selected = "",
                                   width = "200px",
                                   choices = c("Stratify by" = "",
                                               "No stratification" = "no",
                                               "Sex" = "sex",
-                                              "Indicator" = "indicators")
+                                              "Indicator" = "indicator")
                       )
                     ),
                     div(style="display: inline-block;vertical-align:middle;",
