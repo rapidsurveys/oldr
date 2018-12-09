@@ -2352,6 +2352,182 @@ server <- function(input, output, session) {
 
       chartPlot
     })
+    #
+    # Oedema table
+    #
+    output$oedemaTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "oedema", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Oedema modal
+    #
+    observeEvent(input$viewOedemaTable, {
+      showModal(
+        modalDialog(
+          title = "Bilateral pitting oedema prevalence",
+          DT::dataTableOutput("oedemaTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Income plot
+    #
+    output$oedemaPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "oedema", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 0.1),
+                           breaks = seq(from = 0, to = 0.1, by = 0.01))
+
+      if(input$errorOedema) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Anthropometric screening coverage table
+    #
+    output$screenTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "screened", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Screening coverage modal
+    #
+    observeEvent(input$viewScreeningTable, {
+      showModal(
+        modalDialog(
+          title = "Anthropometric screening coverage",
+          DT::dataTableOutput("screenTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Anthropometric screening coverage plot
+    #
+    output$screenPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "screened", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorScreen) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # visual acuity table
+    #
+    output$visualTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "poorVA", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # visual acuity modal
+    #
+    observeEvent(input$viewVisualTable, {
+      showModal(
+        modalDialog(
+          title = "Poor visual acuity",
+          DT::dataTableOutput("visualTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Visual acuity plot
+    #
+    output$visualPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "poorVA", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorVisual) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Problems chewing food table
+    #
+    output$chewTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "chew", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # problems chewing food modal
+    #
+    observeEvent(input$viewChewTable, {
+      showModal(
+        modalDialog(
+          title = "Problems chewing food (self-report)",
+          DT::dataTableOutput("chewTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Problems chewing food plot
+    #
+    output$chewPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "chew", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorChew) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
   })
   #
   ##############################################################################

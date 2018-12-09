@@ -502,11 +502,11 @@ ui <- dashboardPage(
               br(),
               fluidRow(
                 conditionalPanel(condition = "input.analysisAction > 0",
-                  box(title = "Visual acuity",
+                  box(title = "Poorn visual acuity",
                     status = "danger",
                     solidHeader = TRUE,
                     width = 12,
-                    plotOutput(outputId = "vaPlot"),
+                    plotOutput(outputId = "visualPlot"),
                     div(style="display: inline-block;vertical-align:middle;",
                       actionButton(inputId = "viewVisualTable",
                                    label = "View Data Table",
