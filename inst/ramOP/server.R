@@ -2012,6 +2012,136 @@ server <- function(input, output, session) {
 
       chartPlot
     })
+    #
+    # Has income table
+    #
+    output$incomeTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "M1", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Has income modal
+    #
+    observeEvent(input$viewIncomeTable, {
+      showModal(
+        modalDialog(
+          title = "Has q personal income",
+          DT::dataTableOutput("incomeTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Income plot
+    #
+    output$incomePlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "M1", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2))
+
+      if(input$errorIncome) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # Sources of income table
+    #
+    output$incomeSourceTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("M2A", "M2B", "M2C", "M2D", "M2E", "M2F", "M2G", "M2H", "M2I"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 30)
+    )
+    #
+    # Sources of income modal
+    #
+    observeEvent(input$viewIncomeSourceTable, {
+      showModal(
+        modalDialog(
+          title = "Source of income",
+          DT::dataTableOutput("incomeSourceTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Sources of income plot
+    #
+    output$incomeSourcePlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("M2A", "M2B", "M2C", "M2D", "M2E", "M2F", "M2G", "M2H", "M2I"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "M2A", "Agriculture / fishing / livestock",
+                       ifelse(x$INDICATOR == "M2B", "Wages / salary",
+                         ifelse(x$INDICATOR == "M2C", "Sale of charcoal / bricks / etc.",
+                           ifelse(x$INDICATOR == "M2D", "Trading (e.g. market or shop)",
+                             ifelse(x$INDICATOR == "M2E", "Investments",
+                               ifelse(x$INDICATOR == "M2F", "Spending savings\nor sales of assets",
+                                 ifelse(x$INDICATOR == "M2G", "Charity",
+                                   ifelse(x$INDICATOR == "M2H", "Cash transfer,\nsocial security\nor welfare", "Other source(s) of income"))))))))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("Agriculture / fishing / livestock",
+                                                    "Wages / salary",
+                                                    "Sale of charcoal / bricks / etc.",
+                                                    "Trading (e.g. market or shop)",
+                                                    "Investments",
+                                                    "Spending savings\nor sales of assets",
+                                                    "Charity",
+                                                    "Cash transfer,\nsocial security\nor welfare",
+                                                    "Other source(s) of income"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        coord_flip() +
+        theme_ram
+
+      if(input$groupIncomeSource == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ SET) +
+          theme_ram
+      }
+
+      if(input$groupIncomeSource == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorIncomeSource) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################
