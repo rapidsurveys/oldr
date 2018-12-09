@@ -589,10 +589,37 @@ ui <- dashboardPage(
                     width = 12,
                     plotOutput(outputId = "meanMUACPlot"),
                     div(style="display: inline-block;vertical-align:middle;",
+                      actionButton(inputId = "viewMeanMUACTable",
+                                   label = "View Data Table",
+                                   icon = icon(name = "eye",
+                                               lib = "font-awesome")
+                      )
+                    ),
+                    div(style="display: inline-block;vertical-align:middle;",
                       checkboxInput(inputId = "errorMeanMUAC",
                                     label = "Confidence interval",
                                     value = FALSE,
                                     width = "200px")
+                    )
+                  )
+                )
+              ),
+              fluidRow(
+                conditionalPanel(condition = "input.analysisAction > 0",
+                  box(title = "Mid-upper arm circumference (MUAC) distribution",
+                    status = "danger",
+                    solidHeader = TRUE,
+                    width = 12,
+                    plotOutput(outputId = "histMUACPlot"),
+                    div(style="display: inline-block;vertical-align:middle;",
+                      selectInput(inputId = "groupHistMUAC",
+                                  label = "",
+                                  selected = "",
+                                  width = "200px",
+                                  choices = c("Stratify by" = "",
+                                              "No stratification" = "no",
+                                              "Sex" = "sex")
+                      )
                     )
                   )
                 )

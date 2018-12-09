@@ -2026,7 +2026,7 @@ server <- function(input, output, session) {
     observeEvent(input$viewIncomeTable, {
       showModal(
         modalDialog(
-          title = "Has q personal income",
+          title = "Has a personal income",
           DT::dataTableOutput("incomeTable"), easyClose = TRUE
         )
       )
@@ -2215,6 +2215,72 @@ server <- function(input, output, session) {
       }
 
       chartPlot
+    })
+    #
+    # Mean MUAC table
+    #
+    output$meanMUACTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR == "MUAC", c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # Mean MUAC modal
+    #
+    observeEvent(input$viewMeanMUACTable, {
+      showModal(
+        modalDialog(
+          title = "Mean mid-upper arm circumference (mm)",
+          DT::dataTableOutput("meanMUACTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Mean MUAC plot
+    #
+    output$meanMUACPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR == "MUAC", ]
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x, aes(x = SET, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 300),
+                           breaks = seq(from = 0, to = 300, by = 20))
+
+      if(input$errorMeanMUAC) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot +
+        theme_ram
+    })
+    #
+    # MUAC histogram
+    #
+    output$histMUACPlot <- renderPlot({
+      x <- indicatorsDF()
+
+      x$sex1 <- ifelse(x$sex1 == 1, "Males", "Females")
+
+      x$sex1 <- factor(x$sex1, c("Males", "Females"))
+
+      chartPlot <- ggplot(data = x, aes(x = MUAC)) +
+        geom_histogram(fill = "white", colour = "gray70") +
+        labs(x = "Mid-upper arm circumference (MUAC) in mm", y = "Frequency")
+
+      if(input$groupHistMUAC == "sex") {
+        chartPlot <- chartPlot +
+          facet_wrap( ~ sex1)
+      }
+
+      chartPlot +
+        theme_ram
     })
   })
   #
