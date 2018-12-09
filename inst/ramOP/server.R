@@ -2282,6 +2282,76 @@ server <- function(input, output, session) {
       chartPlot +
         theme_ram
     })
+    #
+    # GAM table
+    #
+    output$muacTable <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("SAM", "MAM", "GAM"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 20)
+    )
+    #
+    # GAM modal
+    #
+    observeEvent(input$viewWASHTable, {
+      showModal(
+        modalDialog(
+          title = "Acute undernutrition prevalence",
+          DT::dataTableOutput("muacTable"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # WASH plot
+    #
+    output$muacPlot <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("SAM", "MAM", "GAM"), ]
+
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("SAM",
+                                                    "MAM",
+                                                    "GAM"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 0.1),
+                           breaks = seq(from = 0, to = 0.1, by = 0.02)) +
+        theme_ram
+
+      if(input$groupMUAC == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 0.1),
+                             breaks = seq(from = 0, to = 0.1, by = 0.02)) +
+          facet_wrap( ~ SET) +
+          theme_ram +
+          theme(axis.text.x = element_text(angle = 30, vjust = 1, hjust=1))
+      }
+
+      if(input$groupMUAC == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 0.1),
+                             breaks = seq(from = 0, to = 0.1, by = 0.02)) +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorMUAC) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################
