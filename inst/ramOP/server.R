@@ -1772,6 +1772,92 @@ server <- function(input, output, session) {
 
       chartPlot
     })
+    #
+    # Reasons for not taking medication for long-term illness
+    #
+    output$reasonsTable1 <- DT::renderDataTable(
+      prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H31", "H32", "H33", "H34", "H35", "H36", "H37", "H38", "H39"), c("LABEL", "TYPE", "SET", "EST", "LCL", "UCL")],
+      rownames = FALSE,
+      options = list(scrollX = TRUE, pageLength = 30)
+    )
+    #
+    # Reasons for not taking medication for long-term illness modal
+    #
+    observeEvent(input$viewReasonsTable1, {
+      showModal(
+        modalDialog(
+          title = "Reasons for not taking medication for long-term illness requiring regular medication",
+          DT::dataTableOutput("reasonsTable1"), easyClose = TRUE
+        )
+      )
+    })
+    #
+    # Reasons for not taking medication plot
+    #
+    output$reasonsPlot1 <- renderPlot({
+      x <- prettyResultsLong()[prettyResultsLong()$INDICATOR %in% c("H31", "H32", "H33", "H34", "H35", "H36", "H37", "H38", "H39"), ]
+
+      x$INDICATOR <- ifelse(x$INDICATOR == "H31", "No drugs available",
+                       ifelse(x$INDICATOR == "H32", "Too expensive / no money",
+                         ifelse(x$INDICATOR == "H33", "Too old to look for care",
+                           ifelse(x$INDICATOR == "H34", "Use of traditional medicine",
+                              ifelse(x$INDICATOR == "H35", "Drugs don't help",
+                                ifelse(x$INDICATOR == "H36", "No one to help me",
+                                  ifelse(x$INDICATOR == "H37", "No need",
+                                    ifelse(x$INDICATOR == "H38", "Other", "No reason given"))))))))
+
+      x$INDICATOR <- factor(x$INDICATOR, levels = c("No drugs available",
+                                                    "Too expensive / no money",
+                                                    "Too old to look for care",
+                                                    "Use of traditional medicine",
+                                                    "Drugs don't help",
+                                                    "No one to help me",
+                                                    "No need",
+                                                    "Other",
+                                                    "No reason given"))
+
+      x$SET <- ifelse(x$SET == "EST.ALL", "All",
+                      ifelse(x$SET == "EST.MALES", "Males", "Females"))
+
+      x$SET <- factor(x$SET, levels = c("All", "Males", "Females"))
+
+      chartPlot <- ggplot(x[x$SET == "All", ], aes(x = INDICATOR, y = EST)) +
+        geom_col(width = 0.7, fill = "white", colour = "gray70") +
+        labs(x = "", y = "Proportion") +
+        scale_y_continuous(limits = c(0, 1),
+                           breaks = seq(from = 0, to = 1, by = 0.2)) +
+        coord_flip() +
+        theme_ram
+
+      if(input$groupReasons1 == "sex") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = INDICATOR, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ SET) +
+          theme_ram
+      }
+
+      if(input$groupReasons1 == "indicator") {
+        chartPlot <- ggplot(x[x$SET != "All", ], aes(x = SET, y = EST)) +
+          geom_col(width = 0.7, fill = "white", colour = "gray70") +
+          labs(x = "", y = "Proportion") +
+          scale_y_continuous(limits = c(0, 1),
+                             breaks = seq(from = 0, to = 1, by = 0.2)) +
+          coord_flip() +
+          facet_wrap( ~ INDICATOR) +
+          theme_ram
+      }
+
+      if(input$errorReasons1) {
+        chartPlot <- chartPlot +
+          geom_errorbar(aes(ymin = LCL, ymax = UCL), width = 0.1, colour = "gray70")
+      }
+
+      chartPlot
+    })
   })
   #
   ##############################################################################
