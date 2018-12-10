@@ -97,69 +97,71 @@ ui <- dashboardPage(
               solidHeader = TRUE,
               status = "danger",
               width = 4,
-              shinyjs::useShinyjs(),
+
               selectInput(inputId = "mapSamplingLevel0",
                           label = "Select country",
                           choices = c("Select country" = "", countries),
                           selected = NULL),
               conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
-                selectInput(inputId = "mapSamplingLevel1",
-                            label = "Select region/province",
-                            choices = c("Select region/province" = ""))
+                div(style="display: inline-block;vertical-align:middle;",
+                  selectInput(inputId = "mapSamplingLevel1",
+                              label = "Select region/province",
+                              width = "250px",
+                              choices = c("Select region/province" = "")
+                  )
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "regionSelectInfo",
+                             label = "",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
+                )
               ),
               conditionalPanel(condition = "input.mapSamplingLevel1 != ''",
-                               selectInput(inputId = "mapSamplingLevel2",
-                                           label = "Select district/locality",
-                                           choices = c("Select district/locality" = ""))
+                div(style="display: inline-block;vertical-align:middle;",
+                  selectInput(inputId = "mapSamplingLevel2",
+                              label = "Select district/locality",
+                              width = "250px",
+                              choices = c("Select district/locality" = "")
+                  )
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "districtSelectInfo",
+                             label = "",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
+                )
               ),
               conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
                 fileInput(inputId = "settlementsData1",
                           label = "Upload settlements/village locations dataset",
                           accept = c("text/csv",
                                      "text/comma-separated-values,text/plain",
-                                     ".csv"))
+                                     ".csv")
+                )
               ),
-              conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
-                hr(),
-                h5("Spatial sample settings"),
-                selectInput(inputId = "mapSamplingSpec",
-                            label = "Specify spatial grid parameter to use",
-                            choices = c("Grid area" = "area",
-                                        "Number of grids" = "n",
-                                        "Max distance to sampling point" = "d"),
-                            selected = "area"),
-                conditionalPanel(condition = "input.mapSamplingSpec == 'area'",
-                  numericInput(inputId = "mapSamplingGridArea",
-                               label = "Set grid area size (in sq kms)",
-                               value = 100, min = 5, max = 500, step = 5)
+              conditionalPanel(condition = "output.fileUploaded1",
+                selectInput(inputId = "longitude",
+                            label = "Select longitude variable",
+                            selected = "",
+                            choices = c("Select longitude variable" = "")
                 ),
-                conditionalPanel(condition = "input.mapSamplingSpec == 'n'",
-                  numericInput(inputId = "mapSamplingGridNumber",
-                               label = "Set grid number",
-                               value = 20, min = 16, max = 30, step = 1)
+                selectInput(inputId = "latitude",
+                            label = "Select latitude variable",
+                            selected = "",
+                            choices = c("Select latitude variable" = "")
                 ),
-                conditionalPanel(condition = "input.mapSamplingSpec == 'd'",
-                  numericInput(inputId = "mapSamplingGridDist",
-                               label = "Set max distance to sampling point (in kms)",
-                               value = 10, min = 5, max = 30, step = 1)
+                actionButton(inputId = "mapSamplingPlot",
+                             label = "Sample",
+                             icon = icon(name = "th",
+                                         lib = "font-awesome")
                 ),
-                numericInput(inputId = "mapSamplingSettlementsNumber",
-                             label = "No. of settlements per sampling point",
-                             value = 1, min = 1, max = 10, step = 1),
-                br(),
-                conditionalPanel(condition = "input.mapSamplingLevel0 != '' & input.settlementsData1 != null",
-                  actionButton(inputId = "mapSamplingPlot",
-                               label = "Sample",
-                               icon = icon(name = "th",
-                               lib = "font-awesome",
-                               class = "fa-lg")
-                  ),
-                  downloadButton(outputId = "samplingListDownload1",
-                                 label = "Download",
-                                 icon = icon(name = "download",
-                                 lib = "font-awesome",
-                                 class = "fa-lg")
-                  )
+                downloadButton(outputId = "samplingListDownload1",
+                               label = "Download",
+                               icon = icon(name = "download",
+                                           lib = "font-awesome")
                 )
               )
             )

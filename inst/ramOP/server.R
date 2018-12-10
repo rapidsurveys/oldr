@@ -27,26 +27,29 @@ server <- function(input, output, session) {
   #
   # Create area map objects - level 0
   #
-  mapCountry <- reactive({
-    if(input$mapSamplingLevel0 != "") {
-
-      progress <- Progress$new()
-      on.exit(progress$close())
-      progress$set(message = paste("Retrieving map of ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0], sep = ""), value = 0.7)
-
-      gadmr::get_map(format = "gpkg",
-                     country = input$mapSamplingLevel0,
-                     layer = 1)
-    }
-  })
+  #mapCountry <- reactive({
+  #  if(input$mapSamplingLevel0 != "") {
+  #    progress <- Progress$new()
+  #    on.exit(progress$close())
+  #    progress$set(message = paste("Retrieving map of ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0], sep = ""), value = 0.7)
+  #    gadmr::get_map(format = "gpkg",
+  #                   country = input$mapSamplingLevel0,
+  #                   layer = 2)
+  #  }
+  #})
   #
   # Create area map objects - level 1
   #
   mapRegion <- reactive({
     if(input$mapSamplingLevel0 != "") {
-      regionMap <- gadmr::get_map(format = "gpkg",
-                                  country = input$mapSamplingLevel0,
-                                  layer = 2)
+      ##
+      progress <- Progress$new()
+      on.exit(progress$close())
+      progress$set(message = paste("Retrieving map of ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0], sep = ""), value = 0.7)
+      ##
+      gadmr::get_map(format = "gpkg",
+                     country = input$mapSamplingLevel0,
+                     layer = 2)
     }
   })
   #
@@ -115,6 +118,28 @@ server <- function(input, output, session) {
                       selected = "")
   })
   #
+  # Update longitude selection
+  #
+  observeEvent(settlements1(), {
+    updateSelectInput(session,
+                      inputId = "longitude",
+                      label = "Select longitude variable",
+                      choices = c("Select longitude variable" = "",
+                                  names(settlements1())),
+                      selected = names(settlements1())[names(settlements1()) %in% c("longitude", "Longitude", "LONGITUDE", "x", "X", "coord_x", "COORD_X")])
+  })
+  #
+  # Update latitude selection
+  #
+  observeEvent(settlements1(), {
+    updateSelectInput(session,
+                      inputId = "latitude",
+                      label = "Select latitude variable",
+                      choices = c("Select latitude variable" = "",
+                                  names(settlements1())),
+                      selected = names(settlements1())[names(settlements1()) %in% c("latitude", "Latitude", "LATITUDE", "y", "Y", "coord_y", "COORD_Y")])
+  })
+  #
   ##############################################################################
   #
   # Spatial sampling
@@ -131,16 +156,16 @@ server <- function(input, output, session) {
   #
   # Country borders
   #
-  observeEvent(mapCountry(), {
+  observeEvent(mapRegion(), {
     leafletProxy("mapSampling") %>%
       clearShapes() %>%
       clearMarkers() %>%
       clearControls() %>%
-      fitBounds(lng1 = bbox(mapCountry())[1,1],
-                lat1 = bbox(mapCountry())[2,1],
-                lng2 = bbox(mapCountry())[1,2],
-                lat2 = bbox(mapCountry())[2,2]) %>%
-      addPolygons(data = mapCountry(),
+      fitBounds(lng1 = bbox(mapRegion())[1,1],
+                lat1 = bbox(mapRegion())[2,1],
+                lng2 = bbox(mapRegion())[1,2],
+                lat2 = bbox(mapRegion())[2,2]) %>%
+      addPolygons(data = mapRegion(),
                   color = "yellow",
                   weight = 6,
                   fill = FALSE)
@@ -159,7 +184,7 @@ server <- function(input, output, session) {
                 lat2 = bbox(selectedRegion())[2,2]) %>%
       addPolygons(data = selectedRegion(),
                   color = "yellow",
-                  weight = 6,
+                  weight = 4,
                   fill = FALSE)
   })
   #
@@ -188,6 +213,26 @@ server <- function(input, output, session) {
       return(NULL)
     }
     read.csv(file = inputFile$datapath, header = TRUE, sep = ",")
+  })
+  ##
+  output$fileUploaded1 <- reactive({
+    return(!is.null(settlements1()))
+  })
+  ##
+  outputOptions(x = output, name = "fileUploaded1", suspendWhenHidden = FALSE)
+  #
+  #
+  #
+  observeEvent(input$longitude != "" & input$latitude != "", {
+    leafletProxy("mapSampling") %>%
+      clearMarkers() %>%
+      clearControls() %>%
+      addCircles(lng = settlements1()[ , req(input$longitude)],
+                 lat = settlements1()[ , req(input$latitude)],
+                 radius = 2,
+                 color = "darkgreen",
+                 fill = TRUE,
+                 weight = 1)
   })
   #
   # Input - village data
@@ -251,12 +296,46 @@ server <- function(input, output, session) {
   # Plot country sampling grid
   #
   observeEvent(input$mapSamplingPlot, {
-    mapSamplingPoint <- create_sp_grid(x = mapCountry(),
+    mapSamplingPoint <- create_sp_grid(x = mapRegion(),
                                        n = 16,
-                                       country = input$mapSamplingLevel0,
-                                       buffer = 2,
-                                       n.factor = 5,
+                                       country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                       buffer = 5,
+                                       n.factor = 2,
+                                       type = "csas",
                                        fixed = TRUE)
+    #
+    #
+    #
+    mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+    #
+    #
+    #
+    mapSamplingSettlements <- get_nearest_point(data = settlements1(),
+                                                data.x = input$longitude,
+                                                data.y = input$latitude,
+                                                query = mapSamplingPoint,
+                                                n = 1)
+    #
+    #
+    #
+    leafletProxy("mapSampling") %>%
+      clearShapes() %>%
+      addCircles(lng = mapSamplingPoint@coords[ , "x1"],
+                 lat = mapSamplingPoint@coords[ , "x2"],
+                 radius = 30,
+                 weight = 5,
+                 color = "red",
+                 fill = TRUE) %>%
+      addCircles(lng = mapSamplingSettlements[ , input$longitude],
+                 lat = mapSamplingSettlements[ , input$latitude],
+                 radius = 30,
+                 weight = 5,
+                 color = "darkgreen",
+                 fill = TRUE) %>%
+      addPolygons(data = mapSamplingGrid,
+                  color = "blue",
+                  fill = FALSE,
+                  weight = 4)
     #
     #
     #
