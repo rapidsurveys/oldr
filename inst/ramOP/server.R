@@ -339,7 +339,7 @@ server <- function(input, output, session) {
     #
     #
     #
-    output$samplingListDownload <- downloadHandler(
+    output$samplingListDownload1 <- downloadHandler(
       filename = function() {
         "samplingList.csv"
       },
