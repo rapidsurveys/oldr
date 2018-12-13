@@ -389,13 +389,13 @@ server <- function(input, output, session) {
 
                   <p>Here is an example of a ribbon of dwellings:</p>
 
-              <img <img src='https://ram.validmeasures.org/ramOPmanual/figures/stage2sample1.png' width = '400px'>
+              <img <img src='https://rapidsurveys.io/ramOPmanual/figures/stage2sample1.png' width = '400px'>
 
                   &nbsp;
 
                   <p>Here is an example of a cluster of dwellings:</p>
 
-              <img <img src='https://ram.validmeasures.org/ramOPmanual/figures/stage2sample2.png' width = '400px'>
+              <img <img src='https://rapidsurveys.io/ramOPmanual/figures/stage2sample2.png' width = '400px'>
 
               <li><strong>Segment:</strong> Divide the community into ribbon and cluster segments \
                   defined by the physical layout of the community being sampled.</li>

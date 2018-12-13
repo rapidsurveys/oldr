@@ -1450,6 +1450,7 @@ ui <- dashboardPage(
             solidHeader = TRUE,
             status = "info",
             width = 4,
+            height = "135px",
             checkboxGroupInput(inputId = "reportType",
                                label = "Select report type to generate",
                                inline = TRUE,
@@ -1462,6 +1463,7 @@ ui <- dashboardPage(
             solidHeader = TRUE,
             status = "warning",
             width = 4,
+            height = "135px",
             textInput(inputId = "reportDir",
               label = "Enter directory to save report",
               value = "")
@@ -1470,6 +1472,7 @@ ui <- dashboardPage(
             solidHeader = TRUE,
             status = "success",
             width = 4,
+            height = "135px",
             p("Click on button to generate RAM-OP report"),
             actionButton(inputId = "reportGenerate",
                          label = "Generate report",
