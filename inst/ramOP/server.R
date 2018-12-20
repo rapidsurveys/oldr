@@ -296,25 +296,59 @@ server <- function(input, output, session) {
   # Plot country sampling grid
   #
   observeEvent(input$mapSamplingPlot, {
-    mapSamplingPoint <- create_sp_grid(x = mapRegion(),
-                                       n = 16,
-                                       country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                       buffer = 5,
-                                       n.factor = 2,
-                                       type = "csas",
-                                       fixed = TRUE)
     #
+    # Sample country
     #
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingLevel1 == "" & input$mapSamplingLevel2 == "") {
+      mapSamplingPoint <- create_sp_grid(x = mapRegion(),
+                                         n = 16,
+                                         country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                         buffer = 5,
+                                         n.factor = 2,
+                                         type = "csas",
+                                         fixed = TRUE)
+
+      #
+      #
+      #
+      mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      #
+      #
+      #
+      mapSamplingSettlements <- get_nearest_point(data = settlements1(),
+                                                  data.x = input$longitude,
+                                                  data.y = input$latitude,
+                                                  query = mapSamplingPoint,
+                                                  n = 1)
+    }
     #
-    mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+    # Sample region
     #
-    #
-    #
-    mapSamplingSettlements <- get_nearest_point(data = settlements1(),
-                                                data.x = input$longitude,
-                                                data.y = input$latitude,
-                                                query = mapSamplingPoint,
-                                                n = 1)
+    if(input$mapSamplingLevel1 != "" & input$mapSamplingLevel2 == "") {
+
+      #mapSelected <- subset(mapRegion(), mapRegion()@data$NAME_1 == input$mapSamplingLevel1)
+
+      mapSamplingPoint <- create_sp_grid(x = req(selectedRegion()),
+                                         n = 16,
+                                         country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                         buffer = 5,
+                                         n.factor = 2,
+                                         type = "csas",
+                                         fixed = TRUE)
+
+      #
+      #
+      #
+      mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      #
+      #
+      #
+      mapSamplingSettlements <- get_nearest_point(data = settlements1(),
+                                                  data.x = input$longitude,
+                                                  data.y = input$latitude,
+                                                  query = mapSamplingPoint,
+                                                  n = 1)
+    }
     #
     #
     #
