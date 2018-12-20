@@ -49,7 +49,7 @@ server <- function(input, output, session) {
       ##
       gadmr::get_map(format = "gpkg",
                      country = input$mapSamplingLevel0,
-                     layer = 2)
+                     layer = 1)
     }
   })
   #
@@ -64,10 +64,10 @@ server <- function(input, output, session) {
   # Create area map objects - level 2
   #
   mapDistrict <- reactive({
-    if(input$mapSamplingLevel0 != "") {
+    if(input$mapSamplingLevel1 != "") {
       districtMap <- gadmr::get_map(format = "gpkg",
                                     country = input$mapSamplingLevel0,
-                                    layer = 3)
+                                    layer = 2)
     }
   })
   #
@@ -88,7 +88,7 @@ server <- function(input, output, session) {
   # Create choices - district
   #
   choicesDistrict <- reactive({
-    as.character(req(mapDistrict())@data$NAME_2)
+    as.character(req(mapDistrict())@data$NAME_2[req(mapDistrict())@data$NAME_1 == input$mapSamplingLevel1])
   })
   ##############################################################################
   #
@@ -303,7 +303,7 @@ server <- function(input, output, session) {
       mapSamplingPoint <- create_sp_grid(x = mapRegion(),
                                          n = 16,
                                          country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                         buffer = 5,
+                                         buffer = 20,
                                          n.factor = 2,
                                          type = "csas",
                                          fixed = TRUE)
@@ -320,18 +320,24 @@ server <- function(input, output, session) {
                                                   data.y = input$latitude,
                                                   query = mapSamplingPoint,
                                                   n = 1)
+      #
+      #
+      #
+      leafletProxy("mapSampling") %>%
+        clearShapes() %>%
+        addPolygons(data = mapRegion(),
+                    color = "yellow",
+                    fill = FALSE,
+                    weight = 6)
     }
     #
     # Sample region
     #
     if(input$mapSamplingLevel1 != "" & input$mapSamplingLevel2 == "") {
-
-      #mapSelected <- subset(mapRegion(), mapRegion()@data$NAME_1 == input$mapSamplingLevel1)
-
       mapSamplingPoint <- create_sp_grid(x = req(selectedRegion()),
                                          n = 16,
                                          country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                         buffer = 5,
+                                         buffer = 10,
                                          n.factor = 2,
                                          type = "csas",
                                          fixed = TRUE)
@@ -348,12 +354,54 @@ server <- function(input, output, session) {
                                                   data.y = input$latitude,
                                                   query = mapSamplingPoint,
                                                   n = 1)
+      #
+      #
+      #
+      leafletProxy("mapSampling") %>%
+        clearShapes() %>%
+        addPolygons(data = selectedRegion(),
+                    color = "yellow",
+                    fill = FALSE,
+                    weight = 6)
+    }
+    #
+    # Sample district
+    #
+    if(input$mapSamplingLevel2 != "") {
+      mapSamplingPoint <- create_sp_grid(x = req(selectedDistrict()),
+                                         n = 16,
+                                         country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                         buffer = 2,
+                                         n.factor = 2,
+                                         type = "csas",
+                                         fixed = TRUE)
+
+      #
+      #
+      #
+      mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      #
+      #
+      #
+      mapSamplingSettlements <- get_nearest_point(data = settlements1(),
+                                                  data.x = input$longitude,
+                                                  data.y = input$latitude,
+                                                  query = mapSamplingPoint,
+                                                  n = 1)
+      #
+      #
+      #
+      leafletProxy("mapSampling") %>%
+        clearShapes() %>%
+        addPolygons(data = selectedDistrict(),
+                    color = "yellow",
+                    fill = FALSE,
+                    weight = 6)
     }
     #
     #
     #
     leafletProxy("mapSampling") %>%
-      clearShapes() %>%
       addCircles(lng = mapSamplingPoint@coords[ , "x1"],
                  lat = mapSamplingPoint@coords[ , "x2"],
                  radius = 30,
