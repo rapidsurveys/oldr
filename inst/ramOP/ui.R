@@ -153,6 +153,33 @@ ui <- dashboardPage(
                             selected = "",
                             choices = c("Select latitude variable" = "")
                 ),
+                checkboxInput(inputId = "advanceSamplingOptions",
+                              label = "Advance sampling options",
+                              value = FALSE),
+                conditionalPanel(condition = "input.advanceSamplingOptions",
+                  hr(),
+                  radioButtons(inputId = "gridType",
+                               label = "Type of sampling grid",
+                               selected = "csas",
+                               inline = TRUE,
+                               choices = c("CSAS" = "csas", "S3M" = "s3m")
+                  ),
+                  sliderInput(inputId = "gridNumber",
+                              label = "Number of clusters/sampling points",
+                              min = 16,
+                              max = 30,
+                              value = 16,
+                              step = 1
+                  ),
+                  sliderInput(inputId = "bufferMap",
+                              label = "Buffer (kms)",
+                              min = 0,
+                              max = 20,
+                              value = 5,
+                              step = 1
+                  ),
+                  hr()
+                ),
                 actionButton(inputId = "mapSamplingPlot",
                              label = "Sample",
                              icon = icon(name = "th",
