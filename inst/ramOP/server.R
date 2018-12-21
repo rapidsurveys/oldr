@@ -45,7 +45,10 @@ server <- function(input, output, session) {
       ##
       progress <- Progress$new()
       on.exit(progress$close())
-      progress$set(message = paste("Retrieving map of ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0], sep = ""), value = 0.7)
+      progress$set(message = paste("Retrieving map of ",
+                                   list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                   sep = ""),
+                   value = 0.7)
       ##
       gadmr::get_map(format = "gpkg",
                      country = input$mapSamplingLevel0,
@@ -65,6 +68,16 @@ server <- function(input, output, session) {
   #
   mapDistrict <- reactive({
     if(input$mapSamplingLevel1 != "") {
+      ##
+      progress <- Progress$new()
+      on.exit(progress$close())
+      progress$set(message = paste("Retrieving map of ",
+                                   input$mapSamplingLevel1,
+                                   ", ",
+                                   list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                                   sep = ""),
+                   value = 0.7)
+      ##
       districtMap <- gadmr::get_map(format = "gpkg",
                                     country = input$mapSamplingLevel0,
                                     layer = 2)
