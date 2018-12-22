@@ -100,6 +100,7 @@ ui <- dashboardPage(
 
               selectInput(inputId = "mapSamplingLevel0",
                           label = "Select country",
+                          width = "250px",
                           choices = c("Select country" = "", countries),
                           selected = NULL),
               conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
@@ -113,6 +114,7 @@ ui <- dashboardPage(
                 div(style="display: inline-block;vertical-align:middle;",
                   actionLink(inputId = "regionSelectInfo",
                              label = "",
+                             style = "color: #dd4b39;",
                              icon = icon(name = "info-circle",
                                          lib = "font-awesome")
                   )
@@ -129,17 +131,29 @@ ui <- dashboardPage(
                 div(style="display: inline-block;vertical-align:middle;",
                   actionLink(inputId = "districtSelectInfo",
                              label = "",
+                             style = "color: #dd4b39;",
                              icon = icon(name = "info-circle",
                                          lib = "font-awesome")
                   )
                 )
               ),
               conditionalPanel(condition = "input.mapSamplingLevel0 != ''",
-                fileInput(inputId = "settlementsData1",
-                          label = "Upload settlements/village locations dataset",
-                          accept = c("text/csv",
-                                     "text/comma-separated-values,text/plain",
-                                     ".csv")
+                div(style="display: inline-block;vertical-align:middle;",
+                  fileInput(inputId = "settlementsData1",
+                            label = "Upload settlements/village locations dataset",
+                            width = "250px",
+                            accept = c("text/csv",
+                                       "text/comma-separated-values,text/plain",
+                                       ".csv")
+                  )
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "uploadSettlementsInfo",
+                             label = "",
+                             style = "color: #dd4b39;",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
                 )
               ),
               conditionalPanel(condition = "output.fileUploaded1",

@@ -108,6 +108,13 @@ server <- function(input, output, session) {
   # Update UI
   #
   ##############################################################################
+
+  #
+  ##############################################################################
+  #
+  # Spatial sampling - UI
+  #
+  ##############################################################################
   #
   # Update region selection
   #
@@ -120,6 +127,26 @@ server <- function(input, output, session) {
                       selected = "")
   })
   #
+  # Select region - modal
+  #
+  observeEvent(input$regionSelectInfo, {
+    showModal(
+      modalDialog(
+        title = "Select region to sample",
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p(paste("Select a region in ",
+                list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                " (",
+                input$mapSamplingLevel0,
+                ") corresponding to the survey area. If sampling the whole country, leave this option blank.",
+                sep = "")
+        )
+      )
+    )
+  })
+  #
   # Update district selection
   #
   observeEvent(input$mapSamplingLevel1 != "", {
@@ -129,6 +156,30 @@ server <- function(input, output, session) {
                       choices = c("Select district/locality" = "",
                                   choicesDistrict()),
                       selected = "")
+  })
+  #
+  # Select district - modal
+  #
+  observeEvent(input$districtSelectInfo, {
+    showModal(
+      modalDialog(
+        title = "Select district to sample",
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p(paste("Select a district in ",
+                input$mapSamplingLevel1,
+                ", ",
+                list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                " (",
+                input$mapSamplingLevel0,
+                ") corresponding to the survey area. If sampling the whole of ",
+                input$mapSamplingLevel1,
+                " leave this option blank.",
+                sep = "")
+        )
+      )
+    )
   })
   #
   # Update longitude selection
@@ -153,9 +204,51 @@ server <- function(input, output, session) {
                       selected = names(settlements1())[names(settlements1()) %in% c("latitude", "Latitude", "LATITUDE", "y", "Y", "coord_y", "COORD_Y")])
   })
   #
+  # Reactive value for survey area
+  #
+  surveyArea <- reactive({
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingLevel1 == "") {
+      x <- list_countries$country[list_countries$iso3code == input$mapSamplingLevel0]
+    }
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingLevel1 != "" & input$mapSamplingLevel2 == "") {
+      x <- paste(input$mapSamplingLevel1,
+                 ", ",
+                 list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                 sep = "")
+    }
+    if(input$mapSamplingLevel0 != "" & input$mapSamplingLevel1 != "" & input$mapSamplingLevel2 != "") {
+      x <- paste(input$mapSamplingLevel2,
+                 ", ",
+                 input$mapSamplingLevel1,
+                 ", ", list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                 sep = "")
+    }
+    x
+  })
+  #
+  # Upload villages - modal
+  #
+  observeEvent(input$uploadSettlementsInfo, {
+    showModal(
+      modalDialog(
+        title = paste("Uploading settlements for ", surveyArea(), sep = ""),
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p(paste("Map-based sampling requires map locations of settlements/villages in ",
+                surveyArea(),
+                ". Upload list of all settlements/villages in ",
+                surveyArea(),
+                " containing geographical coordinates (longitude and latitude).",
+                sep = "")
+        )
+      )
+    )
+  })
+  #
   ##############################################################################
   #
-  # Spatial sampling
+  # Spatial sampling - mapping
   #
   ##############################################################################
   #
@@ -180,7 +273,7 @@ server <- function(input, output, session) {
                 lat2 = bbox(mapRegion())[2,2]) %>%
       addPolygons(data = mapRegion(),
                   color = "yellow",
-                  weight = 6,
+                  weight = 2,
                   fill = FALSE)
   })
   #
