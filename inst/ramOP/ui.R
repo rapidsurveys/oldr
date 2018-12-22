@@ -31,10 +31,10 @@ ui <- dashboardPage(
   #
   dashboardSidebar(
     width = 300,
-    sidebarSearchForm(
-      textId = "searchText",
-      buttonId = "searchButton"
-    ),
+    #sidebarSearchForm(
+    #  textId = "searchText",
+    #  buttonId = "searchButton"
+    #),
     #
     # Sidebar menu
     #
