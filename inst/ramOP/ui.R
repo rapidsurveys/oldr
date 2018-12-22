@@ -157,15 +157,37 @@ ui <- dashboardPage(
                 )
               ),
               conditionalPanel(condition = "output.fileUploaded1",
-                selectInput(inputId = "longitude",
-                            label = "Select longitude variable",
-                            selected = "",
-                            choices = c("Select longitude variable" = "")
+                div(style="display: inline-block;vertical-align:middle;",
+                  selectInput(inputId = "longitude",
+                              label = "Select longitude variable",
+                              width = "250px",
+                              selected = "",
+                              choices = c("Select longitude variable" = "")
+                  )
                 ),
-                selectInput(inputId = "latitude",
-                            label = "Select latitude variable",
-                            selected = "",
-                            choices = c("Select latitude variable" = "")
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "longitudeInfo",
+                             label = "",
+                             style = "color: #dd4b39;",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  selectInput(inputId = "latitude",
+                              label = "Select latitude variable",
+                              width = "250px",
+                              selected = "",
+                              choices = c("Select latitude variable" = "")
+                  )
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "latitudeInfo",
+                             label = "",
+                             style = "color: #dd4b39;",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
                 ),
                 checkboxInput(inputId = "advanceSamplingOptions",
                               label = "Advance sampling options",

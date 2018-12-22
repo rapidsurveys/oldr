@@ -254,6 +254,44 @@ server <- function(input, output, session) {
     )
   })
   #
+  # longitude modal
+  #
+  observeEvent(input$longitudeInfo, {
+    showModal(
+      modalDialog(
+        title = "Select longitude variable",
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p("To be able to handle the settlements/villages data provided,
+           provide the variable in the list that specifies the longitude location
+           of the settlements/villages. By default, names of possible longitude
+           variable in the list is selected. If a variable name is pre-selected,
+           check that this is the correct longitude variable. If it is not
+           correct, select the appropriate variable name")
+      )
+    )
+  })
+  #
+  # latitude modal
+  #
+  observeEvent(input$latitudeInfo, {
+    showModal(
+      modalDialog(
+        title = "Select latitude variable",
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p("To be able to handle the settlements/villages data provided,
+          provide the variable in the list that specifies the latitude location
+          of the settlements/villages. By default, names of possible latitude
+          variable in the list is selected. If a variable name is pre-selected,
+          check that this is the correct longitude variable. If it is not
+          correct, select the appropriate variable name")
+      )
+    )
+  })
+  #
   ##############################################################################
   #
   # Spatial sampling - mapping
