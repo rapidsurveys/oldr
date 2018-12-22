@@ -292,6 +292,28 @@ server <- function(input, output, session) {
     )
   })
   #
+  # advance options modal
+  #
+  observeEvent(input$advanceOptionInfo, {
+    showModal(
+      modalDialog(
+        title = "Advance sampling options",
+        footer = modalButton("Close"),
+        size = "s",
+        easyClose = TRUE,
+        p("Selecting the advance sampling options allows for specifying advanced
+          spatial sampling settings other than the default. These settings are:"),
+        HTML("
+          <ul>
+            <li>Type of smapling grid</li>
+            <li>Number of clusters/sampling points</li>
+            <li>Buffer around sampling area (kms)</li>
+          </ul>
+        ")
+      )
+    )
+  })
+  #
   ##############################################################################
   #
   # Spatial sampling - mapping

@@ -189,9 +189,19 @@ ui <- dashboardPage(
                                          lib = "font-awesome")
                   )
                 ),
-                checkboxInput(inputId = "advanceSamplingOptions",
-                              label = "Advance sampling options",
-                              value = FALSE),
+                div(style="display: inline-block;vertical-align:middle;",
+                  checkboxInput(inputId = "advanceSamplingOptions",
+                                label = "Advance sampling options",
+                                value = FALSE)
+                ),
+                div(style="display: inline-block;vertical-align:middle;",
+                  actionLink(inputId = "advanceOptionInfo",
+                             label = "",
+                             style = "color: #dd4b39;",
+                             icon = icon(name = "info-circle",
+                                         lib = "font-awesome")
+                  )
+                ),
                 conditionalPanel(condition = "input.advanceSamplingOptions",
                   hr(),
                   radioButtons(inputId = "gridType",
