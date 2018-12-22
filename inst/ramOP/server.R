@@ -305,9 +305,21 @@ server <- function(input, output, session) {
           spatial sampling settings other than the default. These settings are:"),
         HTML("
           <ul>
-            <li>Type of smapling grid</li>
-            <li>Number of clusters/sampling points</li>
-            <li>Buffer around sampling area (kms)</li>
+            <li><strong>Type of sampling grid:</strong> Choice between <em>centric
+              systematic area sampling (CSAS)</em> or <em>simple spatial sampling
+              method (S3M)</em>. Default is <em>CSAS</em>.</li>
+            <li><strong>Number of clusters/sampling points:</strong> Default
+              number of clusters/sampling points for rapid assessment method is
+              <em>16</em>. This is the minimum number of clusters/sampling
+              points required. This number of clusters/sampling points can be
+              increased as required or as desired.</li>
+            <li><strong>Buffer around sampling area (kms):</strong> Padding around
+              the map of the sampling area. Padding allows for the spatial
+              sample to be distributed up to and as near to the borders of the
+              sampling area. Default is <em>5 kms</em>. Recommendation is to
+              increase buffer when the survey area is large (i.e., entire country
+              down to the region) and decrease buffer when the survey area is
+              small (i.e., district or smaller).</li>
           </ul>
         ")
       )
