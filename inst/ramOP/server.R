@@ -132,7 +132,10 @@ server <- function(input, output, session) {
   observeEvent(input$regionSelectInfo, {
     showModal(
       modalDialog(
-        title = "Select region to sample",
+        title = paste("Select region in ",
+                      list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                      " to sample",
+                      sep = ""),
         footer = modalButton("Close"),
         size = "s",
         easyClose = TRUE,
@@ -163,7 +166,12 @@ server <- function(input, output, session) {
   observeEvent(input$districtSelectInfo, {
     showModal(
       modalDialog(
-        title = "Select district to sample",
+        title = paste("Select district in ",
+                      input$mapSamplingLevel1,
+                      ", ",
+                      list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
+                      " to sample",
+                      sep = ""),
         footer = modalButton("Close"),
         size = "s",
         easyClose = TRUE,
@@ -231,7 +239,7 @@ server <- function(input, output, session) {
   observeEvent(input$uploadSettlementsInfo, {
     showModal(
       modalDialog(
-        title = paste("Uploading settlements for ", surveyArea(), sep = ""),
+        title = paste("Upload settlements for ", surveyArea(), sep = ""),
         footer = modalButton("Close"),
         size = "s",
         easyClose = TRUE,
