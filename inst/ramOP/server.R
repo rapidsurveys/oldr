@@ -453,17 +453,19 @@ server <- function(input, output, session) {
     #
     if(input$mapSamplingLevel0 != "" & input$mapSamplingLevel1 == "" & input$mapSamplingLevel2 == "") {
       mapSamplingPoint <- create_sp_grid(x = mapRegion(),
-                                         n = 16,
+                                         n = input$gridNumber,
                                          country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                         buffer = 20,
+                                         buffer = input$bufferMap,
                                          n.factor = 2,
-                                         type = "csas",
+                                         type = input$gridType,
                                          fixed = TRUE)
 
       #
       #
       #
       mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      ##
+      if(input$gridType == "s3m") mapSamplingGrid <- HexPoints2SpatialPolygons(mapSamplingPoint)
       #
       #
       #
@@ -487,17 +489,19 @@ server <- function(input, output, session) {
     #
     if(input$mapSamplingLevel1 != "" & input$mapSamplingLevel2 == "") {
       mapSamplingPoint <- create_sp_grid(x = req(selectedRegion()),
-                                         n = 16,
+                                         n = input$gridNumber,
                                          country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                         buffer = 10,
+                                         buffer = input$bufferMap,
                                          n.factor = 2,
-                                         type = "csas",
+                                         type = input$gridType,
                                          fixed = TRUE)
 
       #
       #
       #
       mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      ##
+      if(input$gridType == "s3m") mapSamplingGrid <- HexPoints2SpatialPolygons(mapSamplingPoint)
       #
       #
       #
@@ -521,17 +525,19 @@ server <- function(input, output, session) {
     #
     if(input$mapSamplingLevel2 != "") {
       mapSamplingPoint <- create_sp_grid(x = req(selectedDistrict()),
-                                         n = 16,
+                                         n = input$gridNumber,
                                          country = list_countries$country[list_countries$iso3code == input$mapSamplingLevel0],
-                                         buffer = 2,
+                                         buffer = input$bufferMap,
                                          n.factor = 2,
-                                         type = "csas",
+                                         type = input$gridType,
                                          fixed = TRUE)
 
       #
       #
       #
       mapSamplingGrid <- as(as(mapSamplingPoint, "SpatialPixels"), "SpatialPolygons")
+      ##
+      if(input$gridType == "s3m") mapSamplingGrid <- HexPoints2SpatialPolygons(mapSamplingPoint)
       #
       #
       #
@@ -554,8 +560,8 @@ server <- function(input, output, session) {
     #
     #
     leafletProxy("mapSampling") %>%
-      addCircles(lng = mapSamplingPoint@coords[ , "x1"],
-                 lat = mapSamplingPoint@coords[ , "x2"],
+      addCircles(lng = mapSamplingPoint@coords[ , 1],
+                 lat = mapSamplingPoint@coords[ , 2],
                  radius = 30,
                  weight = 5,
                  color = "red",

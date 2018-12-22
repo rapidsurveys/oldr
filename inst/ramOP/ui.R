@@ -198,7 +198,8 @@ ui <- dashboardPage(
                                label = "Type of sampling grid",
                                selected = "csas",
                                inline = TRUE,
-                               choices = c("CSAS" = "csas", "S3M" = "s3m")
+                               choices = c("CSAS" = "csas",
+                                           "S3M" = "s3m")
                   ),
                   sliderInput(inputId = "gridNumber",
                               label = "Number of clusters/sampling points",
@@ -210,7 +211,7 @@ ui <- dashboardPage(
                   sliderInput(inputId = "bufferMap",
                               label = "Buffer (kms)",
                               min = 0,
-                              max = 20,
+                              max = 40,
                               value = 5,
                               step = 1
                   ),
