@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) in R <img src="man/figures/oldr.png" width="150" align="right" />
+# oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) in R <img src="man/figures/oldr.png" width="200" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
