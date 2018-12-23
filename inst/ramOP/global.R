@@ -37,9 +37,9 @@ if(!require(RColorBrewer)) install.packages("RColorBrewer")
 if(!require(shinyWidgets)) install.packages("shinyWidgets")
 
 if(!require(oldr)) install_github("rapidsurveys/oldr")
-if(!require(spatialsampler)) install_github("validmeasures/spatialsampler")
+if(!require(spatialsampler)) install_github("SpatialWorks/spatialsampler")
 if(!require(odkr)) install_github("validmeasures/odkr")
-if(!require(sampsizer)) install_github("validmeasures/sampsizer")
+if(!require(sampsizer)) install_github("ernestguevarra/sampsizer")
 if(!require(gadmr)) install_github("SpatialWorks/gadmr")
 
 
