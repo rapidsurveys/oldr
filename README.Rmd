@@ -6,6 +6,9 @@ output: github_document
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
+  error = FALSE,
+  warning = FALSE,
+  message = FALSE,
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-"
@@ -35,7 +38,7 @@ knitr::opts_chunk$set(
 * Data analysis performed using modern computer-intensive methods to allow estimates of indicator levels to be made with useful precision using a small sample size.
 
 
-## Installing
+## Installation
 
 This package is currently in active development in preparation for submission to the CRAN repository. The development version of `oldr` can be installed in `R` via the following commands:
 
