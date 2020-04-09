@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartADL}
 \alias{chartADL}
-\title{chartADL}
+\title{Distribution of ADL (overall and by sex)}
 \usage{
 chartADL(x, filename)
 }

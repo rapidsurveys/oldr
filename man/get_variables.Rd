@@ -2,7 +2,8 @@
 % Please edit documentation in R/04-get_variables.R
 \name{get_variables}
 \alias{get_variables}
-\title{get_variables}
+\title{Function to get appropriate RAM-OP indicator variable names given a
+specified indicator set}
 \usage{
 get_variables(
   indicators = c("demo", "food", "hunger", "adl", "disability", "mental", "dementia",

@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartCSID}
 \alias{chartCSID}
-\title{chartCSID}
+\title{Chart dementia screen (CSID) indicators}
 \usage{
 chartCSID(x, filename)
 }
@@ -15,7 +15,7 @@ chartCSID(x, filename)
 Bar plot of CSID in PNG format saved in current working directory
 }
 \description{
-Dementia screen (CSID)
+Chart dementia screen (CSID) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset

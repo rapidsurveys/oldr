@@ -7,144 +7,165 @@
 \format{
 A data frame with 138 columns and 113 rows:
 \describe{
-\item{\code{psu}}{Cluster (PSU) identifier}
-\item{\code{resp1}}{Respondent is SUBJECT}
-\item{\code{resp2}}{Respondent is FAMILY CARER}
-\item{\code{resp3}}{Respondnet is OTHER CARER}
-\item{\code{resp4}}{Respondent is OTHER}
-\item{\code{age}}{Age of respondents (years)}
-\item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
-\item{\code{ageGrp2}}{Age of respondent is between 60 and 69 years}
-\item{\code{ageGrp3}}{Age of respondent is between 70 and 79 years}
-\item{\code{ageGrp4}}{Age of respondent is between 80 and 89 years}
-\item{\code{ageGrp5}}{Age of respondent is 90 years or older}
-\item{\code{sex1}}{Sex = MALE}
-\item{\code{sex2}}{Sex = FEMALE}
-\item{\code{marital1}}{Marital status = SINGLE}
-\item{\code{marital2}}{Marital status = MARRIED}
-\item{\code{marital3}}{Marital status = LIVING TOGETHER}
-\item{\code{marital4}}{Marital status = DIVORCED}
-\item{\code{marital5}}{Marital status = WIDOWED}
-\item{\code{marital6}}{Marital status = OTHER}
-\item{\code{alone}}{Respondent lives alone}
-\item{\code{MF}}{Meal frequency}
-\item{\code{DDS}}{DDS (count of 11 groups)}
-\item{\code{FG01}}{Cereals}
-\item{\code{FG02}}{Roots and tubers}
-\item{\code{FG03}}{Fruits and vegetables}
-\item{\code{FG04}}{All meat}
-\item{\code{FG05}}{Eggs}
-\item{\code{FG06}}{Fish}
-\item{\code{FG07}}{Legumes, nuts, and seeds}
-\item{\code{FG08}}{Milk and milk products}
-\item{\code{FG09}}{Fats}
-\item{\code{FG10}}{Sugar}
-\item{\code{FG11}}{Other}
-\item{\code{proteinRich}}{Protein rich animal sources of protein}
-\item{\code{pProtein}}{Protein rich plant sources of protein}
-\item{\code{aProtein}}{Protein rich animal sources of protein}
-\item{\code{pVitA}}{Plant sources of vitamin A}
-\item{\code{aVitA}}{Animal sources of vitamin A}
-\item{\code{xVitA}}{Any source of vitamin A}
-\item{\code{ironRich}}{Iron rich foods}
-\item{\code{caRich}}{Calcium rich foods}
-\item{\code{znRich}}{Zinc rich foods}
-\item{\code{vitB1}}{Vitamin B1-rich foods}
-\item{\code{vitB2}}{Vitamin B2-rich foods}
-\item{\code{vitB3}}{Vitamin B3-rich foods}
-\item{\code{vitB6}}{Vitamin B6-rich foods}
-\item{\code{vitB12}}{Vitamin B12-rich foods}
-\item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
-\item{\code{HHS1}}{Little or no hunger in household}
-\item{\code{HHS2}}{Moderate hunger in household}
-\item{\code{HHS3}}{Severe hunger in household}
-\item{\code{ADL01}}{Bathing}
-\item{\code{ADL02}}{Dressing}
-\item{\code{ADL03}}{Toileting}
-\item{\code{ADL04}}{Transferring (mobility)}
-\item{\code{ADL05}}{Continence}
-\item{\code{ADL06}}{Feeding}
-\item{\code{scoreADL}}{ADL score}
-\item{\code{classADL1}}{Severity of dependence = INDEPENDENT}
-\item{\code{classADL2}}{Severity of dependence = PARTIAL DEPENDENCY}
-\item{\code{classADL3}}{Severity of dependence = SEVERE DEPENDENCY}
-\item{\code{hasHelp}}{Has someone to help with ADL}
-\item{\code{unmetNeed}}{Unmet need (dependency with NO helper)}
-\item{\code{K6}}{K6 score}
-\item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
-\item{\code{DS}}{Probable dementia by CSID screen}
-\item{\code{H1}}{Chronic condition}
-\item{\code{H2}}{Takes drugs regularly for chronic condition}
-\item{\code{H31}}{Main reason for not taking drugs for chronic condition: No drugs available}
-\item{\code{H32}}{Main reason for not taking drugs for chronic condition: Too expensive / no money}
-\item{\code{H33}}{Main reason for not taking drugs for chronic condition: Too old to look for care}
-\item{\code{H34}}{Main reason for not taking drugs for chronic condition: Use traditional medicine}
-\item{\code{H35}}{Main reason for not taking drugs for chronic condition: Drugs don't help}
-\item{\code{H36}}{Main reason for not taking drugs for chronic condition: No one to help me}
-\item{\code{H37}}{Main reason for not taking drugs for chronic condition: No need}
-\item{\code{H38}}{Main reason for not taking drugs for chronic condition: Other}
-\item{\code{H39}}{Main reason for not taking drugs for chronic condition: No reason given}
-\item{\code{H4}}{Recent disease episode}
-\item{\code{H5}}{Accessed care for recent disease episode}
-\item{\code{H61}}{Main reason for not accessing care for recent disease episode: No drugs available}
-\item{\code{H62}}{Main reason for not accessing care for recent disease episode: Too expensive / no money}
-\item{\code{H63}}{Main reason for not accessing care for recent disease episode: Too old to look for care}
-\item{\code{H64}}{Main reason for not accessing care for recent disease episode: Use traditional medicine}
-\item{\code{H65}}{Main reason for not accessing care for recent disease episode: Drugs don't help}
-\item{\code{H66}}{Main reason for not accessing care for recent disease episode: No one to help me}
-\item{\code{H67}}{Main reason for not accessing care for recent disease episode: No need}
-\item{\code{H68}}{Main reason for not accessing care for recent disease episode: Other}
-\item{\code{H69}}{Main reason for not accessing care for recent disease episode: No reason given}
-\item{\code{M1}}{Has a personal income}
-\item{\code{M2A}}{Agriculture / fishing / livestock}
-\item{\code{M2B}}{Wages / salary}
-\item{\code{M2C}}{Sale of charcoal / bricks / etc}
-\item{\code{M2D}}{Trading (e.g. market or shop)}
-\item{\code{M2E}}{Investments}
-\item{\code{M2F}}{Spending savings / sale of assets}
-\item{\code{M2G}}{Charity}
-\item{\code{M2H}}{Cash transfer / Social security}
-\item{\code{M2I}}{Other}
-\item{\code{W1}}{Improved source of drinking water}
-\item{\code{W2}}{Safe drinking water (improved source OR adequate treatment)}
-\item{\code{W3}}{Improved sanitation facility}
-\item{\code{W4}}{Improved non-shared sanitation facilit}
-\item{\code{MUAC}}{Mid-upper arm circumference (mm)}
-\item{\code{oedema}}{Presence of oedema}
-\item{\code{screened}}{Screened with oedema check and MUAC measurement in previous month}
-\item{\code{poorVA}}{Poor visual acuity}
-\item{\code{chew}}{Problems chewing food}
-\item{\code{food}}{Anyone in household receives a ration}
-\item{\code{NFRI}}{Anyone in HH received non-food relief item(s) in previous month}
-\item{\code{wgVisionD0}}{Vision domain 0}
-\item{\code{wgVisionD1}}{Vision domain 1}
-\item{\code{wgVisionD2}}{Vision domain 2}
-\item{\code{wgVisionD3}}{Vision domain 3}
-\item{\code{wgHearingD0}}{Hearing domain 0}
-\item{\code{wgHearingD1}}{Hearing domain 1}
-\item{\code{wgHearingD2}}{Hearing domain 2}
-\item{\code{wgHearingD3}}{Hearing domain 3}
-\item{\code{wgMobilityD0}}{Mobility domain 0}
-\item{\code{wgMobilityD1}}{Mobility domain 1}
-\item{\code{wgMobilityD2}}{Mobility domain 2}
-\item{\code{wgMobilityD3}}{Mobility domain 3}
-\item{\code{wgRememberingD0}}{Remembering domain 0}
-\item{\code{wgRememberingD1}}{Remembering domain 1}
-\item{\code{wgRememberingD2}}{Remembering domain 2}
-\item{\code{wgRememberingD3}}{Remembering domain 3}
-\item{\code{wgSelfCareD0}}{Self-care domain 0}
-\item{\code{wgSelfCareD1}}{Self-care domain 1}
-\item{\code{wgSelfCareD2}}{Self-care domain 2}
-\item{\code{wgSelfCareD3}}{Self-care domain 3}
-\item{\code{wgCommunicatingD0}}{Communicating domain 0}
-\item{\code{wgCommunicatingD1}}{Communicating domain 1}
-\item{\code{wgCommunicatingD2}}{Communicating domain 2}
-\item{\code{wgCommunicatingD3}}{Communicating domain 3}
-\item{\code{wgP0}}{Overall prevalence 0}
-\item{\code{wgP1}}{Overall prevalence 1}
-\item{\code{wgP2}}{Overall prevalence 2}
-\item{\code{wgP3}}{Overall prevalence 3}
-\item{\code{wgPM}}{Overall prevalence}
+  \item{\code{psu}}{Cluster (PSU) identifier}
+  \item{\code{resp1}}{Respondent is SUBJECT}
+  \item{\code{resp2}}{Respondent is FAMILY CARER}
+  \item{\code{resp3}}{Respondnet is OTHER CARER}
+  \item{\code{resp4}}{Respondent is OTHER}
+  \item{\code{age}}{Age of respondents (years)}
+  \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp2}}{Age of respondent is between 60 and 69 years}
+  \item{\code{ageGrp3}}{Age of respondent is between 70 and 79 years}
+  \item{\code{ageGrp4}}{Age of respondent is between 80 and 89 years}
+  \item{\code{ageGrp5}}{Age of respondent is 90 years or older}
+  \item{\code{sex1}}{Sex = MALE}
+  \item{\code{sex2}}{Sex = FEMALE}
+  \item{\code{marital1}}{Marital status = SINGLE}
+  \item{\code{marital2}}{Marital status = MARRIED}
+  \item{\code{marital3}}{Marital status = LIVING TOGETHER}
+  \item{\code{marital4}}{Marital status = DIVORCED}
+  \item{\code{marital5}}{Marital status = WIDOWED}
+  \item{\code{marital6}}{Marital status = OTHER}
+  \item{\code{alone}}{Respondent lives alone}
+  \item{\code{MF}}{Meal frequency}
+  \item{\code{DDS}}{DDS (count of 11 groups)}
+  \item{\code{FG01}}{Cereals}
+  \item{\code{FG02}}{Roots and tubers}
+  \item{\code{FG03}}{Fruits and vegetables}
+  \item{\code{FG04}}{All meat}
+  \item{\code{FG05}}{Eggs}
+  \item{\code{FG06}}{Fish}
+  \item{\code{FG07}}{Legumes, nuts, and seeds}
+  \item{\code{FG08}}{Milk and milk products}
+  \item{\code{FG09}}{Fats}
+  \item{\code{FG10}}{Sugar}
+  \item{\code{FG11}}{Other}
+  \item{\code{proteinRich}}{Protein rich animal sources of protein}
+  \item{\code{pProtein}}{Protein rich plant sources of protein}
+  \item{\code{aProtein}}{Protein rich animal sources of protein}
+  \item{\code{pVitA}}{Plant sources of vitamin A}
+  \item{\code{aVitA}}{Animal sources of vitamin A}
+  \item{\code{xVitA}}{Any source of vitamin A}
+  \item{\code{ironRich}}{Iron rich foods}
+  \item{\code{caRich}}{Calcium rich foods}
+  \item{\code{znRich}}{Zinc rich foods}
+  \item{\code{vitB1}}{Vitamin B1-rich foods}
+  \item{\code{vitB2}}{Vitamin B2-rich foods}
+  \item{\code{vitB3}}{Vitamin B3-rich foods}
+  \item{\code{vitB6}}{Vitamin B6-rich foods}
+  \item{\code{vitB12}}{Vitamin B12-rich foods}
+  \item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
+  \item{\code{HHS1}}{Little or no hunger in household}
+  \item{\code{HHS2}}{Moderate hunger in household}
+  \item{\code{HHS3}}{Severe hunger in household}
+  \item{\code{ADL01}}{Bathing}
+  \item{\code{ADL02}}{Dressing}
+  \item{\code{ADL03}}{Toileting}
+  \item{\code{ADL04}}{Transferring (mobility)}
+  \item{\code{ADL05}}{Continence}
+  \item{\code{ADL06}}{Feeding}
+  \item{\code{scoreADL}}{ADL score}
+  \item{\code{classADL1}}{Severity of dependence = INDEPENDENT}
+  \item{\code{classADL2}}{Severity of dependence = PARTIAL DEPENDENCY}
+  \item{\code{classADL3}}{Severity of dependence = SEVERE DEPENDENCY}
+  \item{\code{hasHelp}}{Has someone to help with ADL}
+  \item{\code{unmetNeed}}{Unmet need (dependency with NO helper)}
+  \item{\code{K6}}{K6 score}
+  \item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
+  \item{\code{DS}}{Probable dementia by CSID screen}
+  \item{\code{H1}}{Chronic condition}
+  \item{\code{H2}}{Takes drugs regularly for chronic condition}
+  \item{\code{H31}}{Main reason for not taking drugs for chronic condition:
+    No drugs available}
+  \item{\code{H32}}{Main reason for not taking drugs for chronic condition:
+    Too expensive / no money}
+  \item{\code{H33}}{Main reason for not taking drugs for chronic condition:
+    Too old to look for care}
+  \item{\code{H34}}{Main reason for not taking drugs for chronic condition:
+    Use traditional medicine}
+  \item{\code{H35}}{Main reason for not taking drugs for chronic condition:
+    Drugs don't help}
+  \item{\code{H36}}{Main reason for not taking drugs for chronic condition:
+    No one to help me}
+  \item{\code{H37}}{Main reason for not taking drugs for chronic condition:
+    No need}
+  \item{\code{H38}}{Main reason for not taking drugs for chronic condition:
+    Other}
+  \item{\code{H39}}{Main reason for not taking drugs for chronic condition:
+    No reason given}
+  \item{\code{H4}}{Recent disease episode}
+  \item{\code{H5}}{Accessed care for recent disease episode}
+  \item{\code{H61}}{Main reason for not accessing care for recent disease
+    episode: No drugs available}
+  \item{\code{H62}}{Main reason for not accessing care for recent disease
+    episode: Too expensive / no money}
+  \item{\code{H63}}{Main reason for not accessing care for recent disease
+    episode: Too old to look for care}
+  \item{\code{H64}}{Main reason for not accessing care for recent disease
+    episode: Use traditional medicine}
+  \item{\code{H65}}{Main reason for not accessing care for recent disease
+    episode: Drugs don't help}
+  \item{\code{H66}}{Main reason for not accessing care for recent disease
+    episode: No one to help me}
+  \item{\code{H67}}{Main reason for not accessing care for recent disease
+    episode: No need}
+  \item{\code{H68}}{Main reason for not accessing care for recent disease
+    episode: Other}
+  \item{\code{H69}}{Main reason for not accessing care for recent disease
+    episode: No reason given}
+  \item{\code{M1}}{Has a personal income}
+  \item{\code{M2A}}{Agriculture / fishing / livestock}
+  \item{\code{M2B}}{Wages / salary}
+  \item{\code{M2C}}{Sale of charcoal / bricks / etc}
+  \item{\code{M2D}}{Trading (e.g. market or shop)}
+  \item{\code{M2E}}{Investments}
+  \item{\code{M2F}}{Spending savings / sale of assets}
+  \item{\code{M2G}}{Charity}
+  \item{\code{M2H}}{Cash transfer / Social security}
+  \item{\code{M2I}}{Other}
+  \item{\code{W1}}{Improved source of drinking water}
+  \item{\code{W2}}{Safe drinking water (improved source OR adequate
+    treatment)}
+  \item{\code{W3}}{Improved sanitation facility}
+  \item{\code{W4}}{Improved non-shared sanitation facilit}
+  \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
+  \item{\code{oedema}}{Presence of oedema}
+  \item{\code{screened}}{Screened with oedema check and MUAC measurement in
+    previous month}
+  \item{\code{poorVA}}{Poor visual acuity}
+  \item{\code{chew}}{Problems chewing food}
+  \item{\code{food}}{Anyone in household receives a ration}
+  \item{\code{NFRI}}{Anyone in HH received non-food relief item(s) in
+    previous month}
+  \item{\code{wgVisionD0}}{Vision domain 0}
+  \item{\code{wgVisionD1}}{Vision domain 1}
+  \item{\code{wgVisionD2}}{Vision domain 2}
+  \item{\code{wgVisionD3}}{Vision domain 3}
+  \item{\code{wgHearingD0}}{Hearing domain 0}
+  \item{\code{wgHearingD1}}{Hearing domain 1}
+  \item{\code{wgHearingD2}}{Hearing domain 2}
+  \item{\code{wgHearingD3}}{Hearing domain 3}
+  \item{\code{wgMobilityD0}}{Mobility domain 0}
+  \item{\code{wgMobilityD1}}{Mobility domain 1}
+  \item{\code{wgMobilityD2}}{Mobility domain 2}
+  \item{\code{wgMobilityD3}}{Mobility domain 3}
+  \item{\code{wgRememberingD0}}{Remembering domain 0}
+  \item{\code{wgRememberingD1}}{Remembering domain 1}
+  \item{\code{wgRememberingD2}}{Remembering domain 2}
+  \item{\code{wgRememberingD3}}{Remembering domain 3}
+  \item{\code{wgSelfCareD0}}{Self-care domain 0}
+  \item{\code{wgSelfCareD1}}{Self-care domain 1}
+  \item{\code{wgSelfCareD2}}{Self-care domain 2}
+  \item{\code{wgSelfCareD3}}{Self-care domain 3}
+  \item{\code{wgCommunicatingD0}}{Communicating domain 0}
+  \item{\code{wgCommunicatingD1}}{Communicating domain 1}
+  \item{\code{wgCommunicatingD2}}{Communicating domain 2}
+  \item{\code{wgCommunicatingD3}}{Communicating domain 3}
+  \item{\code{wgP0}}{Overall prevalence 0}
+  \item{\code{wgP1}}{Overall prevalence 1}
+  \item{\code{wgP2}}{Overall prevalence 2}
+  \item{\code{wgP3}}{Overall prevalence 3}
+  \item{\code{wgPM}}{Overall prevalence}
 }
 }
 \usage{

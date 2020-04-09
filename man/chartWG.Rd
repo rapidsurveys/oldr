@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartWG}
 \alias{chartWG}
-\title{chartWG}
+\title{Chart disability (Washington Group - WG) indicators}
 \usage{
 chartWG(x, filename)
 }
@@ -16,7 +16,7 @@ Bar plot of Disability Score in PNG format saved in current working
     directory
 }
 \description{
-Disability (Washington Group - WG)
+Chart disability (Washington Group - WG) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset

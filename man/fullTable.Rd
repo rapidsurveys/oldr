@@ -2,7 +2,7 @@
 % Please edit documentation in R/03-fullTable.R
 \name{fullTable}
 \alias{fullTable}
-\title{fullTable}
+\title{Fill out a one-dimensional table to include a specified range of values}
 \usage{
 fullTable(x, values)
 }

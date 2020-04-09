@@ -2,7 +2,7 @@
 % Please edit documentation in R/06-probitBoot.R
 \name{estimateProbit}
 \alias{estimateProbit}
-\title{estimateProbit}
+\title{Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.}
 \usage{
 estimateProbit(
   x,
@@ -40,7 +40,7 @@ case and non-case}
 Dataframe of boot estimates using bootPROBIT function
 }
 \description{
-estimateProbit
+Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 }
 \examples{
   #

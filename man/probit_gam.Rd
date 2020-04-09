@@ -2,7 +2,7 @@
 % Please edit documentation in R/10-probit_muac.R
 \name{probit_gam}
 \alias{probit_gam}
-\title{probit_gam}
+\title{PROBIT statistics function for bootstrap estimation of older people GAM}
 \usage{
 probit_gam(x, params, threshold = 210)
 }

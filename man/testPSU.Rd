@@ -7,9 +7,9 @@
 \format{
 A data frame with 2 columns and 16 rows:
 \describe{
-\item{\code{psu}}{The PSU identifier. This must use the same coding system
-  used to identify the PSUs that is used in the main RAM-OP dataset}
-\item{\code{pop}}{The population of the PSU}
+  \item{\code{psu}}{The PSU identifier. This must use the same coding system
+    used to identify the PSUs that is used in the main RAM-OP dataset}
+  \item{\code{pop}}{The population of the PSU}
 }
 
 The PSU dataset is used during data analysis to weight data by PSU

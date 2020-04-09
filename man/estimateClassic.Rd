@@ -2,7 +2,7 @@
 % Please edit documentation in R/05-classicBoot.R
 \name{estimateClassic}
 \alias{estimateClassic}
-\title{estimateClassic}
+\title{Function to apply bootstrap to RAM-OP indicators using a classical estimator.}
 \usage{
 estimateClassic(
   x,
