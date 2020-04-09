@@ -22,7 +22,8 @@ reference:
 
 - title: Create all RAM-OP indicators
   contents:
-  - create_op
+  - createOP
+  - create_op_all
 
 - title: Create activities of daily living (ADL) indicators
   contents:
