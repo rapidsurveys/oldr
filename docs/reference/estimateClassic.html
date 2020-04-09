@@ -129,7 +129,7 @@
   <span class='kw'>statistic</span> <span class='kw'>=</span> <span class='no'>bootClassic</span>,
   <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"demo"</span>, <span class='st'>"food"</span>, <span class='st'>"hunger"</span>, <span class='st'>"adl"</span>, <span class='st'>"disability"</span>, <span class='st'>"mental"</span>, <span class='st'>"dementia"</span>,
     <span class='st'>"health"</span>, <span class='st'>"oedema"</span>, <span class='st'>"screening"</span>, <span class='st'>"income"</span>, <span class='st'>"wash"</span>, <span class='st'>"visual"</span>, <span class='st'>"misc"</span>),
-  <span class='kw'>params</span> <span class='kw'>=</span> <span class='fu'><a href='get_variables.html'>get_variables</a></span>(<span class='no'>indicators</span>),
+  <span class='kw'>params</span> <span class='kw'>=</span> <span class='fu'>get_variables</span>(<span class='no'>indicators</span>),
   <span class='kw'>outputColumns</span> <span class='kw'>=</span> <span class='no'>params</span>,
   <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>399</span>
 )</pre>
@@ -166,7 +166,7 @@ Default is all indicator sets.</p></td>
       <td><p>Parameters (named columns in <code>x</code>) passed to the function
 specified in <code>statistic</code>. This is equivalent to variables
 corresponding to the indicator sets specified in <code>indicators</code>. The
-function <code><a href='get_variables.html'>get_variables()</a></code> is used to specify these variables.</p></td>
+function <code>get_variables()</code> is used to specify these variables.</p></td>
     </tr>
     <tr>
       <th>outputColumns</th>

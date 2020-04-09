@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' mergeEstimates
-#'
 #' Concatenate classic and PROBIT estimates into a single data.frame
 #'
 #' @param x Classic estimates data frame

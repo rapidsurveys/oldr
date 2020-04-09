@@ -1,6 +1,6 @@
 ###############################################################################
 #
-#' Pyramid plot
+#' Function to create a pyramid plot
 #'
 #' @param x A vector (numeric, factor, character) holding age-groups
 #' @param g A binary categorical variable (usually sex)
