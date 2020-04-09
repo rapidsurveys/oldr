@@ -155,4 +155,8 @@ Indicators dataset calculated from a dataset collected from a RAM-OP survey
 conducted in Addis Ababa, Ethiopia in early 2014. This indicator dataset is
 from the subset of women/females of the total sample.
 }
+\examples{
+indicators.FEMALES
+
+}
 \keyword{datasets}

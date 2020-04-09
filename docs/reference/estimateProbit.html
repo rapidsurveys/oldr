@@ -8,21 +8,29 @@
 
 <title>estimateProbit — estimateProbit • oldr</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="estimateProbit — estimateProbit" />
 
+<meta property="og:title" content="estimateProbit — estimateProbit" />
 <meta property="og:description" content="estimateProbit" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -85,11 +94,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/rapidsurveys/oldr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/rapidsurveys/oldr/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -100,6 +108,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -111,14 +120,19 @@
     </div>
 
     <div class="ref-description">
-    
     <p>estimateProbit</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>estimateProbit</span>(<span class='no'>x</span>, <span class='no'>w</span>, <span class='kw'>gam.stat</span> <span class='kw'>=</span> <span class='no'>probit_gam</span>, <span class='kw'>sam.stat</span> <span class='kw'>=</span> <span class='no'>probit_sam</span>,
-  <span class='kw'>params</span> <span class='kw'>=</span> <span class='st'>"MUAC"</span>, <span class='kw'>outputColumns</span> <span class='kw'>=</span> <span class='st'>"MUAC"</span>, <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>399</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>estimateProbit</span>(
+  <span class='no'>x</span>,
+  <span class='no'>w</span>,
+  <span class='kw'>gam.stat</span> <span class='kw'>=</span> <span class='no'>probit_gam</span>,
+  <span class='kw'>sam.stat</span> <span class='kw'>=</span> <span class='no'>probit_sam</span>,
+  <span class='kw'>params</span> <span class='kw'>=</span> <span class='st'>"MUAC"</span>,
+  <span class='kw'>outputColumns</span> <span class='kw'>=</span> <span class='st'>"MUAC"</span>,
+  <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>399</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -158,11 +172,10 @@ to probit estimation</p></td>
 case and non-case</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Dataframe of boot estimates using bootPROBIT function</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'>#</span>
@@ -170,41 +183,39 @@ case and non-case</p></td>
                          <span class='kw'>w</span> <span class='kw'>=</span> <span class='no'>testPSU</span>,
                          <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>9</span>)
 
-  <span class='no'>test</span></div><div class='output co'>#&gt;        LCL.ALL      EST.ALL      UCL.ALL    LCL.MALES    EST.MALES   UCL.MALES
-#&gt; 1 4.733018e-03 0.0355276727 0.0675348883 1.495070e-03 9.078120e-03 0.021827037
-#&gt; 2 4.317994e-03 0.0349068520 0.0672352532 1.495070e-03 8.541328e-03 0.021801438
-#&gt; 3 4.642083e-08 0.0002966476 0.0006004115 5.700644e-18 1.674605e-05 0.001049068
+  <span class='no'>test</span></div><div class='output co'>#&gt;        LCL.ALL      EST.ALL     UCL.ALL    LCL.MALES    EST.MALES    UCL.MALES
+#&gt; 1 1.365038e-02 0.0366158150 0.047865363 8.325631e-04 6.024034e-03 0.0115452169
+#&gt; 2 1.363592e-02 0.0325967494 0.047805388 7.710867e-04 5.843528e-03 0.0115452169
+#&gt; 3 2.069584e-06 0.0002190594 0.006594715 2.592443e-21 2.190907e-10 0.0001597551
 #&gt;    LCL.FEMALES EST.FEMALES UCL.FEMALES INDICATOR
-#&gt; 1 1.329008e-02 0.029063181 0.054793622       GAM
-#&gt; 2 1.294306e-02 0.025959765 0.053405073       MAM
-#&gt; 3 6.009333e-06 0.001481778 0.004421152       SAM</div></pre>
+#&gt; 1 2.276137e-02 0.054884351 0.064592517       GAM
+#&gt; 2 1.942328e-02 0.050540896 0.060828257       MAM
+#&gt; 3 2.433018e-05 0.002553848 0.009068121       SAM</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
-  <p>Developed by Ernest Guevarra, Pascale Fritsch, Katja Siling, Mark Myatt.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

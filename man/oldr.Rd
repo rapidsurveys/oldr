@@ -3,11 +3,29 @@
 \docType{package}
 \name{oldr}
 \alias{oldr}
-\title{\code{oldr} Package}
+\alias{oldr-package}
+\title{An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R}
 \description{
-An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
-}
-\details{
 See the README at
 \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/rapidsurveys/oldr/issues}
+  \item Report bugs at \url{https://github.com/rapidsurveys/oldr/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Ernest Guevarra \email{ernest@guevarra.io} (\href{https://orcid.org/0000-0002-4887-4415}{ORCID})
+
+Authors:
+\itemize{
+  \item Mark Myatt \email{mark@brixtonhealth.com}
+  \item Pascale Fritsch
+  \item Katja Siling
+}
+
+}
+\keyword{internal}

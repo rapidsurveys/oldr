@@ -8,21 +8,29 @@
 
 <title>Function reference • oldr</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,7 +38,9 @@
 
 
 
+
 <meta property="og:title" content="Function reference" />
+
 
 
 
@@ -44,9 +54,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -68,7 +79,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,11 +93,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/rapidsurveys/oldr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/rapidsurveys/oldr/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,6 +107,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -116,10 +127,524 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-description" class="hasAnchor"><a href="#section-description" class="anchor"></a>Description</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="oldr.html">oldr</a></code> </p>
+        </td>
+        <td><p>An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-all-ram-op-indicators" class="hasAnchor"><a href="#section-create-all-ram-op-indicators" class="anchor"></a>Create all RAM-OP indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="createOP.html">createOP()</a></code> </p>
+        </td>
+        <td><p>createOP</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_all.html">create_op_all()</a></code> </p>
+        </td>
+        <td><p>create_op_all</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-activities-of-daily-living-adl-indicators" class="hasAnchor"><a href="#section-create-activities-of-daily-living-adl-indicators" class="anchor"></a>Create activities of daily living (ADL) indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_adl.html">create_op_adl()</a></code> </p>
+        </td>
+        <td><p>create_op_adl</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_adl_males.html">create_op_adl_males()</a></code> </p>
+        </td>
+        <td><p>create_op_adl_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_adl_females.html">create_op_adl_females()</a></code> </p>
+        </td>
+        <td><p>create_op_adl_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-anthropometric-indicators" class="hasAnchor"><a href="#section-create-anthropometric-indicators" class="anchor"></a>Create anthropometric indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_anthro.html">create_op_anthro()</a></code> </p>
+        </td>
+        <td><p>create_op_anthro</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_anthro_males.html">create_op_anthro_males()</a></code> </p>
+        </td>
+        <td><p>create_op_anthro_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_anthro_females.html">create_op_anthro_females()</a></code> </p>
+        </td>
+        <td><p>create_op_anthro_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-dementia-indicators" class="hasAnchor"><a href="#section-create-dementia-indicators" class="anchor"></a>Create dementia indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_dementia.html">create_op_dementia()</a></code> </p>
+        </td>
+        <td><p>create_op_dementia</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_dementia_males.html">create_op_dementia_males()</a></code> </p>
+        </td>
+        <td><p>create_op_dementia_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_dementia_females.html">create_op_dementia_females()</a></code> </p>
+        </td>
+        <td><p>create_op_dementia_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-demographic-indicators" class="hasAnchor"><a href="#section-create-demographic-indicators" class="anchor"></a>Create demographic indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_demo.html">create_op_demo()</a></code> </p>
+        </td>
+        <td><p>create_op_demo</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_demo_males.html">create_op_demo_males()</a></code> </p>
+        </td>
+        <td><p>create_op_demo_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_demo_females.html">create_op_demo_females()</a></code> </p>
+        </td>
+        <td><p>create_op_demo_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-disability-indicators" class="hasAnchor"><a href="#section-create-disability-indicators" class="anchor"></a>Create disability indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_disability.html">create_op_disability()</a></code> </p>
+        </td>
+        <td><p>create_op_disability</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_disability_males.html">create_op_disability_males()</a></code> </p>
+        </td>
+        <td><p>create_op_disability_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_disability_females.html">create_op_disability_females()</a></code> </p>
+        </td>
+        <td><p>create_op_disability_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-food-intake-indicators" class="hasAnchor"><a href="#section-create-food-intake-indicators" class="anchor"></a>Create food intake indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_food.html">create_op_food()</a></code> </p>
+        </td>
+        <td><p>create_op_food</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_food_males.html">create_op_food_males()</a></code> </p>
+        </td>
+        <td><p>create_op_food_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_food_females.html">create_op_food_females()</a></code> </p>
+        </td>
+        <td><p>create_op_food_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-health-indicators" class="hasAnchor"><a href="#section-create-health-indicators" class="anchor"></a>Create health indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_health.html">create_op_health()</a></code> </p>
+        </td>
+        <td><p>create_op_health</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_health_males.html">create_op_health_males()</a></code> </p>
+        </td>
+        <td><p>create_op_health_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_health_females.html">create_op_health_females()</a></code> </p>
+        </td>
+        <td><p>create_op_health_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-household-hunger-scale-hhs-indicators" class="hasAnchor"><a href="#section-create-household-hunger-scale-hhs-indicators" class="anchor"></a>Create household hunger scale (HHS) indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_hunger.html">create_op_hunger()</a></code> </p>
+        </td>
+        <td><p>create_op_hunger</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_hunger_males.html">create_op_hunger_males()</a></code> </p>
+        </td>
+        <td><p>create_op_hunger_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_hunger_females.html">create_op_hunger_females()</a></code> </p>
+        </td>
+        <td><p>create_op_hunger_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-income-indicators" class="hasAnchor"><a href="#section-create-income-indicators" class="anchor"></a>Create income indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_income.html">create_op_income()</a></code> </p>
+        </td>
+        <td><p>create_op_income</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_income_males.html">create_op_income_males()</a></code> </p>
+        </td>
+        <td><p>create_op_income_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_income_females.html">create_op_income_females()</a></code> </p>
+        </td>
+        <td><p>create_op_income_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-mental-health-indicators" class="hasAnchor"><a href="#section-create-mental-health-indicators" class="anchor"></a>Create mental health indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_mental.html">create_op_mental()</a></code> </p>
+        </td>
+        <td><p>create_op_mental</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_mental_males.html">create_op_mental_males()</a></code> </p>
+        </td>
+        <td><p>create_op_mental_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_mental_females.html">create_op_mental_females()</a></code> </p>
+        </td>
+        <td><p>create_op_mental_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-oedema-indicators" class="hasAnchor"><a href="#section-create-oedema-indicators" class="anchor"></a>Create oedema indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_oedema.html">create_op_oedema()</a></code> </p>
+        </td>
+        <td><p>create_op_oedema</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_oedema_males.html">create_op_oedema_males()</a></code> </p>
+        </td>
+        <td><p>create_op_oedema_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_oedema_females.html">create_op_oedema_females()</a></code> </p>
+        </td>
+        <td><p>create_op_oedema_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-nutrition-screening-indicators" class="hasAnchor"><a href="#section-create-nutrition-screening-indicators" class="anchor"></a>Create nutrition screening indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_screening.html">create_op_screening()</a></code> </p>
+        </td>
+        <td><p>create_op_screening</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_screening_males.html">create_op_screening_males()</a></code> </p>
+        </td>
+        <td><p>create_op_screening_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_screening_females.html">create_op_screening_females()</a></code> </p>
+        </td>
+        <td><p>create_op_screening_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-visual-acuity-indicators" class="hasAnchor"><a href="#section-create-visual-acuity-indicators" class="anchor"></a>Create visual acuity indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_visual.html">create_op_visual()</a></code> </p>
+        </td>
+        <td><p>create_op_visual</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_visual_males.html">create_op_visual_males()</a></code> </p>
+        </td>
+        <td><p>create_op_visual_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_visual_females.html">create_op_visual_females()</a></code> </p>
+        </td>
+        <td><p>create_op_visual_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-water-sanitation-and-hygiene-wash-indicators" class="hasAnchor"><a href="#section-create-water-sanitation-and-hygiene-wash-indicators" class="anchor"></a>Create water, sanitation and hygiene (WASH) indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_wash.html">create_op_wash()</a></code> </p>
+        </td>
+        <td><p>create_op_wash</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_wash_males.html">create_op_wash_males()</a></code> </p>
+        </td>
+        <td><p>create_op_wash_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_wash_females.html">create_op_wash_females()</a></code> </p>
+        </td>
+        <td><p>create_op_wash_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-miscellaneous-indicators" class="hasAnchor"><a href="#section-create-miscellaneous-indicators" class="anchor"></a>Create miscellaneous indicators</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="create_op_misc.html">create_op_misc()</a></code> </p>
+        </td>
+        <td><p>create_op_misc</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_misc_males.html">create_op_misc_males()</a></code> </p>
+        </td>
+        <td><p>create_op_misc_males</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_op_misc_females.html">create_op_misc_females()</a></code> </p>
+        </td>
+        <td><p>create_op_misc_females</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-charts" class="hasAnchor"><a href="#section-create-charts" class="anchor"></a>Create charts</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -189,286 +714,23 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="createOP.html">createOP()</a></code> </p>
+          <p><code><a href="pyramid.plot.html">pyramid.plot()</a></code> </p>
         </td>
-        <td><p>createOP</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_adl.html">create_op_adl()</a></code> </p>
-        </td>
-        <td><p>create_op_adl</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_adl_females.html">create_op_adl_females()</a></code> </p>
-        </td>
-        <td><p>create_op_adl_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_adl_males.html">create_op_adl_males()</a></code> </p>
-        </td>
-        <td><p>create_op_adl_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_all.html">create_op_all()</a></code> </p>
-        </td>
-        <td><p>create_op_all</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_anthro.html">create_op_anthro()</a></code> </p>
-        </td>
-        <td><p>create_op_anthro</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_anthro_females.html">create_op_anthro_females()</a></code> </p>
-        </td>
-        <td><p>create_op_anthro_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_anthro_males.html">create_op_anthro_males()</a></code> </p>
-        </td>
-        <td><p>create_op_anthro_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_dementia.html">create_op_dementia()</a></code> </p>
-        </td>
-        <td><p>create_op_dementia</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_dementia_females.html">create_op_dementia_females()</a></code> </p>
-        </td>
-        <td><p>create_op_dementia_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_dementia_males.html">create_op_dementia_males()</a></code> </p>
-        </td>
-        <td><p>create_op_dementia_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_demo.html">create_op_demo()</a></code> </p>
-        </td>
-        <td><p>create_op_demo</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_demo_females.html">create_op_demo_females()</a></code> </p>
-        </td>
-        <td><p>create_op_demo_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_demo_males.html">create_op_demo_males()</a></code> </p>
-        </td>
-        <td><p>create_op_demo_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_disability.html">create_op_disability()</a></code> </p>
-        </td>
-        <td><p>create_op_disability</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_disability_females.html">create_op_disability_females()</a></code> </p>
-        </td>
-        <td><p>create_op_disability_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_disability_males.html">create_op_disability_males()</a></code> </p>
-        </td>
-        <td><p>create_op_disability_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_food.html">create_op_food()</a></code> </p>
-        </td>
-        <td><p>create_op_food</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_food_females.html">create_op_food_females()</a></code> </p>
-        </td>
-        <td><p>create_op_food_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_food_males.html">create_op_food_males()</a></code> </p>
-        </td>
-        <td><p>create_op_food_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_health.html">create_op_health()</a></code> </p>
-        </td>
-        <td><p>create_op_health</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_health_females.html">create_op_health_females()</a></code> </p>
-        </td>
-        <td><p>create_op_health_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_health_males.html">create_op_health_males()</a></code> </p>
-        </td>
-        <td><p>create_op_health_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_hunger.html">create_op_hunger()</a></code> </p>
-        </td>
-        <td><p>create_op_hunger</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_hunger_females.html">create_op_hunger_females()</a></code> </p>
-        </td>
-        <td><p>create_op_hunger_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_hunger_males.html">create_op_hunger_males()</a></code> </p>
-        </td>
-        <td><p>create_op_hunger_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_income.html">create_op_income()</a></code> </p>
-        </td>
-        <td><p>create_op_income</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_income_females.html">create_op_income_females()</a></code> </p>
-        </td>
-        <td><p>create_op_income_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_income_males.html">create_op_income_males()</a></code> </p>
-        </td>
-        <td><p>create_op_income_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_mental.html">create_op_mental()</a></code> </p>
-        </td>
-        <td><p>create_op_mental</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_mental_females.html">create_op_mental_females()</a></code> </p>
-        </td>
-        <td><p>create_op_mental_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_mental_males.html">create_op_mental_males()</a></code> </p>
-        </td>
-        <td><p>create_op_mental_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_misc.html">create_op_misc()</a></code> </p>
-        </td>
-        <td><p>create_op_misc</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_misc_females.html">create_op_misc_females()</a></code> </p>
-        </td>
-        <td><p>create_op_misc_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_misc_males.html">create_op_misc_males()</a></code> </p>
-        </td>
-        <td><p>create_op_misc_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_oedema.html">create_op_oedema()</a></code> </p>
-        </td>
-        <td><p>create_op_oedema</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_oedema_females.html">create_op_oedema_females()</a></code> </p>
-        </td>
-        <td><p>create_op_oedema_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_oedema_males.html">create_op_oedema_males()</a></code> </p>
-        </td>
-        <td><p>create_op_oedema_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_screening.html">create_op_screening()</a></code> </p>
-        </td>
-        <td><p>create_op_screening</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_screening_females.html">create_op_screening_females()</a></code> </p>
-        </td>
-        <td><p>create_op_screening_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_screening_males.html">create_op_screening_males()</a></code> </p>
-        </td>
-        <td><p>create_op_screening_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_visual.html">create_op_visual()</a></code> </p>
-        </td>
-        <td><p>create_op_visual</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_visual_females.html">create_op_visual_females()</a></code> </p>
-        </td>
-        <td><p>create_op_visual_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_visual_males.html">create_op_visual_males()</a></code> </p>
-        </td>
-        <td><p>create_op_visual_males</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_wash.html">create_op_wash()</a></code> </p>
-        </td>
-        <td><p>create_op_wash</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_wash_females.html">create_op_wash_females()</a></code> </p>
-        </td>
-        <td><p>create_op_wash_females</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_op_wash_males.html">create_op_wash_males()</a></code> </p>
-        </td>
-        <td><p>create_op_wash_males</p></td>
-      </tr><tr>
+        <td><p>Pyramid plot</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-utility-support-functions" class="hasAnchor"><a href="#section-utility-support-functions" class="anchor"></a>Utility/support functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="estimateClassic.html">estimateClassic()</a></code> </p>
@@ -495,33 +757,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="indicators.ALL.html">indicators.ALL</a></code> </p>
-        </td>
-        <td><p>RAM-OP Indicators Dataset - ALL</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="indicators.FEMALES.html">indicators.FEMALES</a></code> </p>
-        </td>
-        <td><p>RAM-OP Indicators Dataset - FEMALES</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="indicators.MALES.html">indicators.MALES</a></code> </p>
-        </td>
-        <td><p>RAM-OP Indicators Dataset - MALES</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="mergeEstimates.html">mergeEstimates()</a></code> </p>
         </td>
         <td><p>mergeEstimates</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="oldr.html">oldr</a></code> </p>
-        </td>
-        <td><p><code>oldr</code> Package</p></td>
       </tr><tr>
         
         <td>
@@ -534,18 +772,44 @@
           <p><code><a href="probit_sam.html">probit_sam()</a></code> </p>
         </td>
         <td><p>probit_sam</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pyramid.plot.html">pyramid.plot()</a></code> </p>
-        </td>
-        <td><p>Pyramid plot</p></td>
-      </tr><tr>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-create-a-ram-op-report" class="hasAnchor"><a href="#section-create-a-ram-op-report" class="anchor"></a>Create a RAM-OP report</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="reportOP.html">reportOP()</a></code> </p>
         </td>
         <td><p>reportOP</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="testSVY.html">testSVY</a></code> </p>
+        </td>
+        <td><p>RAM-OP Survey Dataset</p></td>
       </tr><tr>
         
         <td>
@@ -555,35 +819,50 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="testSVY.html">testSVY</a></code> </p>
+          <p><code><a href="indicators.ALL.html">indicators.ALL</a></code> </p>
         </td>
-        <td><p>RAM-OP Survey Dataset</p></td>
+        <td><p>RAM-OP Indicators Dataset - ALL</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="indicators.MALES.html">indicators.MALES</a></code> </p>
+        </td>
+        <td><p>RAM-OP Indicators Dataset - MALES</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="indicators.FEMALES.html">indicators.FEMALES</a></code> </p>
+        </td>
+        <td><p>RAM-OP Indicators Dataset - FEMALES</p></td>
       </tr>
     </tbody>
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
-  <p>Developed by Ernest Guevarra, Pascale Fritsch, Katja Siling, Mark Myatt.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

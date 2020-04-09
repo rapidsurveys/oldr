@@ -11,6 +11,7 @@ A data frame with 2 columns and 16 rows:
   used to identify the PSUs that is used in the main RAM-OP dataset}
 \item{\code{pop}}{The population of the PSU}
 }
+
 The PSU dataset is used during data analysis to weight data by PSU
 population.
 }
@@ -20,5 +21,9 @@ testPSU
 \description{
 This is a short and narrow file with one record per PSU and just two
 variables
+}
+\examples{
+testPSU
+
 }
 \keyword{datasets}

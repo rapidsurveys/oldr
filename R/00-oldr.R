@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' \code{oldr} Package
-#'
 #' An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
 #'
 #' See the README at
@@ -9,6 +7,7 @@
 #'
 #' @docType package
 #' @name oldr
+#' @keywords internal
 #' @importFrom stats runif na.omit pnorm sd quantile
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png
@@ -17,7 +16,7 @@
 #' @importFrom car bcPower
 #'
 #'
-NULL
+"_PACKAGE"
 
 ## quiets concerns of R CMD check re: globalVariables
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
@@ -43,157 +42,162 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #'
 #' @format A data frame with 91 columns and 192 rows:
 #' \describe{
-#' \item{\code{ad2}}{Team number}
-#' \item{\code{psu}}{PSU (cluster) number}
-#' \item{\code{hh}}{Household identifier}
-#' \item{\code{id}}{Person identifier}
-#' \item{\code{d1}}{Who is answering these questions?}
-#' \item{\code{d2}}{Age in years}
-#' \item{\code{d3}}{Sex}
-#' \item{\code{d4}}{Marital status}
-#' \item{\code{d5}}{Do you live alone?}
-#' \item{\code{f1}}{How many meals did you eat since this time yesterday?}
-#' \item{\code{f2a}}{Tinned, powdered or fresh milk?}
-#' \item{\code{f2b}}{Sweetened or flavoured water, soda drink, alcoholic
-#'   drink, beer, tea or infusion, coffee, soup, or broth?}
-#' \item{\code{f2c}}{Any food made from grain such as millet, wheat, barley,
-#'   sorghum, rice, maize, pasta, noodles, bread, pizza, porridge?}
-#' \item{\code{f2d}}{Any food made from fruits or vegetables that have yellow or
-#'   orange flesh such as carrots, pumpkin, red sweet potatoes,
-#'   mangoes, and papaya?}
-#' \item{\code{f2e}}{Any food made with red palm oil or red palm nuts?}
-#' \item{\code{f2f}}{Any dark green leafy vegetables such as cabbage, broccoli,
-#'   spinach, moringa leaves, cassava leaves?}
-#' \item{\code{f2g}}{Any food made from roots or tubers such as white potatoes,
-#'   white yams, false banana, cassava, manioc, onions, beets, turnips,
-#'   and swedes?}
-#' \item{\code{f2h}}{Any food made from lentils, beans, peas, groundnuts, nuts,
-#'   or seeds?}
-#' \item{\code{f2i}}{Any other fruits or vegetables such as banana, plantain,
-#'   avocado, cauliflower, coconut?}
-#' \item{\code{f2j}}{Liver, kidney, heart, black pudding, blood, or other organ
-#'   meats?}
-#' \item{\code{f2k}}{Any meat such as beef, pork, goat, lamb, mutton, veal,
-#'   chicken, camel, or bush meat?}
-#' \item{\code{f2l}}{Fresh or dried fish, shellfish, or seafood?}
-#' \item{\code{f2m}}{Cheese, yoghurt, or other milk products?}
-#' \item{\code{f2n}}{Eggs?}
-#' \item{\code{f2o}}{Any food made with oil, fat, butter, or ghee?}
-#' \item{\code{f2p}}{Any mushrooms or fungi?}
-#' \item{\code{f2q}}{Grubs, snails, insects?}
-#' \item{\code{f2r}}{Sugar, honey and foods made with sugar or honey such as
-#'   sweets, candies, chocolate, cakes, and biscuits?}
-#' \item{\code{f2s}}{Salt, pepper, herbs, spices, or sauces (hot sauce, soy
-#'   sauce, ketchup)?}
-#' \item{\code{f3}}{In the past four weeks, how often was there ever no
-#'   food to eat of any kind in your home because of lack of resources to
-#'   get food?}
-#' \item{\code{f4}}{In the past four weeks, how often did you go to sleep
-#'   at night hungry because there was not enough food?}
-#' \item{\code{f5}}{In the past four weeks, how often did you go a whole
-#'   day and night without eating anything at all because there was not
-#'   enough food?}
-#' \item{\code{f6}}{Are you or anyone in your household receiving a food
-#'   ration on a regular basis?}
-#' \item{\code{f7}}{Have you or another member of your household received
-#'   non-food relief items such as soap, bucket, water container, bedding,
-#'   mosquito net, clothes, or plastic sheet in the previous four weeks?}
-#' \item{\code{a1}}{Have you or another member of your household received
-#'   non-food relief items such as soap, bucket, water container, bedding,
-#'   mosquito net, clothes, or plastic sheet in the previous four weeks?}
-#' \item{\code{a2}}{Do you need help getting dressed partially or completely
-#'   (not including tying of shoes)?}
-#' \item{\code{a3}}{Do you need help going to the toilet or cleaning yourself
-#'   after using the toilet or do you use a commode or bed-pan?}
-#' \item{\code{a4}}{Do you need someone (i.e. not a walking aid) to help you
-#'   move from a bed to a chair?}
-#' \item{\code{a5}}{Are you partially or totally incontinent of bowel or
-#'   bladder?}
-#' \item{\code{a6}}{Do you need partial or total help with eating?}
-#' \item{\code{a7}}{Is someone taking care of you or helping you with everyday
-#'   activities such as shopping, cooking, bathing and dressing?}
-#' \item{\code{a8}}{Do you have problems chewing food?}
-#' \item{\code{k6a}}{About how often during the past four weeks did you
-#'   feel nervous – all of the time, most of the time, some of the time, a
-#'   little of the time, or none of the time?}
-#' \item{\code{k6b}}{During the past four weeks, about how often did you
-#'   feel hopeless – all of the time, most of the time, some of the time, a
-#'   little of the time, or none of the time?}
-#' \item{\code{k6c}}{During the past four weeks, about how often did you feel
-#'   restless or fidgety – all of the time, most of the time, some of the time,
-#'   a little of the time, or none of the time?}
-#' \item{\code{k6d}}{During the past four weeks, about how often did you
-#'   feel so depressed that nothing could cheer you up – all of the time, most
-#'   of the time, some of the time, a little of the time, or none of the time?}
-#' \item{\code{k6e}}{During the past four weeks, about how often did you feel
-#'   that everything was an effort – all of the time, most of the time, some of
-#'   the time, a little of the time, or none of the time?}
-#' \item{\code{k6f}}{During the past four weeks, about how often did you
-#'   feel worthless – all of the time, most of the time, some of the time, a
-#'   little of the time, or none of the time?}
-#' \item{\code{ds1}}{Point to nose and ask "What do you call this?"}
-#' \item{\code{ds2}}{What do you do with a hammer?}
-#' \item{\code{ds3}}{What day of the week is it?}
-#' \item{\code{ds4}}{What is the season?}
-#' \item{\code{ds5}}{Please point first to the window and then to the door.}
-#' \item{\code{ds6a}}{Child}
-#' \item{\code{ds6b}}{House}
-#' \item{\code{ds6c}}{Road}
-#' \item{\code{h1}}{Do you suffer from a long term disease that requires you to
-#'   take regular medication?}
-#' \item{\code{h2}}{Do you take drugs regularly for this?}
-#' \item{\code{h3}}{Why not?}
-#' \item{\code{h4}}{Have you been ill in the past two weeks?}
-#' \item{\code{h5}}{Did you go to the pharmacy, dispensary, health centre,
-#'   health post, clinic, or hospital?}
-#' \item{\code{h6}}{Why not?}
-#' \item{\code{m1}}{Do you have a personal source of income or money?}
-#' \item{\code{m2a}}{Where does your income or money come from?: Agriculture,
-#'   livestock, or fishing}
-#' \item{\code{m2b}}{Where does your income or money come from?: Wages or
-#'   salary}
-#' \item{\code{m2c}}{Where does your income or money come from?: Sale of
-#'   charcoal, bricks, firewood, poles, etc.}
-#' \item{\code{m2d}}{Where does your income or money come from?: Trading
-#'   (e.g. market, shop)}
-#' \item{\code{m2e}}{Where does your income or money come from?: Private
-#'   pension, investments, interest, rents, etc.}
-#' \item{\code{m2f}}{Where does your income or money come from?: Spending
-#'   savings; Sale of household goods, personal goods, or jewellery; Sale of
-#'   livestock, land, or other assets}
-#' \item{\code{m2g}}{Where does your income or money come from?: Aid, gifts,
-#'   charity (e.g. from church, mosque, temple), begging, borrowing, or sale of
-#'   food aid or relief items}
-#' \item{\code{m2h}}{Where does your income or money come from?: Cash transfer
-#'   (NGO, UNO, government); State pension, social security, benefits,
-#'   welfare program}
-#' \item{\code{m2i}}{Where does your income or money come from?: Other}
-#' \item{\code{w1}}{What is your main source of drinking water?}
-#' \item{\code{w2}}{What do you usually do to the water to make it
-#'   safer to drink?}
-#' \item{\code{w3}}{What kind of toilet facility do members of your household
-#'   usually use?}
-#' \item{\code{w4}}{Do you share this toilet facility with other households?}
-#' \item{\code{as1}}{Mid-upper arm circumference (mm)}
-#' \item{\code{as2}}{Has someone measured your arm like this in the previous
-#'   month?}
-#' \item{\code{as3}}{Bilateral pitting oedema}
-#' \item{\code{as4}}{Has someone examined your feet like this in the previous
-#'   month?}
-#' \item{\code{va2a}}{Tumbling Es: first time}
-#' \item{\code{va2b}}{Tumbling Es: second time}
-#' \item{\code{va2c}}{Tumbling Es: third time}
-#' \item{\code{va2d}}{Tumbling Es: fourth time}
-#' \item{\code{wg1}}{Do you have difficulty seeing, even if wearing glasses?}
-#' \item{\code{wg2}}{Do you have difficulty hearing, even if using a hearing
-#'   aid?}
-#' \item{\code{wg3}}{Do you have difficulty walking or climbing steps?}
-#' \item{\code{wg4}}{Do you have difficulty remembering or concentrating?}
-#' \item{\code{wg5}}{Do you have difficulty with self-care such as washing all
-#'   over or dressing?}
-#' \item{\code{wg6}}{Using your usual (customary) language, do you have
-#'   difficulty communicating, for example understanding or being understood?}
+#'   \item{\code{ad2}}{Team number}
+#'   \item{\code{psu}}{PSU (cluster) number}
+#'   \item{\code{hh}}{Household identifier}
+#'   \item{\code{id}}{Person identifier}
+#'   \item{\code{d1}}{Who is answering these questions?}
+#'   \item{\code{d2}}{Age in years}
+#'   \item{\code{d3}}{Sex}
+#'   \item{\code{d4}}{Marital status}
+#'   \item{\code{d5}}{Do you live alone?}
+#'   \item{\code{f1}}{How many meals did you eat since this time yesterday?}
+#'   \item{\code{f2a}}{Tinned, powdered or fresh milk?}
+#'   \item{\code{f2b}}{Sweetened or flavoured water, soda drink, alcoholic
+#'     drink, beer, tea or infusion, coffee, soup, or broth?}
+#'   \item{\code{f2c}}{Any food made from grain such as millet, wheat, barley,
+#'     sorghum, rice, maize, pasta, noodles, bread, pizza, porridge?}
+#'   \item{\code{f2d}}{Any food made from fruits or vegetables that have yellow or
+#'     orange flesh such as carrots, pumpkin, red sweet potatoes,
+#'     mangoes, and papaya?}
+#'   \item{\code{f2e}}{Any food made with red palm oil or red palm nuts?}
+#'   \item{\code{f2f}}{Any dark green leafy vegetables such as cabbage, broccoli,
+#'     spinach, moringa leaves, cassava leaves?}
+#'   \item{\code{f2g}}{Any food made from roots or tubers such as white potatoes,
+#'     white yams, false banana, cassava, manioc, onions, beets, turnips,
+#'     and swedes?}
+#'   \item{\code{f2h}}{Any food made from lentils, beans, peas, groundnuts, nuts,
+#'     or seeds?}
+#'   \item{\code{f2i}}{Any other fruits or vegetables such as banana, plantain,
+#'     avocado, cauliflower, coconut?}
+#'   \item{\code{f2j}}{Liver, kidney, heart, black pudding, blood, or other organ
+#'     meats?}
+#'   \item{\code{f2k}}{Any meat such as beef, pork, goat, lamb, mutton, veal,
+#'     chicken, camel, or bush meat?}
+#'   \item{\code{f2l}}{Fresh or dried fish, shellfish, or seafood?}
+#'   \item{\code{f2m}}{Cheese, yoghurt, or other milk products?}
+#'   \item{\code{f2n}}{Eggs?}
+#'   \item{\code{f2o}}{Any food made with oil, fat, butter, or ghee?}
+#'   \item{\code{f2p}}{Any mushrooms or fungi?}
+#'   \item{\code{f2q}}{Grubs, snails, insects?}
+#'   \item{\code{f2r}}{Sugar, honey and foods made with sugar or honey such as
+#'     sweets, candies, chocolate, cakes, and biscuits?}
+#'   \item{\code{f2s}}{Salt, pepper, herbs, spices, or sauces (hot sauce, soy
+#'     sauce, ketchup)?}
+#'   \item{\code{f3}}{In the past four weeks, how often was there ever no
+#'     food to eat of any kind in your home because of lack of resources to
+#'     get food?}
+#'   \item{\code{f4}}{In the past four weeks, how often did you go to sleep
+#'     at night hungry because there was not enough food?}
+#'   \item{\code{f5}}{In the past four weeks, how often did you go a whole
+#'     day and night without eating anything at all because there was not
+#'     enough food?}
+#'   \item{\code{f6}}{Are you or anyone in your household receiving a food
+#'     ration on a regular basis?}
+#'   \item{\code{f7}}{Have you or another member of your household received
+#'     non-food relief items such as soap, bucket, water container, bedding,
+#'     mosquito net, clothes, or plastic sheet in the previous four weeks?}
+#'   \item{\code{a1}}{Have you or another member of your household received
+#'     non-food relief items such as soap, bucket, water container, bedding,
+#'     mosquito net, clothes, or plastic sheet in the previous four weeks?}
+#'   \item{\code{a2}}{Do you need help getting dressed partially or completely
+#'     (not including tying of shoes)?}
+#'   \item{\code{a3}}{Do you need help going to the toilet or cleaning yourself
+#'     after using the toilet or do you use a commode or bed-pan?}
+#'   \item{\code{a4}}{Do you need someone (i.e. not a walking aid) to help you
+#'     move from a bed to a chair?}
+#'   \item{\code{a5}}{Are you partially or totally incontinent of bowel or
+#'     bladder?}
+#'   \item{\code{a6}}{Do you need partial or total help with eating?}
+#'   \item{\code{a7}}{Is someone taking care of you or helping you with everyday
+#'     activities such as shopping, cooking, bathing and dressing?}
+#'   \item{\code{a8}}{Do you have problems chewing food?}
+#'   \item{\code{k6a}}{About how often during the past four weeks did you
+#'     feel nervous – all of the time, most of the time, some of the time, a
+#'     little of the time, or none of the time?}
+#'   \item{\code{k6b}}{During the past four weeks, about how often did you
+#'     feel hopeless – all of the time, most of the time, some of the time, a
+#'     little of the time, or none of the time?}
+#'   \item{\code{k6c}}{During the past four weeks, about how often did you feel
+#'     restless or fidgety – all of the time, most of the time, some of the time,
+#'     a little of the time, or none of the time?}
+#'   \item{\code{k6d}}{During the past four weeks, about how often did you
+#'     feel so depressed that nothing could cheer you up – all of the time, most
+#'     of the time, some of the time, a little of the time, or none of the time?}
+#'   \item{\code{k6e}}{During the past four weeks, about how often did you feel
+#'     that everything was an effort – all of the time, most of the time, some of
+#'     the time, a little of the time, or none of the time?}
+#'   \item{\code{k6f}}{During the past four weeks, about how often did you
+#'     feel worthless – all of the time, most of the time, some of the time, a
+#'     little of the time, or none of the time?}
+#'   \item{\code{ds1}}{Point to nose and ask "What do you call this?"}
+#'   \item{\code{ds2}}{What do you do with a hammer?}
+#'   \item{\code{ds3}}{What day of the week is it?}
+#'   \item{\code{ds4}}{What is the season?}
+#'   \item{\code{ds5}}{Please point first to the window and then to the door.}
+#'   \item{\code{ds6a}}{Child}
+#'   \item{\code{ds6b}}{House}
+#'   \item{\code{ds6c}}{Road}
+#'   \item{\code{h1}}{Do you suffer from a long term disease that requires you to
+#'     take regular medication?}
+#'   \item{\code{h2}}{Do you take drugs regularly for this?}
+#'   \item{\code{h3}}{Why not?}
+#'   \item{\code{h4}}{Have you been ill in the past two weeks?}
+#'   \item{\code{h5}}{Did you go to the pharmacy, dispensary, health centre,
+#'     health post, clinic, or hospital?}
+#'   \item{\code{h6}}{Why not?}
+#'   \item{\code{m1}}{Do you have a personal source of income or money?}
+#'   \item{\code{m2a}}{Where does your income or money come from?: Agriculture,
+#'     livestock, or fishing}
+#'   \item{\code{m2b}}{Where does your income or money come from?: Wages or
+#'     salary}
+#'   \item{\code{m2c}}{Where does your income or money come from?: Sale of
+#'     charcoal, bricks, firewood, poles, etc.}
+#'   \item{\code{m2d}}{Where does your income or money come from?: Trading
+#'     (e.g. market, shop)}
+#'   \item{\code{m2e}}{Where does your income or money come from?: Private
+#'     pension, investments, interest, rents, etc.}
+#'   \item{\code{m2f}}{Where does your income or money come from?: Spending
+#'     savings; Sale of household goods, personal goods, or jewellery; Sale of
+#'     livestock, land, or other assets}
+#'   \item{\code{m2g}}{Where does your income or money come from?: Aid, gifts,
+#'     charity (e.g. from church, mosque, temple), begging, borrowing, or sale of
+#'     food aid or relief items}
+#'   \item{\code{m2h}}{Where does your income or money come from?: Cash transfer
+#'     (NGO, UNO, government); State pension, social security, benefits,
+#'     welfare program}
+#'   \item{\code{m2i}}{Where does your income or money come from?: Other}
+#'   \item{\code{w1}}{What is your main source of drinking water?}
+#'   \item{\code{w2}}{What do you usually do to the water to make it
+#'     safer to drink?}
+#'   \item{\code{w3}}{What kind of toilet facility do members of your household
+#'     usually use?}
+#'   \item{\code{w4}}{Do you share this toilet facility with other households?}
+#'   \item{\code{as1}}{Mid-upper arm circumference (mm)}
+#'   \item{\code{as2}}{Has someone measured your arm like this in the previous
+#'     month?}
+#'   \item{\code{as3}}{Bilateral pitting oedema}
+#'   \item{\code{as4}}{Has someone examined your feet like this in the previous
+#'     month?}
+#'   \item{\code{va2a}}{Tumbling Es: first time}
+#'   \item{\code{va2b}}{Tumbling Es: second time}
+#'   \item{\code{va2c}}{Tumbling Es: third time}
+#'   \item{\code{va2d}}{Tumbling Es: fourth time}
+#'   \item{\code{wg1}}{Do you have difficulty seeing, even if wearing glasses?}
+#'   \item{\code{wg2}}{Do you have difficulty hearing, even if using a hearing
+#'     aid?}
+#'   \item{\code{wg3}}{Do you have difficulty walking or climbing steps?}
+#'   \item{\code{wg4}}{Do you have difficulty remembering or concentrating?}
+#'   \item{\code{wg5}}{Do you have difficulty with self-care such as washing all
+#'     over or dressing?}
+#'   \item{\code{wg6}}{Using your usual (customary) language, do you have
+#'     difficulty communicating, for example understanding or being understood?}
 #' }
+#'
+#' @examples
+#' testSVY
+#'
+#'
 "testSVY"
 
 
@@ -210,8 +214,13 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #'   used to identify the PSUs that is used in the main RAM-OP dataset}
 #' \item{\code{pop}}{The population of the PSU}
 #' }
+#'
 #' The PSU dataset is used during data analysis to weight data by PSU
 #' population.
+#'
+#' @examples
+#' testPSU
+#'
 "testPSU"
 
 
@@ -363,6 +372,11 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' \item{\code{wgP3}}{Overall prevalence 3}
 #' \item{\code{wgPM}}{Overall prevalence}
 #' }
+#'
+#' @examples
+#' indicators.ALL
+#'
+#'
 "indicators.ALL"
 
 
@@ -515,6 +529,10 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' \item{\code{wgP3}}{Overall prevalence 3}
 #' \item{\code{wgPM}}{Overall prevalence}
 #' }
+#'
+#' @examples
+#' indicators.FEMALES
+#'
 "indicators.FEMALES"
 
 
@@ -667,4 +685,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' \item{\code{wgP3}}{Overall prevalence domain 3}
 #' \item{\code{wgPM}}{Overall prevalence}
 #' }
+#'
+#' @examples
+#' indicators.MALES
+#'
 "indicators.MALES"
