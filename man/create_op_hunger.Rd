@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_hunger}
 \alias{create_op_hunger}
-\title{create_op_hunger}
+\title{Create older people indicators for severe food insecurity from survey data
+collected using the standard RAM-OP questionnaire}
 \usage{
 create_op_hunger(svy)
 }

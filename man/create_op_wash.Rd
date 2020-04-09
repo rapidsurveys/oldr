@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_wash}
 \alias{create_op_wash}
-\title{create_op_wash}
+\title{Create older people indicators dataframe for water, sanitation and hygiene
+from survey data collected using the standard RAM-OP questionnaire.}
 \usage{
 create_op_wash(svy)
 }

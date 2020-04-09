@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' create_op_demo
-#'
 #' Create older people indicators dataframe for demography and situation from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -111,8 +109,6 @@ create_op_demo_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_demo_females
-#'
 #' Create female older people indicators dataframe for demography and situation
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -140,8 +136,6 @@ create_op_demo_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_food
-#'
 #' Create older people indicators for food intake from survey data collected
 #' using the standard RAM-OP questionnaire
 #'
@@ -298,8 +292,6 @@ create_op_food <- function(svy) {
 
 ################################################################################
 #
-#' create_op_food_males
-#'
 #' Create male older people indicators dataframe for food intake
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -326,8 +318,6 @@ create_op_food_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_food_females
-#'
 #' Create female older people indicators dataframe for food intake
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -354,8 +344,6 @@ create_op_food_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_hunger
-#'
 #' Create older people indicators for severe food insecurity from survey data
 #' collected using the standard RAM-OP questionnaire
 #'
@@ -410,8 +398,6 @@ create_op_hunger <- function(svy) {
 
 ################################################################################
 #
-#' create_op_hunger_males
-#'
 #' Create male older people indicators dataframe for household hunger
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -438,8 +424,6 @@ create_op_hunger_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_hunger_females
-#'
 #' Create female older people indicators dataframe for household hunger
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -466,8 +450,6 @@ create_op_hunger_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_adl
-#'
 #' Create older people indicators dataframe on acitvities of daily living
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -566,8 +548,6 @@ create_op_adl <- function(svy) {
 
 ################################################################################
 #
-#' create_op_adl_males
-#'
 #' Create male older people indicators dataframe for activities of daily
 #' living from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -595,8 +575,6 @@ create_op_adl_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_adl_females
-#'
 #' Create female older people indicators dataframe for activities of daily
 #' living from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -624,8 +602,6 @@ create_op_adl_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_disability
-#'
 #' Create older people indicators dataframe on disability from survey data
 #' collected using the standard RAM-OP questionnaire
 #'
@@ -693,8 +669,8 @@ create_op_disability <- function(svy) {
   sex2     <- bbw::recode(svy$d3, "1=0; 2=1; else=NA")
   ##############################################################################
   #
-  #  Washington Group (WG) short set of question designed to identify people with a
-  #  disability in a census or survey format.
+  #  Washington Group (WG) short set of question designed to identify people with
+  #  a disability in a census or survey format.
   #
   # Missing values
   #
@@ -788,8 +764,6 @@ create_op_disability <- function(svy) {
 
 ################################################################################
 #
-#' create_op_disability_males
-#'
 #' Create male older people indicators dataframe for disability from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -816,8 +790,6 @@ create_op_disability_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_disability_females
-#'
 #' Create female older people indicators dataframe for disability from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -844,8 +816,6 @@ create_op_disability_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_mental
-#'
 #' Create older people indicators dataframe for mental health from survey data
 #' collected using the standard RAM-OP questionnaire.
 #'
@@ -918,8 +888,6 @@ create_op_mental <- function(svy) {
 
 ################################################################################
 #
-#' create_op_mental_males
-#'
 #' Create male older people indicators dataframe for mental health from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -946,8 +914,6 @@ create_op_mental_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_mental_females
-#'
 #' Create female older people indicators dataframe for mental health from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -974,8 +940,6 @@ create_op_mental_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_dementia
-#'
 #' Create older people indicators dataframe for dementia from survey data
 #' collected using the standard RAM-OP questionnaire.
 #'
@@ -1042,8 +1006,6 @@ create_op_dementia <- function(svy) {
 
 ################################################################################
 #
-#' create_op_dementia_males
-#'
 #' Create male older people indicators dataframe for dementia from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -1070,8 +1032,6 @@ create_op_dementia_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_dementia_females
-#'
 #' Create female older people indicators dataframe for dementia from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -1098,8 +1058,6 @@ create_op_dementia_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_health
-#'
 #' Create older people indicators dataframe for health and health-seeking
 #' behaviours from survey data collected using the standard RAM-OP questionnaire.
 #'
@@ -1204,8 +1162,6 @@ create_op_health <- function(svy) {
 
 ################################################################################
 #
-#' create_op_health_males
-#'
 #' Create male older people indicators dataframe for health and health-seeking
 #' behaviours from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1233,8 +1189,6 @@ create_op_health_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_health_females
-#'
 #' Create female older people indicators dataframe for health and health-seeking
 #' behaviours from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1262,8 +1216,6 @@ create_op_health_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_income
-#'
 #' Create older people indicators dataframe for income from survey data collected
 #' using the standard RAM-OP questionnaire.
 #'
@@ -1335,8 +1287,6 @@ create_op_income <- function(svy) {
 
 ################################################################################
 #
-#' create_op_income_males
-#'
 #' Create male older people indicators dataframe for income from survey data
 #' collected using the standard RAM-OP questionnaire
 #'
@@ -1363,8 +1313,6 @@ create_op_income_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_income_females
-#'
 #' Create female older people indicators dataframe for income from survey data
 #' collected using the standard RAM-OP questionnaire
 #'
@@ -1391,8 +1339,6 @@ create_op_income_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_wash
-#'
 #' Create older people indicators dataframe for water, sanitation and hygiene
 #' from survey data collected using the standard RAM-OP questionnaire.
 #'
@@ -1462,8 +1408,6 @@ create_op_wash <- function(svy) {
 
 ################################################################################
 #
-#' create_op_wash_males
-#'
 #' Create male older people indicators dataframe for water, sanitation and
 #' hygiene from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1491,8 +1435,6 @@ create_op_wash_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_wash_females
-#'
 #' Create female older people indicators dataframe for water, sanitation and
 #' hygiene from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1520,8 +1462,6 @@ create_op_wash_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_anthro
-#'
 #' Create older people indicators dataframe for anthropometry from survey data
 #' collected using the standard RAM-OP questionnaire.
 #'
@@ -1569,8 +1509,6 @@ create_op_anthro <- function(svy) {
 
 ################################################################################
 #
-#' create_op_anthro_males
-#'
 #' Create male older people indicators dataframe for anthropometry from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -1597,8 +1535,6 @@ create_op_anthro_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_anthro_females
-#'
 #' Create female older people indicators dataframe for anthropometry from survey
 #' data collected using the standard RAM-OP questionnaire
 #'
@@ -1625,8 +1561,6 @@ create_op_anthro_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_oedema
-#'
 #' Create older people indicators dataframe for oedema prevalence from survey
 #' data collected using the standard RAM-OP questionnaire.
 #'
@@ -1674,8 +1608,6 @@ create_op_oedema <- function(svy) {
 
 ################################################################################
 #
-#' create_op_oedema_males
-#'
 #' Create male older people indicators dataframe for oedema prevalence from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1702,8 +1634,6 @@ create_op_oedema_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_oedema_females
-#'
 #' Create female older people indicators dataframe for oedema prevalence from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1730,8 +1660,6 @@ create_op_oedema_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_screening
-#'
 #' Create older people indicators dataframe for screening coverage from survey
 #' data collected using the standard RAM-OP questionnaire.
 #'
@@ -1777,8 +1705,6 @@ create_op_screening <- function(svy) {
 
 ################################################################################
 #
-#' create_op_screening_males
-#'
 #' Create male older people indicators dataframe for screening coverage from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1805,8 +1731,6 @@ create_op_screening_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_screening_females
-#'
 #' Create female older people indicators dataframe for screening coverage from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1833,8 +1757,6 @@ create_op_screening_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_visual
-#'
 #' Create older people indicators dataframe for visual impairment from survey
 #' data collected using the standard RAM-OP questionnaire.
 #'
@@ -1892,8 +1814,6 @@ create_op_visual <- function(svy) {
 
 ################################################################################
 #
-#' create_op_visual_males
-#'
 #' Create male older people indicators dataframe for visual impairment from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1920,8 +1840,6 @@ create_op_visual_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_visual_females
-#'
 #' Create female older people indicators dataframe for visual impairment from
 #' survey data collected using the standard RAM-OP questionnaire
 #'
@@ -1948,8 +1866,6 @@ create_op_visual_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_misc
-#'
 #' Create older people indicators dataframe for miscellaneous indicators from
 #' survey data collected using the standard RAM-OP questionnaire.
 #'
@@ -1999,8 +1915,6 @@ create_op_misc <- function(svy) {
 
 ################################################################################
 #
-#' create_op_misc_males
-#'
 #' Create male older people indicators dataframe for miscellaneous indicators
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -2027,8 +1941,6 @@ create_op_misc_males <- function(svy) {
 
 ################################################################################
 #
-#' create_op_misc_females
-#'
 #' Create female older people indicators dataframe for miscellaneous indicators
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
@@ -2055,8 +1967,6 @@ create_op_misc_females <- function(svy) {
 
 ################################################################################
 #
-#' create_op_all
-#'
 #' Create older people indicators dataframe from survey data collected
 #' using the standard RAM-OP questionnaire.
 #'
@@ -2215,8 +2125,6 @@ create_op_all <- function(svy, indicators = c("demo", "food", "hunger",
 
 ################################################################################
 #
-#' createOP
-#'
 #' Create older people indicators dataframe from survey data collected
 #' using the standard RAM-OP questionnaire.
 #'

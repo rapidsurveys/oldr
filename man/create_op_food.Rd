@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_food}
 \alias{create_op_food}
-\title{create_op_food}
+\title{Create older people indicators for food intake from survey data collected
+using the standard RAM-OP questionnaire}
 \usage{
 create_op_food(svy)
 }

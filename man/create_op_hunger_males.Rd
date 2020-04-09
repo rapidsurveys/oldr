@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_hunger_males}
 \alias{create_op_hunger_males}
-\title{create_op_hunger_males}
+\title{Create male older people indicators dataframe for household hunger
+from survey data collected using the standard RAM-OP questionnaire}
 \usage{
 create_op_hunger_males(svy)
 }

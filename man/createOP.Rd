@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{createOP}
 \alias{createOP}
-\title{createOP}
+\title{Create older people indicators dataframe from survey data collected
+using the standard RAM-OP questionnaire.}
 \usage{
 createOP(svy)
 }

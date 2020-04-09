@@ -2,7 +2,7 @@
 % Please edit documentation in R/09-report.R
 \name{reportOP}
 \alias{reportOP}
-\title{reportOP}
+\title{Create table of RAM-OP results}
 \usage{
 reportOP(FILENAME)
 }

@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' reportOP
-#'
 #' Create table of RAM-OP results
 #'
 #' @param FILENAME Prefix to append to report output filename
