@@ -3,6 +3,8 @@
 
 # oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) in R <img src="man/figures/oldr2.png" width="200" align="right" />
 
+<!-- Badges start here-->
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
@@ -14,6 +16,7 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/rapidsurveys/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/rapidsurveys/oldr)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
+<!-- Badges end here-->
 
 [HelpAge International](http://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton
@@ -47,8 +50,8 @@ submission to the CRAN repository. The development version of `oldr` can
 be installed in `R` via the following commands:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("rapidsurveys/oldr")
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("rapidsurveys/oldr")
 ```
 
 ## Usage
@@ -57,4 +60,4 @@ This package contains functions that support in the data processing,
 analysis and visualisation of RAM-OP survey datasets collected using the
 standard RAM-OP survey questionnaire. For a more detailed description of
 the RAM-OP survey, read the [RAM-OP
-manual](https://ram.validmeasures.org/ramOPmanual).
+manual](https://rapidsurveys.io/ramOPmanual/).
