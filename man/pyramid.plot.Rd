@@ -2,7 +2,7 @@
 % Please edit documentation in R/07-pyramidPlot.R
 \name{pyramid.plot}
 \alias{pyramid.plot}
-\title{Pyramid plot}
+\title{Function to create a pyramid plot}
 \usage{
 pyramid.plot(
   x,
@@ -27,7 +27,7 @@ pyramid.plot(
 Pyramid plot
 }
 \description{
-Pyramid plot
+Function to create a pyramid plot
 }
 \examples{
   #

@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartWASH}
 \alias{chartWASH}
-\title{chartWASH}
+\title{Chart WASH indicators}
 \usage{
 chartWASH(x, filename)
 }
@@ -15,7 +15,7 @@ chartWASH(x, filename)
 Bar plot of ADL in PNG format saved in current working directory
 }
 \description{
-WASH indicators
+Chart WASH indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset

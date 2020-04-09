@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartAge}
 \alias{chartAge}
-\title{chartAge}
+\title{Age by sex (pyramid plot)}
 \usage{
 chartAge(x, filename)
 }

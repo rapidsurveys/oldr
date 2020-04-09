@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartIncome}
 \alias{chartIncome}
-\title{chartIncome}
+\title{Chart income indicators}
 \usage{
 chartIncome(x.male, x.female, filename)
 }
@@ -17,7 +17,7 @@ chartIncome(x.male, x.female, filename)
 Bar chart of sources of income by sex
 }
 \description{
-chartIncome
+Chart income indicators
 }
 \examples{
   # Create chart using \code{indicators.FEMALES} and \code{indicators.MALES}

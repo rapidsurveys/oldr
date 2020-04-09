@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>estimateClassic — estimateClassic • oldr</title>
+<title>Function to apply bootstrap to RAM-OP indicators using a classical estimator. — estimateClassic • oldr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="estimateClassic — estimateClassic" />
+<meta property="og:title" content="Function to apply bootstrap to RAM-OP indicators using a classical estimator. — estimateClassic" />
 <meta property="og:description" content="Function to apply bootstrap to RAM-OP indicators using a classical estimator." />
 
 
@@ -114,7 +114,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>estimateClassic</h1>
+    <h1>Function to apply bootstrap to RAM-OP indicators using a classical estimator.</h1>
     <small class="dont-index">Source: <a href='https://github.com/rapidsurveys/oldr/blob/master/R/05-classicBoot.R'><code>R/05-classicBoot.R</code></a></small>
     <div class="hidden name"><code>estimateClassic.Rd</code></div>
     </div>
@@ -129,7 +129,7 @@
   <span class='kw'>statistic</span> <span class='kw'>=</span> <span class='no'>bootClassic</span>,
   <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"demo"</span>, <span class='st'>"food"</span>, <span class='st'>"hunger"</span>, <span class='st'>"adl"</span>, <span class='st'>"disability"</span>, <span class='st'>"mental"</span>, <span class='st'>"dementia"</span>,
     <span class='st'>"health"</span>, <span class='st'>"oedema"</span>, <span class='st'>"screening"</span>, <span class='st'>"income"</span>, <span class='st'>"wash"</span>, <span class='st'>"visual"</span>, <span class='st'>"misc"</span>),
-  <span class='kw'>params</span> <span class='kw'>=</span> <span class='fu'>get_variables</span>(<span class='no'>indicators</span>),
+  <span class='kw'>params</span> <span class='kw'>=</span> <span class='fu'><a href='get_variables.html'>get_variables</a></span>(<span class='no'>indicators</span>),
   <span class='kw'>outputColumns</span> <span class='kw'>=</span> <span class='no'>params</span>,
   <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>399</span>
 )</pre>
@@ -166,7 +166,7 @@ Default is all indicator sets.</p></td>
       <td><p>Parameters (named columns in <code>x</code>) passed to the function
 specified in <code>statistic</code>. This is equivalent to variables
 corresponding to the indicator sets specified in <code>indicators</code>. The
-function <code>get_variables()</code> is used to specify these variables.</p></td>
+function <code><a href='get_variables.html'>get_variables()</a></code> is used to specify these variables.</p></td>
     </tr>
     <tr>
       <th>outputColumns</th>

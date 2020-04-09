@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartDDS}
 \alias{chartDDS}
-\title{chartDDS}
+\title{Distribution of DDS (overall and by sex)}
 \usage{
 chartDDS(x, filename)
 }

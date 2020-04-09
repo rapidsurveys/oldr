@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartMF}
 \alias{chartMF}
-\title{chartMF}
+\title{Distribution of meal frequency (overall and by sex)}
 \usage{
 chartMF(x, filename)
 }

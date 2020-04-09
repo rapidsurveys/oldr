@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartHHS}
 \alias{chartHHS}
-\title{chartHHS}
+\title{Chart household hunger scale (HHS) indicators}
 \usage{
 chartHHS(x, filename)
 }
@@ -15,7 +15,7 @@ chartHHS(x, filename)
 Bar plot of HHS in PNG format saved in current working directory
 }
 \description{
-Household hunger scale (HHS)
+Chart household hunger scale (HHS) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset

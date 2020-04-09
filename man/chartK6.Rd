@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartK6}
 \alias{chartK6}
-\title{chartK6}
+\title{Distribution of K6 (overall and by sex)}
 \usage{
 chartK6(x, filename)
 }

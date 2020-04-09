@@ -2,7 +2,7 @@
 % Please edit documentation in R/02-merge.R
 \name{mergeEstimates}
 \alias{mergeEstimates}
-\title{mergeEstimates}
+\title{Concatenate classic and PROBIT estimates into a single data.frame}
 \usage{
 mergeEstimates(x, y)
 }

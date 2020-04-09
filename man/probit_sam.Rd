@@ -2,7 +2,7 @@
 % Please edit documentation in R/10-probit_muac.R
 \name{probit_sam}
 \alias{probit_sam}
-\title{probit_sam}
+\title{PROBIT statistics function for bootstrap estimation of older people SAM}
 \usage{
 probit_sam(x, params, threshold = 185)
 }

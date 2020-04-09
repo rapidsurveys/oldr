@@ -2,7 +2,7 @@
 % Please edit documentation in R/08-chart.R
 \name{chartMUAC}
 \alias{chartMUAC}
-\title{chartMUAC}
+\title{Distribution of MUAC (overall and by sex)}
 \usage{
 chartMUAC(x, filename)
 }
