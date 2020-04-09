@@ -1,6 +1,6 @@
 ################################################################################
 #
-#' estimateProbit
+#' Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 #'
 #' @param x Indicators dataset produced by createOP with primary sampling unit (PSU)
 #'     in column named \code{PSU}

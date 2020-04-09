@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' get_variables
-#'
 #' Function to get appropriate RAM-OP indicator variable names given a
 #' specified indicator set
 #'

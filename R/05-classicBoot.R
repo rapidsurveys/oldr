@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' estimateClassic
-#'
 #' Function to apply bootstrap to RAM-OP indicators using a classical estimator.
 #'
 #' @param x Indicators dataset produced by createOP with primary sampling unit

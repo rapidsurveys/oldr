@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' chartAge
-#'
 #' Age by sex (pyramid plot)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -56,8 +54,6 @@ chartAge <- function(x, filename) {
 
 ################################################################################
 #
-#' chartMUAC
-#'
 #' Distribution of MUAC (overall and by sex)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -112,8 +108,6 @@ chartMUAC <- function(x, filename) {
 
 ################################################################################
 #
-#' chartMF
-#'
 #' Distribution of meal frequency (overall and by sex)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -171,8 +165,6 @@ chartMF <- function(x, filename) {
 
 ################################################################################
 #
-#' chartDDS
-#'
 #' Distribution of DDS (overall and by sex)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -231,8 +223,6 @@ chartDDS <- function(x, filename) {
 
 ################################################################################
 #
-#' chartK6
-#'
 #' Distribution of K6 (overall and by sex)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -284,8 +274,6 @@ chartK6 <- function(x, filename) {
 
 ################################################################################
 #
-#' chartADL
-#'
 #' Distribution of ADL (overall and by sex)
 #'
 #' @param x Indicators dataset produced by createOP
@@ -337,9 +325,7 @@ chartADL <- function(x, filename) {
 
 ################################################################################
 #
-#' chartWASH
-#'
-#' WASH indicators
+#' Chart WASH indicators
 #'
 #' @param x Indicators dataset produced by createOP
 #' @param filename Prefix to add to output chart filename
@@ -413,9 +399,7 @@ chartWASH <- function(x, filename) {
 
 ################################################################################
 #
-#' chartCSID
-#'
-#' Dementia screen (CSID)
+#' Chart dementia screen (CSID) indicators
 #'
 #' @param x Indicators dataset produced by createOP
 #' @param filename Prefix to add to output chart filename
@@ -453,9 +437,7 @@ chartCSID <- function(x, filename) {
 
 ################################################################################
 #
-#' chartWG
-#'
-#' Disability (Washington Group - WG)
+#' Chart disability (Washington Group - WG) indicators
 #'
 #' @param x Indicators dataset produced by createOP
 #' @param filename Prefix to add to output chart filename
@@ -500,9 +482,7 @@ chartWG <- function(x, filename) {
 
 ################################################################################
 #
-#' chartHHS
-#'
-#' Household hunger scale (HHS)
+#' Chart household hunger scale (HHS) indicators
 #'
 #' @param x Indicators dataset produced by createOP
 #' @param filename Prefix to add to output chart filename
@@ -543,7 +523,7 @@ chartHHS <- function(x, filename) {
 
 ################################################################################
 #
-#' chartIncome
+#' Chart income indicators
 #'
 #' @param x.male Male subset of indicator dataset
 #' @param x.female Female subset of indicator dataset

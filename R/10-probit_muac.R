@@ -1,7 +1,5 @@
 ################################################################################
 #
-#' probit_gam
-#'
 #' PROBIT statistics function for bootstrap estimation of older people GAM
 #'
 #' @param x A data frame with \code{primary sampling unit (PSU)} in column named
@@ -61,8 +59,6 @@ probit_gam <- function(x, params, threshold = 210) {
 
 ################################################################################
 #
-#' probit_sam
-#'
 #' PROBIT statistics function for bootstrap estimation of older people SAM
 #'
 #' @param x A data frame with \code{primary sampling unit (PSU)} in column named
