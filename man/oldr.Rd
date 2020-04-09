@@ -3,7 +3,6 @@
 \docType{package}
 \name{oldr}
 \alias{oldr}
-\alias{oldr-package}
 \title{\code{oldr} Package}
 \description{
 An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R

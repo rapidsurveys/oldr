@@ -4,7 +4,8 @@
 \name{indicators.ALL}
 \alias{indicators.ALL}
 \title{RAM-OP Indicators Dataset - ALL}
-\format{A data frame with 138 columns and 192 rows:
+\format{
+A data frame with 138 columns and 192 rows:
 \describe{
 \item{\code{psu}}{Cluster (PSU) identifier}
 \item{\code{resp1}}{Respondent is SUBJECT}
@@ -144,7 +145,8 @@
 \item{\code{wgP2}}{Overall prevalence 2}
 \item{\code{wgP3}}{Overall prevalence 3}
 \item{\code{wgPM}}{Overall prevalence}
-}}
+}
+}
 \usage{
 indicators.ALL
 }

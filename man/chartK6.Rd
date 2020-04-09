@@ -19,6 +19,6 @@ Histogram of K6 score in PNG format saved in current
 Distribution of K6 (overall and by sex)
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartK6(x = indicators.ALL, filename = "TEST")
 }

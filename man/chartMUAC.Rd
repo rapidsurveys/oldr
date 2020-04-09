@@ -19,6 +19,6 @@ Histogram of MUAC distribution in PNG format and saved in the current
 Distribution of MUAC (overall and by sex)
 }
 \examples{
-  # Create MUAC histogram using \\code{indicators.ALL} dataset
+  # Create MUAC histogram using \code{indicators.ALL} dataset
   chartMUAC(x = indicators.ALL, filename = "TEST")
 }

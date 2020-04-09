@@ -4,7 +4,8 @@
 \name{indicators.MALES}
 \alias{indicators.MALES}
 \title{RAM-OP Indicators Dataset - MALES}
-\format{A data frame with 138 columns and 113 rows:
+\format{
+A data frame with 138 columns and 113 rows:
 \describe{
 \item{\code{psu}}{Cluster (PSU) identifier}
 \item{\code{resp1}}{Respondent is SUBJECT}
@@ -144,7 +145,8 @@
 \item{\code{wgP2}}{Overall prevalence domain 2}
 \item{\code{wgP3}}{Overall prevalence domain 3}
 \item{\code{wgPM}}{Overall prevalence}
-}}
+}
+}
 \usage{
 indicators.MALES
 }

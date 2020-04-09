@@ -20,7 +20,7 @@ Bar chart of sources of income by sex
 chartIncome
 }
 \examples{
-  # Create chart using \\code{indicators.FEMALES} and \\code{indicators.MALES}
+  # Create chart using \code{indicators.FEMALES} and \code{indicators.MALES}
   # dataset
   chartIncome(x.male = indicators.MALES,
               x.female = indicators.FEMALES,

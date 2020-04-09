@@ -19,6 +19,6 @@ Bar plot of Disability Score in PNG format saved in current working
 Disability (Washington Group - WG)
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartWG(x = indicators.ALL, filename = "TEST")
 }

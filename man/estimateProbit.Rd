@@ -4,8 +4,15 @@
 \alias{estimateProbit}
 \title{estimateProbit}
 \usage{
-estimateProbit(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
-  params = "MUAC", outputColumns = "MUAC", replicates = 399)
+estimateProbit(
+  x,
+  w,
+  gam.stat = probit_gam,
+  sam.stat = probit_sam,
+  params = "MUAC",
+  outputColumns = "MUAC",
+  replicates = 399
+)
 }
 \arguments{
 \item{x}{Indicators dataset produced by createOP with primary sampling unit (PSU)

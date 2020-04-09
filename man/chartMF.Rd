@@ -19,6 +19,6 @@ Barplot of meal frequency in PNG format saved in current working
 Distribution of meal frequency (overall and by sex)
 }
 \examples{
-  # Create meal frequency chart using \\code{indicators.ALL} dataset
+  # Create meal frequency chart using \code{indicators.ALL} dataset
   chartMF(x = indicators.ALL, filename = "TEST")
 }

@@ -19,6 +19,6 @@ Barplot of dietary diversity score in PNG format saved in current
 Distribution of DDS (overall and by sex)
 }
 \examples{
-  # Create DDS chart using \\code{indicators.ALL} dataset
+  # Create DDS chart using \code{indicators.ALL} dataset
   chartDDS(x = indicators.ALL, filename = "TEST")
 }

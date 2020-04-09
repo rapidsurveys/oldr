@@ -4,9 +4,11 @@
 \alias{create_op_all}
 \title{create_op_all}
 \usage{
-create_op_all(svy, indicators = c("demo", "food", "hunger", "disability",
-  "adl", "mental", "dementia", "health", "income", "wash", "anthro",
-  "oedema", "screening", "visual", "misc"))
+create_op_all(
+  svy,
+  indicators = c("demo", "food", "hunger", "disability", "adl", "mental", "dementia",
+    "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc")
+)
 }
 \arguments{
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}

@@ -4,7 +4,8 @@
 \name{testSVY}
 \alias{testSVY}
 \title{RAM-OP Survey Dataset}
-\format{A data frame with 91 columns and 192 rows:
+\format{
+A data frame with 91 columns and 192 rows:
 \describe{
 \item{\code{ad2}}{Team number}
 \item{\code{psu}}{PSU (cluster) number}
@@ -156,7 +157,8 @@
   over or dressing?}
 \item{\code{wg6}}{Using your usual (customary) language, do you have
   difficulty communicating, for example understanding or being understood?}
-}}
+}
+}
 \usage{
 testSVY
 }

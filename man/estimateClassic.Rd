@@ -4,11 +4,16 @@
 \alias{estimateClassic}
 \title{estimateClassic}
 \usage{
-estimateClassic(x, w, statistic = bootClassic, indicators = c("demo",
-  "food", "hunger", "adl", "disability", "mental", "dementia", "health",
-  "oedema", "screening", "income", "wash", "visual", "misc"),
-  params = get_variables(indicators), outputColumns = params,
-  replicates = 399)
+estimateClassic(
+  x,
+  w,
+  statistic = bootClassic,
+  indicators = c("demo", "food", "hunger", "adl", "disability", "mental", "dementia",
+    "health", "oedema", "screening", "income", "wash", "visual", "misc"),
+  params = get_variables(indicators),
+  outputColumns = params,
+  replicates = 399
+)
 }
 \arguments{
 \item{x}{Indicators dataset produced by createOP with primary sampling unit

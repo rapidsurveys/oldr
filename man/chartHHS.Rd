@@ -18,6 +18,6 @@ Bar plot of HHS in PNG format saved in current working directory
 Household hunger scale (HHS)
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartHHS(x = indicators.ALL, filename = "TEST")
 }

@@ -18,6 +18,6 @@ Bar plot of CSID in PNG format saved in current working directory
 Dementia screen (CSID)
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartCSID(x = indicators.ALL, filename = "TEST")
 }

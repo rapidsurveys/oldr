@@ -18,6 +18,6 @@ Bar plot of ADL in PNG format saved in current working directory
 WASH indicators
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartWASH(x = indicators.ALL, filename = "TEST")
 }

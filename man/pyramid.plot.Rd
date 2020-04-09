@@ -4,10 +4,13 @@
 \alias{pyramid.plot}
 \title{Pyramid plot}
 \usage{
-pyramid.plot(x, g, main = paste("Pyramid plot of",
-  deparse(substitute(x)), "by", deparse(substitute(g))),
-  xlab = paste(deparse(substitute(g)), "(", levels(g)[1], "/",
-  levels(g)[2], ")"), ylab = deparse(substitute(x)))
+pyramid.plot(
+  x,
+  g,
+  main = paste("Pyramid plot of", deparse(substitute(x)), "by", deparse(substitute(g))),
+  xlab = paste(deparse(substitute(g)), "(", levels(g)[1], "/", levels(g)[2], ")"),
+  ylab = deparse(substitute(x))
+)
 }
 \arguments{
 \item{x}{A vector (numeric, factor, character) holding age-groups}

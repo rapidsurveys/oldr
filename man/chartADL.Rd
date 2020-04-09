@@ -18,6 +18,6 @@ Bar plot of ADL in PNG format saved in current working directory
 Distribution of ADL (overall and by sex)
 }
 \examples{
-  # Create chart using \\code{indicators.ALL} dataset
+  # Create chart using \code{indicators.ALL} dataset
   chartADL(x = indicators.ALL, filename = "TEST")
 }
