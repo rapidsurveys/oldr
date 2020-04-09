@@ -2,11 +2,11 @@ Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People in R
 Version: 0.1.0
 Authors@R: c(
+    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", comment = c(ORCID = "0000-0002-4887-4415"), 
                   email = "ernest@guevarra.io", role = c("aut", "cre")),
     person("Pascale", "Fritsch", role = "aut"),
-    person("Katja", "Siling", role = "aut"),
-    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"))
+    person("Katja", "Siling", role = "aut"))
 Description: An implementaiton of the Rapid Assessment Method for Older People
     (RAM-OP). RAM-OP was developed by HelpAge International, Valid International, 
     and Brixton Health, with financial assistance from the Humanitarian 
@@ -18,15 +18,17 @@ Description: An implementaiton of the Rapid Assessment Method for Older People
     and at considerably lower cost than other methods.
 License: AGPL-3
 Depends: R (>= 3.0.1)
-Imports: bbw,
+Imports: 
+    bbw,
     car,
     shiny
-Suggests: knitr,
+Suggests: 
+    knitr,
     rmarkdown,
     testthat
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 URL: https://github.com/rapidsurveys/oldr/issues
 BugReports: https://github.com/rapidsurveys/oldr/issues
 VignetteBuilder: knitr
