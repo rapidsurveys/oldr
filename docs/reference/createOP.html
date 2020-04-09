@@ -8,21 +8,29 @@
 
 <title>createOP — createOP • oldr</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,11 +38,11 @@
 
 
 
-<meta property="og:title" content="createOP — createOP" />
 
+<meta property="og:title" content="createOP — createOP" />
 <meta property="og:description" content="Create older people indicators dataframe from survey data collected
 using the standard RAM-OP questionnaire." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -48,9 +56,10 @@ using the standard RAM-OP questionnaire." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +81,7 @@ using the standard RAM-OP questionnaire." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -86,11 +95,10 @@ using the standard RAM-OP questionnaire." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/rapidsurveys/oldr">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/rapidsurveys/oldr/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -101,6 +109,7 @@ using the standard RAM-OP questionnaire." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -112,14 +121,12 @@ using the standard RAM-OP questionnaire." />
     </div>
 
     <div class="ref-description">
-    
     <p>Create older people indicators dataframe from survey data collected
 using the standard RAM-OP questionnaire.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>createOP</span>(<span class='no'>svy</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -128,20 +135,22 @@ using the standard RAM-OP questionnaire.</p>
       <td><p>A dataframe collected using the standard RAM-OP questionnaire</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Three dataframes of Older People indicators each with 138 variables:</p><dl class='dl-horizontal'>
+    <p>Three dataframes of Older People indicators each with 138 variables:</p><dl'>
 <dt><code>indicators.ALL</code></dt><dd><p>Indicators dataframe for all respondents</p></dd>
 <dt><code>indicators.MALES</code></dt><dd><p>Indicators dataframe for male respondents</p></dd>
 <dt><code>indicators.FEMALES</code></dt><dd><p>Indicators dataframe for female repsondents</p></dd>
+
 </dl>
 
-    
     <h2 class="hasAnchor" id="indicators"><a class="anchor" href="#indicators"></a>Indicators</h2>
 
     
-    <p><strong>Demographic</strong></p><dl class='dl-horizontal'>
+
+
+<p><strong>Demographic</strong></p><dl'>
 <dt><code>psu</code></dt><dd><p>Primary sampling unit</p></dd>
 <dt><code>resp1</code></dt><dd><p>Respondent is SUBJECT</p></dd>
 <dt><code>resp2</code></dt><dd><p>Respondent is FAMILY CARER</p></dd>
@@ -162,8 +171,11 @@ using the standard RAM-OP questionnaire.</p>
 <dt><code>marital5</code></dt><dd><p>Marital status = SEPARATED</p></dd>
 <dt><code>marital6</code></dt><dd><p>Marital status = OTHER</p></dd>
 <dt><code>alone</code></dt><dd><p>Respondent lives alone</p></dd>
+
 </dl>
-    <p><strong>Dietary intake indicators</strong></p>
+
+
+<p><strong>Dietary intake indicators</strong></p>
 <p>These dietary intake indicators have been purpose-built for older people but
 the basic approach used is described in:</p>
 <p><cite>Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
@@ -171,7 +183,7 @@ and Individual Dietary Diversity. Rome, FAO
 <a href='http://www.fao.org/docrep/014/i1983e/i1983e00.htm'>http://www.fao.org/docrep/014/i1983e/i1983e00.htm</a></cite></p>
 <p>and extended to include indicators of probable adequate intake of a number of
 nutrients / micronutrients.</p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>MF</code></dt><dd><p>Meal frequenct</p></dd>
 <dt><code>DDS</code></dt><dd><p>Dietary Diversity Score (count of 11 groups)</p></dd>
 <dt><code>FG01</code></dt><dd><p>Cereals</p></dd>
@@ -200,19 +212,23 @@ nutrients / micronutrients.</p>
 <dt><code>vitB6</code></dt><dd><p>Vitamin B6-rich foods</p></dd>
 <dt><code>vitB12</code></dt><dd><p>Vitamin B12-rich foods</p></dd>
 <dt><code>vitBcomplex</code></dt><dd><p>Vitamin B1/B2/B3/B6/B12-rich foods</p></dd>
+
 </dl>
-    <p><strong>Household Hunger Scale (HHS)</strong></p>
+
+<p><strong>Household Hunger Scale (HHS)</strong></p>
 <p>The HHS is described in:</p>
 <p><cite>Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
 Scale: Indicator Definition and Measurement Guide. Washington DC,
 FANTA-2 Bridge, FHI 360
 <a href='https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs'>https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs</a></cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>HHS1</code></dt><dd><p>Little or no hunger in household</p></dd>
 <dt><code>HHS2</code></dt><dd><p>Moderate hunger in household</p></dd>
 <dt><code>HHS3</code></dt><dd><p>Severe hunger in household</p></dd>
+
 </dl>
-    <p><strong>Katz "Index of Independence in Activities of Daily Living" (ADL) score</strong></p>
+
+<p><strong>Katz "Index of Independence in Activities of Daily Living" (ADL) score</strong></p>
 <p>The Katz ADL score is described in:</p>
 <p><cite>Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
 of illness in the aged. The Index of ADL: a standardized measure of
@@ -224,7 +240,7 @@ of the index of ADL. The Gerontologist, 10(1), 20-30
 <p><cite>Katz S (1983). Assessing self-maintenance: Activities of daily living,
 mobility and instrumental activities of daily living. JAGS, 31(12),
 721-726 <a href='doi:10.1111/j.1532-5415.1983.tb03391.x'>doi:10.1111/j.1532-5415.1983.tb03391.x</a></cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>ADL01</code></dt><dd><p>Bathing</p></dd>
 <dt><code>ADL02</code></dt><dd><p>Dressing</p></dd>
 <dt><code>ADL03</code></dt><dd><p>Toileting</p></dd>
@@ -237,29 +253,35 @@ mobility and instrumental activities of daily living. JAGS, 31(12),
 <dt><code>classADL3</code></dt><dd><p>Severity of dependence 3</p></dd>
 <dt><code>hasHelp</code></dt><dd><p>Have someone to help with everyday activities</p></dd>
 <dt><code>unmetNeed</code></dt><dd><p>Need help but has no helper</p></dd>
+
 </dl>
-    <p><strong>K6 Short form psychological distress score</strong></p>
+
+<p><strong>K6 Short form psychological distress score</strong></p>
 <p>The K6 score is described in:</p>
 <p><cite>Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
 et al. (2002). Short screening scales to monitor population prevalences
 and trends in non-specific psychological distress. Psychological
 Medicine, 32(6), 959–976 <a href='doi:10.1017/S0033291702006074'>doi:10.1017/S0033291702006074</a></cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>K6</code></dt><dd><p>K6 score</p></dd>
 <dt><code>K6Case</code></dt><dd><p>K6 score &gt; 12  (in serious psychological distress)</p></dd>
+
 </dl>
-    <p><strong>Brief Community Screening Instrument for Dementia (CSID)</strong></p>
+
+<p><strong>Brief Community Screening Instrument for Dementia (CSID)</strong></p>
 <p>The CSID dementia screening tool is described in:</p>
 <p><cite>Prince M, et al. (2010). A brief dementia screener suitable for use
 by non-specialists in resource poor settings - The cross-cultural
 derivation and validation of the brief Community Screening Instrument
 for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 899–907 <a href='doi:10.1002/gps.2622'>doi:10.1002/gps.2622</a></cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>DS</code></dt><dd><p>Probable dementia by CSID screen</p></dd>
+
 </dl>
-    <p><strong>Health and health-seeking indicators</strong></p>
-<dl class='dl-horizontal'>
+
+<p><strong>Health and health-seeking indicators</strong></p>
+<dl'>
 <dt><code>H1</code></dt><dd><p>Chronic condition</p></dd>
 <dt><code>H2</code></dt><dd><p>Takes drugs regularly for chronic condition</p></dd>
 <dt><code>H31</code></dt><dd><p>No drugs available</p></dd>
@@ -282,9 +304,11 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 <dt><code>H67</code></dt><dd><p>No need</p></dd>
 <dt><code>H68</code></dt><dd><p>Other</p></dd>
 <dt><code>H69</code></dt><dd><p>No reason given</p></dd>
+
 </dl>
-    <p><strong>Income and income sources</strong></p>
-<dl class='dl-horizontal'>
+
+<p><strong>Income and income sources</strong></p>
+<dl'>
 <dt><code>M1</code></dt><dd><p>Has a personal income</p></dd>
 <dt><code>M2A</code></dt><dd><p>Agriculture / fishing / livestock</p></dd>
 <dt><code>M2B</code></dt><dd><p>Wages / salary</p></dd>
@@ -295,43 +319,53 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 <dt><code>M2G</code></dt><dd><p>Charity</p></dd>
 <dt><code>M2H</code></dt><dd><p>Cash transfer / Social security</p></dd>
 <dt><code>M2I</code></dt><dd><p>Other</p></dd>
+
 </dl>
-    <p><strong>Water, sanitation and hygiene (WASH) indicators</strong></p>
+
+<p><strong>Water, sanitation and hygiene (WASH) indicators</strong></p>
 <p>These are a (core) subset of indicators from:</p>
 <p><cite>WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
 for Household Surveys. Geneva, WHO / UNICEF
 <a href='http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/'>http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/</a></cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>W1</code></dt><dd><p>Improved source of drinking water</p></dd>
 <dt><code>W2</code></dt><dd><p>Safe drinking water (improved source OR adequate treatment)</p></dd>
 <dt><code>W3</code></dt><dd><p>Improved sanitation facility</p></dd>
 <dt><code>W4</code></dt><dd><p>Improved non-shared sanitation facility</p></dd>
+
 </dl>
-    <p><strong>Anthropometry and screening</strong></p>
-<dl class='dl-horizontal'>
+
+<p><strong>Anthropometry and screening</strong></p>
+<dl'>
 <dt><code>MUAC</code></dt><dd><p>Mid-upper arm circumference (mm)</p></dd>
 <dt><code>oedema</code></dt><dd><p>Bilateral pitting oedema (may not be nutritional)</p></dd>
 <dt><code>screened</code></dt><dd><p>Either MUAC or oedema checked previously</p></dd>
+
 </dl>
-    <p><strong>Visual impairment by "Tumbling E" method</strong></p>
+
+<p><strong>Visual impairment by "Tumbling E" method</strong></p>
 <p>The "Tumbling E" method is described in:</p>
 <p><cite>Taylor HR (1978). Applying new design principles to the construction of an
 illiterate E Chart. Am J Optom &amp; Physiol Optics 55:348</cite></p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>poorVA</code></dt><dd><p>Poor visual acuity (correct in &lt; 3 of 4 tests)</p></dd>
+
 </dl>
-    <p><strong>Miscellaneous indicators</strong></p>
-<dl class='dl-horizontal'>
+
+<p><strong>Miscellaneous indicators</strong></p>
+<dl'>
 <dt><code>chew</code></dt><dd><p>Problems chewing food</p></dd>
 <dt><code>food</code></dt><dd><p>Anyone in HH receives a ration</p></dd>
 <dt><code>NFRI</code></dt><dd><p>Anyone in HH received non-food relief item(s) in previous month</p></dd>
+
 </dl>
-    <p><strong>Washington Group on Disability</strong></p>
+
+<p><strong>Washington Group on Disability</strong></p>
 <p>See:</p>
 <p><a href='http://www.washingtongroup-disability.com'>http://www.washingtongroup-disability.com</a>
   <a href='https://www.cdc.gov/nchs/washington_group/wg_documents.htm'>https://www.cdc.gov/nchs/washington_group/wg_documents.htm</a></p>
 <p>for details.</p>
-<dl class='dl-horizontal'>
+<dl'>
 <dt><code>wgVisionD0</code></dt><dd><p>Vision domain 0</p></dd>
 <dt><code>wgVisionD1</code></dt><dd><p>Vision domain 1</p></dd>
 <dt><code>wgVisionD2</code></dt><dd><p>Vision domain 2</p></dd>
@@ -361,8 +395,9 @@ illiterate E Chart. Am J Optom &amp; Physiol Optics 55:348</cite></p>
 <dt><code>wgP2</code></dt><dd><p>Overall 2</p></dd>
 <dt><code>wgP3</code></dt><dd><p>Overall 3</p></dd>
 <dt><code>wgPM</code></dt><dd><p>Any disability</p></dd>
+
 </dl>
-    
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -3072,34 +3107,30 @@ illiterate E Chart. Am J Optom &amp; Physiol Optics 55:348</cite></p>
 #&gt; 192    1    0    0    0    0</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#indicators">Indicators</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
-  <p>Developed by Ernest Guevarra, Pascale Fritsch, Katja Siling, Mark Myatt.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

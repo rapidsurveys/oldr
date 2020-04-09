@@ -154,4 +154,9 @@ indicators.ALL
 Indicators dataset calculated from a dataset collected from a RAM-OP survey
 conducted in Addis Ababa, Ethiopia in early 2014
 }
+\examples{
+indicators.ALL
+
+
+}
 \keyword{datasets}
