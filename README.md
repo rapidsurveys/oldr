@@ -43,7 +43,7 @@ based on the following principles:
     allow estimates of indicator levels to be made with useful precision
     using a small sample size.
 
-## Installing
+## Installation
 
 This package is currently in active development in preparation for
 submission to the CRAN repository. The development version of `oldr` can
