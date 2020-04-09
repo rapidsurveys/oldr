@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_oedema}
 \alias{create_op_oedema}
-\title{create_op_oedema}
+\title{Create older people indicators dataframe for oedema prevalence from survey
+data collected using the standard RAM-OP questionnaire.}
 \usage{
 create_op_oedema(svy)
 }

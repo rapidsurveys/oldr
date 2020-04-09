@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_income}
 \alias{create_op_income}
-\title{create_op_income}
+\title{Create older people indicators dataframe for income from survey data collected
+using the standard RAM-OP questionnaire.}
 \usage{
 create_op_income(svy)
 }

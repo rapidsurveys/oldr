@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_disability}
 \alias{create_op_disability}
-\title{create_op_disability}
+\title{Create older people indicators dataframe on disability from survey data
+collected using the standard RAM-OP questionnaire}
 \usage{
 create_op_disability(svy)
 }

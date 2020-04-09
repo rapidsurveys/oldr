@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_anthro}
 \alias{create_op_anthro}
-\title{create_op_anthro}
+\title{Create older people indicators dataframe for anthropometry from survey data
+collected using the standard RAM-OP questionnaire.}
 \usage{
 create_op_anthro(svy)
 }

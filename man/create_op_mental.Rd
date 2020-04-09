@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_mental}
 \alias{create_op_mental}
-\title{create_op_mental}
+\title{Create older people indicators dataframe for mental health from survey data
+collected using the standard RAM-OP questionnaire.}
 \usage{
 create_op_mental(svy)
 }

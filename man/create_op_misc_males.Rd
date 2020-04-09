@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_misc_males}
 \alias{create_op_misc_males}
-\title{create_op_misc_males}
+\title{Create male older people indicators dataframe for miscellaneous indicators
+from survey data collected using the standard RAM-OP questionnaire}
 \usage{
 create_op_misc_males(svy)
 }

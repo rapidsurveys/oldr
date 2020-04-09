@@ -2,7 +2,8 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_health}
 \alias{create_op_health}
-\title{create_op_health}
+\title{Create older people indicators dataframe for health and health-seeking
+behaviours from survey data collected using the standard RAM-OP questionnaire.}
 \usage{
 create_op_health(svy)
 }
