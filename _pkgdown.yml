@@ -4,3 +4,149 @@ template:
   params:
     bootswatch: sandstone
     ganalytics: #UA-102485058-6
+
+home:
+  #strip_header: true
+  links:
+  - text: Read about RAM-OP
+    href: https://www.helpage.org/what-we-do/emergencies/ramop-rapid-assessment-method-for-older-people/
+  - text: Download the RAM-OP manual
+    href: http://www.helpage.org/download/565458de12ead
+  - text: Read the online RAM-OP manual
+    href: https://rapidsurveys.io/ramOPmanual/
+
+reference:
+- title: Description
+  contents:
+  - oldr
+
+- title: Create all RAM-OP indicators
+  contents:
+  - create_op
+
+- title: Create activities of daily living (ADL) indicators
+  contents:
+  - create_op_adl
+  - create_op_adl_males
+  - create_op_adl_females
+
+- title: Create anthropometric indicators
+  contents:
+  - create_op_anthro
+  - create_op_anthro_males
+  - create_op_anthro_females
+
+- title: Create dementia indicators
+  contents:
+  - create_op_dementia
+  - create_op_dementia_males
+  - create_op_dementia_females
+
+- title: Create demographic indicators
+  contents:
+  - create_op_demo
+  - create_op_demo_males
+  - create_op_demo_females
+
+- title: Create disability indicators
+  contents:
+  - create_op_disability
+  - create_op_disability_males
+  - create_op_disability_females
+
+- title: Create food intake indicators
+  contents:
+  - create_op_food
+  - create_op_food_males
+  - create_op_food_females
+
+- title: Create health indicators
+  contents:
+  - create_op_health
+  - create_op_health_males
+  - create_op_health_females
+
+- title: Create household hunger scale (HHS) indicators
+  contents:
+  - create_op_hunger
+  - create_op_hunger_males
+  - create_op_hunger_females
+
+- title: Create income indicators
+  contents:
+  - create_op_income
+  - create_op_income_males
+  - create_op_income_females
+
+- title: Create mental health indicators
+  contents:
+  - create_op_mental
+  - create_op_mental_males
+  - create_op_mental_females
+
+- title: Create oedema indicators
+  contents:
+  - create_op_oedema
+  - create_op_oedema_males
+  - create_op_oedema_females
+
+- title: Create nutrition screening indicators
+  contents:
+  - create_op_screening
+  - create_op_screening_males
+  - create_op_screening_females
+
+- title: Create visual acuity indicators
+  contents:
+  - create_op_visual
+  - create_op_visual_males
+  - create_op_visual_females
+
+- title: Create water, sanitation and hygiene (WASH) indicators
+  contents:
+  - create_op_wash
+  - create_op_wash_males
+  - create_op_wash_females
+
+- title: Create miscellaneous indicators
+  contents:
+  - create_op_misc
+  - create_op_misc_males
+  - create_op_misc_females
+
+- title: Create charts
+  contents:
+  - chartADL
+  - chartAge
+  - chartCSID
+  - chartDDS
+  - chartHHS
+  - chartIncome
+  - chartK6
+  - chartMF
+  - chartMUAC
+  - chartWASH
+  - chartWG
+  - pyramid.plot
+
+- title: Utility/support functions
+  contents:
+  - estimateClassic
+  - estimateProbit
+  - fullTable
+  - get_variables
+  - mergeEstimates
+  - probit_gam
+  - probit_sam
+
+- title: Create a RAM-OP report
+  contents:
+  - reportOP
+
+- title: Datasets
+  contents:
+  - testSVY
+  - testPSU
+  - indicators.ALL
+  - indicators.MALES
+  - indicators.FEMALES
