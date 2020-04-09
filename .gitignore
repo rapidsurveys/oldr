@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-inst/doc
 .DS_Store
 packrat/lib*/
+inst/ramOP/rsconnect/
