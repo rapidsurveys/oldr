@@ -21,7 +21,8 @@ Depends: R (>= 3.0.1)
 Imports: 
     bbw,
     car,
-    shiny
+    shiny,
+    withr
 Suggests: 
     knitr,
     rmarkdown,

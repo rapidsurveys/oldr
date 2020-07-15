@@ -18,37 +18,32 @@
 ################################################################################
 
 chartAge <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
   ageGroup <- bbw::recode(x$age, "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
-  #
-  # Age BY sex (pyramid plot)
-  #
+
+  ## Age BY sex (pyramid plot)
   plotFileName <- paste(filename, ".AgeBySex.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 6, units = "in",
-      res = 600, pointsize = 12)
-  #
-  # Set graphical parameers
-  #
-  par(pty = "m"); par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create age by sex pyramid plot
-  #
-  pyramid.plot(x = ageGroup,
-               g = sexText,
-               main = "",
-               xlab = "Sex (Females | Males)",
-               ylab = "Age group (years)")
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 6, units = "in",
+                 res = 600, pointsize = 12)
+
+  ## Set graphical parameers
+  withr::with_par(
+    list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create age by sex pyramid plot
+    pyramid.plot(x = ageGroup,
+                 g = sexText,
+                 main = "",
+                 xlab = "Sex (Females | Males)",
+                 ylab = "Age group (years)")
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -69,40 +64,36 @@ chartAge <- function(x, filename) {
 ################################################################################
 
 chartMUAC <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  #
-  #
-  #
+
+  ## Create filename
   plotFileName <- paste(filename, ".MUAC.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 3.5, units = "in",
-      res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(1, 2)); par(pty = "m");
-  par(cex.axis = 0.8); par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create MUAC histogram by sex
-  #
-  hist(x$MUAC, breaks = 20,
-       xlim = c(160, max(x$MUAC, na.rm = TRUE)),
-       main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
-  #
-  # Create boxplot of MUAC by sex
-  #
-  boxplot(x$MUAC ~ sexText,
-          main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 3.5, units = "in",
+                 res = 600, pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(1, 2),
+         pty = "m",
+         cex.axis = 0.8,
+         mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create MUAC histogram by sex
+    hist(x$MUAC, breaks = 20,
+         xlim = c(160, max(x$MUAC, na.rm = TRUE)),
+         main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray"),
+
+    ## Create boxplot of MUAC by sex
+    boxplot(x$MUAC ~ sexText,
+            main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -123,43 +114,39 @@ chartMUAC <- function(x, filename) {
 ################################################################################
 
 chartMF <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  #
-  #
-  #
+
+  ## Create filename
   plotFileName <- paste(filename, ".MF.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 3.5, units = "in",
-      res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(1, 2)); par(pty = "m");
-  par(cex.axis = 0.8); par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create barplot
-  #
-  barplot(fullTable(x = x$MF,
-                    values = 0:max(x$MF, na.rm = TRUE)),
-          main = "",
-          xlab = "Meal frequency", ylab = "Frequency",
-          col = "lightgray")
-  #
-  # Create boxplot
-  #
-  boxplot(x$MF ~ sexText,
-          main = "",
-          xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 3.5, units = "in",
+                 res = 600, pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(1, 2),
+         pty = "m",
+         cex.axis = 0.8,
+         mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create barplot
+    barplot(fullTable(x = x$MF,
+                      values = 0:max(x$MF, na.rm = TRUE)),
+            main = "",
+            xlab = "Meal frequency", ylab = "Frequency",
+            col = "lightgray"),
+
+    ## Create boxplot
+    boxplot(x$MF ~ sexText,
+            main = "",
+            xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -180,44 +167,40 @@ chartMF <- function(x, filename) {
 ################################################################################
 
 chartDDS <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  #
-  #
-  #
+
+  ## Create filename
   plotFileName <- paste(filename, ".DDS.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 3.5, units = "in",
-      res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(1, 2)); par(pty = "m");
-  par(cex.axis = 0.8); par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create barplot
-  #
-  barplot(fullTable(x = x$DDS,
-                    values = 0:max(x$DDS)),
-          main = "",
-          xlab = "Dietary diversity score",
-          ylab = "Frequency",
-          col = "lightgray")
-  #
-  # Create boxplot
-  #
-  boxplot(x$DDS ~ sexText,
-          main = "",
-          xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 3.5, units = "in",
+                 res = 600, pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(1, 2),
+         pty = "m",
+         cex.axis = 0.8,
+         mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create barplot
+    barplot(fullTable(x = x$DDS,
+                      values = 0:max(x$DDS)),
+            main = "",
+            xlab = "Dietary diversity score",
+            ylab = "Frequency",
+            col = "lightgray"),
+
+    ## Create boxplot
+    boxplot(x$DDS ~ sexText,
+            main = "",
+            xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -238,37 +221,36 @@ chartDDS <- function(x, filename) {
 ################################################################################
 
 chartK6 <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  #
-  #
-  #
+
+  ## Create filename
   plotFileName <- paste(filename, ".K6.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 3.5, units = "in", res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(1, 2)); par(pty = "m")
-  par(cex.axis = 0.8)
-  par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create histogram
-  #
-  hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
-  #
-  # Create boxplot
-  #
-  boxplot(x$K6 ~ sexText, main = "", xlab = "Sex", ylab = "K6", frame.plot = FALSE)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 3.5,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(1, 2),
+         pty = "m",
+         cex.axis = 0.8,
+         mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create histogram
+    hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray"),
+
+    ## Create boxplot
+    boxplot(x$K6 ~ sexText, main = "",
+            xlab = "Sex", ylab = "K6",
+            frame.plot = FALSE)
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -288,38 +270,40 @@ chartK6 <- function(x, filename) {
 ################################################################################
 
 chartADL <- function(x, filename) {
-  #
-  # Temporary variables
-  #
+  ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  #
-  #
-  #
+
+  ## Create filename
   plotFileName <- paste(filename, ".ADL.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 3.5, units = "in", res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(1, 2)); par(pty = "m")
-  par(cex.axis = 0.8); par(mar = c(5, 4, 2, 2) + 0.1)
-  #
-  # Create bar plot
-  #
-  barplot(fullTable(x = x$scoreADL, values = 0:6),
-          main = "",  xlab = "Katz ADL Score", ylab = "Frequency", col = "lightgray")
-  #
-  # Create boxplot
-  #
-  boxplot(x$scoreADL ~ sexText,
-          main = "", xlab = "Sex", ylab = "Katz ADL Score", frame.plot = FALSE)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 3.5,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(1, 2),
+         pty = "m",
+         cex.axis = 0.8,
+         mar = c(5, 4, 2, 2) + 0.1),
+
+    ## Create bar plot
+    barplot(fullTable(x = x$scoreADL, values = 0:6),
+            main = "",
+            xlab = "Katz ADL Score", ylab = "Frequency",
+            col = "lightgray"),
+
+    ## Create boxplot
+    boxplot(x$scoreADL ~ sexText,
+            main = "",
+            xlab = "Sex", ylab = "Katz ADL Score",
+            frame.plot = FALSE)
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -339,61 +323,51 @@ chartADL <- function(x, filename) {
 ################################################################################
 
 chartWASH <- function(x, filename) {
+  ## Create filename
   plotFileName <- paste(filename, ".WASH.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 6, units = "in", res = 600, pointsize = 10)
-  #
-  # Set graphical parameters
-  #
-  par(mfrow = c(2, 2))
-  par(cex.axis = 0.8)
-  #
-  # Tabulate WASH results - source of drinking water
-  #
-  tab <- table(x$W1)
-  names(tab) <- c("Not improved", "Improved")
-  #
-  # Create bar plot - source of drinking water
-  #
-  barplot(tab, main = "Source of drinking water",
-          col = c("red", "green"), ylab = "Frequency")
-  #
-  # Tabulate WASH results - Safe drinking water
-  #
-  tab <- table(x$W2)
-  names(tab) <- c("Unsafe", "Safe")
-  #
-  # Create bar plot - safe drinking water
-  #
-  barplot(tab, main = "Safe drinking water",
-          col = c("red", "green"), ylab = "Frequency")
-  #
-  # Tabulate WASH results - sanitation facility
-  #
-  tab <- table(x$W3)
-  names(tab) <- c("Not improved", "Improved")
-  #
-  # Create bar plot - sanitation facility
-  #
-  barplot(tab, main = "Improved sanitation facility",
-          col = c("red", "green"), ylab = "Frequency")
-  #
-  # Tabulate WASH results - improved non-shared sanitation facility
-  #
-  tab <- table(x$W4)
-  names(tab) <- c("Not improved\nor shared", "Improved and\nnot shared")
-  #
-  # Create bar plot - improved non-shared sanitation facility
-  #
-  barplot(tab, main = "Improved and non-shared\nsanitation facility",
-          col = c("red", "green"), ylab = "Frequency")
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Tabulate WASH results - source of drinking water
+  tab1 <- table(x$W1)
+  names(tab1) <- c("Not improved", "Improved")
+
+  ## Tabulate WASH results - Safe drinking water
+  tab2 <- table(x$W2)
+  names(tab2) <- c("Unsafe", "Safe")
+
+  ## Tabulate WASH results - sanitation facility
+  tab3 <- table(x$W3)
+  names(tab3) <- c("Not improved", "Improved")
+
+  ## Tabulate WASH results - improved non-shared sanitation facility
+  tab4 <- table(x$W4)
+  names(tab4) <- c("Not improved\nor shared", "Improved and\nnot shared")
+
+  labs <- c("Source of drinking water",
+            "Safe drinking water",
+            "Improved sanitation facility",
+            "Improved and non-shared\nsanitation facility")
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 6,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Set graphical parameters
+  withr::with_par(
+    list(mfrow = c(2, 2),
+         cex.axis = 0.8),
+
+    for(i in 1:4) {
+      barplot(get(paste("tab", i, sep = "")),
+              main = labs[i],
+              col = c("red", "green"),
+              ylab = "Frequency")
+    }
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -413,25 +387,24 @@ chartWASH <- function(x, filename) {
 ################################################################################
 
 chartCSID <- function(x, filename) {
+  ## Create filename
   plotFileName <- paste(filename, ".dementia.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 6, units = "in", res = 600, pointsize = 10)
-  #
-  # Tabulate dementia score
-  #
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 6,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Tabulate dementia score
   tab <- table(x$DS)
   names(tab) <- c("Normal", "Probable dementia")
-  #
-  # Create barplot
-  #
+
+  ## Create barplot
   barplot(tab, main = "", col = c("green", "red"), ylab = "Frequency")
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -452,15 +425,16 @@ chartCSID <- function(x, filename) {
 ################################################################################
 
 chartWG <- function(x, filename) {
+  ## Create filename
   plotFileName <- paste(filename, ".disability.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 6, units = "in", res = 600, pointsize = 10)
-  #
-  # Tabulate WG scores by dimensions
-  #
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 6,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Tabulate WG scores by dimensions
   P0 <- table(x$wgP0)["1"]
   P1 <- table(x$wgP1)["1"]
   P2 <- table(x$wgP2)["1"]
@@ -469,14 +443,12 @@ chartWG <- function(x, filename) {
   tab <- as.table(c(P0, P1, P2, P3, PM))
   names(tab) <- c("\nP0 : None ", "\nP1 : Any", "P2 : Moderate\nor severe",
                   "\nP3 : Severe", "\nPM : Multiple")
-  #
-  # Create barplot
-  #
+
+  ## Create barplot
   barplot(tab, main = "", col = "lightgray", ylab = "Frequency", cex.names = 0.8)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -496,28 +468,28 @@ chartWG <- function(x, filename) {
 ################################################################################
 
 chartHHS <- function(x, filename) {
+  ## Create filename
   plotFileName <- paste(filename, ".HHS.png", sep = "")
-  #
-  # Open PNG graphics device
-  #
-  png(filename = plotFileName,
-      width = 6, height = 6, units = "in", res = 600, pointsize = 10)
-  #
-  # Tabulate HHS
-  #
+
+  ## Open PNG graphics device
+  grDevices::png(filename = plotFileName,
+                 width = 6, height = 6,
+                 units = "in", res = 600,
+                 pointsize = 10)
+
+  ## Tabulate HHS
   H0 <- table(x$wgP0)["1"]
   H1 <- table(x$wgP1)["1"]
   H2 <- table(x$wgP2)["1"]
   tab <- as.table(c(H0, H1, H2))
   names(tab) <- c("Little or none", "Moderate", "Severe")
-  #
-  # Create bar plot
-  #
-  barplot(tab, main = "", col = c("green", "orange", "red"), ylab = "Frequency", cex.names = 0.8)
-  #
-  # Close graphics device
-  #
-  dev.off()
+
+  ## Create bar plot
+  barplot(tab, main = "", col = c("green", "orange", "red"),
+          ylab = "Frequency", cex.names = 0.8)
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
 
 
@@ -541,9 +513,8 @@ chartHHS <- function(x, filename) {
 ################################################################################
 
 chartIncome <- function(x.male, x.female, filename) {
-  #
-  # Sources of income (by sex)
-  #
+
+  ## Sources of income (by sex)
   tabM <- NULL
   tabM <- c(tabM, table(x.male$M2A)["1"])
   tabM <- c(tabM, table(x.male$M2B)["1"])
@@ -566,15 +537,13 @@ chartIncome <- function(x.male, x.female, filename) {
   tabF <- c(tabF, table(x.female$M2H)["1"])
   tabF <- c(tabF, table(x.female$M2I)["1"])
   tabF[is.na(tabF)] <- 0
-  #
-  # Merge data for males (tabM) and females (tabF)
-  #
+
+  ## Merge data for males (tabM) and females (tabF)
   tab <- data.frame(tabM, tabF)
   names(tab) <- c("M", "F")
   tab$SUM <- tab$M + tab$F
-  #
-  # Label rows with income source
-  #
+
+  ## Label rows with income source
   rownames(tab) <- c("Agriculture / fishing / livestock",
                      "Wage / salary",
                      "Sales of charcoal / bricks / &c.",
@@ -584,20 +553,35 @@ chartIncome <- function(x.male, x.female, filename) {
                      "Charity",
                      "Cash transfer / social security",
                      "Other source(s) of income")
-  #
-  # Sort by frequency of income source (descending)
-  #
+
+  ## Sort by frequency of income source (descending)
   tab <- tab[rev(order(tab$SUM)), ]
-  #
-  # Convert data.frame to a table for plotting using the 'barplot()' function
-  #
+
+  ## Convert data.frame to a table for plotting using the 'barplot()' function
   tab <- as.table(as.matrix(tab[ ,1:2]))
-  #
-  # Plot income sources by sex
-  #
+
+  ## Plot income sources by sex
   plotFileName <- paste(filename, ".Incomes.png", sep = "")
-  png(filename = plotFileName, width = 6, height = 6, units = "in", res = 600, pointsize = 10)
-  par(pty = "m"); par(las = 1); par(cex.axis = 0.8); par(mar = c(3, 12, 2, 2) + 0.1)
-  barplot(t(tab), col = c("lightgray", "white"), horiz = TRUE, main = "", xlab = "Frequency (males are shaded)", ylab = "")
-  dev.off()
+
+  ## Open graphics device
+  grDevices::png(filename = plotFileName, width = 6, height = 6,
+                 units = "in", res = 600, pointsize = 10)
+
+  ## Set plot paramaters
+  withr::with_par(
+    list(pty = "m",
+         las = 1,
+         cex.axis = 0.8,
+         mar = c(3, 12, 2, 2) + 0.1),
+
+    ## Create plot
+    barplot(t(tab),
+            col = c("lightgray", "white"),
+            horiz = TRUE, main = "",
+            xlab = "Frequency (males are shaded)",
+            ylab = "")
+  )
+
+  ## Close graphics device
+  grDevices::dev.off()
 }
