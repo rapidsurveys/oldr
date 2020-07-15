@@ -17,14 +17,13 @@
 ################################################################################
 
 mergeEstimates <- function(x, y) {
-  #
-  # Merge rows
-  #
+
+  ## Merge rows
   estimates <- rbind(x, y)
-  #
-  # Merge 'estimates' data.frame and 'language' data.frame in prepartion for reporting
-  # and maintaining the original row ordering of the 'language' data.frame ...
-  #
+
+  ## Merge 'estimates' data.frame and 'language' data.frame in prepartion for
+  ## reporting and maintaining the original row ordering of the 'language'
+  ## data.frame ...
   temp <- subset(language, subset = INDICATOR %in% estimates$INDICATOR)
 
   temp$originalOrder <- seq_len(nrow(estimates))
@@ -32,5 +31,7 @@ mergeEstimates <- function(x, y) {
   estimates <- merge(estimates, temp, by = "INDICATOR")
   estimates <- estimates[order(estimates$originalOrder), ]
   estimates <- subset(estimates, select = -originalOrder)
+
+  ## Return
   return(estimates)
 }

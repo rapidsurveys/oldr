@@ -25,7 +25,7 @@
 #'   #
 #'   test <- estimateProbit(x = indicators.ALL,
 #'                          w = testPSU,
-#'                          replicates = 9)
+#'                          replicates = 3)
 #'
 #'   test
 #'
@@ -37,70 +37,116 @@
 estimateProbit <- function(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
                            params = "MUAC", outputColumns = "MUAC",
                            replicates = 399) {
-  #
-  # Blocking weighted bootstrap (GAM)
-  #
-  bootGAM.ALL <- bootBW(x = x, w = w, statistic = gam.stat,
-                        params = params, outputColumns = params,
-                        replicates = replicates)
-  bootGAM.MALES <- bootBW(x = x[x$sex1 == 1, ], w = w, statistic = gam.stat,
-                          params = params, outputColumns = params,
-                          replicates = replicates)
-  bootGAM.FEMALES <- bootBW(x = x[x$sex2 == 1, ], w = w, statistic = gam.stat,
-                            params = params, outputColumns = params,
-                            replicates = replicates)
-  names(bootGAM.ALL) <- names(bootGAM.MALES) <- names(bootGAM.FEMALES) <- "GAM"
-  #
-  # Blocking weighted bootstrap (SAM)
-  #
-  bootSAM.ALL <- bootBW(x = x, w = w, statistic = sam.stat,
-                        params = params, outputColumns = params,
+  ## Blocking weighted bootstrap (GAM) - ALL
+  bootGAM.ALL <- bbw::bootBW(x = x,
+                             w = w,
+                             statistic = gam.stat,
+                             params = params,
+                             outputColumns = params,
+                             replicates = replicates)
+
+  ## Blocking weighted bootstrap (GAM) - MALES
+  bootGAM.MALES <- bbw::bootBW(x = x[x$sex1 == 1, ],
+                               w = w,
+                               statistic = gam.stat,
+                               params = params,
+                               outputColumns = params,
+                               replicates = replicates)
+
+  ## Blocking weighted bootstrap (GAM) - FEMALES
+  bootGAM.FEMALES <- bbw::bootBW(x = x[x$sex2 == 1, ],
+                                 w = w,
+                                 statistic = gam.stat,
+                                 params = params,
+                                 outputColumns = params,
                                  replicates = replicates)
-  bootSAM.MALES <- bootBW(x = x[x$sex1 ==1, ], w = w, statistic = sam.stat,
-                          params = params, outputColumns = params,
-                          replicates = replicates)
-  bootSAM.FEMALES <- bootBW(x = x[x$sex2 ==1, ], w = w, statistic = sam.stat,
-                            params = params, outputColumns = params,
-                            replicates = replicates)
+
+  ## Rename results
+  names(bootGAM.ALL) <- names(bootGAM.MALES) <- names(bootGAM.FEMALES) <- "GAM"
+
+  ## Blocking weighted bootstrap (SAM) - ALL
+  bootSAM.ALL <- bbw::bootBW(x = x,
+                             w = w,
+                             statistic = sam.stat,
+                             params = params,
+                             outputColumns = params,
+                             replicates = replicates)
+
+  ## Blocking weighted bootstrap (SAM) - MALES
+  bootSAM.MALES <- bbw::bootBW(x = x[x$sex1 ==1, ],
+                               w = w,
+                               statistic = sam.stat,
+                               params = params,
+                               outputColumns = params,
+                               replicates = replicates)
+
+  ## Blocking weighted bootstrap (SAM) - FEMALES
+  bootSAM.FEMALES <- bbw::bootBW(x = x[x$sex2 ==1, ],
+                                 w = w,
+                                 statistic = sam.stat,
+                                 params = params,
+                                 outputColumns = params,
+                                 replicates = replicates)
+
+  ## Rename results
   names(bootSAM.ALL) <- names(bootSAM.MALES) <- names(bootSAM.FEMALES) <- "SAM"
-  #
-  # MAM is GAM - SAM
-  #
+
+  ## MAM is GAM - SAM
   bootMAM.ALL <- bootGAM.ALL - bootSAM.ALL
   bootMAM.MALES <- bootGAM.MALES - bootSAM.MALES
   bootMAM.FEMALES <- bootGAM.FEMALES - bootSAM.FEMALES
   names(bootMAM.ALL) <- names(bootMAM.MALES) <- names(bootMAM.FEMALES) <- "MAM"
-  #
-  # Fix for MAM < 0 (may occur if bootstrap GAM < bootstrap SAM)
-  #
+
+  ## Fix for MAM < 0 (may occur if bootstrap GAM < bootstrap SAM)
   bootMAM.ALL$MAM[bootMAM.ALL$MAM < 0] <- 0
   bootMAM.MALES$MAM[bootMAM.MALES$MAM < 0] <- 0
   bootMAM.FEMALES$MAM[bootMAM.FEMALES$MAM < 0] <- 0
-  #
-  # Combine 'bootGAM.*', 'bootMAM.*', and 'booSAM.*' data.frames (ALL, MALES, FEMALES)
-  #
+
+  ## Combine 'bootGAM.*', 'bootMAM.*', and 'bootSAM.*'
+  ## data.frames (ALL, MALES, FEMALES)
   boot.ALL <- data.frame(bootGAM.ALL, bootMAM.ALL, bootSAM.ALL)
   boot.MALES <- data.frame(bootGAM.MALES, bootMAM.MALES, bootSAM.MALES)
   boot.FEMALES <- data.frame(bootGAM.FEMALES, bootMAM.FEMALES, bootSAM.FEMALES)
-  rm(bootGAM.ALL, bootMAM.ALL, bootSAM.ALL, bootGAM.MALES, bootMAM.MALES, bootSAM.MALES, bootGAM.FEMALES, bootMAM.FEMALES, bootSAM.FEMALES)
-  #
-  # Extract estimates from 'boot.*' data.frames
-  #
-  estimates.ALL <- data.frame(t(apply(boot.ALL, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  estimates.MALES <- data.frame(t(apply(boot.MALES, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  estimates.FEMALES <- data.frame(t(apply(boot.FEMALES, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  #
-  # Join 'estimates.*' data.frames side-by-side
-  #
-  probitEstimates <- data.frame(estimates.ALL, estimates.MALES, estimates.FEMALES)
-  #
-  # Clean-up row and column names
-  #
+
+  ## Clean-up
+  rm(bootGAM.ALL, bootMAM.ALL, bootSAM.ALL,
+     bootGAM.MALES, bootMAM.MALES, bootSAM.MALES,
+     bootGAM.FEMALES, bootMAM.FEMALES, bootSAM.FEMALES)
+
+  ## Extract estimates from 'boot.ALL' data.frames
+  estimates.ALL <- data.frame(
+    t(apply(X = boot.ALL,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Extract estimates from 'boot.MALES' data.frames
+  estimates.MALES <- data.frame(
+    t(apply(X = boot.MALES,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Extract estimates from 'boot.FEMALES' data.frames
+  estimates.FEMALES <- data.frame(
+    t(apply(X = boot.FEMALES,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Join 'estimates.*' data.frames side-by-side
+  probitEstimates <- data.frame(estimates.ALL,
+                                estimates.MALES,
+                                estimates.FEMALES)
+
+  ## Clean-up row and column names
   probitEstimates$indicator <- row.names(probitEstimates)
   row.names(probitEstimates) <- NULL
   names(probitEstimates) <- c("LCL.ALL", "EST.ALL", "UCL.ALL",
                               "LCL.MALES", "EST.MALES", "UCL.MALES",
                               "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                               "INDICATOR")
+
+  ## Return probitEstimates
   return(probitEstimates)
 }

@@ -11,7 +11,9 @@
 #' @return Pyramid plot
 #'
 #' @examples
-#'   #
+#' \dontrun{
+#'   pyramid.plot(x = testSVY, g = "sex")
+#' }
 #'
 #' @export
 #'

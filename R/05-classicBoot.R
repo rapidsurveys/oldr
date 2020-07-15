@@ -44,48 +44,64 @@ estimateClassic  <- function(x, w, statistic = bootClassic,
                                             "income", "wash", "visual", "misc"),
                              params = get_variables(indicators),
                              outputColumns = params, replicates = 399) {
-  #
-  #
-  #
-  boot.MALES <- bootBW(x = x[x$sex1 == 1, ],
-                       w = w,
-                       statistic = statistic,
-                       params = params,
-                       outputColumns = outputColumns,
-                       replicates = replicates)
-  estimates.MALES <- data.frame(t(apply(boot.MALES, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  #
-  #
-  #
-  boot.FEMALES <- bootBW(x = x[x$sex2 == 1, ],
-                         w = w,
-                         statistic = statistic,
-                         params = params,
-                         outputColumns = outputColumns,
-                         replicates = replicates)
-  estimates.FEMALES <- data.frame(t(apply(boot.FEMALES, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  #
-  #
-  #
-  boot.ALL <- bootBW(x = x,
-                    w = w,
-                    statistic = statistic,
-                    params = params,
-                    outputColumns = outputColumns,
-                    replicates = replicates)
-  estimates.ALL <- data.frame(t(apply(boot.ALL, 2, quantile, probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
-  #
-  #
-  #
-  classicEstimates <- data.frame(estimates.ALL, estimates.MALES, estimates.FEMALES)
+  ## Bootstrap for male values
+  boot.MALES <- bbw::bootBW(x = x[x$sex1 == 1, ],
+                            w = w,
+                            statistic = statistic,
+                            params = params,
+                            outputColumns = outputColumns,
+                            replicates = replicates)
+
+  ## Get estimates from boot
+  estimates.MALES <- data.frame(
+    t(apply(X = boot.MALES,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Bootstrap for female values
+  boot.FEMALES <- bbw::bootBW(x = x[x$sex2 == 1, ],
+                              w = w,
+                              statistic = statistic,
+                              params = params,
+                              outputColumns = outputColumns,
+                              replicates = replicates)
+
+  ## Get estimates from boot
+  estimates.FEMALES <- data.frame(
+    t(apply(X = boot.FEMALES,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Bootstrap for all values
+  boot.ALL <- bbw::bootBW(x = x,
+                          w = w,
+                          statistic = statistic,
+                          params = params,
+                          outputColumns = outputColumns,
+                          replicates = replicates)
+
+  ## Get estimates from boot
+  estimates.ALL <- data.frame(
+    t(apply(X = boot.ALL,
+            MARGIN = 2,
+            FUN = quantile,
+            probs = c(0.025, 0.5, 0.975), na.rm = TRUE)))
+
+  ## Concatenate results
+  classicEstimates <- data.frame(estimates.ALL,
+                                 estimates.MALES,
+                                 estimates.FEMALES)
+
+  ## Clean-up column and row names
   classicEstimates$indicator <- row.names(classicEstimates)
   row.names(classicEstimates) <- NULL
   names(classicEstimates) <- c("LCL.ALL", "EST.ALL", "UCL.ALL",
                                "LCL.MALES", "EST.MALES", "UCL.MALES",
                                "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                                "INDICATOR")
-  #
-  #
-  #
+
+  ## Return results
   return(classicEstimates)
 }
