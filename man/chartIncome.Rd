@@ -24,5 +24,5 @@ Chart income indicators
   # dataset
   chartIncome(x.male = indicators.MALES,
               x.female = indicators.FEMALES,
-              filename = "TEST")
+              filename = paste(tempdir(), "TEST", sep = "/"))
 }

@@ -20,5 +20,5 @@ Chart disability (Washington Group - WG) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartWG(x = indicators.ALL, filename = "TEST")
+  chartWG(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

@@ -20,5 +20,5 @@ Distribution of MUAC (overall and by sex)
 }
 \examples{
   # Create MUAC histogram using \code{indicators.ALL} dataset
-  chartMUAC(x = indicators.ALL, filename = "TEST")
+  chartMUAC(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

@@ -20,5 +20,5 @@ Distribution of DDS (overall and by sex)
 }
 \examples{
   # Create DDS chart using \code{indicators.ALL} dataset
-  chartDDS(x = indicators.ALL, filename = "TEST")
+  chartDDS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

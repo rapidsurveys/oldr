@@ -19,5 +19,5 @@ Chart dementia screen (CSID) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartCSID(x = indicators.ALL, filename = "TEST")
+  chartCSID(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

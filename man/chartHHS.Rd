@@ -19,5 +19,5 @@ Chart household hunger scale (HHS) indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartHHS(x = indicators.ALL, filename = "TEST")
+  chartHHS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

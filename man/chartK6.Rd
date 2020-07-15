@@ -20,5 +20,5 @@ Distribution of K6 (overall and by sex)
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartK6(x = indicators.ALL, filename = "TEST")
+  chartK6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

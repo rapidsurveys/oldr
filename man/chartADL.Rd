@@ -19,5 +19,5 @@ Distribution of ADL (overall and by sex)
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartADL(x = indicators.ALL, filename = "TEST")
+  chartADL(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }
