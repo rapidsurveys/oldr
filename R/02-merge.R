@@ -27,7 +27,7 @@ mergeEstimates <- function(x, y) {
   #
   temp <- subset(language, subset = INDICATOR %in% estimates$INDICATOR)
 
-  temp$originalOrder <- 1:nrow(estimates)
+  temp$originalOrder <- seq_len(nrow(estimates))
 
   estimates <- merge(estimates, temp, by = "INDICATOR")
   estimates <- estimates[order(estimates$originalOrder), ]

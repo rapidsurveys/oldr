@@ -14,8 +14,10 @@
 #' @importFrom bbw bootBW bootClassic bootPROBIT
 #' @importFrom car powerTransform
 #' @importFrom car bcPower
+#' @importFrom withr with_par with_output_sink with_options
 #'
-#'
+#
+################################################################################
 "_PACKAGE"
 
 ## quiets concerns of R CMD check re: globalVariables
