@@ -1,110 +1,110 @@
 library(oldr)
 context("Tests for charts")
 
-test <- chartAge(x = indicators.ALL, filename = "TEST")
+test <- chartAge(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.AgeBySex.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.AgeBySex.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartMUAC(x = indicators.ALL, filename = "TEST")
+test <- chartMUAC(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.MUAC.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.MUAC.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartMF(x = indicators.ALL, filename = "TEST")
+test <- chartMF(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.MF.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.MF.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartDDS(x = indicators.ALL, filename = "TEST")
+test <- chartDDS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.DDS.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.DDS.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartK6(x = indicators.ALL, filename = "TEST")
+test <- chartK6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.K6.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.K6.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartADL(x = indicators.ALL, filename = "TEST")
+test <- chartADL(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.ADL.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.ADL.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartWASH(x = indicators.ALL, filename = "TEST")
+test <- chartWASH(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.WASH.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.WASH.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartCSID(x = indicators.ALL, filename = "TEST")
+test <- chartCSID(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.dementia.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.dementia.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartWG(x = indicators.ALL, filename = "TEST")
+test <- chartWG(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.disability.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.disability.png", sep = "/")))
 })
 
 test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartHHS(x = indicators.ALL, filename = "TEST")
+test <- chartHHS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.HHS.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.HHS.png", sep = "/")))
 })
 
 test_that("is integer", {
@@ -113,11 +113,11 @@ test_that("is integer", {
 
 test <- chartIncome(x.male = indicators.MALES,
                     x.female = indicators.FEMALES,
-                    filename = "TEST")
+                    filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists("TEST.Incomes.png"))
+  expect_true(file.exists(paste(tempdir(), "TEST.Incomes.png", sep = "/")))
 })
 
 test_that("is integer", {

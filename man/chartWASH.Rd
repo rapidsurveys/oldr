@@ -19,5 +19,5 @@ Chart WASH indicators
 }
 \examples{
   # Create chart using \code{indicators.ALL} dataset
-  chartWASH(x = indicators.ALL, filename = "TEST")
+  chartWASH(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

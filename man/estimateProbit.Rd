@@ -15,11 +15,12 @@ estimateProbit(
 )
 }
 \arguments{
-\item{x}{Indicators dataset produced by createOP with primary sampling unit (PSU)
-in column named \code{PSU}}
+\item{x}{Indicators dataset produced by createOP with primary sampling unit
+(PSU) in column named \code{PSU}}
 
-\item{w}{A data frame with primary sampling unit (PSU) in column named \code{psu}
-and survey weight (i.e. PSU population) in column named \code{pop}}
+\item{w}{A data frame with primary sampling unit (PSU) in column named
+\code{psu} and survey weight (i.e. PSU population) in column named
+\code{pop}}
 
 \item{gam.stat}{A function operating on data in \code{x} to estimate
 GAM prevalence for older people. Fixed to \code{probit_gam}}
@@ -31,7 +32,8 @@ SAM prevalence for older people. Fixed to \code{probit_sam}}
 specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
 to probit estimation}
 
-\item{outputColumns}{Names of columns in output data frame; fixed to \code{MUAC}}
+\item{outputColumns}{Names of columns in output data frame; fixed to
+\code{MUAC}}
 
 \item{replicates}{Number of bootstrap replicate
 case and non-case}
@@ -49,4 +51,5 @@ Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
                          replicates = 9)
 
   test
+
 }

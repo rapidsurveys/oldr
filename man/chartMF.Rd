@@ -20,5 +20,5 @@ Distribution of meal frequency (overall and by sex)
 }
 \examples{
   # Create meal frequency chart using \code{indicators.ALL} dataset
-  chartMF(x = indicators.ALL, filename = "TEST")
+  chartMF(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 }

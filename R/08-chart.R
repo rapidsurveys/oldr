@@ -10,7 +10,7 @@
 #'
 #' @examples
 #'   # Create age by sex pyramid plot using \code{indicators.ALL} dataset
-#'   chartAge(x = indicators.ALL, filename = "TEST")
+#'   chartAge(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #'
 #' @export
 #'
@@ -62,7 +62,7 @@ chartAge <- function(x, filename) {
 #'     working directory
 #' @examples
 #'   # Create MUAC histogram using \code{indicators.ALL} dataset
-#'   chartMUAC(x = indicators.ALL, filename = "TEST")
+#'   chartMUAC(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -116,7 +116,7 @@ chartMUAC <- function(x, filename) {
 #'     directory
 #' @examples
 #'   # Create meal frequency chart using \code{indicators.ALL} dataset
-#'   chartMF(x = indicators.ALL, filename = "TEST")
+#'   chartMF(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -173,7 +173,7 @@ chartMF <- function(x, filename) {
 #'     working directory
 #' @examples
 #'   # Create DDS chart using \code{indicators.ALL} dataset
-#'   chartDDS(x = indicators.ALL, filename = "TEST")
+#'   chartDDS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -231,7 +231,7 @@ chartDDS <- function(x, filename) {
 #'     working directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartK6(x = indicators.ALL, filename = "TEST")
+#'   chartK6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -281,7 +281,7 @@ chartK6 <- function(x, filename) {
 #' @return Bar plot of ADL in PNG format saved in current working directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartADL(x = indicators.ALL, filename = "TEST")
+#'   chartADL(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -332,7 +332,7 @@ chartADL <- function(x, filename) {
 #' @return Bar plot of ADL in PNG format saved in current working directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartWASH(x = indicators.ALL, filename = "TEST")
+#'   chartWASH(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -406,7 +406,7 @@ chartWASH <- function(x, filename) {
 #' @return Bar plot of CSID in PNG format saved in current working directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartCSID(x = indicators.ALL, filename = "TEST")
+#'   chartCSID(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -445,7 +445,7 @@ chartCSID <- function(x, filename) {
 #'     directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartWG(x = indicators.ALL, filename = "TEST")
+#'   chartWG(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -489,7 +489,7 @@ chartWG <- function(x, filename) {
 #' @return Bar plot of HHS in PNG format saved in current working directory
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartHHS(x = indicators.ALL, filename = "TEST")
+#'   chartHHS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
@@ -534,7 +534,7 @@ chartHHS <- function(x, filename) {
 #'   # dataset
 #'   chartIncome(x.male = indicators.MALES,
 #'               x.female = indicators.FEMALES,
-#'               filename = "TEST")
+#'               filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
