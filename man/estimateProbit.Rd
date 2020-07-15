@@ -48,7 +48,7 @@ Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
   #
   test <- estimateProbit(x = indicators.ALL,
                          w = testPSU,
-                         replicates = 9)
+                         replicates = 3)
 
   test
 

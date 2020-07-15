@@ -30,6 +30,8 @@ Pyramid plot
 Function to create a pyramid plot
 }
 \examples{
-  #
+\dontrun{
+  pyramid.plot(x = testSVY, g = "sex")
+}
 
 }
