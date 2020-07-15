@@ -12,8 +12,7 @@
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png
 #' @importFrom bbw bootBW bootClassic bootPROBIT
-#' @importFrom car powerTransform
-#' @importFrom car bcPower
+#' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
 #'
 #

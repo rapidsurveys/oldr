@@ -252,7 +252,8 @@ create_op_food <- function(svy) {
   #
   #  Protein rich foods in diet from aminal, plant, and all sources
   #
-  aProtein <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q ==1 | svy$f2n == 1 | svy$f2a == 1 | svy$f2m == 1, 1, 0)
+  aProtein <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q ==1 | svy$f2n == 1 |
+                       svy$f2a == 1 | svy$f2m == 1, 1, 0)
   pProtein <- ifelse(svy$f2h == 1 | svy$f2p == 1, 1, 0)
   proteinRich <- ifelse(aProtein == 1 | pProtein == 1, 1, 0)
   #
@@ -263,15 +264,21 @@ create_op_food <- function(svy) {
   xVitA    <- ifelse(pVitA == 1 | aVitA == 1, 1, 0)
   ironRich <- ifelse(svy$f2f == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
   caRich   <- ifelse(svy$f2a == 1 | svy$f2m == 1, 1, 0)
-  znRich   <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2p == 1 | svy$f2q == 1, 1, 0)
+  znRich   <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 |
+                       svy$f2l == 1 | svy$f2p == 1 | svy$f2q == 1, 1, 0)
   #
   #  Micronutrient intake (B vitamins)
   #
-  vitB1  <- ifelse(svy$f2a == 1 | svy$f2e == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1 | svy$f2p == 1, 1, 0)
-  vitB2  <- ifelse(svy$f2a == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1, 1, 0)
+  vitB1  <- ifelse(svy$f2a == 1 | svy$f2e == 1 | svy$f2h == 1 | svy$f2j == 1 |
+                     svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1 |
+                     svy$f2p == 1, 1, 0)
+  vitB2  <- ifelse(svy$f2a == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2j == 1 |
+                     svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1, 1, 0)
   vitB3  <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
-  vitB6  <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2i == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
-  vitB12 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1, 1, 0)
+  vitB6  <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2i == 1 |
+                     svy$f2k == 1 | svy$f2l == 1, 1, 0)
+  vitB12 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 |
+                     svy$f2n == 1, 1, 0)
   vitBsources <- vitB1 + vitB2 + vitB3 + vitB6 + vitB12
   vitBcomplex <- ifelse(vitBsources == 5, 1, 0)
   ##
@@ -739,11 +746,16 @@ create_op_disability <- function(svy) {
   #
   # Overall prevalence
   #
-  wgP0 <- ifelse(wgVisionD0 + wgHearingD0 + wgMobilityD0 + wgRememberingD0 + wgSelfCareD0 + wgCommunicatingD0 == 6, 1, 0)
-  wgP1 <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  0, 1, 0)
-  wgP2 <- ifelse(wgVisionD2 + wgHearingD2 + wgMobilityD2 + wgRememberingD2 + wgSelfCareD2 + wgCommunicatingD2 >  0, 1, 0)
-  wgP3 <- ifelse(wgVisionD3 + wgHearingD3 + wgMobilityD3 + wgRememberingD3 + wgSelfCareD3 + wgCommunicatingD3 >  0, 1, 0)
-  wgPM <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  1, 1, 0)
+  wgP0 <- ifelse(wgVisionD0 + wgHearingD0 + wgMobilityD0 + wgRememberingD0 +
+                   wgSelfCareD0 + wgCommunicatingD0 == 6, 1, 0)
+  wgP1 <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 +
+                   wgSelfCareD1 + wgCommunicatingD1 >  0, 1, 0)
+  wgP2 <- ifelse(wgVisionD2 + wgHearingD2 + wgMobilityD2 + wgRememberingD2 +
+                   wgSelfCareD2 + wgCommunicatingD2 >  0, 1, 0)
+  wgP3 <- ifelse(wgVisionD3 + wgHearingD3 + wgMobilityD3 + wgRememberingD3 +
+                   wgSelfCareD3 + wgCommunicatingD3 >  0, 1, 0)
+  wgPM <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 +
+                   wgSelfCareD1 + wgCommunicatingD1 >  1, 1, 0)
   #
   disability.indicators.ALL <- data.frame(psu, sex1, sex2,
                                           wgVisionD0, wgVisionD1, wgVisionD2,
@@ -2492,7 +2504,8 @@ createOP <- function(svy) {
   #
   #  Protein rich foods in diet from aminal, plant, and all sources
   #
-  aProtein <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q ==1 | svy$f2n == 1 | svy$f2a == 1 | svy$f2m == 1, 1, 0)
+  aProtein <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2q ==1 | svy$f2n == 1 |
+                       svy$f2a == 1 | svy$f2m == 1, 1, 0)
   pProtein <- ifelse(svy$f2h == 1 | svy$f2p == 1, 1, 0)
   proteinRich <- ifelse(aProtein == 1 | pProtein == 1, 1, 0)
   #
@@ -2503,15 +2516,21 @@ createOP <- function(svy) {
   xVitA    <- ifelse(pVitA == 1 | aVitA == 1, 1, 0)
   ironRich <- ifelse(svy$f2f == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
   caRich   <- ifelse(svy$f2a == 1 | svy$f2m == 1, 1, 0)
-  znRich   <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2p == 1 | svy$f2q == 1, 1, 0)
+  znRich   <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 |
+                       svy$f2p == 1 | svy$f2q == 1, 1, 0)
   #
   #  Micronutrient intake (B vitamins)
   #
-  vitB1  <- ifelse(svy$f2a == 1 | svy$f2e == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1 | svy$f2p == 1, 1, 0)
-  vitB2  <- ifelse(svy$f2a == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1, 1, 0)
+  vitB1  <- ifelse(svy$f2a == 1 | svy$f2e == 1 | svy$f2h == 1 | svy$f2j == 1 |
+                     svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1 |
+                     svy$f2p == 1, 1, 0)
+  vitB2  <- ifelse(svy$f2a == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2j == 1 |
+                     svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1, 1, 0)
   vitB3  <- ifelse(svy$f2h == 1 | svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
-  vitB6  <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2i == 1 | svy$f2k == 1 | svy$f2l == 1, 1, 0)
-  vitB12 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 | svy$f2n == 1, 1, 0)
+  vitB6  <- ifelse(svy$f2d == 1 | svy$f2f == 1 | svy$f2h == 1 | svy$f2i == 1 |
+                     svy$f2k == 1 | svy$f2l == 1, 1, 0)
+  vitB12 <- ifelse(svy$f2j == 1 | svy$f2k == 1 | svy$f2l == 1 | svy$f2m == 1 |
+                     svy$f2n == 1, 1, 0)
   vitBsources <- vitB1 + vitB2 + vitB3 + vitB6 + vitB12
   vitBcomplex <- ifelse(vitBsources == 5, 1, 0)
   #
@@ -2822,11 +2841,16 @@ createOP <- function(svy) {
   #
   # Overall prevalence
   #
-  wgP0 <- ifelse(wgVisionD0 + wgHearingD0 + wgMobilityD0 + wgRememberingD0 + wgSelfCareD0 + wgCommunicatingD0 == 6, 1, 0)
-  wgP1 <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  0, 1, 0)
-  wgP2 <- ifelse(wgVisionD2 + wgHearingD2 + wgMobilityD2 + wgRememberingD2 + wgSelfCareD2 + wgCommunicatingD2 >  0, 1, 0)
-  wgP3 <- ifelse(wgVisionD3 + wgHearingD3 + wgMobilityD3 + wgRememberingD3 + wgSelfCareD3 + wgCommunicatingD3 >  0, 1, 0)
-  wgPM <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 + wgSelfCareD1 + wgCommunicatingD1 >  1, 1, 0)
+  wgP0 <- ifelse(wgVisionD0 + wgHearingD0 + wgMobilityD0 + wgRememberingD0 +
+                   wgSelfCareD0 + wgCommunicatingD0 == 6, 1, 0)
+  wgP1 <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 +
+                   wgSelfCareD1 + wgCommunicatingD1 >  0, 1, 0)
+  wgP2 <- ifelse(wgVisionD2 + wgHearingD2 + wgMobilityD2 + wgRememberingD2 +
+                   wgSelfCareD2 + wgCommunicatingD2 >  0, 1, 0)
+  wgP3 <- ifelse(wgVisionD3 + wgHearingD3 + wgMobilityD3 + wgRememberingD3 +
+                   wgSelfCareD3 + wgCommunicatingD3 >  0, 1, 0)
+  wgPM <- ifelse(wgVisionD1 + wgHearingD1 + wgMobilityD1 + wgRememberingD1 +
+                   wgSelfCareD1 + wgCommunicatingD1 >  1, 1, 0)
   #
   ##############################################################################
   #
