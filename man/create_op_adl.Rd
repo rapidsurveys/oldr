@@ -25,15 +25,15 @@ The Katz ADL score is described in:
 \cite{Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
 of illness in the aged. The Index of ADL: a standardized measure of
 biological and psychosocial function. JAMA, 1963, 185(12):914-9
-\url{doi:10.1001/jama.1963.03060120024016}}
+\url{https://doi:10.1001/jama.1963.03060120024016}}
 
 \cite{Katz S, Down TD, Cash HR, Grotz, RC (1970). Progress in the development
 of the index of ADL. The Gerontologist, 10(1), 20-30
-\url{doi:10.1093/geront/10.4_Part_1.274}}
+\url{https://doi:10.1093/geront/10.4_Part_1.274}}
 
 \cite{Katz S (1983). Assessing self-maintenance: Activities of daily living,
 mobility and instrumental activities of daily living. JAGS, 31(12),
-721-726 \url{doi:10.1111/j.1532-5415.1983.tb03391.x}}
+721-726 \url{https://doi:10.1111/j.1532-5415.1983.tb03391.x}}
 
 \describe{
 \item{\code{ADL01}}{Bathing}
