@@ -3,7 +3,7 @@ pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   oldr: oldr.html
-last_built: 2020-07-16T07:47Z
+last_built: 2020-07-16T09:29Z
 urls:
   reference: https://rapidsurveys.io/oldr/reference
   article: https://rapidsurveys.io/oldr/articles
