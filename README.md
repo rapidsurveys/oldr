@@ -16,6 +16,7 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/rapidsurveys/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/rapidsurveys/oldr)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
+[![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
 <!-- Badges end here-->
 
 [HelpAge International](http://www.helpage.org), [VALID
