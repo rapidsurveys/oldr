@@ -2,9 +2,10 @@ Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People in R
 Version: 0.1.0
 Authors@R: c(
-    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
+    person("Mark", "Myatt", comment = c(ORCID = "0000-0003-1119-1474"),
+           email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", comment = c(ORCID = "0000-0002-4887-4415"), 
-                  email = "ernest@guevarra.io", role = c("aut", "cre")),
+           email = "ernest@guevarra.io", role = c("aut", "cre")),
     person("Pascale", "Fritsch", role = "aut"),
     person("Katja", "Siling", role = "aut"))
 Description: An implementaiton of the Rapid Assessment Method for Older People
@@ -25,11 +26,12 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    covr
 Encoding: UTF-8
 LazyData: true
 Language: en-gb
 RoxygenNote: 7.1.1
-URL: https://github.com/rapidsurveys/oldr/issues
+URL: https://github.com/rapidsurveys/oldr, https://rapidsurveys.io/oldr
 BugReports: https://github.com/rapidsurveys/oldr/issues
 VignetteBuilder: knitr
