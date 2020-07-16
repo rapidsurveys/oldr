@@ -26,7 +26,7 @@ The CSID dementia screening tool is described in:
 by non-specialists in resource poor settings - The cross-cultural
 derivation and validation of the brief Community Screening Instrument
 for Dementia. International Journal of Geriatric Psychiatry, 26(9),
-899–907 \url{https://doi:10.1002/gps.2622}}
+899–907 \doi{10.1002/gps.2622}}
 
 \describe{
 \item{\code{DS}}{Probable dementia by CSID screen}

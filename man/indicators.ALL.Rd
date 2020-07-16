@@ -178,6 +178,5 @@ conducted in Addis Ababa, Ethiopia in early 2014
 \examples{
 indicators.ALL
 
-
 }
-\keyword{datasets}
+\keyword{dataset}

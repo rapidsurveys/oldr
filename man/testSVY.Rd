@@ -169,6 +169,5 @@ in early 2014
 \examples{
 testSVY
 
-
 }
-\keyword{datasets}
+\keyword{dataset}

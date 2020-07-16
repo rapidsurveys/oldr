@@ -26,4 +26,4 @@ variables
 testPSU
 
 }
-\keyword{datasets}
+\keyword{dataset}
