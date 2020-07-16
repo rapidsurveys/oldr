@@ -8,7 +8,7 @@ Authors@R: c(
            email = "ernest@guevarra.io", role = c("aut", "cre")),
     person("Pascale", "Fritsch", role = "aut"),
     person("Katja", "Siling", role = "aut"))
-Description: An implementaiton of the Rapid Assessment Method for Older People
+Description: An implementation of the Rapid Assessment Method for Older People
     (RAM-OP). RAM-OP was developed by HelpAge International, Valid International, 
     and Brixton Health, with financial assistance from the Humanitarian 
     Innovation Fund (HIF). It provides various functions that allow the user to
