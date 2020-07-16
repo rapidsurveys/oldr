@@ -198,6 +198,9 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' @examples
 #' testSVY
 #'
+#' @docType data
+#' @keywords dataset
+#'
 #'
 "testSVY"
 
@@ -221,6 +224,10 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #'
 #' @examples
 #' testPSU
+#'
+#' @docType data
+#' @keywords dataset
+#'
 #'
 "testPSU"
 
@@ -397,6 +404,9 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #'
 #' @examples
 #' indicators.ALL
+#'
+#' @docType data
+#' @keywords dataset
 #'
 #'
 "indicators.ALL"
@@ -576,6 +586,10 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' @examples
 #' indicators.FEMALES
 #'
+#' @docType data
+#' @keywords dataset
+#'
+#
 "indicators.FEMALES"
 
 
@@ -753,4 +767,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
 #' @examples
 #' indicators.MALES
 #'
+#' @docType data
+#' @keywords dataset
+#'
+#
 "indicators.MALES"
