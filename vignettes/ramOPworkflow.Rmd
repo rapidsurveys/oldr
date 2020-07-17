@@ -1,0 +1,98 @@
+---
+title: "The RAM-OP Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The RAM-OP Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo = FALSE, eval = TRUE}
+library(oldr)
+library(DiagrammeR)
+library(dplyr)
+```
+
+```{r ramOPworkflow, echo = FALSE, eval = TRUE}
+DiagrammeR::grViz("
+  digraph oxcovid19 {
+
+    # a 'graph' statement
+    graph [overlap = false, fontsize = 12, fontname = Helvetica]
+
+    # Terminal nodes
+    node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]
+        
+    a [label = '@@1'; color = darkgreen; fontcolor = darkgreen];
+    h [label = '@@8'; color = crimson; fontcolor = crimson];
+
+    # Input/output nodes
+    node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, penwidth = 2, color = royalblue1, fontcolor = royalblue1]
+    
+    b [label = '@@2'];
+
+    # Process nodes
+    node [shape = rect]
+  
+    d [label = '@@4'];
+    f [label = '@@6'];
+
+    # Package nodes
+    node [shape = oval, fixedsize = TRUE, width = 2, penwidth = 2, fontsize = 10, fontname = Courier, color = darkviolet, fontcolor = darkviolet]
+    
+    c [label = '@@3';];
+    e [label = '@@5'];
+    g [label = '@@7'];
+
+    edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]
+    
+    a -> b
+    b -> d
+    d -> f
+    f -> h
+
+    edge [minlen = 3]
+
+    b -> c
+    c -> b
+    d -> e
+    e -> d
+    f -> g
+    g -> f
+
+    subgraph {
+      rank = same; b; c;
+    }
+
+    subgraph {
+      rank = same; d; e;
+    }
+
+    subgraph {
+      rank = same; f; g;
+    }
+
+  }
+
+    [1]: 'START'
+    [2]: 'Step 1:\\nConnect\\nto server'
+    [3]: 'oxcovid19\\nconnect_oxcovid19()'
+    [4]: 'Step 2:\\nRetrieve\\ntable'
+    [5]: 'oxcovid19\\nget_table; get_layer'
+    [6]: 'Step 3:\\nQuery\\ntable'
+    [7]: 'dplyr - filter; select\\nsf - st_read'
+    [8]: 'END'
+"
+  
+)
+```
