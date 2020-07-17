@@ -25,7 +25,7 @@ The K6 score is described in:
 \cite{Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
 et al. (2002). Short screening scales to monitor population prevalences
 and trends in non-specific psychological distress. Psychological
-Medicine, 32(6), 959–976 \url{doi:10.1017/S0033291702006074}}
+Medicine, 32(6), 959–976 \doi{10.1017/S0033291702006074}}
 
 \describe{
 \item{\code{K6}}{K6 score}

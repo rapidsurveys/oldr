@@ -13,3 +13,5 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^docs$
+^codecov\.yml$
+^cran-comments\.md$

@@ -12,7 +12,8 @@ See the README at
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/rapidsurveys/oldr/issues}
+  \item \url{https://github.com/rapidsurveys/oldr}
+  \item \url{https://rapidsurveys.io/oldr}
   \item Report bugs at \url{https://github.com/rapidsurveys/oldr/issues}
 }
 
@@ -22,7 +23,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Mark Myatt \email{mark@brixtonhealth.com}
+  \item Mark Myatt \email{mark@brixtonhealth.com} (\href{https://orcid.org/0000-0003-1119-1474}{ORCID})
   \item Pascale Fritsch
   \item Katja Siling
 }
