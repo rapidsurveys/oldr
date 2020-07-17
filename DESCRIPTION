@@ -9,14 +9,13 @@ Authors@R: c(
     person("Pascale", "Fritsch", role = "aut"),
     person("Katja", "Siling", role = "aut"))
 Description: An implementation of the Rapid Assessment Method for Older People
-    (RAM-OP). RAM-OP was developed by HelpAge International, Valid International, 
-    and Brixton Health, with financial assistance from the Humanitarian 
-    Innovation Fund (HIF). It provides various functions that allow the user to
-    design and plan the assessment and analyse the collected data. RAM-OP
-    provides accurate and reliable estimates of the needs of older people. 
-    The method uses simple procedures, in a short time frame (i.e. about two 
-    weeks including training, data collection, data entry, and data analysis), 
-    and at considerably lower cost than other methods.
+    or RAM-OP <https://www.helpage.org/what-we-do/emergencies/ramop-rapid-assessment-method-for-older-people/>. 
+    It provides various functions that allow the user to design and plan the 
+    assessment and analyse the collected data. RAM-OP provides accurate and 
+    reliable estimates of the needs of older people. The method uses simple 
+    procedures, in a short time frame (i.e. about two weeks including training, 
+    data collection, data entry, and data analysis), and at considerably lower 
+    cost than other methods.
 License: GPL-3
 Depends: R (>= 3.0.1)
 Imports: 
