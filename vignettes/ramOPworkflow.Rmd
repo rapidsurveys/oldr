@@ -38,14 +38,14 @@ DiagrammeR::grViz("
     node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]
         
     a [label = '@@1'; color = darkgreen; fontcolor = darkgreen];
-    l [label = '@@12'; color = crimson; fontcolor = crimson];
+    n [label = '@@14'; color = crimson; fontcolor = crimson];
 
     # Input/output nodes
     node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, 
           penwidth = 2, color = royalblue1, fontcolor = royalblue1]
     
     b [label = '@@2'];
-    j [label = '@@10']
+    l [label = '@@12']
 
     # Process nodes
     node [shape = rect]
@@ -53,6 +53,7 @@ DiagrammeR::grViz("
     d [label = '@@4'];
     g [label = '@@7'];
     h [label = '@@8'];
+    j [label = '@@10'];
 
     # Package nodes
     node [shape = oval, fixedsize = TRUE, width = 2.5, penwidth = 2, 
@@ -64,6 +65,7 @@ DiagrammeR::grViz("
     f [label = '@@6'];
     i [label = '@@9'];
     k [label = '@@11'];
+    m [label = '@@13'];
 
     edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]
     
@@ -74,6 +76,7 @@ DiagrammeR::grViz("
     g -> j
     h -> j
     j -> l
+    l -> n
 
     edge [minlen = 3]
 
@@ -87,6 +90,8 @@ DiagrammeR::grViz("
     i -> h
     j -> k
     k -> j
+    l -> m
+    m -> l
 
     subgraph {
       rank = same; b; c;
@@ -103,6 +108,10 @@ DiagrammeR::grViz("
     subgraph {
       rank = same; j; k
     }
+    
+    subgraph {
+      rank = same; l; m;
+    }
 
   }
 
@@ -115,9 +124,11 @@ DiagrammeR::grViz("
     [7]: 'Estimate\\nindicators'
     [8]: 'Estimate\\nanthropometric\\nindicators'
     [9]: 'estimateProbit'
-    [10]: 'Report\\nestimates'
-    [11]: 'reportOP'
-    [12]: 'END'
+    [10]: 'Visualise\\nestimates'
+    [11]: 'chart\\nfunctions'
+    [12]: 'Report\\nestimates'
+    [13]: 'reportOP'
+    [14]: 'END'
 "
 )
 ```
@@ -179,7 +190,9 @@ It is important to note that estimation procedures need to account for the sampl
 
 This sample design will need to be specified to statistical analysis software being used. If no weights are provided, then the analysis may produce estimates that place undue weight to observations from smaller communities with confidence intervals with lower than nominal coverage (i.e. they will be too narrow).
 
-The standard RAM-OP software uses **blocked weighted bootstrap** estimation approach:
+### Blocked weighted bootstrap
+
+The `oldr` package uses **blocked weighted bootstrap** estimation approach:
 
 * **Blocked** : The block corresponds to the PSU or cluster.
 
@@ -187,13 +200,138 @@ The standard RAM-OP software uses **blocked weighted bootstrap** estimation appr
 
 A total of 'm' PSUs are sampled with-replacement from the survey dataset where 'm' is the number of PSUs in the survey sample. Individual records within each PSU are then sampled with-replacement. A total of 'n’ records are sampled with-replacement from each of the selected PSUs where 'n' is the number of individual records in a selected PSU. The resulting collection of records replicates the original survey in terms of both sample design and sample size. A large number of replicate surveys are taken (the standard RAM-OP software uses $r = 399$ replicate surveys but this can be changed). The required statistic (e.g. the mean of an indicator value) is applied to each replicate survey. The reported estimate consists of the 50th (point estimate), 2.5th (lower 95% confidence limit), and the 97.5th (upper 95% confidence limit) percentiles of the distribution of the statistic observed across all replicate surveys. The blocked weighted bootstrap procedure is outlined in the figure below.
 
-```{r bbw, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "100%"}
+```{r bbw, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "85%"}
 knitr::include_graphics(path = "../man/figures/bbw.png")
 ```
 
 The principal advantages of using a bootstrap estimator are:
 
 * Bootstrap estimators work well with small sample sizes.
+
 * The method is non-parametric and uses empirical rather than theoretical distributions. There are no assumptions of things like normality to worry about.
+
 * The method allows estimation of the sampling distribution of almost any statistic using only simple computational methods.
 
+### PROBIT estimator
+
+The prevalence of GAM, MAM, and SAM are estimated using a **PROBIT estimator**. This type of estimator provides better precision than a classic estimator at small sample sizes as discussed in the following literature:
+
+> World Health Organisation, Physical Status: The use and interpretation of anthropometry. Report of a WHO expert committee, WHO Technical Report Series 854, WHO, Geneva, 1995
+
+> Dale NM, Myatt M, Prudhon C, Briend, A, “Assessment of the PROBIT approach for estimating the prevalence of global, moderate and severe acute malnutrition from population surveys”, Public Health Nutrition, 1–6. doi:10.1017/S1368980012003345, 2012
+
+> Blanton CJ, Bilukha, OO, “The PROBIT approach in estimating the prevalence of wasting: revisiting bias and precision”, Emerging Themes in Epidemiology, 10(1), 2013, p. 8
+
+An estimate of GAM prevalence can be made using a classic estimator:
+
+$$ \text{prevalence} ~ = ~ \frac{\text{Number of respondents with MUAC < 210}}{\text{Total number of respondents}} $$
+On the other ahnd, the estimate of GAM prevalence made from the RAM-OP survey data is made using a **PROBIT estimator**. The PROBIT function is also known as the *inverse cumulative distribution* function. This function converts parameters of the distribution of an indicator (e.g. the mean and standard deviation of a normally distributed variable) into cumulative percentiles. This means that it is possible to use the normal PROBIT function with estimates of the mean and standard deviation of indicator values in a survey sample to predict (or estimate) the proportion of the population falling below a given threshold. For example, for data with a mean MUAC of 256 mm and a standard deviation of 28 mm the output of the normal PROBIT function for a threshold of 210 mm is 0.0502 meaning that 5.02% of the population are predicted (or estimated) to fall below the 210 mm threshold.
+
+Both the classic and the PROBIT methods can be thought of as estimating area:
+
+```{r probit, echo = FALSE, eval = TRUE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics(path = "../man/figures/indicators26.png")
+```
+
+The principal advantage of the PROBIT approach is that the required sample size is usually smaller than that required to estimate prevalence with a given precision using the classic method.
+
+The PROBIT method assumes that MUAC is a normally distributed variable. If this is not the case then the distribution of MUAC is transformed towards normality.
+
+The prevalence of SAM is estimated in a similar way to GAM. The prevalence of MAM is estimated as the difference between the GAM and SAM prevalence estimates:
+
+$$ \widehat{\text{GAM prevalence}} ~ = ~ \widehat{\text{GAM prevalence}} - \widehat{\text{SAM prevalence}} $$
+
+### Classic estimator
+
+The function `estimateClassic` in `oldr` implements the blocked weighted bootstrap classic estimator of RAM-OP. This function uses the `bootClassic` statistic to estimate indicator values.
+
+The `estimateClassic` function is used for all the standard RAM-OP indicators except for anthropometry. The function is used as follows:
+
+```{r classicEstimator, echo = TRUE, eval = FALSE}
+## Process and recode RAM-OP data (testSVY)
+df <- create_op_all(svy = testSVY)
+
+## Perform classic estimation on recoded data using appropriate weights provided by testPSU
+classicDF <- estimateClassic(x = df, w = testPSU)
+```
+
+This results in (using limited replicates to reduce computing time):
+
+```{r classicEstimatorX, echo = FALSE, eval = TRUE}
+## Process and recode RAM-OP data (testSVY)
+df <- create_op_all(svy = testSVY)
+
+## Perform classic estimation on recoded data using appropriate weights provided by testPSU
+classicDF <- estimateClassic(x = df, w = testPSU, replicates = 9)
+
+## Return results
+classicDF
+```
+
+## PROBIT estimator
+
+The function `estimateProbit` in `oldr` implements the blocked weighted bootstrap PROBIT estimator of RAM-OP. This function uses the `probit_GAM` and the `probit_SAM` statistic to estimate indicator values.
+
+The `estimateProbit` function is used for only the anthropometric indicators. The function is used as follows:
+
+```{r probitEstimator, echo = TRUE, eval = FALSE}
+## Process and recode RAM-OP data (testSVY)
+df <- create_op_all(svy = testSVY)
+
+## Perform probit estimation on recoded data using appropriate weights provided by testPSU
+probitDF <- estimateProbit(x = df, w = testPSU)
+```
+
+This results in (using limited replicates to reduce computing time):
+
+```{r probitEstimatorX, echo = FALSE, eval = TRUE}
+## Process and recode RAM-OP data (testSVY)
+df <- create_op_all(svy = testSVY)
+
+## Perform classic estimation on recoded data using appropriate weights provided by testPSU
+probitDF <- estimateProbit(x = df, w = testPSU, replicates = 9)
+
+## Return results
+probitDF
+```
+
+The two sets of estimates are then merged using the `mergeEstimates` function as follows:
+
+```{r mergeResults, echo = TRUE, eval = FALSE}
+## Merge classicDF and probitDF
+resultsDF <- mergeEstimates(x = classicDF, y = probitDF)
+
+resultsDF
+```
+
+which results in:
+
+```{r mergeResultsX, echo = FALSE, eval = TRUE}
+## Merge classicDF and probitDF
+resultsDF <- mergeEstimates(x = classicDF, y = probitDF)
+
+resultsDF
+```
+
+## Creating charts
+
+Once indicators has been estimated, the outputs can then be used to create relevant charts to visualise the results. A set of functions that start with the verb `chart_` is provided followed by the indicator identifier to specify the type of indicator to visualise. The output of the function is a PNG file saved in the specified filename appended to the indicator identifier within the current working directory or saved in the specified filename appended to the indicator identifier in the specified directory path.
+
+The following shows how to produce the chart for ADLs saved with filename **test** appended at the start inside a temporary directory:
+
+```{r chartADL, echo = TRUE, eval = TRUE}
+chartADL(x = create_op_all(testSVY), 
+         filename = paste(tempdir(), "test", sep = "/"))
+```
+
+The resulting PNG file can be found in the temporary directory
+
+```{r checkChart, echo = TRUE, eval = TRUE}
+list.files(path = tempdir())
+```
+
+and will look somethink like this:
+
+```{r showChart, echo = FALSE, eval = TRUE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics(path = paste(tempdir(), "test.ADL.png", sep = "/"))
+```

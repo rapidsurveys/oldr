@@ -104,8 +104,8 @@
     
     
 <p>The RAM-OP Workflow is summarised in the diagram below.</p>
-<div id="htmlwidget-20f06780469fe2439ff3" style="width:768px;height:960px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-20f06780469fe2439ff3">{"x":{"diagram":"\n  digraph oxcovid19 {\n\n    # a \"graph\" statement\n    graph [overlap = false, fontsize = 14, fontname = Helvetica]\n\n    # Terminal nodes\n    node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]\n        \n    a [label = \"START\"; color = darkgreen; fontcolor = darkgreen];\n    l [label = \"END\"; color = crimson; fontcolor = crimson];\n\n    # Input/output nodes\n    node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, \n          penwidth = 2, color = royalblue1, fontcolor = royalblue1]\n    \n    b [label = \"Collect\ndata\"];\n    j [label = \"Report\nestimates\"]\n\n    # Process nodes\n    node [shape = rect]\n  \n    d [label = \"Process\nand\nrecode\ndata\"];\n    g [label = \"Estimate\nindicators\"];\n    h [label = \"Estimate\nanthropometric\nindicators\"];\n\n    # Package nodes\n    node [shape = oval, fixedsize = TRUE, width = 2.5, penwidth = 2, \n          fontsize = 14, fontname = Courier, color = darkviolet, \n          fontcolor = darkviolet]\n    \n    c [label = \"EpiData\nor\nOpen Data Kit\";];\n    e [label = \"create_op_\nfunctions\";];\n    f [label = \"estimateClassic\"];\n    i [label = \"estimateProbit\"];\n    k [label = \"reportOP\"];\n\n    edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]\n    \n    a -> b\n    b -> d\n    d -> g\n    d -> h\n    g -> j\n    h -> j\n    j -> l\n\n    edge [minlen = 3]\n\n    b -> c\n    c -> b\n    d -> e\n    e -> d\n    f -> g\n    g -> f\n    h -> i\n    i -> h\n    j -> k\n    k -> j\n\n    subgraph {\n      rank = same; b; c;\n    }\n\n    subgraph {\n      rank = same; d; e;\n    }\n\n    subgraph {\n      rank = same; f; g; h; i;\n    }\n    \n    subgraph {\n      rank = same; j; k\n    }\n\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>The <code>oldr</code> package provides functions to use for all steps after data collection. These functions were developed specifically for the data structure created by the <a href="https://www.dropbox.com/s/2kudlxjqcqn8wph/RAMOP%20data%20entry%20files%20%28English%29.zip?dl=0">EpiData</a> or the <a href="https://ona.io/helpage/75817/368135/form.xls">Open Data Kit</a> collection tools. The data structure produced by these collection tools is shown by the dataset <code>testSVY</code> included in the <code>oldr</code> package.</p>
+<div id="htmlwidget-1ff87aec19d846be8e9d" style="width:768px;height:960px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1ff87aec19d846be8e9d">{"x":{"diagram":"\n  digraph oxcovid19 {\n\n    # a \"graph\" statement\n    graph [overlap = false, fontsize = 14, fontname = Helvetica]\n\n    # Terminal nodes\n    node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]\n        \n    a [label = \"START\"; color = darkgreen; fontcolor = darkgreen];\n    l [label = \"END\"; color = crimson; fontcolor = crimson];\n\n    # Input/output nodes\n    node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, \n          penwidth = 2, color = royalblue1, fontcolor = royalblue1]\n    \n    b [label = \"Collect\ndata\"];\n    j [label = \"Report\nestimates\"]\n\n    # Process nodes\n    node [shape = rect]\n  \n    d [label = \"Process\nand\nrecode\ndata\"];\n    g [label = \"Estimate\nindicators\"];\n    h [label = \"Estimate\nanthropometric\nindicators\"];\n\n    # Package nodes\n    node [shape = oval, fixedsize = TRUE, width = 2.5, penwidth = 2, \n          fontsize = 14, fontname = Courier, color = darkviolet, \n          fontcolor = darkviolet]\n    \n    c [label = \"EpiData\nor\nOpen Data Kit\";];\n    e [label = \"create_op_\nfunctions\";];\n    f [label = \"estimateClassic\"];\n    i [label = \"estimateProbit\"];\n    k [label = \"reportOP\"];\n\n    edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]\n    \n    a -> b\n    b -> d\n    d -> g\n    d -> h\n    g -> j\n    h -> j\n    j -> l\n\n    edge [minlen = 3]\n\n    b -> c\n    c -> b\n    d -> e\n    e -> d\n    f -> g\n    g -> f\n    h -> i\n    i -> h\n    j -> k\n    k -> j\n\n    subgraph {\n      rank = same; b; c;\n    }\n\n    subgraph {\n      rank = same; d; e;\n    }\n\n    subgraph {\n      rank = same; f; g; h; i;\n    }\n    \n    subgraph {\n      rank = same; j; k\n    }\n\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>The <code>oldr</code> package provides functions to use for all steps after data collection. These functions were developed specifically for the data structure created by the <a href="https://www.dropbox.com/s/2kudlxjqcqn8wph/RAMOP%20data%20entry%20files%20%28English%29.zip?dl=0">EpiData</a> or the <a href="https://ona.io/helpage/75817/368135/form.xls">Open Data Kit</a> collection tools. The data structure produced by these collection tools is shown by the dataset <code>testSVY</code> included in the <code>oldr</code> package.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co">## Showing first 10 rows of the dataset</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">testSVY</span>, <span class="fl">10</span>)
 <span class="co">#&gt;    ad2 psu hh id d1 d2 d3 d4 d5 f1 f2a f2b f2c f2d f2e f2f f2g f2h f2i f2j f2k</span>
@@ -310,19 +310,73 @@
 <li><p>The RAM-OP sample is not prior weighted. This means that per-PSU sampling weights are needed. These are usually the populations of the PSU.</p></li>
 </ul>
 <p>This sample design will need to be specified to statistical analysis software being used. If no weights are provided, then the analysis may produce estimates that place undue weight to observations from smaller communities with confidence intervals with lower than nominal coverage (i.e. they will be too narrow).</p>
-<p>The standard RAM-OP software uses <strong>blocked weighted bootstrap</strong> estimation approach:</p>
+<div id="blocked-weighted-bootstrap" class="section level3">
+<h3 class="hasAnchor">
+<a href="#blocked-weighted-bootstrap" class="anchor"></a>Blocked weighted bootstrap</h3>
+<p>The <code>oldr</code> package uses <strong>blocked weighted bootstrap</strong> estimation approach:</p>
 <ul>
 <li><p><strong>Blocked</strong> : The block corresponds to the PSU or cluster.</p></li>
 <li><p><strong>Weighted</strong> : The RAM-OP sampling procedure does not use population proportional sampling to weight the sample prior to data collection as is done with SMART type surveys. This means that a posterior weighting procedure is required. The standard RAM-OP software uses a “roulette wheel” algorithm to weight (i.e. by population) the selection probability of PSUs in bootstrap replicates.</p></li>
 </ul>
 <p>A total of ‘m’ PSUs are sampled with-replacement from the survey dataset where ‘m’ is the number of PSUs in the survey sample. Individual records within each PSU are then sampled with-replacement. A total of ‘n’ records are sampled with-replacement from each of the selected PSUs where ‘n’ is the number of individual records in a selected PSU. The resulting collection of records replicates the original survey in terms of both sample design and sample size. A large number of replicate surveys are taken (the standard RAM-OP software uses <span class="math inline">\(r = 399\)</span> replicate surveys but this can be changed). The required statistic (e.g. the mean of an indicator value) is applied to each replicate survey. The reported estimate consists of the 50th (point estimate), 2.5th (lower 95% confidence limit), and the 97.5th (upper 95% confidence limit) percentiles of the distribution of the statistic observed across all replicate surveys. The blocked weighted bootstrap procedure is outlined in the figure below.</p>
-<p><img src="../man/figures/bbw.png" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="../man/figures/bbw.png" width="85%" style="display: block; margin: auto;"></p>
 <p>The principal advantages of using a bootstrap estimator are:</p>
 <ul>
-<li>Bootstrap estimators work well with small sample sizes.</li>
-<li>The method is non-parametric and uses empirical rather than theoretical distributions. There are no assumptions of things like normality to worry about.</li>
-<li>The method allows estimation of the sampling distribution of almost any statistic using only simple computational methods.</li>
+<li><p>Bootstrap estimators work well with small sample sizes.</p></li>
+<li><p>The method is non-parametric and uses empirical rather than theoretical distributions. There are no assumptions of things like normality to worry about.</p></li>
+<li><p>The method allows estimation of the sampling distribution of almost any statistic using only simple computational methods.</p></li>
 </ul>
+</div>
+<div id="probit-estimator" class="section level3">
+<h3 class="hasAnchor">
+<a href="#probit-estimator" class="anchor"></a>PROBIT estimator</h3>
+<p>The prevalence of GAM, MAM, and SAM are estimated using a <strong>PROBIT estimator</strong>. This type of estimator provides better precision than a classic estimator at small sample sizes as discussed in the following literature:</p>
+<blockquote>
+<p>World Health Organisation, Physical Status: The use and interpretation of anthropometry. Report of a WHO expert committee, WHO Technical Report Series 854, WHO, Geneva, 1995</p>
+</blockquote>
+<blockquote>
+<p>Dale NM, Myatt M, Prudhon C, Briend, A, “Assessment of the PROBIT approach for estimating the prevalence of global, moderate and severe acute malnutrition from population surveys”, Public Health Nutrition, 1–6. <a href="doi:10.1017/S1368980012003345" class="uri">doi:10.1017/S1368980012003345</a>, 2012</p>
+</blockquote>
+<blockquote>
+<p>Blanton CJ, Bilukha, OO, “The PROBIT approach in estimating the prevalence of wasting: revisiting bias and precision”, Emerging Themes in Epidemiology, 10(1), 2013, p. 8</p>
+</blockquote>
+<p>An estimate of GAM prevalence can be made using a classic estimator:</p>
+<p><span class="math display">\[ \text{prevalence} ~ = ~ \frac{\text{Number of respondents with MUAC &lt; 210}}{\text{Total number of respondents}} \]</span> On the other ahnd, the estimate of GAM prevalence made from the RAM-OP survey data is made using a <strong>PROBIT estimator</strong>. The PROBIT function is also known as the <em>inverse cumulative distribution</em> function. This function converts parameters of the distribution of an indicator (e.g. the mean and standard deviation of a normally distributed variable) into cumulative percentiles. This means that it is possible to use the normal PROBIT function with estimates of the mean and standard deviation of indicator values in a survey sample to predict (or estimate) the proportion of the population falling below a given threshold. For example, for data with a mean MUAC of 256 mm and a standard deviation of 28 mm the output of the normal PROBIT function for a threshold of 210 mm is 0.0502 meaning that 5.02% of the population are predicted (or estimated) to fall below the 210 mm threshold.</p>
+<p>Both the classic and the PROBIT methods can be thought of as estimating area:</p>
+<p><img src="../man/figures/indicators26.png" width="100%" style="display: block; margin: auto;"></p>
+<p>The principal advantage of the PROBIT approach is that the required sample size is usually smaller than that required to estimate prevalence with a given precision using the classic method.</p>
+<p>The PROBIT method assumes that MUAC is a normally distributed variable. If this is not the case then the distribution of MUAC is transformed towards normality.</p>
+<p>The prevalence of SAM is estimated in a similar way to GAM. The prevalence of MAM is estimated as the difference between the GAM and SAM prevalence estimates:</p>
+<p><span class="math display">\[ \widehat{\text{GAM prevalence}} ~ = ~ \widehat{\text{GAM prevalence}} - \widehat{\text{SAM prevalence}} \]</span></p>
+</div>
+<div id="classic-estimator" class="section level3">
+<h3 class="hasAnchor">
+<a href="#classic-estimator" class="anchor"></a>Classic estimator</h3>
+<p>The function <code>estimateClassic</code> in <code>oldr</code> implements the blocked weighted bootstrap classic estimator of RAM-OP. This function uses the <code>bootClassic</code> statistic to estimate indicator values.</p>
+<p>The <code>estimateClassic</code> function is used for all the standard RAM-OP indicators except for anthropometry. The function is used as follows:</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co">## Process and recode RAM-OP data (testSVY)</span>
+<span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/create_op_all.html">create_op_all</a></span>(<span class="kw">svy</span> <span class="kw">=</span> <span class="no">testSVY</span>)
+
+<span class="co">## Perform classic estimation on recoded data using appropriate weights provided by testPSU</span>
+<span class="fu"><a href="../reference/estimateClassic.html">estimateClassic</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">df</span>, <span class="kw">w</span> <span class="kw">=</span> <span class="no">testPSU</span>)</pre></body></html></div>
+<p>This results in (using limited replicates to reduce computing time):</p>
+</div>
+</div>
+<div id="probit-estimator-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#probit-estimator-1" class="anchor"></a>PROBIT estimator</h2>
+<p>The function <code>estimateProbit</code> in <code>oldr</code> implements the blocked weighted bootstrap PROBIT estimator of RAM-OP. This function uses the <code>bootProbit</code> statistic to estimate indicator values.</p>
+<p>The <code>estimateProbit</code> function is used for only the anthropometric indicators. The function is used as follows:</p>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co">## Process and recode RAM-OP data (testSVY)</span>
+<span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/create_op_all.html">create_op_all</a></span>(<span class="kw">svy</span> <span class="kw">=</span> <span class="no">testSVY</span>)
+
+<span class="co">## Perform probit estimation on recoded data using appropriate weights provided by testPSU</span>
+<span class="fu"><a href="../reference/estimateProbit.html">estimateProbit</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">df</span>, <span class="kw">w</span> <span class="kw">=</span> <span class="no">testPSU</span>)</pre></body></html></div>
+<p>This results in (using limited replicates to reduce computing time):</p>
+</div>
+<div id="creating-charts" class="section level2">
+<h2 class="hasAnchor">
+<a href="#creating-charts" class="anchor"></a>Creating charts</h2>
 </div>
   </div>
 
