@@ -17,31 +17,30 @@ A dataframe of older people indicators on demography and situation
 Create older people indicators dataframe for demography and situation from
 survey data collected using the standard RAM-OP questionnaire
 }
-\section{Indicators}{
- Demography and situation
+\section{Demography and situation}{
 
-\strong{Demography}
+
 \describe{
-\item{\code{psu}}{Primary sampling unit}
-\item{\code{resp1}}{Respondent is SUBJECT}
-\item{\code{resp2}}{Respondent is FAMILY CARER}
-\item{\code{resp3}}{Respondent is OTHER CARER}
-\item{\code{resp4}}{Respondent is OTHER}
-\item{\code{age}}{Age of respondent (years)}
-\item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
-\item{\code{ageGrp2}}{Age of respondent is between 50 and 59 years}
-\item{\code{ageGrp3}}{Age of respondent is between 50 and 59 years}
-\item{\code{ageGrp4}}{Age of respondent is between 50 and 59 years}
-\item{\code{ageGrp5}}{Age of respondent is between 50 and 59 years}
-\item{\code{sex1}}{Male}
-\item{\code{sex2}}{Female}
-\item{\code{marital1}}{Marital status = SINGLE}
-\item{\code{marital2}}{Marital status = MARRIED}
-\item{\code{marital3}}{Marital status = LIVING TOGETHER}
-\item{\code{marital4}}{Marital status = DIVORCED}
-\item{\code{marital5}}{Marital status = SEPARATED}
-\item{\code{marital6}}{Marital status = OTHER}
-\item{\code{alone}}{Respondent lives alone}
+  \item{\code{psu}}{Primary sampling unit}
+  \item{\code{resp1}}{Respondent is SUBJECT}
+  \item{\code{resp2}}{Respondent is FAMILY CARER}
+  \item{\code{resp3}}{Respondent is OTHER CARER}
+  \item{\code{resp4}}{Respondent is OTHER}
+  \item{\code{age}}{Age of respondent (years)}
+  \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp2}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp3}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp4}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp5}}{Age of respondent is between 50 and 59 years}
+  \item{\code{sex1}}{Male}
+  \item{\code{sex2}}{Female}
+  \item{\code{marital1}}{Marital status = SINGLE}
+  \item{\code{marital2}}{Marital status = MARRIED}
+  \item{\code{marital3}}{Marital status = LIVING TOGETHER}
+  \item{\code{marital4}}{Marital status = DIVORCED}
+  \item{\code{marital5}}{Marital status = SEPARATED}
+  \item{\code{marital6}}{Marital status = OTHER}
+  \item{\code{alone}}{Respondent lives alone}
 }
 }
 
@@ -51,4 +50,7 @@ survey data collected using the standard RAM-OP questionnaire
 # collected from Addis Ababa, Ethiopia
 create_op_demo(testSVY)
 
+}
+\author{
+Mark Myatt
 }

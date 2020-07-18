@@ -11,7 +11,7 @@ create_op_oedema_males(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on oedema prevalence
+A tibble of male older people indicators on oedema prevalence
 }
 \description{
 Create male older people indicators dataframe for oedema prevalence from

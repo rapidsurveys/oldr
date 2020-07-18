@@ -11,14 +11,14 @@ create_op_misc(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people miscellaneous indicators
+A tibble of older people miscellaneous indicators
 }
 \description{
 Create older people indicators dataframe for miscellaneous indicators from
 survey data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Miscellaneous indicators
+\section{Miscellaneous indicators}{
+
 
 \describe{
 \item{\code{chew}}{Problems chewing food}
@@ -33,4 +33,7 @@ survey data collected using the standard RAM-OP questionnaire.
 # collected from Addis Ababa, Ethiopia
 create_op_misc(testSVY)
 
+}
+\author{
+Mark Myatt
 }

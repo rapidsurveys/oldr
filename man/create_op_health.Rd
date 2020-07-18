@@ -11,46 +11,48 @@ create_op_health(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on health and health-seeking
+A tibble of older people indicators on health and health-seeking
     behaviour
 }
 \description{
 Create older people indicators dataframe for health and health-seeking
 behaviours from survey data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Health and health-seeking indicators
+\section{Health and health-seeking indicators}{
+
 
 \describe{
-\item{\code{H1}}{Chronic condition}
-\item{\code{H2}}{Takes drugs regularly for chronic condition}
-\item{\code{H31}}{No drugs available}
-\item{\code{H32}}{Too expensive / no money}
-\item{\code{H33}}{Too old to look for care}
-\item{\code{H34}}{Use traditional medicine}
-\item{\code{H35}}{Drugs don't help}
-\item{\code{H36}}{No-one to help me}
-\item{\code{H37}}{No need}
-\item{\code{H38}}{Other}
-\item{\code{H39}}{No reason given}
-\item{\code{H4}}{Recent disease episode}
-\item{\code{H5}}{Accessed care for recent disease episode}
-\item{\code{H61}}{No drugs available}
-\item{\code{H62}}{Too expensive / no money}
-\item{\code{H63}}{Too old to look for care}
-\item{\code{H64}}{Use traditional medicine}
-\item{\code{H65}}{Drugs don't help}
-\item{\code{H66}}{No-one to help me}
-\item{\code{H67}}{No need}
-\item{\code{H68}}{Other}
-\item{\code{H69}}{No reason given}
+  \item{\code{H1}}{Chronic condition}
+  \item{\code{H2}}{Takes drugs regularly for chronic condition}
+  \item{\code{H31}}{No drugs available}
+  \item{\code{H32}}{Too expensive / no money}
+  \item{\code{H33}}{Too old to look for care}
+  \item{\code{H34}}{Use traditional medicine}
+  \item{\code{H35}}{Drugs don't help}
+  \item{\code{H36}}{No-one to help me}
+  \item{\code{H37}}{No need}
+  \item{\code{H38}}{Other}
+  \item{\code{H39}}{No reason given}
+  \item{\code{H4}}{Recent disease episode}
+  \item{\code{H5}}{Accessed care for recent disease episode}
+  \item{\code{H61}}{No drugs available}
+  \item{\code{H62}}{Too expensive / no money}
+  \item{\code{H63}}{Too old to look for care}
+  \item{\code{H64}}{Use traditional medicine}
+  \item{\code{H65}}{Drugs don't help}
+  \item{\code{H66}}{No-one to help me}
+  \item{\code{H67}}{No need}
+  \item{\code{H68}}{Other}
+  \item{\code{H69}}{No reason given}
 }
 }
 
 \examples{
-
 # Create health and health-seeking behaviour indicators dataset from RAM-OP
 # survey data collected from Addis Ababa, Ethiopia
 create_op_health(testSVY)
 
+}
+\author{
+Mark Myatt
 }

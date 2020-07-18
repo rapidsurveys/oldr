@@ -11,7 +11,7 @@ create_op_dementia_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on dementia
+A tibble of female older people indicators on dementia
 }
 \description{
 Create female older people indicators dataframe for dementia from survey

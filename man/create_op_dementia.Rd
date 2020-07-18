@@ -11,14 +11,14 @@ create_op_dementia(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on dementia
+A tibble of older people indicators on dementia
 }
 \description{
 Create older people indicators dataframe for dementia from survey data
 collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Brief Community Screening Instrument for Dementia (CSID)
+\section{Brief Community Screening Instrument for Dementia (CSID)}{
+
 
 The CSID dementia screening tool is described in:
 
@@ -29,14 +29,16 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 899–907 \doi{10.1002/gps.2622}}
 
 \describe{
-\item{\code{DS}}{Probable dementia by CSID screen}
+  \item{\code{DS}}{Probable dementia by CSID screen}
 }
 }
 
 \examples{
-
 # Create dementia indicators dataset from RAM-OP survey data
 # collected from Addis Ababa, Ethiopia
 create_op_dementia(testSVY)
 
+}
+\author{
+Mark Myatt
 }

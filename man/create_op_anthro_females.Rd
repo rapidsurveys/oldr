@@ -11,7 +11,7 @@ create_op_anthro_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on anthropometry
+A tibble of female older people indicators on anthropometry
 }
 \description{
 Create female older people indicators dataframe for anthropometry from survey

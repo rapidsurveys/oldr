@@ -11,14 +11,14 @@ create_op_screening(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on screening coverage
+A tibble of older people indicators on screening coverage
 }
 \description{
 Create older people indicators dataframe for screening coverage from survey
 data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Screening Coverage
+\section{Screening Coverage}{
+
 
 \describe{
 \item{\code{screened}}{Either MUAC or oedema checked previously}
@@ -31,4 +31,7 @@ data collected using the standard RAM-OP questionnaire.
 # collected from Addis Ababa, Ethiopia
 create_op_screening(testSVY)
 
+}
+\author{
+Mark Myatt
 }

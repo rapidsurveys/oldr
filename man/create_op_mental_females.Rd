@@ -11,7 +11,7 @@ create_op_mental_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on mental health
+A tibble of female older people indicators on mental health
 }
 \description{
 Create female older people indicators dataframe for mental health from survey
