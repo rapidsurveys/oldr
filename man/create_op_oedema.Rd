@@ -11,14 +11,14 @@ create_op_oedema(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on oedema prevalence
+A tibble of older people indicators on oedema prevalence
 }
 \description{
 Create older people indicators dataframe for oedema prevalence from survey
 data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Oedema prevalence
+\section{Oedema prevalence}{
+
 
 \describe{
 \item{\code{oedema}}{Bilateral pitting oedema (may not be nutritional)}
@@ -31,4 +31,7 @@ data collected using the standard RAM-OP questionnaire.
 # collected from Addis Ababa, Ethiopia
 create_op_oedema(testSVY)
 
+}
+\author{
+Mark Myatt
 }

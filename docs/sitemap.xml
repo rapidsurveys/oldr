@@ -37,9 +37,6 @@
     <loc>https://rapidsurveys.io/oldr/reference/chartWG.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/createOP.html</loc>
-  </url>
-  <url>
     <loc>https://rapidsurveys.io/oldr/reference/create_op_adl.html</loc>
   </url>
   <url>
@@ -224,5 +221,8 @@
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/articles/oldr.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/articles/ramOPworkflow.html</loc>
   </url>
 </urlset>

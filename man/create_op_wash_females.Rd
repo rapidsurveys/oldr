@@ -11,7 +11,7 @@ create_op_wash_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on water, sanitation
+A tibble of female older people indicators on water, sanitation
     and hygiene
 }
 \description{

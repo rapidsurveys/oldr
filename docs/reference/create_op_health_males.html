@@ -93,6 +93,18 @@ behaviours from survey data collected using the standard RAM-OP questionnaire" /
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ramOPworkflow.html">The RAM-OP Workflow</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -147,174 +159,30 @@ behaviours from survey data collected using the standard RAM-OP questionnaire</p
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe of male older people indicators on health and
+    <p>A tibble of male older people indicators on health and
     health-seeking behaviours</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Create health and health-seeking behaviours indicators dataset from RAM-OP</span>
 <span class='co'># survey data collected from Addis Ababa, Ethiopia</span>
-<span class='fu'>create_op_health_males</span>(<span class='no'>testSVY</span>)</div><div class='output co'>#&gt;     psu sex1 sex2 H1 H2 H31 H32 H33 H34 H35 H36 H37 H38 H39 H4 H5 H61 H62 H63
-#&gt; 2   201    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 3   201    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 6   201    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 7   201    1    0  1  0   0   0   0   1   0   0   0   0   0  1  0   0   0   0
-#&gt; 9   201    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 13  202    1    0  1  0   0   1   0   0   0   0   0   0   0  1  0   0   1   0
-#&gt; 14  202    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 19  202    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 20  202    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 21  202    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 27  203    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 33  203    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 34  203    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 35  203    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 36  203    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   0   1   0
-#&gt; 40  204    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 42  204    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 43  204    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 54  205    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 59  205    1    0  1  0   0   0   0   0   0   0   0   0   1  1  0   0   1   0
-#&gt; 61  206    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 65  206    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 66  206    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 68  206    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 69  206    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 70  206    1    0  1  0   0   1   0   0   0   0   0   0   0  1  1  NA  NA  NA
-#&gt; 71  206    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 73  207    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   1   0   0
-#&gt; 75  207    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 77  207    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 81  207    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 84  207    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 87  208    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 90  208    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 92  208    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 95  208    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 100 209    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   0   1   0
-#&gt; 101 209    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 103 209    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 104 209    1    0  1  0   0   1   0   0   0   0   0   0   0  1  0   0   1   0
-#&gt; 105 209    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   0   1   0
-#&gt; 106 209    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 107 209    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 108 209    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 112 210    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 114 210    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 116 210    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 118 210    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 119 210    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 120 210    1    0  1  0   0   1   0   0   0   0   0   0   0  1  0   0   1   0
-#&gt; 121 211    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 123 211    1    0  1  0   1   0   0   0   0   0   0   0   0  1  1  NA  NA  NA
-#&gt; 126 211    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 127 211    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   1   0   0
-#&gt; 134 212    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 136 212    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 138 212    1    0  1  0   0   0   0   0   0   0   0   0   1  1  0   0   1   0
-#&gt; 141 212    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 142 212    1    0  1  0   1   0   0   0   0   0   0   0   0  1  1  NA  NA  NA
-#&gt; 143 212    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 145 213    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 150 213    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 151 213    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 152 213    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 158 214    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 160 214    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 161 214    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 163 214    1    0  1  0   0   0   0   1   0   0   0   0   0  1  0   0   1   0
-#&gt; 165 214    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 172 215    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 173 215    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   0   1   0
-#&gt; 174 215    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  0 NA  NA  NA  NA
-#&gt; 176 215    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 179 215    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 180 215    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  0   0   1   0
-#&gt; 181 216    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 183 216    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 187 216    1    0  1  1  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt; 189 216    1    0  0 NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  1  1  NA  NA  NA
-#&gt;     H64 H65 H66 H67 H68 H69
-#&gt; 2    NA  NA  NA  NA  NA  NA
-#&gt; 3    NA  NA  NA  NA  NA  NA
-#&gt; 6    NA  NA  NA  NA  NA  NA
-#&gt; 7     1   0   0   0   0   0
-#&gt; 9    NA  NA  NA  NA  NA  NA
-#&gt; 13    0   0   0   0   0   0
-#&gt; 14   NA  NA  NA  NA  NA  NA
-#&gt; 19   NA  NA  NA  NA  NA  NA
-#&gt; 20   NA  NA  NA  NA  NA  NA
-#&gt; 21   NA  NA  NA  NA  NA  NA
-#&gt; 27   NA  NA  NA  NA  NA  NA
-#&gt; 33   NA  NA  NA  NA  NA  NA
-#&gt; 34   NA  NA  NA  NA  NA  NA
-#&gt; 35   NA  NA  NA  NA  NA  NA
-#&gt; 36    0   0   0   0   0   0
-#&gt; 40   NA  NA  NA  NA  NA  NA
-#&gt; 42   NA  NA  NA  NA  NA  NA
-#&gt; 43   NA  NA  NA  NA  NA  NA
-#&gt; 54   NA  NA  NA  NA  NA  NA
-#&gt; 59    0   0   0   0   0   0
-#&gt; 61   NA  NA  NA  NA  NA  NA
-#&gt; 65   NA  NA  NA  NA  NA  NA
-#&gt; 66   NA  NA  NA  NA  NA  NA
-#&gt; 68   NA  NA  NA  NA  NA  NA
-#&gt; 69   NA  NA  NA  NA  NA  NA
-#&gt; 70   NA  NA  NA  NA  NA  NA
-#&gt; 71   NA  NA  NA  NA  NA  NA
-#&gt; 73    0   0   0   0   0   0
-#&gt; 75   NA  NA  NA  NA  NA  NA
-#&gt; 77   NA  NA  NA  NA  NA  NA
-#&gt; 81   NA  NA  NA  NA  NA  NA
-#&gt; 84   NA  NA  NA  NA  NA  NA
-#&gt; 87   NA  NA  NA  NA  NA  NA
-#&gt; 90   NA  NA  NA  NA  NA  NA
-#&gt; 92   NA  NA  NA  NA  NA  NA
-#&gt; 95   NA  NA  NA  NA  NA  NA
-#&gt; 100   0   0   0   0   0   0
-#&gt; 101  NA  NA  NA  NA  NA  NA
-#&gt; 103  NA  NA  NA  NA  NA  NA
-#&gt; 104   0   0   0   0   0   0
-#&gt; 105   0   0   0   0   0   0
-#&gt; 106  NA  NA  NA  NA  NA  NA
-#&gt; 107  NA  NA  NA  NA  NA  NA
-#&gt; 108  NA  NA  NA  NA  NA  NA
-#&gt; 112  NA  NA  NA  NA  NA  NA
-#&gt; 114  NA  NA  NA  NA  NA  NA
-#&gt; 116  NA  NA  NA  NA  NA  NA
-#&gt; 118  NA  NA  NA  NA  NA  NA
-#&gt; 119  NA  NA  NA  NA  NA  NA
-#&gt; 120   0   0   0   0   0   0
-#&gt; 121  NA  NA  NA  NA  NA  NA
-#&gt; 123  NA  NA  NA  NA  NA  NA
-#&gt; 126  NA  NA  NA  NA  NA  NA
-#&gt; 127   0   0   0   0   0   0
-#&gt; 134  NA  NA  NA  NA  NA  NA
-#&gt; 136  NA  NA  NA  NA  NA  NA
-#&gt; 138   0   0   0   0   0   0
-#&gt; 141  NA  NA  NA  NA  NA  NA
-#&gt; 142  NA  NA  NA  NA  NA  NA
-#&gt; 143  NA  NA  NA  NA  NA  NA
-#&gt; 145  NA  NA  NA  NA  NA  NA
-#&gt; 150  NA  NA  NA  NA  NA  NA
-#&gt; 151  NA  NA  NA  NA  NA  NA
-#&gt; 152  NA  NA  NA  NA  NA  NA
-#&gt; 158  NA  NA  NA  NA  NA  NA
-#&gt; 160  NA  NA  NA  NA  NA  NA
-#&gt; 161  NA  NA  NA  NA  NA  NA
-#&gt; 163   0   0   0   0   0   0
-#&gt; 165  NA  NA  NA  NA  NA  NA
-#&gt; 172  NA  NA  NA  NA  NA  NA
-#&gt; 173   0   0   0   0   0   0
-#&gt; 174  NA  NA  NA  NA  NA  NA
-#&gt; 176  NA  NA  NA  NA  NA  NA
-#&gt; 179  NA  NA  NA  NA  NA  NA
-#&gt; 180   0   0   0   0   0   0
-#&gt; 181  NA  NA  NA  NA  NA  NA
-#&gt; 183  NA  NA  NA  NA  NA  NA
-#&gt; 187  NA  NA  NA  NA  NA  NA
-#&gt; 189  NA  NA  NA  NA  NA  NA</div><div class='input'>
-</div></pre>
+<span class='fu'>create_op_health_males</span>(<span class='no'>testSVY</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 79 x 25</span><span>
+#&gt;      psu  sex1  sex2    H1    H2   H31   H32   H33   H34   H35   H36   H37   H38
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span>   201     1     0     1     1    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 2</span><span>   201     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 3</span><span>   201     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 4</span><span>   201     1     0     1     0     0     0     0     1     0     0     0     0
+#&gt; </span><span style='color: #555555;'> 5</span><span>   201     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 6</span><span>   202     1     0     1     0     0     1     0     0     0     0     0     0
+#&gt; </span><span style='color: #555555;'> 7</span><span>   202     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 8</span><span>   202     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'> 9</span><span>   202     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'>10</span><span>   202     1     0     0    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #555555;'># … with 69 more rows, and 12 more variables: H39 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H4 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H5 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   H61 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H62 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H63 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H64 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H65 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H66 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   H67 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H68 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, H69 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

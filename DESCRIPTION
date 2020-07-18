@@ -21,12 +21,16 @@ Depends: R (>= 3.0.1)
 Imports: 
     bbw,
     car,
-    withr
+    withr,
+    tibble
 Suggests: 
     knitr,
     rmarkdown,
     testthat,
-    covr
+    covr,
+    DiagrammeR,
+    dplyr,
+    magrittr
 Encoding: UTF-8
 LazyData: true
 Language: en-gb

@@ -11,7 +11,7 @@ create_op_screening_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people indicators on screening coverage
+A tibble of female older people indicators on screening coverage
 }
 \description{
 Create female older people indicators dataframe for screening coverage from

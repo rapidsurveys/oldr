@@ -11,15 +11,15 @@ create_op_wash(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on water, sanitation and
+A tibble of older people indicators on water, sanitation and
     hygiene
 }
 \description{
 Create older people indicators dataframe for water, sanitation and hygiene
 from survey data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Water, sanitation and hygiene (WASH) indicators
+\section{Water, sanitation and hygiene (WASH) indicators}{
+
 
 These are a (core) subset of indicators from:
 
@@ -41,4 +41,7 @@ for Household Surveys. Geneva, WHO / UNICEF
 # data collected from Addis Ababa, Ethiopia
 create_op_wash(testSVY)
 
+}
+\author{
+Mark Myatt
 }

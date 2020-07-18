@@ -8,16 +8,21 @@ using the standard RAM-OP questionnaire.}
 create_op_all(
   svy,
   indicators = c("demo", "food", "hunger", "disability", "adl", "mental", "dementia",
-    "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc")
+    "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc"),
+  gender = c("m", "f")
 )
 }
 \arguments{
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 
 \item{indicators}{A character vector of indicator names}
+
+\item{gender}{Either an "m" for male or "f" for female; Whether to report
+indicators for males or females. If unspecified (default), both are
+reported.}
 }
 \value{
-A dataframe of older people indicators
+A tibble of older people indicators
 }
 \description{
 Create older people indicators dataframe from survey data collected

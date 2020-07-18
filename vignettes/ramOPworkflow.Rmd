@@ -1,0 +1,199 @@
+---
+title: "The RAM-OP Workflow"
+author: "Ernest Guevarra"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The RAM-OP Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo = FALSE, eval = TRUE}
+library(oldr)
+library(DiagrammeR)
+library(dplyr)
+library(magrittr)
+```
+
+The RAM-OP Workflow is summarised in the diagram below.
+
+```{r ramOPworkflow, echo = FALSE, eval = TRUE, fig.width = 8, fig.height = 10, fig.align = "center"}
+DiagrammeR::grViz("
+  digraph oxcovid19 {
+
+    # a 'graph' statement
+    graph [overlap = false, fontsize = 14, fontname = Helvetica]
+
+    # Terminal nodes
+    node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]
+        
+    a [label = '@@1'; color = darkgreen; fontcolor = darkgreen];
+    l [label = '@@12'; color = crimson; fontcolor = crimson];
+
+    # Input/output nodes
+    node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, 
+          penwidth = 2, color = royalblue1, fontcolor = royalblue1]
+    
+    b [label = '@@2'];
+    j [label = '@@10']
+
+    # Process nodes
+    node [shape = rect]
+  
+    d [label = '@@4'];
+    g [label = '@@7'];
+    h [label = '@@8'];
+
+    # Package nodes
+    node [shape = oval, fixedsize = TRUE, width = 2.5, penwidth = 2, 
+          fontsize = 14, fontname = Courier, color = darkviolet, 
+          fontcolor = darkviolet]
+    
+    c [label = '@@3';];
+    e [label = '@@5';];
+    f [label = '@@6'];
+    i [label = '@@9'];
+    k [label = '@@11'];
+
+    edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]
+    
+    a -> b
+    b -> d
+    d -> g
+    d -> h
+    g -> j
+    h -> j
+    j -> l
+
+    edge [minlen = 3]
+
+    b -> c
+    c -> b
+    d -> e
+    e -> d
+    f -> g
+    g -> f
+    h -> i
+    i -> h
+    j -> k
+    k -> j
+
+    subgraph {
+      rank = same; b; c;
+    }
+
+    subgraph {
+      rank = same; d; e;
+    }
+
+    subgraph {
+      rank = same; f; g; h; i;
+    }
+    
+    subgraph {
+      rank = same; j; k
+    }
+
+  }
+
+    [1]: 'START'
+    [2]: 'Collect\\ndata'
+    [3]: 'EpiData\\nor\\nOpen Data Kit'
+    [4]: 'Process\\nand\\nrecode\\ndata'
+    [5]: 'create_op_\\nfunctions'
+    [6]: 'estimateClassic'
+    [7]: 'Estimate\\nindicators'
+    [8]: 'Estimate\\nanthropometric\\nindicators'
+    [9]: 'estimateProbit'
+    [10]: 'Report\\nestimates'
+    [11]: 'reportOP'
+    [12]: 'END'
+"
+)
+```
+
+The `oldr` package provides functions to use for all steps after data collection. These functions were developed specifically for the data structure created by the [EpiData](https://www.dropbox.com/s/2kudlxjqcqn8wph/RAMOP%20data%20entry%20files%20%28English%29.zip?dl=0) or the [Open Data Kit](https://ona.io/helpage/75817/368135/form.xls) collection tools. The data structure produced by these collection tools is shown by the dataset `testSVY` included in the `oldr` package.
+
+```{r data, echo = TRUE, eval = TRUE}
+## Showing first 10 rows of the dataset
+head(testSVY, 10)
+```
+
+## Processing and recoding data
+
+Once RAM-OP data is collected, it will need to be processed and recoded based on the definitions of the various indicators included in RAM-OP. The `oldr` package provides a suite functions to perform this processing and recoding. These functions and their syntax can be easily remembered as the `create_op_` functions as their function names start with the `create_` verb followed by the `op_` label and then followed by an indicator or indicator set specific identifier or short name. Finally, an additional tag for `male` or `female` can be added to the main function to provide gender-specific outputs. 
+
+Currently, a standard RAM-OP can provide results for the 13 indicators or indicator sets for older people. The following table shows these indicators/indicator sets alongside the functions related to them:
+
+**Indicator / Indicator Set** | **Related Functions**
+:--- | :---
+Demography and situation | `create_op_demo`; `create_op_demo_males`; `create_op_demo_females`
+Food intake | `create_op_food`; `create_op_food_males`; `create_op_food_females`
+Severe food insecurity | `create_op_hunger`; `create_op_hunger_males`; `create_op_hunger_females`
+Disability | `create_op_disability`; `create_op_disability_males`; `create_op_disability_females`
+Activities of daily living | `create_op_adl`; `create_op_adl_males`; `create_op_adl_females`
+Mental health and well-being | `create_op_mental`; `create_op_mental_males`; `create_op_mental_females`
+Dementia | `create_op_dementia`; `create_op_dementia_males`; `create_op_dementia_females`
+Health and health-seeking behaviour | `create_op_health`; `create_op_health_males`; `create_op_health_females`
+Sources of income | `create_op_income`; `create_op_income_males`; `create_op_income_females`
+Water, sanitation, and hygiene | `create_op_wash`; `create_op_wash_males`; `create_op_wash_females`
+Anthropometry and anthropometric screening coverage | `create_op_anthro`; `create_op_anthro_males`; `create_op_anthro_females`
+Visual impairment | `create_op_visual`; `create_op_visual_males`; `create_op_visual_females`
+Miscellaneous | `create_op_misc`; `create_op_misc_males`; `create_op_misc_females`
+
+A final function in the processing and recoding set -  `create_op_all` - is provided to perform the processing and recoding of all indicators or indicator sets. This function allows for the specification of which indicators or indicator sets to process and recode which is useful for cases where not all the indicators or indicator sets have been collected or if only specific indicators or indicator sets need to be analysed or reported. This function also specifies whether a specific gender subset of the data is needed.
+
+For a standard RAM-OP implementation, this step is performed in R as follows:
+
+```{r step1, echo = TRUE, eval = FALSE}
+## Process and recode all standard RAM-OP indicators in the testSVY dataset
+create_op_all(svy = testSVY)
+```
+
+which results in the following output:
+
+```{r step1a, echo = FALSE, eval = TRUE}
+## Process and recode all standard RAM-OP indicators in the testSVY dataset
+create_op_all(svy = testSVY)
+```
+
+## Estimating indicators
+
+Once data has been processed and appropriate recoding for indicators has been performed, indicator estimates can now be calculated.
+
+It is important to note that estimation procedures need to account for the sample design. All major statistical analysis software can do this (details vary). There are two things to note:
+
+* The RAM-OP sample is a two-stage sample. Subjects are sampled from a small number of primary sampling units (PSUs).
+
+* The RAM-OP sample is not prior weighted. This means that per-PSU sampling weights are needed. These are usually the populations of the PSU.
+
+This sample design will need to be specified to statistical analysis software being used. If no weights are provided, then the analysis may produce estimates that place undue weight to observations from smaller communities with confidence intervals with lower than nominal coverage (i.e. they will be too narrow).
+
+The standard RAM-OP software uses **blocked weighted bootstrap** estimation approach:
+
+* **Blocked** : The block corresponds to the PSU or cluster.
+
+* **Weighted** : The RAM-OP sampling procedure does not use population proportional sampling to weight the sample prior to data collection as is done with SMART type surveys. This means that a posterior weighting procedure is required. The standard RAM-OP software uses a “roulette wheel” algorithm to weight (i.e. by population) the selection probability of PSUs in bootstrap replicates.
+
+A total of 'm' PSUs are sampled with-replacement from the survey dataset where 'm' is the number of PSUs in the survey sample. Individual records within each PSU are then sampled with-replacement. A total of 'n’ records are sampled with-replacement from each of the selected PSUs where 'n' is the number of individual records in a selected PSU. The resulting collection of records replicates the original survey in terms of both sample design and sample size. A large number of replicate surveys are taken (the standard RAM-OP software uses $r = 399$ replicate surveys but this can be changed). The required statistic (e.g. the mean of an indicator value) is applied to each replicate survey. The reported estimate consists of the 50th (point estimate), 2.5th (lower 95% confidence limit), and the 97.5th (upper 95% confidence limit) percentiles of the distribution of the statistic observed across all replicate surveys. The blocked weighted bootstrap procedure is outlined in the figure below.
+
+```{r bbw, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "100%"}
+knitr::include_graphics(path = "../man/figures/bbw.png")
+```
+
+The principal advantages of using a bootstrap estimator are:
+
+* Bootstrap estimators work well with small sample sizes.
+* The method is non-parametric and uses empirical rather than theoretical distributions. There are no assumptions of things like normality to worry about.
+* The method allows estimation of the sampling distribution of almost any statistic using only simple computational methods.
+

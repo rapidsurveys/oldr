@@ -11,7 +11,7 @@ create_op_income_males(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of male older people indicators on income
+A tibble of male older people indicators on income
 }
 \description{
 Create male older people indicators dataframe for income from survey data

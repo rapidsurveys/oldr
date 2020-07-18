@@ -93,6 +93,18 @@ using the standard RAM-OP questionnaire." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ramOPworkflow.html">The RAM-OP Workflow</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -148,43 +160,46 @@ using the standard RAM-OP questionnaire.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Three dataframes of Older People indicators each with 138 variables:</p><dl'>
-<dt><code>indicators.ALL</code></dt><dd><p>Indicators dataframe for all respondents</p></dd>
-<dt><code>indicators.MALES</code></dt><dd><p>Indicators dataframe for male respondents</p></dd>
-<dt><code>indicators.FEMALES</code></dt><dd><p>Indicators dataframe for female repsondents</p></dd>
+  <dt><code>indicators.ALL</code></dt><dd><p>Indicators dataframe for all respondents</p></dd>
+  <dt><code>indicators.MALES</code></dt><dd><p>Indicators dataframe for male respondents</p></dd>
+  <dt><code>indicators.FEMALES</code></dt><dd><p>Indicators dataframe for female repsondents</p></dd>
 
 </dl>
 
-    <h2 class="hasAnchor" id="indicators"><a class="anchor" href="#indicators"></a>Indicators</h2>
+    <h2 class="hasAnchor" id="demographic-indicators"><a class="anchor" href="#demographic-indicators"></a>Demographic indicators</h2>
 
     
 
 
-<p><strong>Demographic</strong></p><dl'>
-<dt><code>psu</code></dt><dd><p>Primary sampling unit</p></dd>
-<dt><code>resp1</code></dt><dd><p>Respondent is SUBJECT</p></dd>
-<dt><code>resp2</code></dt><dd><p>Respondent is FAMILY CARER</p></dd>
-<dt><code>resp3</code></dt><dd><p>Respondent is OTHER CARER</p></dd>
-<dt><code>resp4</code></dt><dd><p>Respondent is OTHER</p></dd>
-<dt><code>age</code></dt><dd><p>Age of respondent (years)</p></dd>
-<dt><code>ageGrp1</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
-<dt><code>ageGrp2</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
-<dt><code>ageGrp3</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
-<dt><code>ageGrp4</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
-<dt><code>ageGrp5</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
-<dt><code>sex1</code></dt><dd><p>Male</p></dd>
-<dt><code>sex2</code></dt><dd><p>Female</p></dd>
-<dt><code>marital1</code></dt><dd><p>Marital status = SINGLE</p></dd>
-<dt><code>marital2</code></dt><dd><p>Marital status = MARRIED</p></dd>
-<dt><code>marital3</code></dt><dd><p>Marital status = LIVING TOGETHER</p></dd>
-<dt><code>marital4</code></dt><dd><p>Marital status = DIVORCED</p></dd>
-<dt><code>marital5</code></dt><dd><p>Marital status = SEPARATED</p></dd>
-<dt><code>marital6</code></dt><dd><p>Marital status = OTHER</p></dd>
-<dt><code>alone</code></dt><dd><p>Respondent lives alone</p></dd>
+<dl'>
+  <dt><code>psu</code></dt><dd><p>Primary sampling unit</p></dd>
+  <dt><code>resp1</code></dt><dd><p>Respondent is SUBJECT</p></dd>
+  <dt><code>resp2</code></dt><dd><p>Respondent is FAMILY CARER</p></dd>
+  <dt><code>resp3</code></dt><dd><p>Respondent is OTHER CARER</p></dd>
+  <dt><code>resp4</code></dt><dd><p>Respondent is OTHER</p></dd>
+  <dt><code>age</code></dt><dd><p>Age of respondent (years)</p></dd>
+  <dt><code>ageGrp1</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
+  <dt><code>ageGrp2</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
+  <dt><code>ageGrp3</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
+  <dt><code>ageGrp4</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
+  <dt><code>ageGrp5</code></dt><dd><p>Age of respondent is between 50 and 59 years</p></dd>
+  <dt><code>sex1</code></dt><dd><p>Male</p></dd>
+  <dt><code>sex2</code></dt><dd><p>Female</p></dd>
+  <dt><code>marital1</code></dt><dd><p>Marital status = SINGLE</p></dd>
+  <dt><code>marital2</code></dt><dd><p>Marital status = MARRIED</p></dd>
+  <dt><code>marital3</code></dt><dd><p>Marital status = LIVING TOGETHER</p></dd>
+  <dt><code>marital4</code></dt><dd><p>Marital status = DIVORCED</p></dd>
+  <dt><code>marital5</code></dt><dd><p>Marital status = SEPARATED</p></dd>
+  <dt><code>marital6</code></dt><dd><p>Marital status = OTHER</p></dd>
+  <dt><code>alone</code></dt><dd><p>Respondent lives alone</p></dd>
 
 </dl>
 
+    <h2 class="hasAnchor" id="dietary-intake-indicators"><a class="anchor" href="#dietary-intake-indicators"></a>Dietary intake indicators</h2>
 
-<p><strong>Dietary intake indicators</strong></p>
+    
+
+
 <p>These dietary intake indicators have been purpose-built for older people but
 the basic approach used is described in:</p>
 <p><cite>Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
@@ -193,51 +208,59 @@ and Individual Dietary Diversity. Rome, FAO
 <p>and extended to include indicators of probable adequate intake of a number of
 nutrients / micronutrients.</p>
 <dl'>
-<dt><code>MF</code></dt><dd><p>Meal frequenct</p></dd>
-<dt><code>DDS</code></dt><dd><p>Dietary Diversity Score (count of 11 groups)</p></dd>
-<dt><code>FG01</code></dt><dd><p>Cereals</p></dd>
-<dt><code>FG02</code></dt><dd><p>Roots and tubers</p></dd>
-<dt><code>FG03</code></dt><dd><p>Fruits and vegetables</p></dd>
-<dt><code>FG04</code></dt><dd><p>All meat</p></dd>
-<dt><code>FG05</code></dt><dd><p>Eggs</p></dd>
-<dt><code>FG06</code></dt><dd><p>Fish</p></dd>
-<dt><code>FG07</code></dt><dd><p>Legumes, nuts and seeds</p></dd>
-<dt><code>FG08</code></dt><dd><p>Milk and milk products</p></dd>
-<dt><code>FG09</code></dt><dd><p>Fats</p></dd>
-<dt><code>FG10</code></dt><dd><p>Sugar</p></dd>
-<dt><code>FG11</code></dt><dd><p>Other</p></dd>
-<dt><code>proteinRich</code></dt><dd><p>Protein rich foods</p></dd>
-<dt><code>pProtein</code></dt><dd><p>Protein rich plant sources of protein</p></dd>
-<dt><code>aProtein</code></dt><dd><p>Protein rich animal sources of protein</p></dd>
-<dt><code>pVitA</code></dt><dd><p>Plant sources of vitamin A</p></dd>
-<dt><code>aVitA</code></dt><dd><p>Animal sources of vitamin A</p></dd>
-<dt><code>xVitA</code></dt><dd><p>Any source of vitamin A</p></dd>
-<dt><code>ironRich</code></dt><dd><p>Iron rich foods</p></dd>
-<dt><code>caRich</code></dt><dd><p>Calcium rich foods</p></dd>
-<dt><code>znRich</code></dt><dd><p>Zinc rich foods</p></dd>
-<dt><code>vitB1</code></dt><dd><p>Vitamin B1-rich foods</p></dd>
-<dt><code>vitB2</code></dt><dd><p>Vitamin B2-rich foods</p></dd>
-<dt><code>vitB3</code></dt><dd><p>Vitamin B3-rich foods</p></dd>
-<dt><code>vitB6</code></dt><dd><p>Vitamin B6-rich foods</p></dd>
-<dt><code>vitB12</code></dt><dd><p>Vitamin B12-rich foods</p></dd>
-<dt><code>vitBcomplex</code></dt><dd><p>Vitamin B1/B2/B3/B6/B12-rich foods</p></dd>
+  <dt><code>MF</code></dt><dd><p>Meal frequenct</p></dd>
+  <dt><code>DDS</code></dt><dd><p>Dietary Diversity Score (count of 11 groups)</p></dd>
+  <dt><code>FG01</code></dt><dd><p>Cereals</p></dd>
+  <dt><code>FG02</code></dt><dd><p>Roots and tubers</p></dd>
+  <dt><code>FG03</code></dt><dd><p>Fruits and vegetables</p></dd>
+  <dt><code>FG04</code></dt><dd><p>All meat</p></dd>
+  <dt><code>FG05</code></dt><dd><p>Eggs</p></dd>
+  <dt><code>FG06</code></dt><dd><p>Fish</p></dd>
+  <dt><code>FG07</code></dt><dd><p>Legumes, nuts and seeds</p></dd>
+  <dt><code>FG08</code></dt><dd><p>Milk and milk products</p></dd>
+  <dt><code>FG09</code></dt><dd><p>Fats</p></dd>
+  <dt><code>FG10</code></dt><dd><p>Sugar</p></dd>
+  <dt><code>FG11</code></dt><dd><p>Other</p></dd>
+  <dt><code>proteinRich</code></dt><dd><p>Protein rich foods</p></dd>
+  <dt><code>pProtein</code></dt><dd><p>Protein rich plant sources of protein</p></dd>
+  <dt><code>aProtein</code></dt><dd><p>Protein rich animal sources of protein</p></dd>
+  <dt><code>pVitA</code></dt><dd><p>Plant sources of vitamin A</p></dd>
+  <dt><code>aVitA</code></dt><dd><p>Animal sources of vitamin A</p></dd>
+  <dt><code>xVitA</code></dt><dd><p>Any source of vitamin A</p></dd>
+  <dt><code>ironRich</code></dt><dd><p>Iron rich foods</p></dd>
+  <dt><code>caRich</code></dt><dd><p>Calcium rich foods</p></dd>
+  <dt><code>znRich</code></dt><dd><p>Zinc rich foods</p></dd>
+  <dt><code>vitB1</code></dt><dd><p>Vitamin B1-rich foods</p></dd>
+  <dt><code>vitB2</code></dt><dd><p>Vitamin B2-rich foods</p></dd>
+  <dt><code>vitB3</code></dt><dd><p>Vitamin B3-rich foods</p></dd>
+  <dt><code>vitB6</code></dt><dd><p>Vitamin B6-rich foods</p></dd>
+  <dt><code>vitB12</code></dt><dd><p>Vitamin B12-rich foods</p></dd>
+  <dt><code>vitBcomplex</code></dt><dd><p>Vitamin B1/B2/B3/B6/B12-rich foods</p></dd>
 
 </dl>
 
-<p><strong>Household Hunger Scale (HHS)</strong></p>
+    <h2 class="hasAnchor" id="household-hunger-scale-hhs-"><a class="anchor" href="#household-hunger-scale-hhs-"></a>Household Hunger Scale (HHS)</h2>
+
+    
+
+
 <p>The HHS is described in:</p>
 <p><cite>Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
 Scale: Indicator Definition and Measurement Guide. Washington DC,
 FANTA-2 Bridge, FHI 360
 <a href='https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs'>https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs</a></cite></p>
 <dl'>
-<dt><code>HHS1</code></dt><dd><p>Little or no hunger in household</p></dd>
-<dt><code>HHS2</code></dt><dd><p>Moderate hunger in household</p></dd>
-<dt><code>HHS3</code></dt><dd><p>Severe hunger in household</p></dd>
+  <dt><code>HHS1</code></dt><dd><p>Little or no hunger in household</p></dd>
+  <dt><code>HHS2</code></dt><dd><p>Moderate hunger in household</p></dd>
+  <dt><code>HHS3</code></dt><dd><p>Severe hunger in household</p></dd>
 
 </dl>
 
-<p><strong>Katz "Index of Independence in Activities of Daily Living" (ADL) score</strong></p>
+    <h2 class="hasAnchor" id="katz-index-of-independence-in-activities-of-daily-living-adl-score"><a class="anchor" href="#katz-index-of-independence-in-activities-of-daily-living-adl-score"></a>Katz "Index of Independence in Activities of Daily Living" (ADL) score</h2>
+
+    
+
+
 <p>The Katz ADL score is described in:</p>
 <p><cite>Katz S, Ford AB, Moskowitz RW, Jackson BA, Jaffe MW (1963). Studies
 of illness in the aged. The Index of ADL: a standardized measure of
@@ -253,22 +276,26 @@ mobility and instrumental activities of daily living. JAGS, 31(12),
 721-726 doi: <a href='https://doi.org/10.1111/j.1532-5415.1983.tb03391.x'>10.1111/j.1532-5415.1983.tb03391.x</a>
 </cite></p>
 <dl'>
-<dt><code>ADL01</code></dt><dd><p>Bathing</p></dd>
-<dt><code>ADL02</code></dt><dd><p>Dressing</p></dd>
-<dt><code>ADL03</code></dt><dd><p>Toileting</p></dd>
-<dt><code>ADL04</code></dt><dd><p>Transferring (mobility)</p></dd>
-<dt><code>ADL05</code></dt><dd><p>Continence</p></dd>
-<dt><code>ADL06</code></dt><dd><p>Feeding</p></dd>
-<dt><code>scoreADL</code></dt><dd><p>ADL Score</p></dd>
-<dt><code>classADL1</code></dt><dd><p>Severity of dependence 1</p></dd>
-<dt><code>classADL2</code></dt><dd><p>Severity of dependence 2</p></dd>
-<dt><code>classADL3</code></dt><dd><p>Severity of dependence 3</p></dd>
-<dt><code>hasHelp</code></dt><dd><p>Have someone to help with everyday activities</p></dd>
-<dt><code>unmetNeed</code></dt><dd><p>Need help but has no helper</p></dd>
+  <dt><code>ADL01</code></dt><dd><p>Bathing</p></dd>
+  <dt><code>ADL02</code></dt><dd><p>Dressing</p></dd>
+  <dt><code>ADL03</code></dt><dd><p>Toileting</p></dd>
+  <dt><code>ADL04</code></dt><dd><p>Transferring (mobility)</p></dd>
+  <dt><code>ADL05</code></dt><dd><p>Continence</p></dd>
+  <dt><code>ADL06</code></dt><dd><p>Feeding</p></dd>
+  <dt><code>scoreADL</code></dt><dd><p>ADL Score</p></dd>
+  <dt><code>classADL1</code></dt><dd><p>Severity of dependence 1</p></dd>
+  <dt><code>classADL2</code></dt><dd><p>Severity of dependence 2</p></dd>
+  <dt><code>classADL3</code></dt><dd><p>Severity of dependence 3</p></dd>
+  <dt><code>hasHelp</code></dt><dd><p>Have someone to help with everyday activities</p></dd>
+  <dt><code>unmetNeed</code></dt><dd><p>Need help but has no helper</p></dd>
 
 </dl>
 
-<p><strong>K6 Short form psychological distress score</strong></p>
+    <h2 class="hasAnchor" id="k-short-form-psychological-distress-score"><a class="anchor" href="#k-short-form-psychological-distress-score"></a>K6 Short form psychological distress score</h2>
+
+    
+
+
 <p>The K6 score is described in:</p>
 <p><cite>Kessler RC, Andrews G, Colpe LJ, Hiripi E, Mroczek, DK, Normand SLT,
 et al. (2002). Short screening scales to monitor population prevalences
@@ -276,12 +303,16 @@ and trends in non-specific psychological distress. Psychological
 Medicine, 32(6), 959–976 doi: <a href='https://doi.org/10.1017/S0033291702006074'>10.1017/S0033291702006074</a>
 </cite></p>
 <dl'>
-<dt><code>K6</code></dt><dd><p>K6 score</p></dd>
-<dt><code>K6Case</code></dt><dd><p>K6 score &gt; 12  (in serious psychological distress)</p></dd>
+  <dt><code>K6</code></dt><dd><p>K6 score</p></dd>
+  <dt><code>K6Case</code></dt><dd><p>K6 score &gt; 12  (in serious psychological distress)</p></dd>
 
 </dl>
 
-<p><strong>Brief Community Screening Instrument for Dementia (CSID)</strong></p>
+    <h2 class="hasAnchor" id="brief-community-screening-instrument-for-dementia-csid-"><a class="anchor" href="#brief-community-screening-instrument-for-dementia-csid-"></a>Brief Community Screening Instrument for Dementia (CSID)</h2>
+
+    
+
+
 <p>The CSID dementia screening tool is described in:</p>
 <p><cite>Prince M, et al. (2010). A brief dementia screener suitable for use
 by non-specialists in resource poor settings - The cross-cultural
@@ -290,132 +321,159 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 899–907 doi: <a href='https://doi.org/10.1002/gps.2622'>10.1002/gps.2622</a>
 </cite></p>
 <dl'>
-<dt><code>DS</code></dt><dd><p>Probable dementia by CSID screen</p></dd>
+  <dt><code>DS</code></dt><dd><p>Probable dementia by CSID screen</p></dd>
 
 </dl>
 
-<p><strong>Health and health-seeking indicators</strong></p>
+    <h2 class="hasAnchor" id="health-and-health-seeking-indicators"><a class="anchor" href="#health-and-health-seeking-indicators"></a>Health and health-seeking indicators</h2>
+
+    
+
+
 <dl'>
-<dt><code>H1</code></dt><dd><p>Chronic condition</p></dd>
-<dt><code>H2</code></dt><dd><p>Takes drugs regularly for chronic condition</p></dd>
-<dt><code>H31</code></dt><dd><p>No drugs available</p></dd>
-<dt><code>H32</code></dt><dd><p>Too expensive / no money</p></dd>
-<dt><code>H33</code></dt><dd><p>Too old to look for care</p></dd>
-<dt><code>H34</code></dt><dd><p>Use traditional medicine</p></dd>
-<dt><code>H35</code></dt><dd><p>Drugs don't help</p></dd>
-<dt><code>H36</code></dt><dd><p>No-one to help me</p></dd>
-<dt><code>H37</code></dt><dd><p>No need</p></dd>
-<dt><code>H38</code></dt><dd><p>Other</p></dd>
-<dt><code>H39</code></dt><dd><p>No reason given</p></dd>
-<dt><code>H4</code></dt><dd><p>Recent disease episode</p></dd>
-<dt><code>H5</code></dt><dd><p>Accessed care for recent disease episode</p></dd>
-<dt><code>H61</code></dt><dd><p>No drugs available</p></dd>
-<dt><code>H62</code></dt><dd><p>Too expensive / no money</p></dd>
-<dt><code>H63</code></dt><dd><p>Too old to look for care</p></dd>
-<dt><code>H64</code></dt><dd><p>Use traditional medicine</p></dd>
-<dt><code>H65</code></dt><dd><p>Drugs don't help</p></dd>
-<dt><code>H66</code></dt><dd><p>No-one to help me</p></dd>
-<dt><code>H67</code></dt><dd><p>No need</p></dd>
-<dt><code>H68</code></dt><dd><p>Other</p></dd>
-<dt><code>H69</code></dt><dd><p>No reason given</p></dd>
+  <dt><code>H1</code></dt><dd><p>Chronic condition</p></dd>
+  <dt><code>H2</code></dt><dd><p>Takes drugs regularly for chronic condition</p></dd>
+  <dt><code>H31</code></dt><dd><p>No drugs available</p></dd>
+  <dt><code>H32</code></dt><dd><p>Too expensive / no money</p></dd>
+  <dt><code>H33</code></dt><dd><p>Too old to look for care</p></dd>
+  <dt><code>H34</code></dt><dd><p>Use traditional medicine</p></dd>
+  <dt><code>H35</code></dt><dd><p>Drugs don't help</p></dd>
+  <dt><code>H36</code></dt><dd><p>No-one to help me</p></dd>
+  <dt><code>H37</code></dt><dd><p>No need</p></dd>
+  <dt><code>H38</code></dt><dd><p>Other</p></dd>
+  <dt><code>H39</code></dt><dd><p>No reason given</p></dd>
+  <dt><code>H4</code></dt><dd><p>Recent disease episode</p></dd>
+  <dt><code>H5</code></dt><dd><p>Accessed care for recent disease episode</p></dd>
+  <dt><code>H61</code></dt><dd><p>No drugs available</p></dd>
+  <dt><code>H62</code></dt><dd><p>Too expensive / no money</p></dd>
+  <dt><code>H63</code></dt><dd><p>Too old to look for care</p></dd>
+  <dt><code>H64</code></dt><dd><p>Use traditional medicine</p></dd>
+  <dt><code>H65</code></dt><dd><p>Drugs don't help</p></dd>
+  <dt><code>H66</code></dt><dd><p>No-one to help me</p></dd>
+  <dt><code>H67</code></dt><dd><p>No need</p></dd>
+  <dt><code>H68</code></dt><dd><p>Other</p></dd>
+  <dt><code>H69</code></dt><dd><p>No reason given</p></dd>
 
 </dl>
 
-<p><strong>Income and income sources</strong></p>
+    <h2 class="hasAnchor" id="income-and-income-sources"><a class="anchor" href="#income-and-income-sources"></a>Income and income sources</h2>
+
+    
+
+
 <dl'>
-<dt><code>M1</code></dt><dd><p>Has a personal income</p></dd>
-<dt><code>M2A</code></dt><dd><p>Agriculture / fishing / livestock</p></dd>
-<dt><code>M2B</code></dt><dd><p>Wages / salary</p></dd>
-<dt><code>M2C</code></dt><dd><p>Sale of charcoal / bricks / &amp;c.</p></dd>
-<dt><code>M2D</code></dt><dd><p>Trading (e.g. market or shop)</p></dd>
-<dt><code>M2E</code></dt><dd><p>Investments</p></dd>
-<dt><code>M2F</code></dt><dd><p>Spending savings / sale of assets</p></dd>
-<dt><code>M2G</code></dt><dd><p>Charity</p></dd>
-<dt><code>M2H</code></dt><dd><p>Cash transfer / Social security</p></dd>
-<dt><code>M2I</code></dt><dd><p>Other</p></dd>
+  <dt><code>M1</code></dt><dd><p>Has a personal income</p></dd>
+  <dt><code>M2A</code></dt><dd><p>Agriculture / fishing / livestock</p></dd>
+  <dt><code>M2B</code></dt><dd><p>Wages / salary</p></dd>
+  <dt><code>M2C</code></dt><dd><p>Sale of charcoal / bricks / &amp;c.</p></dd>
+  <dt><code>M2D</code></dt><dd><p>Trading (e.g. market or shop)</p></dd>
+  <dt><code>M2E</code></dt><dd><p>Investments</p></dd>
+  <dt><code>M2F</code></dt><dd><p>Spending savings / sale of assets</p></dd>
+  <dt><code>M2G</code></dt><dd><p>Charity</p></dd>
+  <dt><code>M2H</code></dt><dd><p>Cash transfer / Social security</p></dd>
+  <dt><code>M2I</code></dt><dd><p>Other</p></dd>
 
 </dl>
 
-<p><strong>Water, sanitation and hygiene (WASH) indicators</strong></p>
+    <h2 class="hasAnchor" id="water-sanitation-and-hygiene-wash-indicators"><a class="anchor" href="#water-sanitation-and-hygiene-wash-indicators"></a>Water, sanitation and hygiene (WASH) indicators</h2>
+
+    
+
+
 <p>These are a (core) subset of indicators from:</p>
 <p><cite>WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
 for Household Surveys. Geneva, WHO / UNICEF
 <a href='http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/'>http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/</a></cite></p>
 <dl'>
-<dt><code>W1</code></dt><dd><p>Improved source of drinking water</p></dd>
-<dt><code>W2</code></dt><dd><p>Safe drinking water (improved source OR adequate treatment)</p></dd>
-<dt><code>W3</code></dt><dd><p>Improved sanitation facility</p></dd>
-<dt><code>W4</code></dt><dd><p>Improved non-shared sanitation facility</p></dd>
+  <dt><code>W1</code></dt><dd><p>Improved source of drinking water</p></dd>
+  <dt><code>W2</code></dt><dd><p>Safe drinking water (improved source OR adequate treatment)</p></dd>
+  <dt><code>W3</code></dt><dd><p>Improved sanitation facility</p></dd>
+  <dt><code>W4</code></dt><dd><p>Improved non-shared sanitation facility</p></dd>
 
 </dl>
 
-<p><strong>Anthropometry and screening</strong></p>
+    <h2 class="hasAnchor" id="anthropometry-and-screening"><a class="anchor" href="#anthropometry-and-screening"></a>Anthropometry and screening</h2>
+
+    
+
+
 <dl'>
-<dt><code>MUAC</code></dt><dd><p>Mid-upper arm circumference (mm)</p></dd>
-<dt><code>oedema</code></dt><dd><p>Bilateral pitting oedema (may not be nutritional)</p></dd>
-<dt><code>screened</code></dt><dd><p>Either MUAC or oedema checked previously</p></dd>
+  <dt><code>MUAC</code></dt><dd><p>Mid-upper arm circumference (mm)</p></dd>
+  <dt><code>oedema</code></dt><dd><p>Bilateral pitting oedema (may not be nutritional)</p></dd>
+  <dt><code>screened</code></dt><dd><p>Either MUAC or oedema checked previously</p></dd>
 
 </dl>
 
-<p><strong>Visual impairment by "Tumbling E" method</strong></p>
+    <h2 class="hasAnchor" id="visual-impairment-by-tumbling-e-method"><a class="anchor" href="#visual-impairment-by-tumbling-e-method"></a>Visual impairment by "Tumbling E" method</h2>
+
+    
+
+
 <p>The "Tumbling E" method is described in:</p>
 <p><cite>Taylor HR (1978). Applying new design principles to the construction of an
 illiterate E Chart. Am J Optom &amp; Physiol Optics 55:348</cite></p>
 <dl'>
-<dt><code>poorVA</code></dt><dd><p>Poor visual acuity (correct in &lt; 3 of 4 tests)</p></dd>
+  <dt><code>poorVA</code></dt><dd><p>Poor visual acuity (correct in &lt; 3 of 4 tests)</p></dd>
 
 </dl>
 
-<p><strong>Miscellaneous indicators</strong></p>
+    <h2 class="hasAnchor" id="miscellaneous-indicators"><a class="anchor" href="#miscellaneous-indicators"></a>Miscellaneous indicators</h2>
+
+    
+
+
 <dl'>
-<dt><code>chew</code></dt><dd><p>Problems chewing food</p></dd>
-<dt><code>food</code></dt><dd><p>Anyone in HH receives a ration</p></dd>
-<dt><code>NFRI</code></dt><dd><p>Anyone in HH received non-food relief item(s) in previous month</p></dd>
+  <dt><code>chew</code></dt><dd><p>Problems chewing food</p></dd>
+  <dt><code>food</code></dt><dd><p>Anyone in HH receives a ration</p></dd>
+  <dt><code>NFRI</code></dt><dd><p>Anyone in HH received non-food relief item(s) in previous month</p></dd>
 
 </dl>
 
-<p><strong>Washington Group on Disability</strong></p>
+    <h2 class="hasAnchor" id="washington-group-on-disability"><a class="anchor" href="#washington-group-on-disability"></a>Washington Group on Disability</h2>
+
+    
+
+
 <p>See:</p>
 <p><a href='http://www.washingtongroup-disability.com'>http://www.washingtongroup-disability.com</a>
   <a href='https://www.cdc.gov/nchs/washington_group/wg_documents.htm'>https://www.cdc.gov/nchs/washington_group/wg_documents.htm</a></p>
 <p>for details.</p>
 <dl'>
-<dt><code>wgVisionD0</code></dt><dd><p>Vision domain 0</p></dd>
-<dt><code>wgVisionD1</code></dt><dd><p>Vision domain 1</p></dd>
-<dt><code>wgVisionD2</code></dt><dd><p>Vision domain 2</p></dd>
-<dt><code>wgVisionD3</code></dt><dd><p>Vision domain 3</p></dd>
-<dt><code>wgHearingD0</code></dt><dd><p>Hearing domain 0</p></dd>
-<dt><code>wgHearingD1</code></dt><dd><p>Hearing domain 1</p></dd>
-<dt><code>wgHearingD2</code></dt><dd><p>Hearing domain 2</p></dd>
-<dt><code>wgHearingD3</code></dt><dd><p>Hearing domain 3</p></dd>
-<dt><code>wgMobilityD0</code></dt><dd><p>Mobility domain 0</p></dd>
-<dt><code>wgMobilityD1</code></dt><dd><p>Mobility domain 1</p></dd>
-<dt><code>wgMobilityD2</code></dt><dd><p>Mobility domain 2</p></dd>
-<dt><code>wgMobilityD3</code></dt><dd><p>Mobility domain 3</p></dd>
-<dt><code>wgRememberingD0</code></dt><dd><p>Remembering domain 0</p></dd>
-<dt><code>wgRememberingD1</code></dt><dd><p>Remembering domain 1</p></dd>
-<dt><code>wgRememberingD2</code></dt><dd><p>Remembering domain 2</p></dd>
-<dt><code>wgRememberingD3</code></dt><dd><p>Remembering domain 3</p></dd>
-<dt><code>wgSelfCareD0</code></dt><dd><p>Self-care domain 0</p></dd>
-<dt><code>wgSelfCareD1</code></dt><dd><p>Self-care domain 1</p></dd>
-<dt><code>wgSelfCareD2</code></dt><dd><p>Self-care domain 2</p></dd>
-<dt><code>wgSelfCareD3</code></dt><dd><p>Self-care domain 3</p></dd>
-<dt><code>wgCommunicatingD0</code></dt><dd><p>Communication domain 0</p></dd>
-<dt><code>wgCommunicatingD1</code></dt><dd><p>Communication domain 1</p></dd>
-<dt><code>wgCommunicatingD2</code></dt><dd><p>Communication domain 2</p></dd>
-<dt><code>wgCommunicatingD3</code></dt><dd><p>Communication domain 3</p></dd>
-<dt><code>wgP0</code></dt><dd><p>Overall 0</p></dd>
-<dt><code>wgP1</code></dt><dd><p>Overall 1</p></dd>
-<dt><code>wgP2</code></dt><dd><p>Overall 2</p></dd>
-<dt><code>wgP3</code></dt><dd><p>Overall 3</p></dd>
-<dt><code>wgPM</code></dt><dd><p>Any disability</p></dd>
+  <dt><code>wgVisionD0</code></dt><dd><p>Vision domain 0</p></dd>
+  <dt><code>wgVisionD1</code></dt><dd><p>Vision domain 1</p></dd>
+  <dt><code>wgVisionD2</code></dt><dd><p>Vision domain 2</p></dd>
+  <dt><code>wgVisionD3</code></dt><dd><p>Vision domain 3</p></dd>
+  <dt><code>wgHearingD0</code></dt><dd><p>Hearing domain 0</p></dd>
+  <dt><code>wgHearingD1</code></dt><dd><p>Hearing domain 1</p></dd>
+  <dt><code>wgHearingD2</code></dt><dd><p>Hearing domain 2</p></dd>
+  <dt><code>wgHearingD3</code></dt><dd><p>Hearing domain 3</p></dd>
+  <dt><code>wgMobilityD0</code></dt><dd><p>Mobility domain 0</p></dd>
+  <dt><code>wgMobilityD1</code></dt><dd><p>Mobility domain 1</p></dd>
+  <dt><code>wgMobilityD2</code></dt><dd><p>Mobility domain 2</p></dd>
+  <dt><code>wgMobilityD3</code></dt><dd><p>Mobility domain 3</p></dd>
+  <dt><code>wgRememberingD0</code></dt><dd><p>Remembering domain 0</p></dd>
+  <dt><code>wgRememberingD1</code></dt><dd><p>Remembering domain 1</p></dd>
+  <dt><code>wgRememberingD2</code></dt><dd><p>Remembering domain 2</p></dd>
+  <dt><code>wgRememberingD3</code></dt><dd><p>Remembering domain 3</p></dd>
+  <dt><code>wgSelfCareD0</code></dt><dd><p>Self-care domain 0</p></dd>
+  <dt><code>wgSelfCareD1</code></dt><dd><p>Self-care domain 1</p></dd>
+  <dt><code>wgSelfCareD2</code></dt><dd><p>Self-care domain 2</p></dd>
+  <dt><code>wgSelfCareD3</code></dt><dd><p>Self-care domain 3</p></dd>
+  <dt><code>wgCommunicatingD0</code></dt><dd><p>Communication domain 0</p></dd>
+  <dt><code>wgCommunicatingD1</code></dt><dd><p>Communication domain 1</p></dd>
+  <dt><code>wgCommunicatingD2</code></dt><dd><p>Communication domain 2</p></dd>
+  <dt><code>wgCommunicatingD3</code></dt><dd><p>Communication domain 3</p></dd>
+  <dt><code>wgP0</code></dt><dd><p>Overall 0</p></dd>
+  <dt><code>wgP1</code></dt><dd><p>Overall 1</p></dd>
+  <dt><code>wgP2</code></dt><dd><p>Overall 2</p></dd>
+  <dt><code>wgP3</code></dt><dd><p>Overall 3</p></dd>
+  <dt><code>wgPM</code></dt><dd><p>Any disability</p></dd>
 
 </dl>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Create indicators dataset from RAM-OP survey data collected from</span>
+    <pre class="examples"><div class='input'><span class='co'># Create indicators dataset from RAM-OP survey data collected from</span>
 <span class='co'># Addis Ababa, Ethiopia</span>
 <span class='fu'>createOP</span>(<span class='no'>testSVY</span>)</div><div class='output co'>#&gt;     psu resp1 resp2 resp3 resp4 age ageGrp1 ageGrp2 ageGrp3 ageGrp4 ageGrp5
 #&gt; 1   201     1     0     0     0  67       0       1       0       0       0

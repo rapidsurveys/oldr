@@ -93,6 +93,18 @@ survey data collected using the standard RAM-OP questionnaire" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/ramOPworkflow.html">The RAM-OP Workflow</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -147,127 +159,27 @@ survey data collected using the standard RAM-OP questionnaire</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe of female older people indicators on oedema prevalence</p>
+    <p>A tibble of female older people indicators on oedema prevalence</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Create oedema prevalence indicators dataset from RAM-OP survey data</span>
 <span class='co'># collected from Addis Ababa, Ethiopia</span>
-<span class='fu'>create_op_oedema_females</span>(<span class='no'>testSVY</span>)</div><div class='output co'>#&gt;     psu sex1 sex2 oedema
-#&gt; 1   201    0    1      0
-#&gt; 4   201    0    1      0
-#&gt; 5   201    0    1      0
-#&gt; 8   201    0    1      0
-#&gt; 10  201    0    1      0
-#&gt; 11  201    0    1      0
-#&gt; 12  201    0    1      0
-#&gt; 15  202    0    1      0
-#&gt; 16  202    0    1      0
-#&gt; 17  202    0    1      0
-#&gt; 18  202    0    1      0
-#&gt; 22  202    0    1      0
-#&gt; 23  202    0    1      0
-#&gt; 24  202    0    1      0
-#&gt; 25  203    0    1      0
-#&gt; 26  203    0    1      0
-#&gt; 28  203    0    1      0
-#&gt; 29  203    0    1      0
-#&gt; 30  203    0    1      0
-#&gt; 31  203    0    1      1
-#&gt; 32  203    0    1      0
-#&gt; 37  204    0    1      0
-#&gt; 38  204    0    1      0
-#&gt; 39  204    0    1      0
-#&gt; 41  204    0    1      0
-#&gt; 44  204    0    1      0
-#&gt; 45  204    0    1      0
-#&gt; 46  204    0    1      0
-#&gt; 47  204    0    1      0
-#&gt; 48  204    0    1      1
-#&gt; 49  205    0    1      0
-#&gt; 50  205    0    1      0
-#&gt; 51  205    0    1      0
-#&gt; 52  205    0    1      0
-#&gt; 53  205    0    1      0
-#&gt; 55  205    0    1      0
-#&gt; 56  205    0    1      0
-#&gt; 57  205    0    1      0
-#&gt; 58  205    0    1      0
-#&gt; 60  205    0    1      0
-#&gt; 62  206    0    1      0
-#&gt; 63  206    0    1      0
-#&gt; 64  206    0    1      0
-#&gt; 67  206    0    1      0
-#&gt; 72  206    0    1      0
-#&gt; 74  207    0    1      0
-#&gt; 76  207    0    1      0
-#&gt; 78  207    0    1      0
-#&gt; 79  207    0    1      0
-#&gt; 80  207    0    1      0
-#&gt; 82  207    0    1      0
-#&gt; 83  207    0    1      0
-#&gt; 85  208    0    1      0
-#&gt; 86  208    0    1      0
-#&gt; 88  208    0    1      0
-#&gt; 89  208    0    1      0
-#&gt; 91  208    0    1      0
-#&gt; 93  208    0    1      0
-#&gt; 94  208    0    1      0
-#&gt; 96  208    0    1      0
-#&gt; 97  209    0    1      0
-#&gt; 98  209    0    1      0
-#&gt; 99  209    0    1      0
-#&gt; 102 209    0    1      0
-#&gt; 109 210    0    1      0
-#&gt; 110 210    0    1      0
-#&gt; 111 210    0    1      0
-#&gt; 113 210    0    1      0
-#&gt; 115 210    0    1      0
-#&gt; 117 210    0    1      0
-#&gt; 122 211    0    1      0
-#&gt; 124 211    0    1      0
-#&gt; 125 211    0    1      0
-#&gt; 128 211    0    1      0
-#&gt; 129 211    0    1      0
-#&gt; 130 211    0    1      0
-#&gt; 131 211    0    1      0
-#&gt; 132 211    0    1      0
-#&gt; 133 212    0    1      0
-#&gt; 135 212    0    1      0
-#&gt; 137 212    0    1      0
-#&gt; 139 212    0    1      0
-#&gt; 140 212    0    1      0
-#&gt; 144 212    0    1      0
-#&gt; 146 213    0    1      0
-#&gt; 147 213    0    1      0
-#&gt; 148 213    0    1      0
-#&gt; 149 213    0    1      0
-#&gt; 153 213    0    1      0
-#&gt; 154 213    0    1      1
-#&gt; 155 213    0    1      0
-#&gt; 156 213    0    1      0
-#&gt; 157 214    0    1      0
-#&gt; 159 214    0    1      0
-#&gt; 162 214    0    1      0
-#&gt; 164 214    0    1      0
-#&gt; 166 214    0    1      0
-#&gt; 167 214    0    1      0
-#&gt; 168 214    0    1      0
-#&gt; 169 215    0    1      0
-#&gt; 170 215    0    1      0
-#&gt; 171 215    0    1      0
-#&gt; 175 215    0    1      0
-#&gt; 177 215    0    1      0
-#&gt; 178 215    0    1      0
-#&gt; 182 216    0    1      0
-#&gt; 184 216    0    1      0
-#&gt; 185 216    0    1      0
-#&gt; 186 216    0    1      0
-#&gt; 188 216    0    1      0
-#&gt; 190 216    0    1      0
-#&gt; 191 216    0    1      1
-#&gt; 192 216    0    1      0</div><div class='input'>
-</div></pre>
+<span class='fu'>create_op_oedema_females</span>(<span class='no'>testSVY</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 113 x 4</span><span>
+#&gt;      psu  sex1  sex2 oedema
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 2</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 3</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 4</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 5</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 6</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 7</span><span>   201     0     1      0
+#&gt; </span><span style='color: #555555;'> 8</span><span>   202     0     1      0
+#&gt; </span><span style='color: #555555;'> 9</span><span>   202     0     1      0
+#&gt; </span><span style='color: #555555;'>10</span><span>   202     0     1      0
+#&gt; </span><span style='color: #555555;'># … with 103 more rows</span><span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

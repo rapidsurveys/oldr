@@ -2,8 +2,7 @@
 #
 #' An Implementation of Rapid Assessment Method for Older People (RAM-OP) in R
 #'
-#' See the README at
-#' \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
+#' See the README at \href{GitHub}{https://github.com/rapidsurveys/oldr#readme}
 #'
 #' @docType package
 #' @name oldr
@@ -14,6 +13,7 @@
 #' @importFrom bbw bootBW bootClassic bootPROBIT
 #' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
+#' @importFrom tibble tibble
 #'
 #
 ################################################################################

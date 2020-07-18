@@ -11,7 +11,7 @@ create_op_misc_females(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of female older people miscellaneous indicators
+A tibble of female older people miscellaneous indicators
 }
 \description{
 Create female older people indicators dataframe for miscellaneous indicators

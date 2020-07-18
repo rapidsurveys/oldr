@@ -11,14 +11,14 @@ create_op_visual(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on visual impairment
+A tibble of older people indicators on visual impairment
 }
 \description{
 Create older people indicators dataframe for visual impairment from survey
 data collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Visual impairment by "Tumbling E" method
+\section{Visual impairment by "Tumbling E" method}{
+
 
 The "Tumbling E" method is described in:
 
@@ -36,4 +36,7 @@ illiterate E Chart. Am J Optom & Physiol Optics 55:348}
 # collected from Addis Ababa, Ethiopia
 create_op_visual(testSVY)
 
+}
+\author{
+Mark Myatt
 }

@@ -11,33 +11,35 @@ create_op_income(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on income
+A tibble of older people indicators on income
 }
 \description{
 Create older people indicators dataframe for income from survey data collected
 using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Income and income sources
+\section{Income and income sources}{
+
 
 \describe{
-\item{\code{M1}}{Has a personal income}
-\item{\code{M2A}}{Agriculture / fishing / livestock}
-\item{\code{M2B}}{Wages / salary}
-\item{\code{M2C}}{Sale of charcoal / bricks / &c.}
-\item{\code{M2D}}{Trading (e.g. market or shop)}
-\item{\code{M2E}}{Investments}
-\item{\code{M2F}}{Spending savings / sale of assets}
-\item{\code{M2G}}{Charity}
-\item{\code{M2H}}{Cash transfer / Social security}
-\item{\code{M2I}}{Other}
+  \item{\code{M1}}{Has a personal income}
+  \item{\code{M2A}}{Agriculture / fishing / livestock}
+  \item{\code{M2B}}{Wages / salary}
+  \item{\code{M2C}}{Sale of charcoal / bricks / &c.}
+  \item{\code{M2D}}{Trading (e.g. market or shop)}
+  \item{\code{M2E}}{Investments}
+  \item{\code{M2F}}{Spending savings / sale of assets}
+  \item{\code{M2G}}{Charity}
+  \item{\code{M2H}}{Cash transfer / Social security}
+  \item{\code{M2I}}{Other}
 }
 }
 
 \examples{
-
 # Create income indicators dataset from RAM-OP survey data collected from
 # Addis Ababa, Ethiopia
 create_op_income(testSVY)
 
+}
+\author{
+Mark Myatt
 }

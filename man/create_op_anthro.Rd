@@ -11,14 +11,14 @@ create_op_anthro(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on anthropometry
+A tibble of older people indicators on anthropometry
 }
 \description{
 Create older people indicators dataframe for anthropometry from survey data
 collected using the standard RAM-OP questionnaire.
 }
-\section{Indicators}{
- Anthropometry and screening
+\section{Anthropometry and screening}{
+
 
 \describe{
 \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
@@ -31,4 +31,7 @@ collected using the standard RAM-OP questionnaire.
 # from Addis Ababa, Ethiopia
 create_op_anthro(testSVY)
 
+}
+\author{
+Mark Myatt
 }
