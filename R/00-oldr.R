@@ -13,6 +13,7 @@
 #' @importFrom bbw bootBW bootClassic bootPROBIT
 #' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
+#' @importFrom tibble tibble
 #'
 #
 ################################################################################
