@@ -2,15 +2,18 @@
 #
 #' Create table of RAM-OP results
 #'
-#' @param FILENAME Prefix to append to report output filename
+#' @param estimates A data.frame of RAM-OP results produced by \link{mergeEstimates}
+#'   function.
+#' @param FILENAME Prefix to append to report output filename. Can be specified
+#'   as a path to a specific directory where to output tabular results CSV file
 #'
 #' @return Report of tabulated estimated results saved in CSV format in current
-#'     working directory
+#'     working directory or in the specified path
 #'
 #' @examples
 #'   #
 #'   \dontrun{
-#'     reportOP("TEST")
+#'     report_op_table("TEST")
 #'   }
 #'
 #' @export
@@ -18,14 +21,14 @@
 #
 ################################################################################
 
-reportOP <- function(FILENAME) {
+report_op_table <- function(estimates, FILENAME) {
 
   ## Create report filename
   reportFilename <- paste(FILENAME, ".report.csv", sep="")
 
   ## Open file for output
   withr::with_options(
-    list = c(width = 132),
+    new = list(width = 132),
 
     withr::with_output_sink(
       new = reportFilename,

@@ -32,6 +32,9 @@ mergeEstimates <- function(x, y) {
   estimates <- estimates[order(estimates$originalOrder), ]
   estimates <- subset(estimates, select = -originalOrder)
 
+  ## Convert to tibble
+  estimates <- tibble::tibble(estimates)
+
   ## Return
   return(estimates)
 }
