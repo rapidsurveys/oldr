@@ -4,5 +4,10 @@
 #
 ################################################################################
 
-testPSU <- read.csv("data-raw/testPSU.csv", header = TRUE, sep = ",")
-devtools::use_data(testPSU, overwrite = TRUE)
+testPSU <- read.csv("data-raw/testPSU.csv",
+                    header = TRUE, sep = ",",
+                    stringsAsFactors = FALSE)
+
+testPSU <- tibble::tibble(testPSU)
+
+usethis::use_data(testPSU, overwrite = TRUE, compress = "xz")
