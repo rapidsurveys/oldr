@@ -127,7 +127,7 @@ DiagrammeR::grViz("
     [10]: 'Visualise\\nestimates'
     [11]: 'chart\\nfunctions'
     [12]: 'Report\\nestimates'
-    [13]: 'reportOP'
+    [13]: 'report_op_table'
     [14]: 'END'
 "
 )
@@ -201,7 +201,7 @@ The `oldr` package uses **blocked weighted bootstrap** estimation approach:
 A total of 'm' PSUs are sampled with-replacement from the survey dataset where 'm' is the number of PSUs in the survey sample. Individual records within each PSU are then sampled with-replacement. A total of 'n’ records are sampled with-replacement from each of the selected PSUs where 'n' is the number of individual records in a selected PSU. The resulting collection of records replicates the original survey in terms of both sample design and sample size. A large number of replicate surveys are taken (the standard RAM-OP software uses $r = 399$ replicate surveys but this can be changed). The required statistic (e.g. the mean of an indicator value) is applied to each replicate survey. The reported estimate consists of the 50th (point estimate), 2.5th (lower 95% confidence limit), and the 97.5th (upper 95% confidence limit) percentiles of the distribution of the statistic observed across all replicate surveys. The blocked weighted bootstrap procedure is outlined in the figure below.
 
 ```{r bbw, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "85%"}
-knitr::include_graphics(path = "../man/figures/bbw.png")
+knitr::include_graphics(path = "https://rapidsurveys.io/ramOPmanual/figures/bbw.png")
 ```
 
 The principal advantages of using a bootstrap estimator are:
@@ -230,7 +230,7 @@ On the other ahnd, the estimate of GAM prevalence made from the RAM-OP survey da
 Both the classic and the PROBIT methods can be thought of as estimating area:
 
 ```{r probit, echo = FALSE, eval = TRUE, out.width = "100%", fig.align = "center"}
-knitr::include_graphics(path = "../man/figures/indicators26.png")
+knitr::include_graphics(path = "https://rapidsurveys.io/ramOPmanual/figures/indicators26.png")
 ```
 
 The principal advantage of the PROBIT approach is that the required sample size is usually smaller than that required to estimate prevalence with a given precision using the classic method.
@@ -332,6 +332,29 @@ list.files(path = tempdir())
 
 and will look somethink like this:
 
-```{r showChart, echo = FALSE, eval = TRUE, out.width = "80%", fig.align = "center"}
+```{r showChart, echo = FALSE, eval = TRUE, out.width = "85%", fig.align = "center"}
 knitr::include_graphics(path = paste(tempdir(), "test.ADL.png", sep = "/"))
 ```
+
+## Reporting estimates
+
+Finally, estimates can be reported through report tables. The `report_op_table` function facilitates this through the following syntax:
+
+```{r report, echo = TRUE, eval = TRUE}
+report_op_table(estimates = resultsDF, 
+                FILENAME = paste(tempdir(), "TEST", sep = "/"))
+```
+
+The resulting CSV file is found in the temporary directory
+
+```{r checkTable, echo = TRUE, eval = TRUE}
+list.files(path = tempdir())
+```
+
+and will look somethink like this:
+
+```{r showTable, echo = FALSE, eval = TRUE}
+read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"),
+         stringsAsFactors = FALSE)
+```
+
