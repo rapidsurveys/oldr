@@ -102,6 +102,9 @@ estimateClassic  <- function(x, w, statistic = bootClassic,
                                "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                                "INDICATOR")
 
+  ## Convert to tibble
+  classicEstimates <- tibble::tibble(classicEstimates)
+
   ## Return results
   return(classicEstimates)
 }

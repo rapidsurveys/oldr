@@ -147,6 +147,9 @@ estimateProbit <- function(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
                               "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                               "INDICATOR")
 
+  ## Convert to tibble
+  probitEstimates <- tibble::tibble(probitEstimates)
+
   ## Return probitEstimates
   return(probitEstimates)
 }

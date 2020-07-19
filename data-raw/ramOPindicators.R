@@ -17,7 +17,9 @@ svy <- subset(svy, select = -a9)
 
 svyBackup <- testSVY <- svy
 
-devtools::use_data(testSVY, overwrite = TRUE)
+testSVY <- tibble::tibble(testSVY)
+
+usethis::use_data(testSVY, overwrite = TRUE, compress = "xz")
 
 rm(testSVY)
 
@@ -840,7 +842,9 @@ indicators.ALL <- data.frame(psu, resp1, resp2, resp3, resp4,
                              wgCommunicatingD0, wgCommunicatingD1, wgCommunicatingD2, wgCommunicatingD3,
 					                   wgP0, wgP1, wgP2, wgP3, wgPM)
 
-devtools::use_data(indicators.ALL, overwrite = TRUE)
+indicators.ALL <- tibble::tibble(indicators.ALL)
+
+usethis::use_data(indicators.ALL, overwrite = TRUE, compress = "xz")
 
 #
 # Subset summary data.frames for MALES and FEMALES
@@ -848,8 +852,8 @@ devtools::use_data(indicators.ALL, overwrite = TRUE)
 indicators.MALES   <- subset(indicators.ALL, sex1 == 1)
 indicators.FEMALES <- subset(indicators.ALL, sex2 == 1)
 
-devtools::use_data(indicators.MALES, overwrite = TRUE)
-devtools::use_data(indicators.FEMALES, overwrite = TRUE)
+usethis::use_data(indicators.MALES, overwrite = TRUE, compress = "xz")
+usethis::use_data(indicators.FEMALES, overwrite = TRUE, compress = "xz")
 
 #
 # Clean-up

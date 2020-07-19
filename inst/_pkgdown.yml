@@ -79,7 +79,7 @@ reference:
 
   - title: Create a RAM-OP report
     contents:
-    - reportOP
+    - report_op_table
 
   - title: Datasets
     contents:

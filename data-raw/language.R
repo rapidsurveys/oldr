@@ -11,8 +11,13 @@
 language <- read.table(file = "data-raw/ramOP.language.csv",
                        header = TRUE,
                        sep = ",",
-                       quote = "")
+                       quote = "",
+                       stringsAsFactors = FALSE)
+
+## Convert to tibble
+language <- tibble::tibble(language)
+
 #
 # Save language file as internal package data
 #
-usethis::use_data(language, pkg = ".", internal = TRUE, overwrite = TRUE)
+usethis::use_data(language, internal = TRUE, overwrite = TRUE, compress = "xz")
