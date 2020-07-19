@@ -38,7 +38,6 @@ knitr::opts_chunk$set(
 
 * Data analysis performed using modern computer-intensive methods to allow estimates of indicator levels to be made with useful precision using a small sample size.
 
-
 ## Installation
 
 You can install `oldr` from [CRAN](http://cran.r-project.org) with:
@@ -56,4 +55,12 @@ remotes::install_github("rapidsurveys/oldr")
 
 ## Usage
 
-This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire. For a more detailed description of the RAM-OP survey, read the [RAM-OP manual](https://rapidsurveys.io/ramOPmanual/).
+This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire.
+
+The figure below illustrates the RAM-OP workflow and indicates which functions in the `oldr` package support which particular step in the process.
+
+```{r workflow, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("man/figures/ramOPworkflow.png")
+```
+
+For a more detailed description of the RAM-OP survey, read the [RAM-OP manual](https://rapidsurveys.io/ramOPmanual/).
