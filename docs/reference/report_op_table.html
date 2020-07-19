@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create table of RAM-OP results — reportOP • oldr</title>
+<title>Create table of RAM-OP results — report_op_table • oldr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Create table of RAM-OP results — reportOP" />
+<meta property="og:title" content="Create table of RAM-OP results — report_op_table" />
 <meta property="og:description" content="Create table of RAM-OP results" />
 
 
@@ -134,33 +134,39 @@
     <div class="page-header">
     <h1>Create table of RAM-OP results</h1>
     <small class="dont-index">Source: <a href='https://github.com/rapidsurveys/oldr/blob/master/R/09-report.R'><code>R/09-report.R</code></a></small>
-    <div class="hidden name"><code>reportOP.Rd</code></div>
+    <div class="hidden name"><code>report_op_table.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Create table of RAM-OP results</p>
     </div>
 
-    <pre class="usage"><span class='fu'>reportOP</span>(<span class='no'>FILENAME</span>)</pre>
+    <pre class="usage"><span class='fu'>report_op_table</span>(<span class='no'>estimates</span>, <span class='no'>FILENAME</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>estimates</th>
+      <td><p>A data.frame of RAM-OP results produced by <a href='mergeEstimates.html'>mergeEstimates</a>
+function.</p></td>
+    </tr>
+    <tr>
       <th>FILENAME</th>
-      <td><p>Prefix to append to report output filename</p></td>
+      <td><p>Prefix to append to report output filename. Can be specified
+as a path to a specific directory where to output tabular results CSV file</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Report of tabulated estimated results saved in CSV format in current
-    working directory</p>
+    working directory or in the specified path</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'>#</span>
   <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-    <span class='fu'>reportOP</span>(<span class='st'>"TEST"</span>)
+    <span class='fu'>report_op_table</span>(<span class='st'>"TEST"</span>)
   }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
