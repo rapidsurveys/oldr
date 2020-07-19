@@ -157,8 +157,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Indicators dataset produced by createOP with primary sampling unit
-(PSU) in column named <code>PSU</code></p></td>
+      <td><p>Indicators dataset produced by <a href='create_op_all.html'>create_op_all</a> with primary
+sampling unit (PSU) in column named <code>PSU</code></p></td>
     </tr>
     <tr>
       <th>w</th>
@@ -169,7 +169,7 @@
     <tr>
       <th>statistic</th>
       <td><p>A function operating on data in <code>x</code>; fixed to
-<code>bootClassic</code> function for means</p></td>
+bootClassic function for means</p></td>
     </tr>
     <tr>
       <th>indicators</th>
@@ -184,7 +184,7 @@ Default is all indicator sets.</p></td>
       <td><p>Parameters (named columns in <code>x</code>) passed to the function
 specified in <code>statistic</code>. This is equivalent to variables
 corresponding to the indicator sets specified in <code>indicators</code>. The
-function <code><a href='get_variables.html'>get_variables()</a></code> is used to specify these variables.</p></td>
+function <a href='get_variables.html'>get_variables</a> is used to specify these variables.</p></td>
     </tr>
     <tr>
       <th>outputColumns</th>
@@ -199,7 +199,7 @@ values specified in <code>params</code></p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Dataframe of boot estimates using bootClassic mean function</p>
+    <p>Tibble of boot estimates using bootClassic mean function</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'>#</span>
