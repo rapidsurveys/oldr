@@ -2,13 +2,13 @@
 #
 #' Function to apply bootstrap to RAM-OP indicators using a classical estimator.
 #'
-#' @param x Indicators dataset produced by createOP with primary sampling unit
-#'     (PSU) in column named \code{PSU}
+#' @param x Indicators dataset produced by \link{create_op_all} with primary
+#'     sampling unit (PSU) in column named \code{PSU}
 #' @param w A data frame with primary sampling unit (PSU) in column named
 #'     \code{psu} and survey weight (i.e. PSU population) in column named
 #'     \code{pop}
 #' @param statistic A function operating on data in \code{x}; fixed to
-#'     \code{bootClassic} function for means
+#'     \link{bootClassic} function for means
 #' @param indicators A character vector of indicator set names to estimate.
 #'     Indicator set names are \code{demo}, \code{food}, \code{hunger},
 #'     \code{disability}, \code{adl}, \code{mental}, \code{dementia},
@@ -17,12 +17,12 @@
 #' @param params Parameters (named columns in \code{x}) passed to the function
 #'     specified in \code{statistic}. This is equivalent to variables
 #'     corresponding to the indicator sets specified in \code{indicators}. The
-#'     function \code{get_variables()} is used to specify these variables.
+#'     function \link{get_variables} is used to specify these variables.
 #' @param outputColumns Names of columns in output data frame. This defaults to
 #'     values specified in \code{params}
 #' @param replicates Number of bootstrap replicates
 #'
-#' @return Dataframe of boot estimates using bootClassic mean function
+#' @return Tibble of boot estimates using bootClassic mean function
 #'
 #' @examples
 #'   #
