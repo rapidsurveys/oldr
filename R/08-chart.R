@@ -82,14 +82,16 @@ chartMUAC <- function(x, filename) {
          cex.axis = 0.8,
          mar = c(5, 4, 2, 2) + 0.1),
 
+    {
     ## Create MUAC histogram by sex
     hist(x$MUAC, breaks = 20,
          xlim = c(160, max(x$MUAC, na.rm = TRUE)),
-         main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray"),
+         main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
 
     ## Create boxplot of MUAC by sex
     boxplot(x$MUAC ~ sexText,
             main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
+    }
   )
 
   ## Close graphics device
@@ -132,17 +134,19 @@ chartMF <- function(x, filename) {
          cex.axis = 0.8,
          mar = c(5, 4, 2, 2) + 0.1),
 
+    {
     ## Create barplot
     barplot(fullTable(x = x$MF,
                       values = 0:max(x$MF, na.rm = TRUE)),
             main = "",
             xlab = "Meal frequency", ylab = "Frequency",
-            col = "lightgray"),
+            col = "lightgray")
 
     ## Create boxplot
     boxplot(x$MF ~ sexText,
             main = "",
             xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
+    }
   )
 
   ## Close graphics device
@@ -185,18 +189,20 @@ chartDDS <- function(x, filename) {
          cex.axis = 0.8,
          mar = c(5, 4, 2, 2) + 0.1),
 
+    {
     ## Create barplot
     barplot(fullTable(x = x$DDS,
                       values = 0:max(x$DDS)),
             main = "",
             xlab = "Dietary diversity score",
             ylab = "Frequency",
-            col = "lightgray"),
+            col = "lightgray")
 
     ## Create boxplot
     boxplot(x$DDS ~ sexText,
             main = "",
             xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+    }
   )
 
   ## Close graphics device
@@ -240,13 +246,15 @@ chartK6 <- function(x, filename) {
          cex.axis = 0.8,
          mar = c(5, 4, 2, 2) + 0.1),
 
+    {
     ## Create histogram
-    hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray"),
+    hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
 
     ## Create boxplot
     boxplot(x$K6 ~ sexText, main = "",
             xlab = "Sex", ylab = "K6",
             frame.plot = FALSE)
+    }
   )
 
   ## Close graphics device
@@ -289,17 +297,19 @@ chartADL <- function(x, filename) {
          cex.axis = 0.8,
          mar = c(5, 4, 2, 2) + 0.1),
 
+    {
     ## Create bar plot
     barplot(fullTable(x = x$scoreADL, values = 0:6),
             main = "",
             xlab = "Katz ADL Score", ylab = "Frequency",
-            col = "lightgray"),
+            col = "lightgray")
 
     ## Create boxplot
     boxplot(x$scoreADL ~ sexText,
             main = "",
             xlab = "Sex", ylab = "Katz ADL Score",
             frame.plot = FALSE)
+    }
   )
 
   ## Close graphics device
