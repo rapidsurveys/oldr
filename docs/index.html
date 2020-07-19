@@ -112,14 +112,19 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>This package is currently in active development in preparation for submission to the CRAN repository. The development version of <code>oldr</code> can be installed in <code>R</code> via the following commands:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="no">remotes</span>)) <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<p>You can install <code>oldr</code> from <a href="http://cran.r-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"oldr"</span>)</pre></div>
+<p>You can install the development version of <code>oldr</code> from <a href="https://github.com/rapidsurveys/oldr">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="no">remotes</span>)) <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"rapidsurveys/oldr"</span>)</pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire. For a more detailed description of the RAM-OP survey, read the <a href="https://rapidsurveys.io/ramOPmanual/">RAM-OP manual</a>.</p>
+<p>This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire.</p>
+<p>The figure below illustrates the RAM-OP workflow and indicates which functions in the <code>oldr</code> package support which particular step in the process.</p>
+<p><img src="reference/figures/ramOPworkflow.png" width="80%" style="display: block; margin: auto;"></p>
+<p>For a more detailed description of the RAM-OP survey, read the <a href="https://rapidsurveys.io/ramOPmanual/">RAM-OP manual</a>.</p>
 </div>
 </div>
   </div>
