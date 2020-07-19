@@ -6,8 +6,7 @@
 #
 ################################################################################
 #
-# Read language file
-#
+## Read language file
 language <- read.table(file = "data-raw/ramOP.language.csv",
                        header = TRUE,
                        sep = ",",
@@ -17,7 +16,5 @@ language <- read.table(file = "data-raw/ramOP.language.csv",
 ## Convert to tibble
 language <- tibble::tibble(language)
 
-#
-# Save language file as internal package data
-#
+## Save language file as internal package data
 usethis::use_data(language, internal = TRUE, overwrite = TRUE, compress = "xz")
