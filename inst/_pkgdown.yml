@@ -33,7 +33,7 @@ reference:
     contents:
     - oldr
 
-  - title: Create RAM-OP indicators
+  - title: Create indicators
     contents:
     - create_op_all
     - matches("adl")
@@ -52,6 +52,10 @@ reference:
     - matches("wash")
     - matches("misc")
 
+  - title: Estimate indicators
+    contents:
+    - matches("estimate")
+
   - title: Create charts
     contents:
     - chartADL
@@ -67,19 +71,17 @@ reference:
     - chartWG
     - pyramid.plot
 
+  - title: Create report
+    contents:
+    - report_op_table
+
   - title: Utility/support functions
     contents:
-    - estimateClassic
-    - estimateProbit
     - fullTable
     - get_variables
     - mergeEstimates
     - probit_gam
     - probit_sam
-
-  - title: Create a RAM-OP report
-    contents:
-    - report_op_table
 
   - title: Datasets
     contents:

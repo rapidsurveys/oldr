@@ -16,15 +16,15 @@ estimateClassic(
 )
 }
 \arguments{
-\item{x}{Indicators dataset produced by createOP with primary sampling unit
-(PSU) in column named \code{PSU}}
+\item{x}{Indicators dataset produced by \link{create_op_all} with primary
+sampling unit (PSU) in column named \code{PSU}}
 
 \item{w}{A data frame with primary sampling unit (PSU) in column named
 \code{psu} and survey weight (i.e. PSU population) in column named
 \code{pop}}
 
 \item{statistic}{A function operating on data in \code{x}; fixed to
-\code{bootClassic} function for means}
+\link{bootClassic} function for means}
 
 \item{indicators}{A character vector of indicator set names to estimate.
 Indicator set names are \code{demo}, \code{food}, \code{hunger},
@@ -35,7 +35,7 @@ Default is all indicator sets.}
 \item{params}{Parameters (named columns in \code{x}) passed to the function
 specified in \code{statistic}. This is equivalent to variables
 corresponding to the indicator sets specified in \code{indicators}. The
-function \code{get_variables()} is used to specify these variables.}
+function \link{get_variables} is used to specify these variables.}
 
 \item{outputColumns}{Names of columns in output data frame. This defaults to
 values specified in \code{params}}
@@ -43,7 +43,7 @@ values specified in \code{params}}
 \item{replicates}{Number of bootstrap replicates}
 }
 \value{
-Dataframe of boot estimates using bootClassic mean function
+Tibble of boot estimates using bootClassic mean function
 }
 \description{
 Function to apply bootstrap to RAM-OP indicators using a classical estimator.
