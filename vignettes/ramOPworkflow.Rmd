@@ -251,7 +251,7 @@ The `estimateClassic` function is used for all the standard RAM-OP indicators ex
 df <- create_op_all(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
-classicDF <- estimateClassic(x = df, w = testPSU)
+classicDF <- estimate_classic(x = df, w = testPSU)
 ```
 
 This results in (using limited replicates to reduce computing time):
@@ -261,7 +261,7 @@ This results in (using limited replicates to reduce computing time):
 df <- create_op_all(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
-classicDF <- estimateClassic(x = df, w = testPSU, replicates = 9)
+classicDF <- estimate_classic(x = df, w = testPSU, replicates = 9)
 
 ## Return results
 classicDF
@@ -278,7 +278,7 @@ The `estimateProbit` function is used for only the anthropometric indicators. Th
 df <- create_op_all(svy = testSVY)
 
 ## Perform probit estimation on recoded data using appropriate weights provided by testPSU
-probitDF <- estimateProbit(x = df, w = testPSU)
+probitDF <- estimate_probit(x = df, w = testPSU)
 ```
 
 This results in (using limited replicates to reduce computing time):
@@ -288,7 +288,7 @@ This results in (using limited replicates to reduce computing time):
 df <- create_op_all(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
-probitDF <- estimateProbit(x = df, w = testPSU, replicates = 9)
+probitDF <- estimate_probit(x = df, w = testPSU, replicates = 9)
 
 ## Return results
 probitDF
@@ -298,7 +298,7 @@ The two sets of estimates are then merged using the `mergeEstimates` function as
 
 ```{r mergeResults, echo = TRUE, eval = FALSE}
 ## Merge classicDF and probitDF
-resultsDF <- mergeEstimates(x = classicDF, y = probitDF)
+resultsDF <- merge_estimates(x = classicDF, y = probitDF)
 
 resultsDF
 ```
@@ -307,7 +307,7 @@ which results in:
 
 ```{r mergeResultsX, echo = FALSE, eval = TRUE}
 ## Merge classicDF and probitDF
-resultsDF <- mergeEstimates(x = classicDF, y = probitDF)
+resultsDF <- merge_estimates(x = classicDF, y = probitDF)
 
 resultsDF
 ```
@@ -341,7 +341,7 @@ Finally, estimates can be reported through report tables. The `report_op_table` 
 
 ```{r report, echo = TRUE, eval = TRUE}
 report_op_table(estimates = resultsDF, 
-                FILENAME = paste(tempdir(), "TEST", sep = "/"))
+                filename = paste(tempdir(), "TEST", sep = "/"))
 ```
 
 The resulting CSV file is found in the temporary directory
@@ -367,7 +367,7 @@ The package `magrittr` provides functions that faciliate piped operations in R. 
 testSVY %>%
   create_op_all() %>%
   estimate_op_all(w = testPSU, replicates = 9) %>%
-  report_op_table(FILENAME = paste(tempdir(), "TEST", sep = "/"))
+  report_op_table(filename = paste(tempdir(), "TEST", sep = "/"))
 ```
 
 This results in a CSV file `TEST.report.csv` in the temporary directory
