@@ -2,8 +2,8 @@
 #
 #' Create table of RAM-OP results
 #'
-#' @param estimates A data.frame of RAM-OP results produced by \link{merge_estimates}
-#'   function.
+#' @param estimates A data.frame of RAM-OP results produced by
+#'   \link{merge_estimates} function.
 #' @param filename Prefix to append to report output filename. Can be specified
 #'   as a path to a specific directory where to output tabular results CSV file
 #'
@@ -63,4 +63,46 @@ report_op_table <- function(estimates, filename) {
       append = FALSE
     )
   )
+}
+
+
+################################################################################
+#
+#' Create a report document containing RAM-OP survey results
+#'
+#' @param estimates A data.frame of RAM-OP results produced by
+#'   \link{merge_estimates} function.
+#' @param filename Filename for output document. Can be specified as a path to a
+#'   specific directory where to output report document
+#' @param title Title of report
+#' @param output Type of output. One of two choices: 1) \code{html_document}
+#'   to produce and HTML output; or 2) \code{pdf_document} to produce a PDF
+#'   output. Default is \code{html_document}
+#'
+#' @return A document of specified output type in the working directory or
+#'   if filename is a path, to a specified directory.
+#'
+#' @examples
+#'   #
+#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'                                      w = testPSU,
+#'                                      replicates = 9)
+#'
+#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'                                    w = testPSU,
+#'                                    replicates = 9)
+#'
+#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults,)
+#'
+#'   report_op_document(estimates = resultsDF)
+#'
+#'
+#'
+#
+################################################################################
+
+report_op_document <- function(estimates,
+                               filename = "ramOPreport",
+                               title = filename,
+                               output = "html_document") {
 }
