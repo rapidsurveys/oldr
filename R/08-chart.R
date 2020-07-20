@@ -2,25 +2,31 @@
 #
 #' Age by sex (pyramid plot)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' A wrapper function to the \link{pyramid.plot} function to create an age by
+#' sex pyramid plot
+#'
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
 #'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
-#'     directory
+#'     directory or in a specified directory if \code{filename} is a path.
 #'
 #' @examples
-#'   # Create age by sex pyramid plot using \code{indicators.ALL} dataset
-#'   chartAge(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   # Create age by sex pyramid plot using indicators.ALL dataset
+#'   chart_age(x = indicators.ALL,
+#'             filename = paste(tempdir(), "TEST", sep = "/"))
 #'
 #' @export
 #'
 #
 ################################################################################
 
-chartAge <- function(x, filename) {
+chart_age <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  ageGroup <- bbw::recode(x$age, "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
+  ageGroup <- bbw::recode(var = x$age,
+    recodes = "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
 
   ## Age BY sex (pyramid plot)
   plotFileName <- paste(filename, ".AgeBySex.png", sep = "")
@@ -51,19 +57,24 @@ chartAge <- function(x, filename) {
 #
 #' Distribution of MUAC (overall and by sex)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Histogram of MUAC distribution in PNG format and saved in the current
-#'     working directory
+#'     working directory or in a specified directory if \code{filename} is a
+#'     path.
+#'
 #' @examples
-#'   # Create MUAC histogram using \code{indicators.ALL} dataset
-#'   chartMUAC(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   # Create MUAC histogram using indicators.ALL dataset
+#'   chart_muac(x = indicators.ALL,
+#'              filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
 ################################################################################
 
-chartMUAC <- function(x, filename) {
+chart_muac <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -103,19 +114,23 @@ chartMUAC <- function(x, filename) {
 #
 #' Distribution of meal frequency (overall and by sex)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Barplot of meal frequency in PNG format saved in current working
-#'     directory
+#'     directory or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create meal frequency chart using \code{indicators.ALL} dataset
-#'   chartMF(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_mf(x = indicators.ALL,
+#'            filename = paste(tempdir(), "TEST", sep = "/"))
 #' @export
 #'
 #
 ################################################################################
 
-chartMF <- function(x, filename) {
+chart_mf <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -158,19 +173,25 @@ chartMF <- function(x, filename) {
 #
 #' Distribution of DDS (overall and by sex)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Barplot of dietary diversity score in PNG format saved in current
-#'     working directory
+#'     working directory or in a specified directory if \code{filename} is a
+#'     path.
+#'
 #' @examples
 #'   # Create DDS chart using \code{indicators.ALL} dataset
-#'   chartDDS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_dds(x = indicators.ALL,
+#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartDDS <- function(x, filename) {
+chart_dds <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -214,19 +235,25 @@ chartDDS <- function(x, filename) {
 #
 #' Distribution of K6 (overall and by sex)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Histogram of K6 score in PNG format saved in current
-#'     working directory
+#'     working directory or in a specified directory if \code{filename} is a
+#'     path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartK6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_k6(x = indicators.ALL,
+#'            filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartK6 <- function(x, filename) {
+chart_k6 <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -266,18 +293,24 @@ chartK6 <- function(x, filename) {
 #
 #' Distribution of ADL (overall and by sex)
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Bar plot of ADL in PNG format saved in current working directory
+#'   or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartADL(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_adl(x = indicators.ALL,
+#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartADL <- function(x, filename) {
+chart_adl <- function(x, filename) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -321,18 +354,24 @@ chartADL <- function(x, filename) {
 #
 #' Chart WASH indicators
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Bar plot of ADL in PNG format saved in current working directory
+#'   or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartWASH(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_wash(x = indicators.ALL,
+#'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartWASH <- function(x, filename) {
+chart_wash <- function(x, filename) {
   ## Create filename
   plotFileName <- paste(filename, ".WASH.png", sep = "")
 
@@ -385,18 +424,24 @@ chartWASH <- function(x, filename) {
 #
 #' Chart dementia screen (CSID) indicators
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Bar plot of CSID in PNG format saved in current working directory
+#'   or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartCSID(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_csid(x = indicators.ALL,
+#'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartCSID <- function(x, filename) {
+chart_csid <- function(x, filename) {
   ## Create filename
   plotFileName <- paste(filename, ".dementia.png", sep = "")
 
@@ -422,19 +467,23 @@ chartCSID <- function(x, filename) {
 #
 #' Chart disability (Washington Group - WG) indicators
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Bar plot of Disability Score in PNG format saved in current working
-#'     directory
+#'     directory or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartWG(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_wg(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartWG <- function(x, filename) {
+chart_wg <- function(x, filename) {
   ## Create filename
   plotFileName <- paste(filename, ".disability.png", sep = "")
 
@@ -466,18 +515,24 @@ chartWG <- function(x, filename) {
 #
 #' Chart household hunger scale (HHS) indicators
 #'
-#' @param x Indicators dataset produced by createOP
-#' @param filename Prefix to add to output chart filename
+#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory
+#'
 #' @return Bar plot of HHS in PNG format saved in current working directory
+#'   or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.ALL} dataset
-#'   chartHHS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_hhs(x = indicators.ALL,
+#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartHHS <- function(x, filename) {
+chart_hhs <- function(x, filename) {
   ## Create filename
   plotFileName <- paste(filename, ".HHS.png", sep = "")
 
@@ -510,19 +565,23 @@ chartHHS <- function(x, filename) {
 #' @param x.male Male subset of indicator dataset
 #' @param x.female Female subset of indicator dataset
 #' @param filename Prefix to add to output chart filename
-#' @return Bar chart of sources of income by sex
+#'
+#' @return Bar chart of sources of income by sex in PNG format saved in current
+#'   working directory or in a specified directory if \code{filename} is a path.
+#'
 #' @examples
 #'   # Create chart using \code{indicators.FEMALES} and \code{indicators.MALES}
 #'   # dataset
-#'   chartIncome(x.male = indicators.MALES,
-#'               x.female = indicators.FEMALES,
-#'               filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_income(x.male = indicators.MALES,
+#'                x.female = indicators.FEMALES,
+#'                filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chartIncome <- function(x.male, x.female, filename) {
+chart_income <- function(x.male, x.female, filename) {
 
   ## Sources of income (by sex)
   tabM <- NULL

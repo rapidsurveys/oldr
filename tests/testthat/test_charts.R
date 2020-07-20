@@ -1,7 +1,7 @@
 library(oldr)
 context("Tests for charts")
 
-test <- chartAge(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_age(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -12,7 +12,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartMUAC(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_muac(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -23,7 +23,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartMF(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_mf(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -34,7 +34,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartDDS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_dds(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -45,7 +45,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartK6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_k6(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -56,7 +56,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartADL(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_adl(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -67,7 +67,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartWASH(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_wash(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -78,7 +78,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartCSID(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_csid(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -89,7 +89,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartWG(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_wg(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -100,7 +100,7 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartHHS(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_hhs(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
@@ -111,9 +111,9 @@ test_that("is integer", {
   expect_is(test, "integer")
 })
 
-test <- chartIncome(x.male = indicators.MALES,
-                    x.female = indicators.FEMALES,
-                    filename = paste(tempdir(), "TEST", sep = "/"))
+test <- chart_income(x.male = indicators.MALES,
+                     x.female = indicators.FEMALES,
+                     filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
 test_that("output chart is present", {
