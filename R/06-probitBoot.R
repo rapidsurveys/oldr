@@ -23,9 +23,9 @@
 #'
 #' @examples
 #'   #
-#'   test <- estimateProbit(x = indicators.ALL,
-#'                          w = testPSU,
-#'                          replicates = 3)
+#'   test <- estimate_probit(x = indicators.ALL,
+#'                           w = testPSU,
+#'                           replicates = 3)
 #'
 #'   test
 #'
@@ -34,9 +34,13 @@
 #
 ################################################################################
 
-estimateProbit <- function(x, w, gam.stat = probit_gam, sam.stat = probit_sam,
-                           params = "MUAC", outputColumns = "MUAC",
-                           replicates = 399) {
+estimate_probit <- function(x,
+                            w,
+                            gam.stat = probit_gam,
+                            sam.stat = probit_sam,
+                            params = "MUAC",
+                            outputColumns = "MUAC",
+                            replicates = 399) {
   ## Blocking weighted bootstrap (GAM) - ALL
   bootGAM.ALL <- bbw::bootBW(x = x,
                              w = w,

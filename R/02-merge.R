@@ -8,15 +8,15 @@
 #' @examples
 #'   #
 #'   \dontrun{
-#'   test <- mergeEstimates(x = classicEstimates,
-#'                          y = probitEstimates)
+#'   test <- merge_estimates(x = classicEstimates,
+#'                           y = probitEstimates)
 #'   }
 #' @export
 #'
 #
 ################################################################################
 
-mergeEstimates <- function(x, y) {
+merge_estimates <- function(x, y) {
 
   ## Merge rows
   estimates <- rbind(x, y)

@@ -54,6 +54,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155093086-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155093086-2');
+</script>
+
 
   </head>
 
@@ -107,7 +117,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="http://twitter.com/ernestguevarra">
+  <a href="http://twitter.com/katilingban">
     <span class="fab fa fab fa-twitter fa-lg"></span>
      
   </a>
@@ -525,6 +535,12 @@ from survey data collected using the standard RAM-OP questionnaire</p></td>
           <p><code><a href="estimate_op_all.html">estimate_op_all()</a></code> </p>
         </td>
         <td><p>Estimate all standard RAM-OP indicators</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="merge_estimates.html">merge_estimates()</a></code> </p>
+        </td>
+        <td><p>Concatenate classic and PROBIT estimates into a single data.frame</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -658,7 +674,7 @@ specified indicator set</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="mergeEstimates.html">mergeEstimates()</a></code> </p>
+          <p><code><a href="merge_estimates.html">merge_estimates()</a></code> </p>
         </td>
         <td><p>Concatenate classic and PROBIT estimates into a single data.frame</p></td>
       </tr><tr>

@@ -40,9 +40,9 @@ estimate_op_all <- function(x, w,
   ## Check if indicators more than anthro
   if(length(classicIndicators) != 0) {
     ## Bootstrap classic
-    classicResults <- estimateClassic(x = x, w = w,
-                                     indicators = classicIndicators,
-                                     replicates = replicates)
+    classicResults <- estimate_classic(x = x, w = w,
+                                      indicators = classicIndicators,
+                                      replicates = replicates)
   } else {
     ## Assign as NULL
     classicResults <- NULL
@@ -51,14 +51,14 @@ estimate_op_all <- function(x, w,
   ## Check if anthro is an indicator
   if("anthro" %in% indicators) {
     ## Bootstrap probit
-    probitResults <- estimateProbit(x = x, w = w, replicates = replicates)
+    probitResults <- estimate_probit(x = x, w = w, replicates = replicates)
   } else {
     ## Assign as NULL
     probitResults <- NULL
   }
 
   ## Concatenate results and structure
-  resultsDF <- mergeEstimates(x = classicResults, y = probitResults)
+  resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 
   ## Convert to tibble
   resultsDF <- tibble::tibble(resultsDF)
