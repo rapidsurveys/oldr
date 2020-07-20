@@ -4,13 +4,13 @@
 \alias{report_op_table}
 \title{Create table of RAM-OP results}
 \usage{
-report_op_table(estimates, FILENAME)
+report_op_table(estimates, filename)
 }
 \arguments{
-\item{estimates}{A data.frame of RAM-OP results produced by \link{mergeEstimates}
+\item{estimates}{A data.frame of RAM-OP results produced by \link{merge_estimates}
 function.}
 
-\item{FILENAME}{Prefix to append to report output filename. Can be specified
+\item{filename}{Prefix to append to report output filename. Can be specified
 as a path to a specific directory where to output tabular results CSV file}
 }
 \value{
