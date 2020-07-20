@@ -157,7 +157,7 @@ DiagrammeR::grViz("
     [8]: 'Estimate\\nanthropometric\\nindicators'
     [9]: 'estimate_probit'
     [10]: 'Visualise\\nestimates'
-    [11]: 'chart\\nfunctions'
+    [11]: 'chart_\\nfunctions'
     [12]: 'Report\\nestimates'
     [13]: 'report_op_table'
     [14]: 'END'
