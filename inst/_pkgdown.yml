@@ -5,7 +5,7 @@ url: https://rapidsurveys.io/oldr
 template:
   params:
     bootswatch: sandstone
-    ganalytics: #UA-102485058-6
+    ganalytics: UA-155093086-2
 
 navbar:
   structure:
@@ -15,7 +15,7 @@ navbar:
   components:
     twitter:
       icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/ernestguevarra
+      href: http://twitter.com/katilingban
 
 home:
   links:
@@ -27,6 +27,9 @@ home:
 
   - text: Read the online RAM-OP manual
     href: https://rapidsurveys.io/ramOPmanual/
+
+  - text: Learn more about RapidSurveys
+    href: https://rapidsurveys.io/
 
 reference:
   - title: Description
@@ -79,7 +82,7 @@ reference:
     contents:
     - fullTable
     - get_variables
-    - mergeEstimates
+    - merge_estimates
     - probit_gam
     - probit_sam
 
