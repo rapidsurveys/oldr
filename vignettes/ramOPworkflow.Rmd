@@ -319,8 +319,8 @@ Once indicators has been estimated, the outputs can then be used to create relev
 The following shows how to produce the chart for ADLs saved with filename **test** appended at the start inside a temporary directory:
 
 ```{r chartADL, echo = TRUE, eval = TRUE}
-chartADL(x = create_op_all(testSVY), 
-         filename = paste(tempdir(), "test", sep = "/"))
+chart_adl(x = create_op_all(testSVY), 
+          filename = paste(tempdir(), "test", sep = "/"))
 ```
 
 The resulting PNG file can be found in the temporary directory
