@@ -4,24 +4,28 @@
 \alias{chart_dds}
 \title{Distribution of DDS (overall and by sex)}
 \usage{
-chart_dds(x, filename)
+chart_dds(x, save.chart = TRUE, filename = NULL)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
 
+\item{save.chart}{Logical. Should chart be saved? Default is TRUE.}
+
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory}
+path to save output to instead of working directory. Ignored if
+\code{save.chart} is FALSE.}
 }
 \value{
 Barplot of dietary diversity score in PNG format saved in current
     working directory or in a specified directory if \code{filename} is a
-    path.
+    path unless when \code{save.chart} is FALSE in which case chart is shown
+    in current graphic device.
 }
 \description{
 Distribution of DDS (overall and by sex)
 }
 \examples{
-  # Create DDS chart using \code{indicators.ALL} dataset
+  # Create DDS chart using indicators.ALL dataset
   chart_dds(x = indicators.ALL,
             filename = paste(tempdir(), "TEST", sep = "/"))
 
