@@ -26,9 +26,9 @@
 #'
 #' @examples
 #'   #
-#'   test <- estimateClassic(x = indicators.ALL,
-#'                           w = testPSU,
-#'                           replicates = 9)
+#'   test <- estimate_classic(x = indicators.ALL,
+#'                            w = testPSU,
+#'                            replicates = 9)
 #'
 #'   test
 #'
@@ -37,13 +37,15 @@
 #
 ################################################################################
 
-estimateClassic  <- function(x, w, statistic = bootClassic,
-                             indicators = c("demo", "food", "hunger", "adl",
-                                            "disability", "mental", "dementia",
-                                            "health", "oedema", "screening",
-                                            "income", "wash", "visual", "misc"),
-                             params = get_variables(indicators),
-                             outputColumns = params, replicates = 399) {
+estimate_classic  <- function(x,
+                              w,
+                              statistic = bbw::bootClassic,
+                              indicators = c("demo", "food", "hunger", "adl",
+                                             "disability", "mental", "dementia",
+                                             "health", "oedema", "screening",
+                                             "income", "wash", "visual", "misc"),
+                              params = get_variables(indicators),
+                              outputColumns = params, replicates = 399) {
   ## Bootstrap for male values
   boot.MALES <- bbw::bootBW(x = x[x$sex1 == 1, ],
                             w = w,
