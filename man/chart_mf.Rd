@@ -4,23 +4,29 @@
 \alias{chart_mf}
 \title{Distribution of meal frequency (overall and by sex)}
 \usage{
-chart_mf(x, filename)
+chart_mf(x, save.chart = TRUE, filename = NULL)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
 
+\item{save.chart}{Logical. Should chart be saved? Default is TRUE.}
+
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory}
+path to save output to instead of working directory. Ignored if
+\code{save.chart} is FALSE.}
 }
 \value{
 Barplot of meal frequency in PNG format saved in current working
-    directory or in a specified directory if \code{filename} is a path.
+    directory or in a specified directory if \code{filename} is a path unless
+    when \code{save.chart} is FALSE in which case chart is shown in current
+    graphics device.
 }
 \description{
 Distribution of meal frequency (overall and by sex)
 }
 \examples{
-  # Create meal frequency chart using \code{indicators.ALL} dataset
+  # Create meal frequency chart using indicators.ALL dataset
   chart_mf(x = indicators.ALL,
            filename = paste(tempdir(), "TEST", sep = "/"))
+
 }

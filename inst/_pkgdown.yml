@@ -61,17 +61,7 @@ reference:
 
   - title: Create charts
     contents:
-    - chartADL
-    - chartAge
-    - chartCSID
-    - chartDDS
-    - chartHHS
-    - chartIncome
-    - chartK6
-    - chartMF
-    - chartMUAC
-    - chartWASH
-    - chartWG
+    - matches("chart")
     - pyramid.plot
 
   - title: Create report

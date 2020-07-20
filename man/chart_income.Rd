@@ -4,24 +4,30 @@
 \alias{chart_income}
 \title{Chart income indicators}
 \usage{
-chart_income(x.male, x.female, filename)
+chart_income(x.male, x.female, save.chart = TRUE, filename = NULL)
 }
 \arguments{
 \item{x.male}{Male subset of indicator dataset}
 
 \item{x.female}{Female subset of indicator dataset}
 
-\item{filename}{Prefix to add to output chart filename}
+\item{save.chart}{Logical. Should chart be saved? Default is TRUE.}
+
+\item{filename}{Prefix to add to output chart filename or a directory
+path to save output to instead of working directory. Ignored if
+\code{save.chart} is FALSE.}
 }
 \value{
 Bar chart of sources of income by sex in PNG format saved in current
-  working directory or in a specified directory if \code{filename} is a path.
+  working directory or in a specified directory if \code{filename} is a path
+  unless when \code{save.chart} is FALSE in which case chart is shown in
+  current graphics device.
 }
 \description{
 Chart income indicators
 }
 \examples{
-  # Create chart using \code{indicators.FEMALES} and \code{indicators.MALES}
+  # Create chart using indicators.FEMALES and indicators.MALES
   # dataset
   chart_income(x.male = indicators.MALES,
                x.female = indicators.FEMALES,

@@ -4,37 +4,37 @@
     <loc>https://rapidsurveys.io/oldr/index.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartADL.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_adl.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartAge.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_age.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartCSID.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_csid.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartDDS.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_dds.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartHHS.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_hhs.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartIncome.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_income.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartK6.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_k6.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartMF.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_mf.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartMUAC.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_muac.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartWASH.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_wash.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chartWG.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/chart_wg.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/create_op_adl.html</loc>
@@ -175,13 +175,13 @@
     <loc>https://rapidsurveys.io/oldr/reference/create_op_wash_males.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/estimateClassic.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/estimateProbit.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/estimate_classic.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/estimate_op_all.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/estimate_probit.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/fullTable.html</loc>
