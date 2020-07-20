@@ -6,11 +6,15 @@
 #' sex pyramid plot
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
-#'     directory or in a specified directory if \code{filename} is a path.
+#'     directory or in a specified directory if \code{filename} is a path unless
+#'     when \code{save.plot} is FALSE in which case the plot is shown on current
+#'     graphics device
 #'
 #' @examples
 #'   # Create age by sex pyramid plot using indicators.ALL dataset
@@ -22,7 +26,9 @@
 #
 ################################################################################
 
-chart_age <- function(x, filename) {
+chart_age <- function(x,
+                      save.chart = TRUE,
+                      filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
   ageGroup <- bbw::recode(var = x$age,
@@ -31,25 +37,41 @@ chart_age <- function(x, filename) {
   ## Age BY sex (pyramid plot)
   plotFileName <- paste(filename, ".AgeBySex.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 6, units = "in",
-                 res = 600, pointsize = 12)
+  ## Check whether to save chart
+  if(save.chart) {
 
-  ## Set graphical parameers
-  withr::with_par(
-    list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 6, units = "in",
+                   res = 600, pointsize = 12)
 
-    ## Create age by sex pyramid plot
-    pyramid.plot(x = ageGroup,
-                 g = sexText,
-                 main = "",
-                 xlab = "Sex (Females | Males)",
-                 ylab = "Age group (years)")
-  )
+    ## Set graphical parameers
+    withr::with_par(
+      list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
 
-  ## Close graphics device
-  grDevices::dev.off()
+      ## Create age by sex pyramid plot
+      pyramid.plot(x = ageGroup,
+                   g = sexText,
+                   main = "",
+                   xlab = "Sex (Females | Males)",
+                   ylab = "Age group (years)")
+    )
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameers
+    withr::with_par(
+      list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
+
+      ## Create age by sex pyramid plot
+      pyramid.plot(x = ageGroup,
+                   g = sexText,
+                   main = "",
+                   xlab = "Sex (Females | Males)",
+                   ylab = "Age group (years)")
+    )
+  }
 }
 
 
@@ -58,55 +80,84 @@ chart_age <- function(x, filename) {
 #' Distribution of MUAC (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Histogram of MUAC distribution in PNG format and saved in the current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path.
+#'     path unless when \code{save.chart} is FALSE in which case chart is
+#'     shown on current graphics device.
 #'
 #' @examples
 #'   # Create MUAC histogram using indicators.ALL dataset
 #'   chart_muac(x = indicators.ALL,
 #'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chart_muac <- function(x, filename) {
+chart_muac <- function(x,
+                       save.chart = TRUE,
+                       filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
   ## Create filename
   plotFileName <- paste(filename, ".MUAC.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 3.5, units = "in",
-                 res = 600, pointsize = 10)
+  ## Check whether to save chart
+  if(save.chart) {
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(1, 2),
-         pty = "m",
-         cex.axis = 0.8,
-         mar = c(5, 4, 2, 2) + 0.1),
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 3.5, units = "in",
+                   res = 600, pointsize = 10)
 
-    {
-    ## Create MUAC histogram by sex
-    hist(x$MUAC, breaks = 20,
-         xlim = c(160, max(x$MUAC, na.rm = TRUE)),
-         main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
 
-    ## Create boxplot of MUAC by sex
-    boxplot(x$MUAC ~ sexText,
-            main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
-    }
-  )
+      {
+        ## Create MUAC histogram by sex
+        hist(x$MUAC, breaks = 20,
+             xlim = c(160, max(x$MUAC, na.rm = TRUE)),
+             main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
 
-  ## Close graphics device
-  grDevices::dev.off()
+        ## Create boxplot of MUAC by sex
+        boxplot(x$MUAC ~ sexText,
+                main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
+      }
+    )
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
+
+      {
+        ## Create MUAC histogram by sex
+        hist(x$MUAC, breaks = 20,
+             xlim = c(160, max(x$MUAC, na.rm = TRUE)),
+             main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
+
+        ## Create boxplot of MUAC by sex
+        boxplot(x$MUAC ~ sexText,
+                main = "", xlab = "Sex", ylab = "MUAC", frame.plot = FALSE)
+      }
+    )
+  }
 }
 
 
@@ -115,57 +166,89 @@ chart_muac <- function(x, filename) {
 #' Distribution of meal frequency (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Barplot of meal frequency in PNG format saved in current working
-#'     directory or in a specified directory if \code{filename} is a path.
+#'     directory or in a specified directory if \code{filename} is a path unless
+#'     when \code{save.chart} is FALSE in which case chart is shown in current
+#'     graphics device.
 #'
 #' @examples
-#'   # Create meal frequency chart using \code{indicators.ALL} dataset
+#'   # Create meal frequency chart using indicators.ALL dataset
 #'   chart_mf(x = indicators.ALL,
 #'            filename = paste(tempdir(), "TEST", sep = "/"))
+#'
 #' @export
 #'
 #
 ################################################################################
 
-chart_mf <- function(x, filename) {
+chart_mf <- function(x,
+                     save.chart = TRUE,
+                     filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
   ## Create filename
   plotFileName <- paste(filename, ".MF.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 3.5, units = "in",
-                 res = 600, pointsize = 10)
+  ## Check if save.chart
+  if(save.chart){
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 3.5, units = "in",
+                   res = 600, pointsize = 10)
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(1, 2),
-         pty = "m",
-         cex.axis = 0.8,
-         mar = c(5, 4, 2, 2) + 0.1),
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
 
-    {
-    ## Create barplot
-    barplot(fullTable(x = x$MF,
-                      values = 0:max(x$MF, na.rm = TRUE)),
-            main = "",
-            xlab = "Meal frequency", ylab = "Frequency",
-            col = "lightgray")
+      {
+        ## Create barplot
+        barplot(fullTable(x = x$MF,
+                          values = 0:max(x$MF, na.rm = TRUE)),
+                main = "",
+                xlab = "Meal frequency", ylab = "Frequency",
+                col = "lightgray")
 
-    ## Create boxplot
-    boxplot(x$MF ~ sexText,
-            main = "",
-            xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
-    }
-  )
+        ## Create boxplot
+        boxplot(x$MF ~ sexText,
+                main = "",
+                xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
+      }
+    )
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
+
+      {
+        ## Create barplot
+        barplot(fullTable(x = x$MF,
+                          values = 0:max(x$MF, na.rm = TRUE)),
+                main = "",
+                xlab = "Meal frequency", ylab = "Frequency",
+                col = "lightgray")
+
+        ## Create boxplot
+        boxplot(x$MF ~ sexText,
+                main = "",
+                xlab = "Sex", ylab = "Meal frequency", frame.plot = FALSE)
+      }
+    )
+  }
 }
 
 
@@ -174,15 +257,18 @@ chart_mf <- function(x, filename) {
 #' Distribution of DDS (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Barplot of dietary diversity score in PNG format saved in current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path.
+#'     path unless when \code{save.chart} is FALSE in which case chart is shown
+#'     in current graphic device.
 #'
 #' @examples
-#'   # Create DDS chart using \code{indicators.ALL} dataset
+#'   # Create DDS chart using indicators.ALL dataset
 #'   chart_dds(x = indicators.ALL,
 #'             filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -191,43 +277,72 @@ chart_mf <- function(x, filename) {
 #
 ################################################################################
 
-chart_dds <- function(x, filename) {
+chart_dds <- function(x,
+                      save.chart = TRUE,
+                      filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
   ## Create filename
   plotFileName <- paste(filename, ".DDS.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 3.5, units = "in",
-                 res = 600, pointsize = 10)
+  ## Check if save.chart
+  if(save.chart) {
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(1, 2),
-         pty = "m",
-         cex.axis = 0.8,
-         mar = c(5, 4, 2, 2) + 0.1),
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 3.5, units = "in",
+                   res = 600, pointsize = 10)
 
-    {
-    ## Create barplot
-    barplot(fullTable(x = x$DDS,
-                      values = 0:max(x$DDS)),
-            main = "",
-            xlab = "Dietary diversity score",
-            ylab = "Frequency",
-            col = "lightgray")
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
 
-    ## Create boxplot
-    boxplot(x$DDS ~ sexText,
-            main = "",
-            xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
-    }
-  )
+      {
+        ## Create barplot
+        barplot(fullTable(x = x$DDS,
+                          values = 0:max(x$DDS)),
+                main = "",
+                xlab = "Dietary diversity score",
+                ylab = "Frequency",
+                col = "lightgray")
 
-  ## Close graphics device
-  grDevices::dev.off()
+        ## Create boxplot
+        boxplot(x$DDS ~ sexText,
+                main = "",
+                xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+      }
+    )
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
+
+      {
+        ## Create barplot
+        barplot(fullTable(x = x$DDS,
+                          values = 0:max(x$DDS)),
+                main = "",
+                xlab = "Dietary diversity score",
+                ylab = "Frequency",
+                col = "lightgray")
+
+        ## Create boxplot
+        boxplot(x$DDS ~ sexText,
+                main = "",
+                xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+      }
+    )
+  }
 }
 
 
@@ -236,15 +351,18 @@ chart_dds <- function(x, filename) {
 #' Distribution of K6 (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Histogram of K6 score in PNG format saved in current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path.
+#'     path unless when \code{save.chart} is FALSE in which case chart is shwown
+#'     in current graphics device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
+#'   # Create chart using indicators.ALL dataset
 #'   chart_k6(x = indicators.ALL,
 #'            filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -253,39 +371,62 @@ chart_dds <- function(x, filename) {
 #
 ################################################################################
 
-chart_k6 <- function(x, filename) {
+chart_k6 <- function(x,
+                     save.chart = TRUE,
+                     filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
   ## Create filename
   plotFileName <- paste(filename, ".K6.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 3.5,
-                 units = "in", res = 600,
-                 pointsize = 10)
+  ## Check whether save.chart
+  if(save.chart) {
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(1, 2),
-         pty = "m",
-         cex.axis = 0.8,
-         mar = c(5, 4, 2, 2) + 0.1),
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 3.5,
+                   units = "in", res = 600,
+                   pointsize = 10)
 
-    {
-    ## Create histogram
-    hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
 
-    ## Create boxplot
-    boxplot(x$K6 ~ sexText, main = "",
-            xlab = "Sex", ylab = "K6",
-            frame.plot = FALSE)
-    }
-  )
+      {
+        ## Create histogram
+        hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
 
-  ## Close graphics device
-  grDevices::dev.off()
+        ## Create boxplot
+        boxplot(x$K6 ~ sexText, main = "",
+                xlab = "Sex", ylab = "K6",
+                frame.plot = FALSE)
+      }
+    )
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
+
+      {
+        ## Create histogram
+        hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
+
+        ## Create boxplot
+        boxplot(x$K6 ~ sexText, main = "",
+                xlab = "Sex", ylab = "K6",
+                frame.plot = FALSE)
+      }
+    )
+  }
 }
 
 
@@ -294,14 +435,18 @@ chart_k6 <- function(x, filename) {
 #' Distribution of ADL (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
-#'   or in a specified directory if \code{filename} is a path.
+#'   or in a specified directory if \code{filename} is a path unless when
+#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   graphic device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
+#'   # Create chart using indicators.ALL dataset
 #'   chart_adl(x = indicators.ALL,
 #'             filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -310,43 +455,70 @@ chart_k6 <- function(x, filename) {
 #
 ################################################################################
 
-chart_adl <- function(x, filename) {
+chart_adl <- function(x,
+                      save.chart = TRUE,
+                      filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
   ## Create filename
   plotFileName <- paste(filename, ".ADL.png", sep = "")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 3.5,
-                 units = "in", res = 600,
-                 pointsize = 10)
+  ## Check whether save.chart
+  if(save.chart) {
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 3.5,
+                   units = "in", res = 600,
+                   pointsize = 10)
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(1, 2),
-         pty = "m",
-         cex.axis = 0.8,
-         mar = c(5, 4, 2, 2) + 0.1),
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
 
-    {
-    ## Create bar plot
-    barplot(fullTable(x = x$scoreADL, values = 0:6),
-            main = "",
-            xlab = "Katz ADL Score", ylab = "Frequency",
-            col = "lightgray")
+      {
+        ## Create bar plot
+        barplot(fullTable(x = x$scoreADL, values = 0:6),
+                main = "",
+                xlab = "Katz ADL Score", ylab = "Frequency",
+                col = "lightgray")
 
-    ## Create boxplot
-    boxplot(x$scoreADL ~ sexText,
-            main = "",
-            xlab = "Sex", ylab = "Katz ADL Score",
-            frame.plot = FALSE)
-    }
-  )
+      ## Create boxplot
+      boxplot(x$scoreADL ~ sexText,
+              main = "",
+              xlab = "Sex", ylab = "Katz ADL Score",
+              frame.plot = FALSE)
+      }
+    )
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(1, 2),
+           pty = "m",
+           cex.axis = 0.8,
+           mar = c(5, 4, 2, 2) + 0.1),
+
+      {
+        ## Create bar plot
+        barplot(fullTable(x = x$scoreADL, values = 0:6),
+                main = "",
+                xlab = "Katz ADL Score", ylab = "Frequency",
+                col = "lightgray")
+
+        ## Create boxplot
+        boxplot(x$scoreADL ~ sexText,
+                main = "",
+                xlab = "Sex", ylab = "Katz ADL Score",
+                frame.plot = FALSE)
+      }
+    )
+  }
 }
 
 
@@ -355,14 +527,18 @@ chart_adl <- function(x, filename) {
 #' Chart WASH indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
-#'   or in a specified directory if \code{filename} is a path.
+#'   or in a specified directory if \code{filename} is a path unless when
+#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   graphic device
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
+#'   # Create chart using indicators.ALL dataset
 #'   chart_wash(x = indicators.ALL,
 #'              filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -371,7 +547,9 @@ chart_adl <- function(x, filename) {
 #
 ################################################################################
 
-chart_wash <- function(x, filename) {
+chart_wash <- function(x,
+                       save.chart = TRUE,
+                       filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".WASH.png", sep = "")
 
@@ -396,27 +574,43 @@ chart_wash <- function(x, filename) {
             "Improved sanitation facility",
             "Improved and non-shared\nsanitation facility")
 
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 6,
-                 units = "in", res = 600,
-                 pointsize = 10)
+  ## Check if save.chart
+  if(save.chart) {
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 6,
+                   units = "in", res = 600,
+                   pointsize = 10)
 
-  ## Set graphical parameters
-  withr::with_par(
-    list(mfrow = c(2, 2),
-         cex.axis = 0.8),
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(2, 2),
+           cex.axis = 0.8),
 
-    for(i in 1:4) {
-      barplot(get(paste("tab", i, sep = "")),
-              main = labs[i],
-              col = c("red", "green"),
-              ylab = "Frequency")
-    }
-  )
+      for(i in seq_len(4)) {
+        barplot(get(paste("tab", i, sep = "")),
+                main = labs[i],
+                col = c("red", "green"),
+                ylab = "Frequency")
+      }
+    )
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set graphical parameters
+    withr::with_par(
+      list(mfrow = c(2, 2),
+           cex.axis = 0.8),
+
+      for(i in seq_len(4)) {
+        barplot(get(paste("tab", i, sep = "")),
+                main = labs[i],
+                col = c("red", "green"),
+                ylab = "Frequency")
+      }
+    )
+  }
 }
 
 
@@ -425,14 +619,18 @@ chart_wash <- function(x, filename) {
 #' Chart dementia screen (CSID) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar plot of CSID in PNG format saved in current working directory
-#'   or in a specified directory if \code{filename} is a path.
+#'   or in a specified directory if \code{filename} is a path unless when
+#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   graphic device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
+#'   # Create chart using indicators.ALL dataset
 #'   chart_csid(x = indicators.ALL,
 #'              filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -441,25 +639,33 @@ chart_wash <- function(x, filename) {
 #
 ################################################################################
 
-chart_csid <- function(x, filename) {
+chart_csid <- function(x,
+                       save.chart = TRUE,
+                       filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".dementia.png", sep = "")
-
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 6,
-                 units = "in", res = 600,
-                 pointsize = 10)
 
   ## Tabulate dementia score
   tab <- table(x$DS)
   names(tab) <- c("Normal", "Probable dementia")
 
-  ## Create barplot
-  barplot(tab, main = "", col = c("green", "red"), ylab = "Frequency")
+  ## Check if save.chart
+  if(save.chart) {
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 6,
+                   units = "in", res = 600,
+                   pointsize = 10)
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Create barplot
+    barplot(tab, main = "", col = c("green", "red"), ylab = "Frequency")
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Create barplot
+    barplot(tab, main = "", col = c("green", "red"), ylab = "Frequency")
+  }
 }
 
 
@@ -468,30 +674,31 @@ chart_csid <- function(x, filename) {
 #' Chart disability (Washington Group - WG) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar plot of Disability Score in PNG format saved in current working
-#'     directory or in a specified directory if \code{filename} is a path.
+#'     directory or in a specified directory if \code{filename} is a path
+#'     unless when \code{save.chart} is FALSE in which case chart is shown in
+#'     current graphic device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
-#'   chart_wg(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
+#'   # Create chart using indicators.ALL dataset
+#'   chart_wg(x = indicators.ALL,
+#'            filename = paste(tempdir(), "TEST", sep = "/"))
 #'
 #' @export
 #'
 #
 ################################################################################
 
-chart_wg <- function(x, filename) {
+chart_wg <- function(x,
+                     save.chart = TRUE,
+                     filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".disability.png", sep = "")
-
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 6,
-                 units = "in", res = 600,
-                 pointsize = 10)
 
   ## Tabulate WG scores by dimensions
   P0 <- table(x$wgP0)["1"]
@@ -503,11 +710,25 @@ chart_wg <- function(x, filename) {
   names(tab) <- c("\nP0 : None ", "\nP1 : Any", "P2 : Moderate\nor severe",
                   "\nP3 : Severe", "\nPM : Multiple")
 
-  ## Create barplot
-  barplot(tab, main = "", col = "lightgray", ylab = "Frequency", cex.names = 0.8)
+  ## Check if save.chart
+  if(save.chart) {
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 6,
+                   units = "in", res = 600,
+                   pointsize = 10)
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Create barplot
+    barplot(tab, main = "", col = "lightgray",
+            ylab = "Frequency", cex.names = 0.8)
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Create barplot
+    barplot(tab, main = "", col = "lightgray",
+            ylab = "Frequency", cex.names = 0.8)
+  }
 }
 
 
@@ -516,14 +737,18 @@ chart_wg <- function(x, filename) {
 #' Chart household hunger scale (HHS) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar plot of HHS in PNG format saved in current working directory
-#'   or in a specified directory if \code{filename} is a path.
+#'   or in a specified directory if \code{filename} is a path unless when
+#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   graphic device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.ALL} dataset
+#'   # Create chart using indicators.ALL dataset
 #'   chart_hhs(x = indicators.ALL,
 #'             filename = paste(tempdir(), "TEST", sep = "/"))
 #'
@@ -532,15 +757,11 @@ chart_wg <- function(x, filename) {
 #
 ################################################################################
 
-chart_hhs <- function(x, filename) {
+chart_hhs <- function(x,
+                      save.chart = TRUE,
+                      filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".HHS.png", sep = "")
-
-  ## Open PNG graphics device
-  grDevices::png(filename = plotFileName,
-                 width = 6, height = 6,
-                 units = "in", res = 600,
-                 pointsize = 10)
 
   ## Tabulate HHS
   H0 <- table(x$wgP0)["1"]
@@ -549,12 +770,26 @@ chart_hhs <- function(x, filename) {
   tab <- as.table(c(H0, H1, H2))
   names(tab) <- c("Little or none", "Moderate", "Severe")
 
-  ## Create bar plot
-  barplot(tab, main = "", col = c("green", "orange", "red"),
-          ylab = "Frequency", cex.names = 0.8)
+  ## Check if save.chart
+  if(save.chart) {
 
-  ## Close graphics device
-  grDevices::dev.off()
+    ## Open PNG graphics device
+    grDevices::png(filename = plotFileName,
+                   width = 6, height = 6,
+                   units = "in", res = 600,
+                   pointsize = 10)
+
+    ## Create bar plot
+    barplot(tab, main = "", col = c("green", "orange", "red"),
+            ylab = "Frequency", cex.names = 0.8)
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Create bar plot
+    barplot(tab, main = "", col = c("green", "orange", "red"),
+            ylab = "Frequency", cex.names = 0.8)
+  }
 }
 
 
@@ -564,13 +799,18 @@ chart_hhs <- function(x, filename) {
 #'
 #' @param x.male Male subset of indicator dataset
 #' @param x.female Female subset of indicator dataset
-#' @param filename Prefix to add to output chart filename
+#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param filename Prefix to add to output chart filename or a directory
+#'   path to save output to instead of working directory. Ignored if
+#'   \code{save.chart} is FALSE.
 #'
 #' @return Bar chart of sources of income by sex in PNG format saved in current
-#'   working directory or in a specified directory if \code{filename} is a path.
+#'   working directory or in a specified directory if \code{filename} is a path
+#'   unless when \code{save.chart} is FALSE in which case chart is shown in
+#'   current graphics device.
 #'
 #' @examples
-#'   # Create chart using \code{indicators.FEMALES} and \code{indicators.MALES}
+#'   # Create chart using indicators.FEMALES and indicators.MALES
 #'   # dataset
 #'   chart_income(x.male = indicators.MALES,
 #'                x.female = indicators.FEMALES,
@@ -581,7 +821,10 @@ chart_hhs <- function(x, filename) {
 #
 ################################################################################
 
-chart_income <- function(x.male, x.female, filename) {
+chart_income <- function(x.male,
+                         x.female,
+                         save.chart = TRUE,
+                         filename = NULL) {
 
   ## Sources of income (by sex)
   tabM <- NULL
@@ -632,25 +875,44 @@ chart_income <- function(x.male, x.female, filename) {
   ## Plot income sources by sex
   plotFileName <- paste(filename, ".Incomes.png", sep = "")
 
-  ## Open graphics device
-  grDevices::png(filename = plotFileName, width = 6, height = 6,
-                 units = "in", res = 600, pointsize = 10)
+  ## Check if save.chart
+  if(save.chart) {
 
-  ## Set plot paramaters
-  withr::with_par(
-    list(pty = "m",
-         las = 1,
-         cex.axis = 0.8,
-         mar = c(3, 12, 2, 2) + 0.1),
+    ## Open graphics device
+    grDevices::png(filename = plotFileName, width = 6, height = 6,
+                   units = "in", res = 600, pointsize = 10)
 
-    ## Create plot
-    barplot(t(tab),
-            col = c("lightgray", "white"),
-            horiz = TRUE, main = "",
-            xlab = "Frequency (males are shaded)",
-            ylab = "")
-  )
+    ## Set plot paramaters
+    withr::with_par(
+      list(pty = "m",
+           las = 1,
+           cex.axis = 0.8,
+           mar = c(3, 12, 2, 2) + 0.1),
 
-  ## Close graphics device
-  grDevices::dev.off()
+      ## Create plot
+      barplot(t(tab),
+              col = c("lightgray", "white"),
+              horiz = TRUE, main = "",
+              xlab = "Frequency (males are shaded)",
+              ylab = "")
+    )
+
+    ## Close graphics device
+    grDevices::dev.off()
+  } else {
+    ## Set plot paramaters
+    withr::with_par(
+      list(pty = "m",
+           las = 1,
+           cex.axis = 0.8,
+           mar = c(3, 12, 2, 2) + 0.1),
+
+      ## Create plot
+      barplot(t(tab),
+              col = c("lightgray", "white"),
+              horiz = TRUE, main = "",
+              xlab = "Frequency (males are shaded)",
+              ylab = "")
+    )
+  }
 }
