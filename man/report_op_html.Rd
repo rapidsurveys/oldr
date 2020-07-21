@@ -7,6 +7,8 @@
 report_op_html(
   estimates,
   svy,
+  indicators = c("demo", "food", "hunger", "disability", "adl", "mental", "dementia",
+    "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc"),
   filename = "ramOPreport",
   title = "RAM-OP Report"
 )
@@ -16,6 +18,8 @@ report_op_html(
 \link{merge_estimates} function.}
 
 \item{svy}{A data.frame collected using the standard RAM-OP questionnaire}
+
+\item{indicators}{A character vector of indicator names}
 
 \item{filename}{Filename for output document. Can be specified as a path to a
 specific directory where to output report document}

@@ -4,7 +4,7 @@
 \alias{report_op_demo}
 \title{Create a report chunk for demography indicators}
 \usage{
-report_op_demo(estimates, svy)
+report_op_demo()
 }
 \value{
 A reporting chunk for demographic indicators
