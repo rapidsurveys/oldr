@@ -29,7 +29,7 @@ The RAM-OP Workflow is summarised in the diagram below.
 
 ```{r ramOPworkflow, echo = FALSE, eval = FALSE, fig.width = 8, fig.height = 10, fig.align = "center"}
 DiagrammeR::grViz("
-  digraph oxcovid19 {
+  digraph ramOP {
 
     # a 'graph' statement
     graph [overlap = false, fontsize = 14, fontname = Helvetica]
@@ -385,3 +385,19 @@ read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"),
          stringsAsFactors = FALSE)
 ```
 
+### Piped operation to get output an HTML report
+
+If the preferred output is a report with combined charts and tables of results, the following piped operations can be performed:
+
+```{r estimateReport1, echo = TRUE, eval = FALSE}
+testSVY %>%
+  create_op_all() %>%
+  estimate_op_all(w = testPSU, replicates = 9) %>%
+  report_op_html(svy = testSVY, filename = paste(tempdir(), "ramOPreport", sep = "/"))
+```
+
+which results in an HTML file saved in the specified output directory that looks something like this:
+
+```{r estimateReport2, echo = FALSE, eval = TRUE}
+knitr::include_graphics("../man/figures/htmlReport.png")
+```
