@@ -4,7 +4,10 @@
 \alias{report_op_mental}
 \title{Create a report chunk for mental health indicators}
 \usage{
-report_op_mental()
+report_op_mental(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for mental health indicators

@@ -151,8 +151,16 @@
     <p>Create a report chunk for anthropometric indicators</p>
     </div>
 
-    <pre class="usage"><span class='fu'>report_op_anthro</span>()</pre>
+    <pre class="usage"><span class='fu'>report_op_anthro</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"html"</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>format</th>
+      <td><p>Either html or latex. Defaults to html.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -164,10 +172,12 @@
 #&gt; 
 #&gt; ```{r anthroTable}
 #&gt; knitr::kable(x = resultsDF[137:139, seq(from = 3, to = ncol(resultsDF), by = 1)],
+#&gt;   format = 'html',
 #&gt;   caption = 'Prevalence of acute malnutrition',
+#&gt;   booktabs = TRUE,
 #&gt;   digits = 2,
 #&gt;   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%
-#&gt;   kableExtra::kable_styling(bootstrap_option = c('striped')) %&gt;%
+#&gt;   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%
 #&gt;   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))
 #&gt; ```</div><div class='input'>
 </div></pre>

@@ -4,7 +4,10 @@
 \alias{report_op_screen}
 \title{Create a report chunk for screening indicators}
 \usage{
-report_op_screen()
+report_op_screen(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for screening indicators

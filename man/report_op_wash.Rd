@@ -4,10 +4,13 @@
 \alias{report_op_wash}
 \title{Create a report chunk for water, sanitation and hygiene}
 \usage{
-report_op_wash()
+report_op_wash(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
-A reporting chunk for water, saniation hygiene
+A reporting chunk for water, saniation and hygiene
 }
 \description{
 Create a report chunk for water, sanitation and hygiene

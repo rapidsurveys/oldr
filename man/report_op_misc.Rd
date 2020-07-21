@@ -4,7 +4,10 @@
 \alias{report_op_misc}
 \title{Create a report chunk for miscellaneous indicators}
 \usage{
-report_op_misc()
+report_op_misc(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for miscellaneous indicators
