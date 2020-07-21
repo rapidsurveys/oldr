@@ -193,60 +193,22 @@ specific directory where to output report document</p></td>
   to a specified directory.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='co'>#</span>
-  <span class='no'>classicResults</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='estimate_classic.html'>estimate_classic</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='create_op_all.html'>create_op_all</a></span>(<span class='no'>testSVY</span>),
+    <pre class="examples"><div class='input'>  <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <span class='no'>classicResults</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='estimate_classic.html'>estimate_classic</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='create_op_all.html'>create_op_all</a></span>(<span class='no'>testSVY</span>),
+                                       <span class='kw'>w</span> <span class='kw'>=</span> <span class='no'>testPSU</span>,
+                                       <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>9</span>)
+
+    <span class='no'>probitResults</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='estimate_probit.html'>estimate_probit</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='create_op_all.html'>create_op_all</a></span>(<span class='no'>testSVY</span>),
                                      <span class='kw'>w</span> <span class='kw'>=</span> <span class='no'>testPSU</span>,
                                      <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>9</span>)
 
-  <span class='no'>probitResults</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='estimate_probit.html'>estimate_probit</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='create_op_all.html'>create_op_all</a></span>(<span class='no'>testSVY</span>),
-                                   <span class='kw'>w</span> <span class='kw'>=</span> <span class='no'>testPSU</span>,
-                                   <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>9</span>)
+    <span class='no'>resultsDF</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='merge_estimates.html'>merge_estimates</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>classicResults</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>probitResults</span>)
 
-  <span class='no'>resultsDF</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='merge_estimates.html'>merge_estimates</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>classicResults</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>probitResults</span>)
-
-  <span class='fu'>report_op_pdf</span>(<span class='kw'>svy</span> <span class='kw'>=</span> <span class='no'>testSVY</span>,
-                <span class='kw'>estimates</span> <span class='kw'>=</span> <span class='no'>resultsDF</span>,
-                <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='st'>"demo"</span>,
-                <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>processing file: report.Rmd</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   8%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |...........                                                           |  15%
-#&gt; label: setup (with options) 
-#&gt; List of 1
-#&gt;  $ include: logi FALSE
-#&gt; 
-#&gt;   |                                                                              |................                                                      |  23%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |......................                                                |  31%
-#&gt; label: respondentTable
-#&gt;   |                                                                              |...........................                                           |  38%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |................................                                      |  46%
-#&gt; label: agePlot</div><div class='output co'>#&gt;   |                                                                              |......................................                                |  54%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |...........................................                           |  62%
-#&gt; label: ageTable
-#&gt;   |                                                                              |................................................                      |  69%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |......................................................                |  77%
-#&gt; label: sexTable
-#&gt;   |                                                                              |...........................................................           |  85%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |.................................................................     |  92%
-#&gt; label: marriedTable
-#&gt;   |                                                                              |......................................................................| 100%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt; </div><div class='output co'>#&gt; <span class='message'>output file: report.knit.md</span></div><div class='output co'>#&gt; /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS report.utf8.md --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output report.tex --self-contained --table-of-contents --toc-depth 2 --highlight-style tango --pdf-engine pdflatex --variable graphics --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/latex-div.lua --include-in-header /var/folders/fk/s0yv8hhn2cs_nfsmzhm4dmhc0000gn/T//Rtmp45yhEx/rmarkdown-str24b341671d01.html --variable 'geometry:margin=1in' </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Output created: report.pdf</span></div><div class='input'>
-</div></pre>
+    <span class='fu'>report_op_pdf</span>(<span class='kw'>svy</span> <span class='kw'>=</span> <span class='no'>testSVY</span>,
+                  <span class='kw'>estimates</span> <span class='kw'>=</span> <span class='no'>resultsDF</span>,
+                  <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='st'>"mental"</span>,
+                  <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))
+  }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
