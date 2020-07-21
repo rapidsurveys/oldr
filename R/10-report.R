@@ -1042,7 +1042,7 @@ report_op_misc <- function(format = "html") {
 #'
 #'   report_op_html(svy = testSVY,
 #'                  estimates = resultsDF,
-#'                  indicators = "demo",
+#'                  indicators = "mental",
 #'                  filename = paste(tempdir(), "report", sep = "/"))
 #'
 #' @export
@@ -1142,21 +1142,22 @@ report_op_html <- function(estimates,
 #'   to a specified directory.
 #'
 #' @examples
-#'   #
-#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'   \dontrun{
+#'     classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'                                        w = testPSU,
+#'                                        replicates = 9)
+#'
+#'     probitResults <- estimate_probit(x = create_op_all(testSVY),
 #'                                      w = testPSU,
 #'                                      replicates = 9)
 #'
-#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
-#'                                    w = testPSU,
-#'                                    replicates = 9)
+#'     resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 #'
-#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
-#'
-#'   report_op_pdf(svy = testSVY,
-#'                 estimates = resultsDF,
-#'                 indicators = "demo",
-#'                 filename = paste(tempdir(), "report", sep = "/"))
+#'     report_op_pdf(svy = testSVY,
+#'                   estimates = resultsDF,
+#'                   indicators = "mental",
+#'                   filename = paste(tempdir(), "report", sep = "/"))
+#'   }
 #'
 #' @export
 #'
