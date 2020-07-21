@@ -68,6 +68,7 @@ reference:
     contents:
     - report_op_table
     - report_op_html
+    - report_op_pdf
     - report_op_adl
     - report_op_anthro
     - report_op_dementia

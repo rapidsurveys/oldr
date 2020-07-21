@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create an HTML report document containing RAM-OP survey results — report_op_html • oldr</title>
+<title>Create a PDF report document containing RAM-OP survey results — report_op_pdf • oldr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Create an HTML report document containing RAM-OP survey results — report_op_html" />
-<meta property="og:description" content="Create an HTML report document containing RAM-OP survey results" />
+<meta property="og:title" content="Create a PDF report document containing RAM-OP survey results — report_op_pdf" />
+<meta property="og:description" content="Create a PDF report document containing RAM-OP survey results" />
 
 
 
@@ -142,16 +142,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create an HTML report document containing RAM-OP survey results</h1>
+    <h1>Create a PDF report document containing RAM-OP survey results</h1>
     <small class="dont-index">Source: <a href='https://github.com/rapidsurveys/oldr/blob/master/R/10-report.R'><code>R/10-report.R</code></a></small>
-    <div class="hidden name"><code>report_op_html.Rd</code></div>
+    <div class="hidden name"><code>report_op_pdf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create an HTML report document containing RAM-OP survey results</p>
+    <p>Create a PDF report document containing RAM-OP survey results</p>
     </div>
 
-    <pre class="usage"><span class='fu'>report_op_html</span>(
+    <pre class="usage"><span class='fu'>report_op_pdf</span>(
   <span class='no'>estimates</span>,
   <span class='no'>svy</span>,
   <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"demo"</span>, <span class='st'>"food"</span>, <span class='st'>"hunger"</span>, <span class='st'>"disability"</span>, <span class='st'>"adl"</span>, <span class='st'>"mental"</span>, <span class='st'>"dementia"</span>,
@@ -189,7 +189,7 @@ specific directory where to output report document</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An HTML document in the working directory or if filename is a path,
+    <p>A PDF document in the working directory or if filename is a path,
   to a specified directory.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -204,10 +204,10 @@ specific directory where to output report document</p></td>
 
   <span class='no'>resultsDF</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='merge_estimates.html'>merge_estimates</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>classicResults</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>probitResults</span>)
 
-  <span class='fu'>report_op_html</span>(<span class='kw'>svy</span> <span class='kw'>=</span> <span class='no'>testSVY</span>,
-                 <span class='kw'>estimates</span> <span class='kw'>=</span> <span class='no'>resultsDF</span>,
-                 <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='st'>"demo"</span>,
-                 <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))</div><div class='output co'>#&gt; <span class='message'></span>
+  <span class='fu'>report_op_pdf</span>(<span class='kw'>svy</span> <span class='kw'>=</span> <span class='no'>testSVY</span>,
+                <span class='kw'>estimates</span> <span class='kw'>=</span> <span class='no'>resultsDF</span>,
+                <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='st'>"demo"</span>,
+                <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>processing file: report.Rmd</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   8%
 #&gt;   ordinary text without R code
@@ -244,8 +244,8 @@ specific directory where to output report document</p></td>
 #&gt;   |                                                                              |......................................................................| 100%
 #&gt;   ordinary text without R code
 #&gt; 
-#&gt; </div><div class='output co'>#&gt; <span class='message'>output file: report.knit.md</span></div><div class='output co'>#&gt; /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS report.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output report.html --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 2 --template /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --variable 'theme:bootstrap' --include-in-header /var/folders/fk/s0yv8hhn2cs_nfsmzhm4dmhc0000gn/T//Rtmp45yhEx/rmarkdown-str24b32da3621b.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/latex-div.lua </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Output created: report.html</span></div><div class='input'>
+#&gt; </div><div class='output co'>#&gt; <span class='message'>output file: report.knit.md</span></div><div class='output co'>#&gt; /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS report.utf8.md --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output report.tex --self-contained --table-of-contents --toc-depth 2 --highlight-style tango --pdf-engine pdflatex --variable graphics --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/latex-div.lua --include-in-header /var/folders/fk/s0yv8hhn2cs_nfsmzhm4dmhc0000gn/T//Rtmp45yhEx/rmarkdown-str24b341671d01.html --variable 'geometry:margin=1in' </div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Output created: report.pdf</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

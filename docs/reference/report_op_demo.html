@@ -151,8 +151,16 @@
     <p>Create a report chunk for demography indicators</p>
     </div>
 
-    <pre class="usage"><span class='fu'>report_op_demo</span>()</pre>
+    <pre class="usage"><span class='fu'>report_op_demo</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"html"</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>format</th>
+      <td><p>Either html or latex. Defaults to html.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -165,10 +173,12 @@
 #&gt; ## Type of respondents
 #&gt; ```{r respondentTable}
 #&gt; knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],
+#&gt;   format = 'html',
 #&gt;   caption = 'Type of respondent',
+#&gt;   booktabs = TRUE,
 #&gt;   digits = 2,
 #&gt;   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%
-#&gt;   kableExtra::kable_styling(bootstrap_option = c('striped')) %&gt;%
+#&gt;   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%
 #&gt;   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))
 #&gt; ```
 #&gt; 
@@ -179,30 +189,36 @@
 #&gt; 
 #&gt; ```{r ageTable}
 #&gt; knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],
+#&gt;   format = 'html',
 #&gt;   caption = 'Respondent age group by sex',
+#&gt;   booktabs = TRUE,
 #&gt;   digits = 2,
 #&gt;   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%
-#&gt;   kableExtra::kable_styling(bootstrap_option = c('striped')) %&gt;%
+#&gt;   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%
 #&gt;   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))
 #&gt; ```
 #&gt; 
 #&gt; ## Respondents by sex
 #&gt; ```{r sexTable}
 #&gt; knitr::kable(x = resultsDF[11:12, seq(from = 3, to = ncol(resultsDF), by = 1)],
+#&gt;   format = 'html',
 #&gt;   caption = 'Sex of respondents',
+#&gt;   booktabs = TRUE,
 #&gt;   digits = 2,
 #&gt;   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%
-#&gt;   kableExtra::kable_styling(bootstrap_option = c('striped')) %&gt;%
+#&gt;   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%
 #&gt;   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))
 #&gt; ```
 #&gt; 
 #&gt; ## Marital status of respondents
 #&gt; ```{r marriedTable}
 #&gt; knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],
+#&gt;   format = 'html',
 #&gt;   caption = 'Marital status',
+#&gt;   booktabs = TRUE,
 #&gt;   digits = 2,
 #&gt;   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%
-#&gt;   kableExtra::kable_styling(bootstrap_option = c('striped')) %&gt;%
+#&gt;   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%
 #&gt;   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))
 #&gt; ```</div><div class='input'>
 </div></pre>
