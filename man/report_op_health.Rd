@@ -4,7 +4,10 @@
 \alias{report_op_health}
 \title{Create a report chunk for health and health-seeking behaviour indicators}
 \usage{
-report_op_health()
+report_op_health(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for health and health-seeking behaviour indicators

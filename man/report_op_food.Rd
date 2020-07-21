@@ -4,7 +4,10 @@
 \alias{report_op_food}
 \title{Create a report chunk for food indicators}
 \usage{
-report_op_food()
+report_op_food(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for food indicators

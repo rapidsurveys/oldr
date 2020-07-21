@@ -47,7 +47,7 @@ Create a PDF report document containing RAM-OP survey results
 
   report_op_pdf(svy = testSVY,
                 estimates = resultsDF,
-                indicators = c("demo", "food"),
+                indicators = "demo",
                 filename = paste(tempdir(), "report", sep = "/"))
 
 }

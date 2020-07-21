@@ -4,7 +4,10 @@
 \alias{report_op_dementia}
 \title{Create a report chunk for dementia indicators}
 \usage{
-report_op_dementia()
+report_op_dementia(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for dementia indicators

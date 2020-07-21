@@ -4,7 +4,10 @@
 \alias{report_op_disability}
 \title{Create a report chunk for disability indicators}
 \usage{
-report_op_disability()
+report_op_disability(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for disability indicators

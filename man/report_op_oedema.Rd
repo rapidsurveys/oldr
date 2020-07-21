@@ -4,7 +4,10 @@
 \alias{report_op_oedema}
 \title{Create a report chunk for oedema}
 \usage{
-report_op_oedema()
+report_op_oedema(format = "html")
+}
+\arguments{
+\item{format}{Either html or latext. Defaults to html.}
 }
 \value{
 A reporting chunk for oedema indicators

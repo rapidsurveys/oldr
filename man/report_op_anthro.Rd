@@ -4,7 +4,10 @@
 \alias{report_op_anthro}
 \title{Create a report chunk for anthropometric indicators}
 \usage{
-report_op_anthro()
+report_op_anthro(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for anhtropometric indicators

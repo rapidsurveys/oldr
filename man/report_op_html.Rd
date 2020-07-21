@@ -47,7 +47,7 @@ Create an HTML report document containing RAM-OP survey results
 
   report_op_html(svy = testSVY,
                  estimates = resultsDF,
-                 indicators = c("demo", "hunger"),
+                 indicators = "demo",
                  filename = paste(tempdir(), "report", sep = "/"))
 
 }

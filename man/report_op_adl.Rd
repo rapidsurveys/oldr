@@ -4,7 +4,10 @@
 \alias{report_op_adl}
 \title{Create a report chunk for activities of daily living indicators}
 \usage{
-report_op_adl()
+report_op_adl(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for ADL indicators
