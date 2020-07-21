@@ -28,7 +28,7 @@ merge_estimates <- function(x, y) {
 
   temp$originalOrder <- seq_len(nrow(estimates))
 
-  estimates <- merge(estimates, temp, by = "INDICATOR")
+  estimates <- merge(temp, estimates, by = "INDICATOR")
   estimates <- estimates[order(estimates$originalOrder), ]
   estimates <- subset(estimates, select = -originalOrder)
 

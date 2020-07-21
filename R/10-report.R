@@ -70,6 +70,7 @@ report_op_table <- function(estimates, filename) {
 #
 #' Create a report document containing RAM-OP survey results
 #'
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param estimates A data.frame of RAM-OP results produced by
 #'   \link{merge_estimates} function.
 #' @param filename Filename for output document. Can be specified as a path to a
@@ -92,17 +93,123 @@ report_op_table <- function(estimates, filename) {
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
-#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults,)
+#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 #'
-#'   report_op_document(estimates = resultsDF)
+#'   report_op_document(svy = testSVY,
+#'                      estimates = resultsDF,
+#'                      filename = paste(tempdir(), report, sep = "/"))
 #'
-#'
+#' @export
 #'
 #
 ################################################################################
 
-report_op_document <- function(estimates,
+report_op_document <- function(svy,
+                               estimates,
                                filename = "ramOPreport",
-                               title = filename,
+                               title = "RAM-OP Report",
                                output = "html_document") {
+  resultsDF <- estimates %>%
+    dplyr::mutate(EST.ALL = ifelse(TYPE == "Proportion", EST.ALL * 100, EST.ALL),
+                  LCL.ALL = ifelse(TYPE == "Proportion", LCL.ALL * 100, LCL.ALL),
+                  UCL.ALL = ifelse(TYPE == "Proportion", UCL.ALL * 100, UCL.ALL),
+                  EST.MALES = ifelse(TYPE == "Proportion",
+                                     EST.MALES * 100, EST.MALES),
+                  LCL.MALES = ifelse(TYPE == "Proportion",
+                                     LCL.MALES * 100, LCL.MALES),
+                  UCL.MALES = ifelse(TYPE == "Proportion",
+                                     UCL.MALES * 100, UCL.MALES),
+                  EST.FEMALES = ifelse(TYPE == "Proportion",
+                                       EST.FEMALES * 100, EST.FEMALES),
+                  LCL.FEMALES = ifelse(TYPE == "Proportion",
+                                       LCL.FEMALES * 100, LCL.FEMALES),
+                  UCL.FEMALES = ifelse(TYPE == "Proportion",
+                                       UCL.FEMALES * 100, UCL.FEMALES))
+
+  withr::with_options(
+    new = list(width = 80),
+    code = {
+      withr::with_output_sink(
+        new = paste(filename, ".Rmd", sep = ""),
+        code = {
+          cat("---\n")
+          cat("title: ", title, "\n", sep = "")
+          cat("output:\n")
+          cat("  html_document:\n")
+          cat("    toc: true\n")
+          cat("    toc_depth: 2\n")
+          cat("    number_sections: true\n")
+          cat("    fig_caption: true\n")
+          cat("---\n")
+          cat("\n")
+          cat("```{r setup, include = FALSE}\n")
+          cat("knitr::opts_chunk$set(\n")
+          cat("  message = FALSE,\n")
+          cat("  warning = FALSE,\n")
+          cat("  error = FALSE,\n")
+          cat("  echo = FALSE,\n")
+          cat("  collapse = TRUE,\n")
+          cat("  out.width = '80%',\n")
+          cat("  fig.align = 'center',\n")
+          cat("  comment = '#>')\n")
+          cat("\n")
+          cat("library(magrittr)\n")
+          cat("```\n")
+          cat("\n")
+          cat("<hr>\n")
+          cat("# Sample description\n")
+          cat("\n")
+          cat("## Type of respondents\n")
+          cat("```{r respondentTable}\n")
+          cat("knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+          cat("  caption = 'Type of respondent',\n")
+          cat("  digits = 2,\n")
+          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+          cat("```\n")
+          cat("\n")
+          cat("## Age structure by sex\n")
+          cat("```{r agePlot}\n")
+          cat("oldr::chart_age(x = oldr::create_op_all(svy), save.chart = FALSE)\n")
+          cat("```\n")
+          cat("\n")
+          cat("```{r ageTable}\n")
+          cat("knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+          cat("  caption = 'Respondent age group by sex',\n")
+          cat("  digits = 2,\n")
+          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+          cat("```\n")
+          cat("\n")
+          cat("## Respondents by sex\n")
+          cat("```{r sexTable}\n")
+          cat("knitr::kable(x = resultsDF[11:12, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+          cat("  caption = 'Sex of respondents',\n")
+          cat("  digits = 2,\n")
+          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+          cat("```\n")
+          cat("\n")
+          cat("## Marital status of respondents\n")
+          cat("```{r marriedTable}\n")
+          cat("knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+          cat("  caption = 'Marital status',\n")
+          cat("  digits = 2,\n")
+          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+          cat("```")
+        }
+      )
+    }
+  )
+
+  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
+                    output_format = output)
+
+  utils::browseURL(url = paste(filename, ".html", sep = ""))
 }
+
