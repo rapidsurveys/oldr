@@ -35,6 +35,7 @@
 #' @docType package
 #' @name oldr
 #' @keywords internal
+#' @importFrom utils browseURL
 #' @importFrom stats runif na.omit pnorm sd quantile
 #' @importFrom graphics axTicks axis barplot boxplot hist par
 #' @importFrom grDevices dev.off png
@@ -42,24 +43,14 @@
 #' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
 #' @importFrom tibble tibble
+#' @importFrom rmarkdown render
 #'
 #
 ################################################################################
 "_PACKAGE"
 
 ## quiets concerns of R CMD check re: globalVariables
-if(getRversion() >= "2.15.1")  utils::globalVariables(c("indicators.ALL",
-                                                        "indicators.MALES",
-                                                        "indicators.FEMALES",
-                                                        "psuData",
-                                                        "REPLICATES",
-                                                        "classicEstimates",
-                                                        "probitEstimates",
-                                                        "originalOrder",
-                                                        "estimates",
-                                                        "GROUP", "sexText",
-                                                        "sex1", "sex2",
-                                                        "INDICATOR"))
+if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 
 
 ################################################################################
