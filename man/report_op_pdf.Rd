@@ -34,20 +34,21 @@ A PDF document in the working directory or if filename is a path,
 Create a PDF report document containing RAM-OP survey results
 }
 \examples{
-  #
-  classicResults <- estimate_classic(x = create_op_all(testSVY),
+  \dontrun{
+    classicResults <- estimate_classic(x = create_op_all(testSVY),
+                                       w = testPSU,
+                                       replicates = 9)
+
+    probitResults <- estimate_probit(x = create_op_all(testSVY),
                                      w = testPSU,
                                      replicates = 9)
 
-  probitResults <- estimate_probit(x = create_op_all(testSVY),
-                                   w = testPSU,
-                                   replicates = 9)
+    resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 
-  resultsDF <- merge_estimates(x = classicResults, y = probitResults)
-
-  report_op_pdf(svy = testSVY,
-                estimates = resultsDF,
-                indicators = "demo",
-                filename = paste(tempdir(), "report", sep = "/"))
+    report_op_pdf(svy = testSVY,
+                  estimates = resultsDF,
+                  indicators = "mental",
+                  filename = paste(tempdir(), "report", sep = "/"))
+  }
 
 }
