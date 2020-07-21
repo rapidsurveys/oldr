@@ -109,7 +109,8 @@ create_op_demo <- function(svy) {
 ################################################################################
 
 create_op_demo_males <- function(svy) {
-  demo.indicators.MALES <- subset(create_op_demo(svy = svy), sex1 == 1)
+  x <- create_op_demo(svy = svy)
+  demo.indicators.MALES <- subset(x, x$sex1 == 1)
   return(demo.indicators.MALES)
 }
 
@@ -136,7 +137,8 @@ create_op_demo_males <- function(svy) {
 ################################################################################
 
 create_op_demo_females <- function(svy) {
-  demo.indicators.FEMALES <- subset(create_op_demo(svy = svy), sex2 == 1)
+  x <- create_op_demo(svy = svy)
+  demo.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(demo.indicators.FEMALES)
 }
 
@@ -326,7 +328,8 @@ create_op_food <- function(svy) {
 ################################################################################
 
 create_op_food_males <- function(svy) {
-  food.indicators.MALES <- subset(create_op_food(svy = svy), sex1 == 1)
+  x <- create_op_food(svy = svy)
+  food.indicators.MALES <- subset(x, x$sex1 == 1)
   return(food.indicators.MALES)
 }
 
@@ -352,7 +355,8 @@ create_op_food_males <- function(svy) {
 ################################################################################
 
 create_op_food_females <- function(svy) {
-  food.indicators.FEMALES <- subset(create_op_food(svy = svy), sex2 == 1)
+  x <- create_op_food(svy = svy)
+  food.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(food.indicators.FEMALES)
 }
 
@@ -439,7 +443,8 @@ create_op_hunger <- function(svy) {
 ################################################################################
 
 create_op_hunger_males <- function(svy) {
-  food.indicators.MALES <- subset(create_op_hunger(svy = svy), sex1 == 1)
+  x <- create_op_hunger(svy = svy)
+  food.indicators.MALES <- subset(x, x$sex1 == 1)
   return(food.indicators.MALES)
 }
 
@@ -465,7 +470,8 @@ create_op_hunger_males <- function(svy) {
 ################################################################################
 
 create_op_hunger_females <- function(svy) {
-  food.indicators.FEMALES <- subset(create_op_hunger(svy = svy), sex2 == 1)
+  x <- create_op_hunger(svy = svy)
+  food.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(food.indicators.FEMALES)
 }
 
@@ -596,7 +602,8 @@ create_op_adl <- function(svy) {
 ################################################################################
 
 create_op_adl_males <- function(svy) {
-  adl.indicators.MALES <- subset(create_op_adl(svy = svy), sex1 == 1)
+  x <- create_op_adl(svy = svy)
+  adl.indicators.MALES <- subset(x, x$sex1 == 1)
   return(adl.indicators.MALES)
 }
 
@@ -623,7 +630,8 @@ create_op_adl_males <- function(svy) {
 ################################################################################
 
 create_op_adl_females <- function(svy) {
-  adl.indicators.FEMALES <- subset(create_op_adl(svy = svy), sex2 == 1)
+  x <- create_op_adl(svy = svy)
+  adl.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(adl.indicators.FEMALES)
 }
 
@@ -800,7 +808,8 @@ create_op_disability <- function(svy) {
 ################################################################################
 
 create_op_disability_males <- function(svy) {
-  disability.indicators.MALES <- subset(create_op_disability(svy = svy), sex1 == 1)
+  x <- create_op_disability(svy = svy)
+  disability.indicators.MALES <- subset(x, x$sex1 == 1)
   return(disability.indicators.MALES)
 }
 
@@ -826,7 +835,8 @@ create_op_disability_males <- function(svy) {
 ################################################################################
 
 create_op_disability_females <- function(svy) {
-  disability.indicators.FEMALES <- subset(create_op_disability(svy = svy), sex2 == 1)
+  x <- create_op_disability(svy = svy)
+  disability.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(disability.indicators.FEMALES)
 }
 
@@ -928,7 +938,8 @@ create_op_mental <- function(svy) {
 ################################################################################
 
 create_op_mental_males <- function(svy) {
-  mental.indicators.MALES <- subset(create_op_mental(svy = svy), sex1 == 1)
+  x <- create_op_mental(svy = svy)
+  mental.indicators.MALES <- subset(x, x$sex1 == 1)
   return(mental.indicators.MALES)
 }
 
@@ -954,7 +965,8 @@ create_op_mental_males <- function(svy) {
 ################################################################################
 
 create_op_mental_females <- function(svy) {
-  mental.indicators.FEMALES <- subset(create_op_mental(svy = svy), sex2 == 1)
+  x <- create_op_mental(svy = svy)
+  mental.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(mental.indicators.FEMALES)
 }
 
@@ -1051,7 +1063,8 @@ create_op_dementia <- function(svy) {
 ################################################################################
 
 create_op_dementia_males <- function(svy) {
-  dementia.indicators.MALES <- subset(create_op_dementia(svy = svy), sex1 == 1)
+  x <- create_op_dementia(svy = svy)
+  dementia.indicators.MALES <- subset(x, x$sex1 == 1)
   return(dementia.indicators.MALES)
 }
 
@@ -1077,7 +1090,8 @@ create_op_dementia_males <- function(svy) {
 ################################################################################
 
 create_op_dementia_females <- function(svy) {
-  dementia.indicators.FEMALES <- subset(create_op_dementia(svy = svy), sex2 == 1)
+  x <- create_op_dementia(svy = svy)
+  dementia.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(dementia.indicators.FEMALES)
 }
 
@@ -1209,7 +1223,8 @@ create_op_health <- function(svy) {
 ################################################################################
 
 create_op_health_males <- function(svy) {
-  health.indicators.MALES <- subset(create_op_health(svy = svy), sex1 == 1)
+  x <- create_op_health(svy = svy)
+  health.indicators.MALES <- subset(x, x$sex1 == 1)
   return(health.indicators.MALES)
 }
 
@@ -1236,7 +1251,8 @@ create_op_health_males <- function(svy) {
 ################################################################################
 
 create_op_health_females <- function(svy) {
-  health.indicators.FEMALES <- subset(create_op_health(svy = svy), sex2 == 1)
+  x <- create_op_health(svy = svy)
+  health.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(health.indicators.FEMALES)
 }
 
@@ -1336,7 +1352,8 @@ create_op_income <- function(svy) {
 ################################################################################
 
 create_op_income_males <- function(svy) {
-  income.indicators.MALES <- subset(create_op_income(svy = svy), sex1 == 1)
+  x <- create_op_income(svy = svy)
+  income.indicators.MALES <- subset(x, x$sex1 == 1)
   return(income.indicators.MALES)
 }
 
@@ -1362,7 +1379,8 @@ create_op_income_males <- function(svy) {
 ################################################################################
 
 create_op_income_females <- function(svy) {
-  income.indicators.FEMALES <- subset(create_op_income(svy = svy), sex2 == 1)
+  x <- create_op_income(svy = svy)
+  income.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(income.indicators.FEMALES)
 }
 
@@ -1461,7 +1479,8 @@ create_op_wash <- function(svy) {
 ################################################################################
 
 create_op_wash_males <- function(svy) {
-  wash.indicators.MALES <- subset(create_op_wash(svy = svy), sex1 == 1)
+  x <- create_op_wash(svy = svy)
+  wash.indicators.MALES <- subset(x, x$sex1 == 1)
   return(wash.indicators.MALES)
 }
 
@@ -1488,7 +1507,8 @@ create_op_wash_males <- function(svy) {
 ################################################################################
 
 create_op_wash_females <- function(svy) {
-  wash.indicators.FEMALES <- subset(create_op_wash(svy = svy), sex2 == 1)
+  x <- create_op_wash(svy = svy)
+  wash.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(wash.indicators.FEMALES)
 }
 
@@ -1566,7 +1586,8 @@ create_op_anthro <- function(svy) {
 ################################################################################
 
 create_op_anthro_males <- function(svy) {
-  anthro.indicators.MALES <- subset(create_op_anthro(svy = svy), sex1 == 1)
+  x <- create_op_anthro(svy = svy)
+  anthro.indicators.MALES <- subset(x, x$sex1 == 1)
   return(anthro.indicators.MALES)
 }
 
@@ -1592,7 +1613,8 @@ create_op_anthro_males <- function(svy) {
 ################################################################################
 
 create_op_anthro_females <- function(svy) {
-  anthro.indicators.FEMALES <- subset(create_op_anthro(svy = svy), sex2 == 1)
+  x <- create_op_anthro(svy = svy)
+  anthro.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(anthro.indicators.FEMALES)
 }
 
@@ -1670,7 +1692,8 @@ create_op_oedema <- function(svy) {
 ################################################################################
 
 create_op_oedema_males <- function(svy) {
-  oedema.indicators.MALES <- subset(create_op_oedema(svy = svy), sex1 == 1)
+  x <- create_op_oedema(svy = svy)
+  oedema.indicators.MALES <- subset(x, x$sex1 == 1)
   return(oedema.indicators.MALES)
 }
 
@@ -1696,7 +1719,8 @@ create_op_oedema_males <- function(svy) {
 ################################################################################
 
 create_op_oedema_females <- function(svy) {
-  oedema.indicators.FEMALES <- subset(create_op_oedema(svy = svy), sex2 == 1)
+  x <- create_op_oedema(svy = svy)
+  oedema.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(oedema.indicators.FEMALES)
 }
 
@@ -1772,7 +1796,8 @@ create_op_screening <- function(svy) {
 ################################################################################
 
 create_op_screening_males <- function(svy) {
-  screening.indicators.MALES <- subset(create_op_screening(svy = svy), sex1 == 1)
+  x <- create_op_screening(svy = svy)
+  screening.indicators.MALES <- subset(x, x$sex1 == 1)
   return(screening.indicators.MALES)
 }
 
@@ -1798,7 +1823,8 @@ create_op_screening_males <- function(svy) {
 ################################################################################
 
 create_op_screening_females <- function(svy) {
-  screening.indicators.FEMALES <- subset(create_op_screening(svy = svy), sex2 == 1)
+  x <- create_op_screening(svy = svy)
+  screening.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(screening.indicators.FEMALES)
 }
 
@@ -1886,7 +1912,8 @@ create_op_visual <- function(svy) {
 ################################################################################
 
 create_op_visual_males <- function(svy) {
-  visual.indicators.MALES <- subset(create_op_visual(svy = svy), sex1 == 1)
+  x <- create_op_visual(svy = svy)
+  visual.indicators.MALES <- subset(x, x$sex1 == 1)
   return(visual.indicators.MALES)
 }
 
@@ -1912,7 +1939,8 @@ create_op_visual_males <- function(svy) {
 ################################################################################
 
 create_op_visual_females <- function(svy) {
-  visual.indicators.FEMALES <- subset(create_op_visual(svy = svy), sex2 == 1)
+  x <- create_op_visual(svy = svy)
+  visual.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(visual.indicators.FEMALES)
 }
 
@@ -1992,7 +2020,8 @@ create_op_misc <- function(svy) {
 ################################################################################
 
 create_op_misc_males <- function(svy) {
-  misc.indicators.MALES <- subset(create_op_misc(svy = svy), sex1 == 1)
+  x <- create_op_misc(svy = svy)
+  misc.indicators.MALES <- subset(x, x$sex1 == 1)
   return(misc.indicators.MALES)
 }
 
@@ -2018,7 +2047,8 @@ create_op_misc_males <- function(svy) {
 ################################################################################
 
 create_op_misc_females <- function(svy) {
-  misc.indicators.FEMALES <- subset(create_op_misc(svy = svy), sex2 == 1)
+  x <- create_op_misc(svy = svy)
+  misc.indicators.FEMALES <- subset(x, x$sex2 == 1)
   return(misc.indicators.FEMALES)
 }
 

@@ -22,15 +22,16 @@ Imports:
     bbw,
     car,
     withr,
-    tibble
+    tibble,
+    rmarkdown
 Suggests: 
     knitr,
-    rmarkdown,
     testthat,
     covr,
     DiagrammeR,
     dplyr,
-    magrittr
+    magrittr,
+    kableExtra
 Encoding: UTF-8
 LazyData: true
 Language: en-gb

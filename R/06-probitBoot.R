@@ -151,6 +151,13 @@ estimate_probit <- function(x,
                               "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                               "INDICATOR")
 
+  ## Re-order columns
+  probitEstimates <- probitEstimates[ , c("INDICATOR",
+                                          "EST.ALL", "LCL.ALL", "UCL.ALL",
+                                          "EST.MALES", "LCL.MALES", "UCL.MALES",
+                                          "EST.FEMALES", "LCL.FEMALES",
+                                          "UCL.FEMALES")]
+
   ## Convert to tibble
   probitEstimates <- tibble::tibble(probitEstimates)
 

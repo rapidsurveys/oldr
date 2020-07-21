@@ -4,12 +4,15 @@
 \alias{merge_estimates}
 \title{Concatenate classic and PROBIT estimates into a single data.frame}
 \usage{
-merge_estimates(x, y)
+merge_estimates(x, y, prop2percent = FALSE)
 }
 \arguments{
 \item{x}{Classic estimates data frame}
 
 \item{y}{Probit estimates data frame}
+
+\item{prop2percent}{Logical. Should proportion type indicators be converted
+to percentage? Default is FALSE.}
 }
 \value{
 Data frame of combined classic and probit estimates
@@ -23,4 +26,5 @@ Concatenate classic and PROBIT estimates into a single data.frame
   test <- merge_estimates(x = classicEstimates,
                           y = probitEstimates)
   }
+
 }

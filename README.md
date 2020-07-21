@@ -15,6 +15,8 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![Travis](https://img.shields.io/travis/rapidsurveys/oldr.svg?branch=master)](https://travis-ci.org/rapidsurveys/oldr)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/rapidsurveys/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/rapidsurveys/oldr)
+[![R build
+status](https://github.com/rapidsurveys/oldr/workflows/R-CMD-check/badge.svg)](https://github.com/rapidsurveys/oldr/actions)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
 <!-- Badges end here-->

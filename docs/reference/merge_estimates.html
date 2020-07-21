@@ -151,7 +151,7 @@
     <p>Concatenate classic and PROBIT estimates into a single data.frame</p>
     </div>
 
-    <pre class="usage"><span class='fu'>merge_estimates</span>(<span class='no'>x</span>, <span class='no'>y</span>)</pre>
+    <pre class="usage"><span class='fu'>merge_estimates</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>prop2percent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,6 +163,11 @@
     <tr>
       <th>y</th>
       <td><p>Probit estimates data frame</p></td>
+    </tr>
+    <tr>
+      <th>prop2percent</th>
+      <td><p>Logical. Should proportion type indicators be converted
+to percentage? Default is FALSE.</p></td>
     </tr>
     </table>
 

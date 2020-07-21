@@ -104,6 +104,13 @@ estimate_classic  <- function(x,
                                "LCL.FEMALES", "EST.FEMALES", "UCL.FEMALES",
                                "INDICATOR")
 
+  ## Re-order columns
+  classicEstimates <- classicEstimates[ , c("INDICATOR",
+                                            "EST.ALL", "LCL.ALL", "UCL.ALL",
+                                            "EST.MALES", "LCL.MALES", "UCL.MALES",
+                                            "EST.FEMALES", "LCL.FEMALES",
+                                            "UCL.FEMALES")]
+
   ## Convert to tibble
   classicEstimates <- tibble::tibble(classicEstimates)
 

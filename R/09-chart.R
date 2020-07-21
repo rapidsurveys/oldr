@@ -764,9 +764,9 @@ chart_hhs <- function(x,
   plotFileName <- paste(filename, ".HHS.png", sep = "")
 
   ## Tabulate HHS
-  H0 <- table(x$wgP0)["1"]
-  H1 <- table(x$wgP1)["1"]
-  H2 <- table(x$wgP2)["1"]
+  H0 <- table(x$HHS1)["1"]
+  H1 <- table(x$HHS2)["1"]
+  H2 <- table(x$HHS3)["1"]
   tab <- as.table(c(H0, H1, H2))
   names(tab) <- c("Little or none", "Moderate", "Severe")
 
