@@ -259,7 +259,62 @@ report_op_disability <- function() {
   cat("\n")
   cat("```{r visionTable}\n")
   cat("knitr::kable(x = resultsDF[51:54, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  cat("  caption = 'Disability with vision',\n")
+  cat("  caption = 'Disability related to vision',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Hearing\n")
+  cat("\n")
+  cat("```{r hearingTable}\n")
+  cat("knitr::kable(x = resultsDF[55:58, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability related to hearing',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Mobility\n")
+  cat("\n")
+  cat("```{r mobilityTable}\n")
+  cat("knitr::kable(x = resultsDF[59:62, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability related to mobility',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Remembering\n")
+  cat("\n")
+  cat("```{r rememberingTable}\n")
+  cat("knitr::kable(x = resultsDF[63:66, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability related to remembering',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Self-care\n")
+  cat("\n")
+  cat("```{r selfCareTable}\n")
+  cat("knitr::kable(x = resultsDF[67:70, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability related to self-care',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Communicating\n")
+  cat("\n")
+  cat("```{r communicatingTable}\n")
+  cat("knitr::kable(x = resultsDF[71:74, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability related to communicating',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
   cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
@@ -268,9 +323,36 @@ report_op_disability <- function() {
 }
 
 
+################################################################################
+#
+#' Create a report chunk for activities of daily living indicators
+#'
+#' @return A reporting chunk for ADL indicators
+#'
+#' @examples
+#'   report_op_adl()
+#'
+#' @export
+#'
+#
+################################################################################
 
-
-
+report_op_adl <- function() {
+  cat("\n")
+  cat("# Activities of daily living\n")
+  cat("```{r adlPlot}\n")
+  cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r adlTable}\n")
+  cat("knitr::kable(x = resultsDF[80:91, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Activities of daily living',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
 
 
 ################################################################################
@@ -280,6 +362,7 @@ report_op_disability <- function() {
 #' @param estimates A data.frame of RAM-OP results produced by
 #'   \link{merge_estimates} function.
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document
 #' @param title Title of report
@@ -358,20 +441,7 @@ report_op_html <- function(estimates,
           if("food" %in% indicators) report_op_food()
           if("hunger" %in% indicators) report_op_hunger()
           if("disability" %in% indicators) report_op_disability()
-          cat("\n")
-          cat("# Activities of daily living\n")
-          cat("```{r adlPlot}\n")
-          cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
-          cat("```\n")
-          cat("\n")
-          cat("```{r adlTable}\n")
-          cat("knitr::kable(x = resultsDF[80:91, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-          cat("  caption = 'Activities of daily living',\n")
-          cat("  digits = 2,\n")
-          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
-          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
-          cat("```\n")
+          if("adl" %in% indicators) report_op_adl()
           cat("\n")
         }
       )
