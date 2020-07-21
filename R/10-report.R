@@ -722,7 +722,7 @@ report_op_misc <- function() {
 #'
 #'   report_op_html(svy = testSVY,
 #'                  estimates = resultsDF,
-#'                  indicators = c("demo", "food"),
+#'                  indicators = c("demo", "hunger"),
 #'                  filename = paste(tempdir(), "report", sep = "/"))
 #'
 #' @export
