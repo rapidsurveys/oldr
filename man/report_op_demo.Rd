@@ -4,7 +4,10 @@
 \alias{report_op_demo}
 \title{Create a report chunk for demography indicators}
 \usage{
-report_op_demo()
+report_op_demo(format = "html")
+}
+\arguments{
+\item{format}{Either html or latex. Defaults to html.}
 }
 \value{
 A reporting chunk for demographic indicators
