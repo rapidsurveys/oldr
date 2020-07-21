@@ -39,21 +39,21 @@ reference:
   - title: Create indicators
     contents:
     - create_op_all
-    - matches("adl")
-    - matches("anthro")
-    - matches("dementia")
-    - matches("demo")
-    - matches("disability")
-    - matches("food")
-    - matches("health")
-    - matches("hunger")
-    - matches("income")
-    - matches("mental")
-    - matches("oedema")
-    - matches("screening")
-    - matches("visual")
-    - matches("wash")
-    - matches("misc")
+    - matches("create_op_adl")
+    - matches("create_op_anthro")
+    - matches("create_op_dementia")
+    - matches("create_op_demo")
+    - matches("create_op_disability")
+    - matches("create_op_food")
+    - matches("create_op_health")
+    - matches("create_op_hunger")
+    - matches("create_op_income")
+    - matches("create_op_mental")
+    - matches("create_op_oedema")
+    - matches("create_op_screening")
+    - matches("create_op_visual")
+    - matches("create_op_wash")
+    - matches("create_op_misc")
 
   - title: Estimate indicators
     contents:
@@ -66,7 +66,23 @@ reference:
 
   - title: Create report
     contents:
-    - matches("report")
+    - report_op_table
+    - report_op_html
+    - report_op_adl
+    - report_op_anthro
+    - report_op_dementia
+    - report_op_demo
+    - report_op_disability
+    - report_op_food
+    - report_op_health
+    - report_op_hunger
+    - report_op_income
+    - report_op_mental
+    - report_op_misc
+    - report_op_oedema
+    - report_op_screen
+    - report_op_visual
+    - report_op_wash
 
   - title: Utility/support functions
     contents:
