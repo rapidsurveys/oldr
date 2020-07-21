@@ -62,7 +62,7 @@ The figure below illustrates the RAM-OP workflow and indicates which functions i
 
 ```{r ramOPworkflow, echo = FALSE, eval = FALSE, fig.width = 8, fig.height = 10, fig.align = "center"}
 DiagrammeR::grViz("
-  digraph oxcovid19 {
+  digraph ramOP {
 
     # a 'graph' statement
     graph [overlap = false, fontsize = 14, fontname = Helvetica]
@@ -160,7 +160,7 @@ DiagrammeR::grViz("
     [10]: 'Visualise\\nestimates'
     [11]: 'chart_\\nfunctions'
     [12]: 'Report\\nestimates'
-    [13]: 'report_op_table'
+    [13]: 'report_op_\\nfunctions'
     [14]: 'END'
 "
 )
