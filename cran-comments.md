@@ -1,18 +1,18 @@
 ## Test environments
 * local R installation, R 4.0.2
 * ubuntu 16.04 (on travis-ci), R 4.0.2
-* win-builder (devel)
+* win-builder (devel, release, oldrelease)
+* GitHub actions (windows-release, ubuntu 16.04-release, macOS-release)
+* rhub (windows, ubuntu 16.04, fedora)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
 
-── oldr 0.1.0: NOTE
-
-  Build ID:   oldr_0.1.0.tar.gz-f481eb8abfcc453da20c9d83d9d0fc7b
+  Build ID:   oldr_0.1.0.tar.gz-f8970ea2004444d1bbde69d0cd7c81fd
   Platform:   Windows Server 2008 R2 SP1, R-devel, 32/64 bit
-  Submitted:  9m 57.3s ago
-  Build time: 8m 17.8s
+  Submitted:  8m 34.8s ago
+  Build time: 8m 14.6s
 
 > checking CRAN incoming feasibility ... NOTE
   Maintainer: 'Ernest Guevarra <ernest@guevarra.io>'
