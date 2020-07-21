@@ -68,6 +68,213 @@ report_op_table <- function(estimates, filename) {
 
 ################################################################################
 #
+#' Create a report chunk for demography indicators
+#'
+#' @return A reporting chunk for demographic indicators
+#'
+#' @examples
+#'   report_op_demo()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_demo <- function() {
+  cat("\n")
+  cat("# Sample description\n")
+  cat("\n")
+  cat("## Type of respondents\n")
+  cat("```{r respondentTable}\n")
+  cat("knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Type of respondent',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Age structure by sex\n")
+  cat("```{r agePlot}\n")
+  cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r ageTable}\n")
+  cat("knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Respondent age group by sex',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Respondents by sex\n")
+  cat("```{r sexTable}\n")
+  cat("knitr::kable(x = resultsDF[11:12, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Sex of respondents',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Marital status of respondents\n")
+  cat("```{r marriedTable}\n")
+  cat("knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Marital status',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for food indicators
+#'
+#' @return A reporting chunk for food indicators
+#'
+#' @examples
+#'   report_op_food()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_food <- function() {
+  cat("\n")
+  cat("# Diet\n")
+  cat("## Meal frequency\n")
+  cat("\n")
+  cat("```{r mfPlot}\n")
+  cat("oldr::chart_mf(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r mfTable}\n")
+  cat("knitr::kable(x = resultsDF[20, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Meal frequency',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Dietary diversity\n")
+  cat("```{r ddsPlot}\n")
+  cat("oldr::chart_dds(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r ddsTable}\n")
+  cat("knitr::kable(x = resultsDF[21:32, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Dietary diversity',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Nutrient intake\n")
+  cat("```{r nutrientTable}\n")
+  cat("knitr::kable(x = resultsDF[33:47, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Nutrient intake',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for activities of food security indicators
+#'
+#' @return A reporting chunk for food security indicators
+#'
+#' @examples
+#'   report_op_hunger()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_hunger <- function() {
+  cat("\n")
+  cat("# Food security\n")
+  cat("\n")
+  cat("## Household hunger score\n")
+  cat("```{r hhsPlot}\n")
+  cat("oldr::chart_hhs(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r hhsTable}\n")
+  cat("knitr::kable(x = resultsDF[48:50, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Household hunger score',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for disability indicators
+#'
+#' @return A reporting chunk for disability indicators
+#'
+#' @examples
+#'   report_op_disability()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_disability <- function() {
+  cat("\n")
+  cat("# Disability\n")
+  cat("\n")
+  cat("## Overall\n")
+  cat("\n")
+  cat("```{r wgPlot}\n")
+  cat("oldr::chart_wg(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r wgTable}\n")
+  cat("knitr::kable(x = resultsDF[75:79, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Overall disability',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Vision\n")
+  cat("\n")
+  cat("```{r visionTable}\n")
+  cat("knitr::kable(x = resultsDF[51:54, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Disability with vision',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+
+
+
+
+
+################################################################################
+#
 #' Create an HTML report document containing RAM-OP survey results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by
@@ -103,6 +310,11 @@ report_op_table <- function(estimates, filename) {
 
 report_op_html <- function(estimates,
                            svy,
+                           indicators = c("demo", "food", "hunger",
+                                          "disability", "adl", "mental",
+                                          "dementia", "health", "income",
+                                          "wash", "anthro", "oedema",
+                                          "screening", "visual", "misc"),
                            filename = "ramOPreport",
                            title = "RAM-OP Report") {
   ## Create Rmd report file
@@ -142,51 +354,25 @@ report_op_html <- function(estimates,
           cat("```\n")
           cat("\n")
           cat("<hr>\n")
-          cat("# Sample description\n")
+          if("demo" %in% indicators) report_op_demo()
+          if("food" %in% indicators) report_op_food()
+          if("hunger" %in% indicators) report_op_hunger()
+          if("disability" %in% indicators) report_op_disability()
           cat("\n")
-          cat("## Type of respondents\n")
-          cat("```{r respondentTable}\n")
-          cat("knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-          cat("  caption = 'Type of respondent',\n")
+          cat("# Activities of daily living\n")
+          cat("```{r adlPlot}\n")
+          cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+          cat("```\n")
+          cat("\n")
+          cat("```{r adlTable}\n")
+          cat("knitr::kable(x = resultsDF[80:91, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+          cat("  caption = 'Activities of daily living',\n")
           cat("  digits = 2,\n")
           cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
           cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
           cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
           cat("```\n")
           cat("\n")
-          cat("## Age structure by sex\n")
-          cat("```{r agePlot}\n")
-          cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
-          cat("```\n")
-          cat("\n")
-          cat("```{r ageTable}\n")
-          cat("knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-          cat("  caption = 'Respondent age group by sex',\n")
-          cat("  digits = 2,\n")
-          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
-          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
-          cat("```\n")
-          cat("\n")
-          cat("## Respondents by sex\n")
-          cat("```{r sexTable}\n")
-          cat("knitr::kable(x = resultsDF[11:12, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-          cat("  caption = 'Sex of respondents',\n")
-          cat("  digits = 2,\n")
-          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
-          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
-          cat("```\n")
-          cat("\n")
-          cat("## Marital status of respondents\n")
-          cat("```{r marriedTable}\n")
-          cat("knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-          cat("  caption = 'Marital status',\n")
-          cat("  digits = 2,\n")
-          cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-          cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
-          cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
-          cat("```")
         }
       )
     }
