@@ -70,6 +70,7 @@ report_op_table <- function(estimates, filename) {
 #
 #' Create a report chunk for demography indicators
 #'
+#' @param format Either html or latex. Defaults to html.
 #' @return A reporting chunk for demographic indicators
 #'
 #' @examples
@@ -80,17 +81,22 @@ report_op_table <- function(estimates, filename) {
 #
 ################################################################################
 
-report_op_demo <- function() {
+report_op_demo <- function(format = "html") {
   cat("\n")
   cat("# Sample description\n")
   cat("\n")
   cat("## Type of respondents\n")
   cat("```{r respondentTable}\n")
   cat("knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  if(format == "latex") cat("  format = 'latex',\n")
   cat("  caption = 'Type of respondent',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  if(format == "latex") {
+    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
+  } else {
+    cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+  }
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -101,10 +107,15 @@ report_op_demo <- function() {
   cat("\n")
   cat("```{r ageTable}\n")
   cat("knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  if(format == "latex") cat("  format = 'latex',\n")
   cat("  caption = 'Respondent age group by sex',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  if(format == "latex") {
+    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
+  } else {
+    cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+  }
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -114,17 +125,22 @@ report_op_demo <- function() {
   cat("  caption = 'Sex of respondents',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Marital status of respondents\n")
   cat("```{r marriedTable}\n")
   cat("knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  if(format == "latex") cat("  format = 'latex',\n")
   cat("  caption = 'Marital status',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  if(format == "latex") {
+    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
+  } else {
+    cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+  }
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -158,7 +174,7 @@ report_op_food <- function() {
   cat("  caption = 'Meal frequency',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -172,7 +188,7 @@ report_op_food <- function() {
   cat("  caption = 'Dietary diversity',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -182,7 +198,7 @@ report_op_food <- function() {
   cat("  caption = 'Nutrient intake',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -216,7 +232,7 @@ report_op_hunger <- function() {
   cat("  caption = 'Household hunger score',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -251,7 +267,7 @@ report_op_disability <- function() {
   cat("  caption = 'Overall disability',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -262,7 +278,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to vision',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -273,7 +289,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to hearing',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -284,7 +300,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to mobility',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -295,7 +311,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to remembering',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -306,7 +322,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to self-care',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -317,7 +333,7 @@ report_op_disability <- function() {
   cat("  caption = 'Disability related to communicating',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -349,7 +365,7 @@ report_op_adl <- function() {
   cat("  caption = 'Activities of daily living',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -382,7 +398,7 @@ report_op_mental <- function() {
   cat("  caption = 'Psychological distress',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -415,7 +431,7 @@ report_op_dementia <- function() {
   cat("  caption = 'Dementia',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -446,7 +462,7 @@ report_op_health <- function() {
   cat("  caption = 'Prevalence of chronic illness',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("### Reasons for not taking drugs for long term disease\n")
@@ -456,7 +472,7 @@ report_op_health <- function() {
   cat("  caption = 'Reasons for not taking drugs for long term disease',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
@@ -467,7 +483,7 @@ report_op_health <- function() {
   cat("  caption = 'Prevalence of recent illness',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("### Reasons for not taking drugs for recent illness\n")
@@ -477,7 +493,7 @@ report_op_health <- function() {
   cat("  caption = 'Reasons for not taking drugs for recent illness',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -505,7 +521,7 @@ report_op_oedema <- function() {
   cat("  caption = 'Prevalence of oedema',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -533,7 +549,7 @@ report_op_anthro <- function() {
   cat("  caption = 'Prevalence of acute malnutrition',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -562,7 +578,7 @@ report_op_screen <- function() {
   cat("  caption = 'MUAC and oedema screening',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -591,7 +607,7 @@ report_op_visual <- function() {
   cat("  caption = 'Visual impairment',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -625,7 +641,7 @@ report_op_income <- function() {
   cat("  caption = 'Income',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -658,7 +674,7 @@ report_op_wash <- function() {
   cat("  caption = 'Water, sanitation and hygiene',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -687,7 +703,7 @@ report_op_misc <- function() {
   cat("  caption = 'Miscellaneous indicators',\n")
   cat("  digits = 2,\n")
   cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
   cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
@@ -808,37 +824,38 @@ report_op_html <- function(estimates,
 
 ################################################################################
 #
-# Create a PDF report document containing RAM-OP survey results
-#
-# @param estimates A data.frame of RAM-OP results produced by
-#   \link{merge_estimates} function.
-# @param svy A data.frame collected using the standard RAM-OP questionnaire
-# @param indicators A character vector of indicator names
-# @param filename Filename for output document. Can be specified as a path to a
-#   specific directory where to output report document
-# @param title Title of report
-#
-# @return A PDF document in the working directory or if filename is a path,
-#   to a specified directory.
-#
-# @examples
-#   #
-#   classicResults <- estimate_classic(x = create_op_all(testSVY),
-#                                      w = testPSU,
-#                                      replicates = 9)
-#
-#   probitResults <- estimate_probit(x = create_op_all(testSVY),
-#                                    w = testPSU,
-#                                    replicates = 9)
-#
-#   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
-#
-#   report_op_pdf(svy = testSVY,
-#                 estimates = resultsDF,
-#                 indicators = c("demo", "food"),
-#                 filename = paste(tempdir(), "report", sep = "/"))
-#
-#
+#' Create a PDF report document containing RAM-OP survey results
+#'
+#' @param estimates A data.frame of RAM-OP results produced by
+#'   \link{merge_estimates} function.
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
+#' @param filename Filename for output document. Can be specified as a path to a
+#'   specific directory where to output report document
+#' @param title Title of report
+#'
+#' @return A PDF document in the working directory or if filename is a path,
+#'   to a specified directory.
+#'
+#' @examples
+#'   #
+#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'                                      w = testPSU,
+#'                                      replicates = 9)
+#'
+#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'                                    w = testPSU,
+#'                                    replicates = 9)
+#'
+#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'
+#'   report_op_pdf(svy = testSVY,
+#'                 estimates = resultsDF,
+#'                 indicators = "demo",
+#'                 filename = paste(tempdir(), "report", sep = "/"))
+#'
+#' @export
+#'
 #
 ################################################################################
 
@@ -887,21 +904,21 @@ report_op_pdf <- function(estimates,
           cat("```\n")
           cat("\n")
           cat("<hr>\n")
-          if("demo" %in% indicators) report_op_demo()
-          if("food" %in% indicators) report_op_food()
-          if("hunger" %in% indicators) report_op_hunger()
-          if("disability" %in% indicators) report_op_disability()
-          if("adl" %in% indicators) report_op_adl()
-          if("mental" %in% indicators) report_op_mental()
-          if("dementia" %in% indicators) report_op_dementia()
-          if("health" %in% indicators) report_op_health()
-          if("visual" %in% indicators) report_op_visual()
-          if("oedema" %in% indicators) report_op_oedema()
-          if("anthro" %in% indicators) report_op_anthro()
-          if("screening" %in% indicators) report_op_screen()
-          if("income" %in% indicators) report_op_income()
-          if("wash" %in% indicators) report_op_wash()
-          if("misc" %in% indicators) report_op_misc()
+          if("demo" %in% indicators) report_op_demo(format = "latex")
+          if("food" %in% indicators) report_op_food(format = "latex")
+          if("hunger" %in% indicators) report_op_hunger(format = "latex")
+          if("disability" %in% indicators) report_op_disability(format = "latex")
+          if("adl" %in% indicators) report_op_adl(format = "latex")
+          if("mental" %in% indicators) report_op_mental(format = "latex")
+          if("dementia" %in% indicators) report_op_dementia(format = "latex")
+          if("health" %in% indicators) report_op_health(format = "latex")
+          if("visual" %in% indicators) report_op_visual(format = "latex")
+          if("oedema" %in% indicators) report_op_oedema(format = "latex")
+          if("anthro" %in% indicators) report_op_anthro(format = "latex")
+          if("screening" %in% indicators) report_op_screen(format = "latex")
+          if("income" %in% indicators) report_op_income(format = "latex")
+          if("wash" %in% indicators) report_op_wash(format = "latex")
+          if("misc" %in% indicators) report_op_misc(format = "latex")
           cat("\n")
         }
       )
