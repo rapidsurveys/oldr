@@ -57,7 +57,7 @@ reference:
 
   - title: Estimate indicators
     contents:
-    - matches("estimate")
+    - starts_with("estimate")
 
   - title: Create charts
     contents:
@@ -66,7 +66,7 @@ reference:
 
   - title: Create report
     contents:
-    - report_op_table
+    - matches("report")
 
   - title: Utility/support functions
     contents:
