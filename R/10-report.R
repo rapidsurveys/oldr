@@ -357,6 +357,344 @@ report_op_adl <- function() {
 
 ################################################################################
 #
+#' Create a report chunk for mental health indicators
+#'
+#' @return A reporting chunk for mental health indicators
+#'
+#' @examples
+#'   report_op_mental()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_mental <- function() {
+  cat("\n")
+  cat("# Mental health\n")
+  cat("\n")
+  cat("```{r k6Plot}\n")
+  cat("oldr::chart_k6(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r k6Table}\n")
+  cat("knitr::kable(x = resultsDF[92:93, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Psychological distress',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for dementia indicators
+#'
+#' @return A reporting chunk for dementia indicators
+#'
+#' @examples
+#'   report_op_dementia()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_dementia <- function() {
+  cat("\n")
+  cat("# Dementia\n")
+  cat("\n")
+  cat("```{r csidPlot}\n")
+  cat("oldr::chart_csid(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r csidTable}\n")
+  cat("knitr::kable(x = resultsDF[94, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Dementia',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for health and health-seeking behaviour indicators
+#'
+#' @return A reporting chunk for health and health-seeking behaviour indicators
+#'
+#' @examples
+#'   report_op_health()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_health <- function() {
+  cat("\n")
+  cat("# Health\n")
+  cat("\n")
+  cat("## Chronic illness\n")
+  cat("\n")
+  cat("```{r chronicTable}\n")
+  cat("knitr::kable(x = resultsDF[95:96, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Prevalence of chronic illness',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("### Reasons for not taking drugs for long term disease\n")
+  cat("\n")
+  cat("```{r reasonsChronicTable}\n")
+  cat("knitr::kable(x = resultsDF[97:105, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Reasons for not taking drugs for long term disease',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("\n")
+  cat("## Recent illness\n")
+  cat("\n")
+  cat("```{r recentTable}\n")
+  cat("knitr::kable(x = resultsDF[106:107, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Prevalence of recent illness',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+  cat("### Reasons for not taking drugs for recent illness\n")
+  cat("\n")
+  cat("```{r reasonsRecentTable}\n")
+  cat("knitr::kable(x = resultsDF[108:116, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Reasons for not taking drugs for recent illness',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+################################################################################
+#
+#' Create a report chunk for oedema
+#'
+#' @return A reporting chunk for oedema indicators
+#'
+#' @examples
+#'   report_op_oedema()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_oedema <- function() {
+  cat("\n")
+  cat("## Oedema\n")
+  cat("\n")
+  cat("```{r otherTable}\n")
+  cat("knitr::kable(x = resultsDF[131, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Prevalence of oedema',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+################################################################################
+#
+#' Create a report chunk for anthropometric indicators
+#'
+#' @return A reporting chunk for anhtropometric indicators
+#'
+#' @examples
+#'   report_op_anthro()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_anthro <- function() {
+  cat("\n")
+  cat("## Anthropometry\n")
+  cat("\n")
+  cat("```{r anthroTable}\n")
+  cat("knitr::kable(x = resultsDF[137:139, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Prevalence of acute malnutrition',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for screening indicators
+#'
+#' @return A reporting chunk for screening indicators
+#'
+#' @examples
+#'   report_op_screen()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_screen <- function() {
+  cat("\n")
+  cat("## Screening\n")
+  cat("\n")
+  cat("```{r screenTable}\n")
+  cat("knitr::kable(x = resultsDF[132, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'MUAC and oedema screening',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for visual acuity
+#'
+#' @return A reporting chunk for visual acuity
+#'
+#' @examples
+#'   report_op_visual()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_visual <- function() {
+  cat("\n")
+  cat("## Visual acuity\n")
+  cat("\n")
+  cat("```{r visualTable}\n")
+  cat("knitr::kable(x = resultsDF[133, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Visual impairment',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for income
+#'
+#' @return A reporting chunk for income
+#'
+#' @examples
+#'   report_op_income()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_income <- function() {
+  cat("\n")
+  cat("## Income\n")
+  cat("\n")
+  cat("```{r incomePlot}\n")
+  cat("oldr::chart_income(x.male = create_op_all(svy = svy, gender = 'm'),\n")
+  cat("  x.female = create_op_all(svy = svy, gender = 'f'), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r incomeTable}\n")
+  cat("knitr::kable(x = resultsDF[117:126, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Income',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for water, sanitation and hygiene
+#'
+#' @return A reporting chunk for water, saniation hygiene
+#'
+#' @examples
+#'   report_op_wash()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_wash <- function() {
+  cat("\n")
+  cat("## Water, sanitation and hygiene\n")
+  cat("\n")
+  cat("```{r washPlot}\n")
+  cat("oldr::chart_wash(x = create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("```\n")
+  cat("\n")
+  cat("```{r washTable}\n")
+  cat("knitr::kable(x = resultsDF[127:130, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Water, sanitation and hygiene',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
+#' Create a report chunk for miscellaneous indicators
+#'
+#' @return A reporting chunk for miscellaneous indicators
+#'
+#' @examples
+#'   report_op_misc()
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_misc <- function() {
+  cat("\n")
+  cat("## Miscellaneous indicators\n")
+  cat("\n")
+  cat("```{r miscTable}\n")
+  cat("knitr::kable(x = resultsDF[134:136, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
+  cat("  caption = 'Miscellaneous indicators',\n")
+  cat("  digits = 2,\n")
+  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
+  cat("  kableExtra::kable_styling(bootstrap_option = c('striped')) %>%\n")
+  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  cat("```\n")
+}
+
+
+################################################################################
+#
 #' Create an HTML report document containing RAM-OP survey results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by
@@ -384,6 +722,7 @@ report_op_adl <- function() {
 #'
 #'   report_op_html(svy = testSVY,
 #'                  estimates = resultsDF,
+#'                  indicators = c("demo", "food"),
 #'                  filename = paste(tempdir(), "report", sep = "/"))
 #'
 #' @export
@@ -442,6 +781,16 @@ report_op_html <- function(estimates,
           if("hunger" %in% indicators) report_op_hunger()
           if("disability" %in% indicators) report_op_disability()
           if("adl" %in% indicators) report_op_adl()
+          if("mental" %in% indicators) report_op_mental()
+          if("dementia" %in% indicators) report_op_dementia()
+          if("health" %in% indicators) report_op_health()
+          if("visual" %in% indicators) report_op_visual()
+          if("oedema" %in% indicators) report_op_oedema()
+          if("anthro" %in% indicators) report_op_anthro()
+          if("screening" %in% indicators) report_op_screen()
+          if("income" %in% indicators) report_op_income()
+          if("wash" %in% indicators) report_op_wash()
+          if("misc" %in% indicators) report_op_misc()
           cat("\n")
         }
       )
@@ -456,3 +805,113 @@ report_op_html <- function(estimates,
   utils::browseURL(url = paste(filename, ".html", sep = ""))
 }
 
+
+################################################################################
+#
+# Create a PDF report document containing RAM-OP survey results
+#
+# @param estimates A data.frame of RAM-OP results produced by
+#   \link{merge_estimates} function.
+# @param svy A data.frame collected using the standard RAM-OP questionnaire
+# @param indicators A character vector of indicator names
+# @param filename Filename for output document. Can be specified as a path to a
+#   specific directory where to output report document
+# @param title Title of report
+#
+# @return A PDF document in the working directory or if filename is a path,
+#   to a specified directory.
+#
+# @examples
+#   #
+#   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#                                      w = testPSU,
+#                                      replicates = 9)
+#
+#   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#                                    w = testPSU,
+#                                    replicates = 9)
+#
+#   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#
+#   report_op_pdf(svy = testSVY,
+#                 estimates = resultsDF,
+#                 indicators = c("demo", "food"),
+#                 filename = paste(tempdir(), "report", sep = "/"))
+#
+#
+#
+################################################################################
+
+report_op_pdf <- function(estimates,
+                           svy,
+                           indicators = c("demo", "food", "hunger",
+                                          "disability", "adl", "mental",
+                                          "dementia", "health", "income",
+                                          "wash", "anthro", "oedema",
+                                          "screening", "visual", "misc"),
+                           filename = "ramOPreport",
+                           title = "RAM-OP Report") {
+  ## Create Rmd report file
+  withr::with_options(
+    new = list(width = 80),
+    code = {
+      withr::with_output_sink(
+        new = paste(filename, ".Rmd", sep = ""),
+        code = {
+          cat("---\n")
+          cat("title: ", title, "\n", sep = "")
+          cat("output:\n")
+          cat("  pdf_document:\n")
+          cat("    toc: true\n")
+          cat("    toc_depth: 2\n")
+          cat("    fig_caption: true\n")
+          cat("params:\n")
+          cat("  estimates: 'estimates'\n")
+          cat("  svy: 'svy'\n")
+          cat("---\n")
+          cat("\n")
+          cat("```{r setup, include = FALSE}\n")
+          cat("knitr::opts_chunk$set(\n")
+          cat("  message = FALSE,\n")
+          cat("  warning = FALSE,\n")
+          cat("  error = FALSE,\n")
+          cat("  echo = FALSE,\n")
+          cat("  collapse = TRUE,\n")
+          cat("  out.width = '80%',\n")
+          cat("  fig.align = 'center',\n")
+          cat("  comment = '#>')\n")
+          cat("\n")
+          cat("library(magrittr)\n")
+          cat("resultsDF <- get(params$estimates)\n")
+          cat("svy <- get(params$svy)\n")
+          cat("```\n")
+          cat("\n")
+          cat("<hr>\n")
+          if("demo" %in% indicators) report_op_demo()
+          if("food" %in% indicators) report_op_food()
+          if("hunger" %in% indicators) report_op_hunger()
+          if("disability" %in% indicators) report_op_disability()
+          if("adl" %in% indicators) report_op_adl()
+          if("mental" %in% indicators) report_op_mental()
+          if("dementia" %in% indicators) report_op_dementia()
+          if("health" %in% indicators) report_op_health()
+          if("visual" %in% indicators) report_op_visual()
+          if("oedema" %in% indicators) report_op_oedema()
+          if("anthro" %in% indicators) report_op_anthro()
+          if("screening" %in% indicators) report_op_screen()
+          if("income" %in% indicators) report_op_income()
+          if("wash" %in% indicators) report_op_wash()
+          if("misc" %in% indicators) report_op_misc()
+          cat("\n")
+        }
+      )
+    }
+  )
+
+  ## Render document in HTML format
+  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
+                    output_format = "pdf_document")
+
+  ## Open PDF
+  system(paste("open '", paste(filename, ".pdf", sep = ""), "'", sep = ""))
+}
