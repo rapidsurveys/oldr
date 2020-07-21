@@ -68,7 +68,7 @@ report_op_table <- function(estimates, filename) {
 
 ################################################################################
 #
-#' Create a report document containing RAM-OP survey results
+#' Create an HTML report document containing RAM-OP survey results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by
 #'   \link{merge_estimates} function.
@@ -105,7 +105,7 @@ report_op_html <- function(estimates,
                            svy,
                            filename = "ramOPreport",
                            title = "RAM-OP Report") {
-  ##
+  ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
     code = {
@@ -192,7 +192,7 @@ report_op_html <- function(estimates,
     }
   )
 
-  ## Render document in specified format
+  ## Render document in HTML format
   rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
                     output_format = "html_document")
 
