@@ -48,7 +48,7 @@ based on the following principles:
 
 ## Installation
 
-You can install `oldr` from [CRAN](http://cran.r-project.org) with:
+You can install `oldr` from [CRAN](https://cran.r-project.org) with:
 
 ``` r
 install.packages("oldr")
