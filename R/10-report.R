@@ -36,7 +36,7 @@ report_op_table <- function(estimates, filename) {
         ## Present results by indicator group
         for(i in unique(estimates$GROUP)) {
           ## Select results for current indicator group
-          x <- subset(estimates, GROUP == i)
+          x <- subset(estimates, estimates$GROUP == i)
 
           ## Header for current indicator group
           cat(",,,,,,,,,,\n")
@@ -70,18 +70,15 @@ report_op_table <- function(estimates, filename) {
 #
 #' Create a report document containing RAM-OP survey results
 #'
-#' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param estimates A data.frame of RAM-OP results produced by
 #'   \link{merge_estimates} function.
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document
 #' @param title Title of report
-#' @param output Type of output. One of two choices: 1) \code{html_document}
-#'   to produce and HTML output; or 2) \code{pdf_document} to produce a PDF
-#'   output. Default is \code{html_document}
 #'
-#' @return A document of specified output type in the working directory or
-#'   if filename is a path, to a specified directory.
+#' @return An HTML document in the working directory or if filename is a path,
+#'   to a specified directory.
 #'
 #' @examples
 #'   #
@@ -95,37 +92,20 @@ report_op_table <- function(estimates, filename) {
 #'
 #'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 #'
-#'   report_op_document(svy = testSVY,
-#'                      estimates = resultsDF,
-#'                      filename = paste(tempdir(), report, sep = "/"))
+#'   report_op_html(svy = testSVY,
+#'                  estimates = resultsDF,
+#'                  filename = paste(tempdir(), "report", sep = "/"))
 #'
 #' @export
 #'
 #
 ################################################################################
 
-report_op_document <- function(svy,
-                               estimates,
-                               filename = "ramOPreport",
-                               title = "RAM-OP Report",
-                               output = "html_document") {
-  resultsDF <- estimates %>%
-    dplyr::mutate(EST.ALL = ifelse(TYPE == "Proportion", EST.ALL * 100, EST.ALL),
-                  LCL.ALL = ifelse(TYPE == "Proportion", LCL.ALL * 100, LCL.ALL),
-                  UCL.ALL = ifelse(TYPE == "Proportion", UCL.ALL * 100, UCL.ALL),
-                  EST.MALES = ifelse(TYPE == "Proportion",
-                                     EST.MALES * 100, EST.MALES),
-                  LCL.MALES = ifelse(TYPE == "Proportion",
-                                     LCL.MALES * 100, LCL.MALES),
-                  UCL.MALES = ifelse(TYPE == "Proportion",
-                                     UCL.MALES * 100, UCL.MALES),
-                  EST.FEMALES = ifelse(TYPE == "Proportion",
-                                       EST.FEMALES * 100, EST.FEMALES),
-                  LCL.FEMALES = ifelse(TYPE == "Proportion",
-                                       LCL.FEMALES * 100, LCL.FEMALES),
-                  UCL.FEMALES = ifelse(TYPE == "Proportion",
-                                       UCL.FEMALES * 100, UCL.FEMALES))
-
+report_op_html <- function(estimates,
+                           svy,
+                           filename = "ramOPreport",
+                           title = "RAM-OP Report") {
+  ##
   withr::with_options(
     new = list(width = 80),
     code = {
@@ -140,6 +120,9 @@ report_op_document <- function(svy,
           cat("    toc_depth: 2\n")
           cat("    number_sections: true\n")
           cat("    fig_caption: true\n")
+          cat("params:\n")
+          cat("  estimates: 'estimates'\n")
+          cat("  svy: 'svy'\n")
           cat("---\n")
           cat("\n")
           cat("```{r setup, include = FALSE}\n")
@@ -154,6 +137,8 @@ report_op_document <- function(svy,
           cat("  comment = '#>')\n")
           cat("\n")
           cat("library(magrittr)\n")
+          cat("resultsDF <- get(params$estimates)\n")
+          cat("svy <- get(params$svy)\n")
           cat("```\n")
           cat("\n")
           cat("<hr>\n")
@@ -171,7 +156,7 @@ report_op_document <- function(svy,
           cat("\n")
           cat("## Age structure by sex\n")
           cat("```{r agePlot}\n")
-          cat("oldr::chart_age(x = oldr::create_op_all(svy), save.chart = FALSE)\n")
+          cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
           cat("```\n")
           cat("\n")
           cat("```{r ageTable}\n")
@@ -207,9 +192,11 @@ report_op_document <- function(svy,
     }
   )
 
+  ## Render document in specified format
   rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
-                    output_format = output)
+                    output_format = "html_document")
 
+  ## Open HTML
   utils::browseURL(url = paste(filename, ".html", sep = ""))
 }
 
