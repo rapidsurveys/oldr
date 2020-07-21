@@ -2,7 +2,7 @@
 % Please edit documentation in R/10-report.R
 \name{report_op_html}
 \alias{report_op_html}
-\title{Create a report document containing RAM-OP survey results}
+\title{Create an HTML report document containing RAM-OP survey results}
 \usage{
 report_op_html(
   estimates,
@@ -27,7 +27,7 @@ An HTML document in the working directory or if filename is a path,
   to a specified directory.
 }
 \description{
-Create a report document containing RAM-OP survey results
+Create an HTML report document containing RAM-OP survey results
 }
 \examples{
   #
