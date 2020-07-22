@@ -5,9 +5,8 @@ language: r
 warnings_are_errors: true
 cache: packages
 
-before_script:
+script:
   - Rscript -e 'tinytex::install_tinytex()'
-  - Rscript -e 'tinytex::tlmgr_install(pkgs = c("booktabs", "longtable", "array", "multirow", "wrapfig", "float", "colortbl", "pdflscape", "tabu", "threeparttable", "threeparttablex", "makecell", "graphicx"))'
 
 after_success:
   - Rscript -e 'covr::codecov()'

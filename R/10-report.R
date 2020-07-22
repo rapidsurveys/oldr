@@ -1213,7 +1213,7 @@ report_op_pdf <- function(estimates,
           cat("    toc_depth: 2\n")
           cat("    number_sections: true\n")
           cat("    fig_caption: true\n")
-          cat("    latex_engine: xelatex\n")
+          #cat("    latex_engine: xelatex\n")
           cat("params:\n")
           cat("  estimates: 'estimates'\n")
           cat("  svy: 'svy'\n")
