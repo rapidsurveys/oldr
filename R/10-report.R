@@ -1183,6 +1183,9 @@ report_op_pdf <- function(estimates,
                           filename = "ramOPreport",
                           title = "RAM-OP Report",
                           view = FALSE) {
+  ## Check if TinyTex is installed and install if not
+  tinytex::install_tinytex()
+
   ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
@@ -1213,7 +1216,6 @@ report_op_pdf <- function(estimates,
           cat("    toc_depth: 2\n")
           cat("    number_sections: true\n")
           cat("    fig_caption: true\n")
-          #cat("    latex_engine: xelatex\n")
           cat("params:\n")
           cat("  estimates: 'estimates'\n")
           cat("  svy: 'svy'\n")
