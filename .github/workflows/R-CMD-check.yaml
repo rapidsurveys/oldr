@@ -60,10 +60,15 @@ jobs:
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
 
+          # install ghostscript
+          sudo apt update
+          sudo apt install ghostscript
+
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
+          tinytex::install_tinytex()
         shell: Rscript {0}
 
       - name: Check
