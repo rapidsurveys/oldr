@@ -61,8 +61,8 @@ jobs:
           sudo -s eval "$sysreqs"
 
           # install ghostscript
-          sudo apt update
-          sudo apt install ghostscript
+          #sudo apt update
+          #sudo apt install ghostscript
 
       - name: Install dependencies
         run: |
