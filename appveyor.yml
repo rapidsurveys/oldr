@@ -26,7 +26,7 @@ before_test:
 
 build_script:
   - travis-tool.sh install_deps
-  - cmd: Rscript -e "tinytex::install_tinytex()"
+#  - cmd: Rscript -e "tinytex::install_tinytex()"
 
 test_script:
   - travis-tool.sh run_tests
