@@ -5,7 +5,7 @@ language: r
 warnings_are_errors: true
 cache: packages
 
-before_install:
+before_script:
   - Rscript -e 'tinytex::install_tinytex()'
 
 #addons:
