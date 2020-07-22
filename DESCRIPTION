@@ -23,16 +23,16 @@ Imports:
     car,
     withr,
     tibble,
-    rmarkdown,
-    knitr,
-    kableExtra
+    rmarkdown
 Suggests: 
     testthat,
     covr,
     DiagrammeR,
     dplyr,
     magrittr,
-    spelling
+    tinytex,
+    knitr,
+    kableExtra
 Encoding: UTF-8
 LazyData: true
 Language: en-gb
