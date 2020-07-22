@@ -3,7 +3,7 @@
 #' Fill out a one-dimensional table to include a specified range of values
 #'
 #' @param x A vector to tabulate
-#' @param values A vector of values to be inlcuded in a table
+#' @param values A vector of values to be included in a table
 #' @return A one-dimensional table with specified values
 #' @examples
 #'

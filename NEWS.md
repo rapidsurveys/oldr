@@ -8,7 +8,7 @@
 
 * Completed documentation via README and vignettes of RAM-OP workflow using `oldr`
 
-* Completed ci/cd with Travis, Appveyor and GitHub Actions
+* Completed ci/cd with Travis, AppVeyor and GitHub Actions
 
 * Initiated coverage check using GitHub Actions and Codecov
 

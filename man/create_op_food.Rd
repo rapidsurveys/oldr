@@ -8,7 +8,7 @@ using the standard RAM-OP questionnaire}
 create_op_food(svy)
 }
 \arguments{
-\item{svy}{A data.frame collected using the standard RAM-OP questionniare}
+\item{svy}{A data.frame collected using the standard RAM-OP questionnaire}
 }
 \value{
 A dataframe of older people indicators on food intake

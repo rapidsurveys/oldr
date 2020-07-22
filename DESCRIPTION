@@ -31,7 +31,8 @@ Suggests:
     DiagrammeR,
     dplyr,
     magrittr,
-    kableExtra
+    kableExtra,
+    spelling
 Encoding: UTF-8
 LazyData: true
 Language: en-gb

@@ -9,7 +9,7 @@ fullTable(x, values)
 \arguments{
 \item{x}{A vector to tabulate}
 
-\item{values}{A vector of values to be inlcuded in a table}
+\item{values}{A vector of values to be included in a table}
 }
 \value{
 A one-dimensional table with specified values

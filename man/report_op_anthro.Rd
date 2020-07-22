@@ -10,7 +10,7 @@ report_op_anthro(format = "html")
 \item{format}{Either html or latex. Defaults to html.}
 }
 \value{
-A reporting chunk for anhtropometric indicators
+A reporting chunk for anthropometric indicators
 }
 \description{
 Create a report chunk for anthropometric indicators
