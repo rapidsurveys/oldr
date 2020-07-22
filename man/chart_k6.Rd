@@ -4,21 +4,21 @@
 \alias{chart_k6}
 \title{Distribution of K6 (overall and by sex)}
 \usage{
-chart_k6(x, save.chart = TRUE, filename = NULL)
+chart_k6(x, save_chart = TRUE, filename = NULL)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
 
-\item{save.chart}{Logical. Should chart be saved? Default is TRUE.}
+\item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
 path to save output to instead of working directory. Ignored if
-\code{save.chart} is FALSE.}
+\code{save_chart} is FALSE.}
 }
 \value{
 Histogram of K6 score in PNG format saved in current
     working directory or in a specified directory if \code{filename} is a
-    path unless when \code{save.chart} is FALSE in which case chart is shown
+    path unless when \code{save_chart} is FALSE in which case chart is shown
     in current graphics device.
 }
 \description{
