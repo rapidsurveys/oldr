@@ -1,7 +1,33 @@
 library(oldr)
 context("Create Older People Indicators")
 
+x <- createOP(testSVY)
+
+test_that("x is a data.frame", {
+  expect_is(x, "data.frame")
+})
+
 x <- create_op_all(testSVY)
+
+test_that("x is a tbl", {
+  expect_is(x, "tbl")
+})
+
+test_that("x has 138 variables", {
+  expect_equal(ncol(x), 138)
+})
+
+x <- create_op_all(testSVY, gender = "m")
+
+test_that("x is a tbl", {
+  expect_is(x, "tbl")
+})
+
+test_that("x has 138 variables", {
+  expect_equal(ncol(x), 138)
+})
+
+x <- create_op_all(testSVY, gender = "f")
 
 test_that("x is a tbl", {
   expect_is(x, "tbl")

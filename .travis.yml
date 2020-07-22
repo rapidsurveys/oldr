@@ -5,6 +5,9 @@ language: r
 warnings_are_errors: true
 cache: packages
 
+script:
+  - Rscript -e 'tinytex::install_tinytex()'
+
 after_success:
   - Rscript -e 'covr::codecov()'
 

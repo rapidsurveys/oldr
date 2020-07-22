@@ -25,14 +25,14 @@ Imports:
     tibble,
     rmarkdown
 Suggests: 
-    knitr,
     testthat,
     covr,
     DiagrammeR,
     dplyr,
     magrittr,
-    kableExtra,
-    spelling
+    tinytex,
+    knitr,
+    kableExtra
 Encoding: UTF-8
 LazyData: true
 Language: en-gb

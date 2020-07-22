@@ -4,16 +4,16 @@
 \alias{chart_age}
 \title{Age by sex (pyramid plot)}
 \usage{
-chart_age(x, save.chart = TRUE, filename = NULL)
+chart_age(x, save_chart = TRUE, filename = NULL)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
 
-\item{save.chart}{Logical. Should chart be saved? Default is TRUE.}
+\item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
 path to save output to instead of working directory. Ignored if
-\code{save.chart} is FALSE.}
+\code{save_chart} is FALSE.}
 }
 \value{
 Age by sex pyramid plot in PNG format saved in the current working

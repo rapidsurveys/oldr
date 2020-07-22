@@ -10,7 +10,8 @@ report_op_html(
   indicators = c("demo", "food", "hunger", "disability", "adl", "mental", "dementia",
     "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc"),
   filename = "ramOPreport",
-  title = "RAM-OP Report"
+  title = "RAM-OP Report",
+  view = FALSE
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ report_op_html(
 specific directory where to output report document}
 
 \item{title}{Title of report}
+
+\item{view}{Logical. Open report in current browser? Default is FALSE.}
 }
 \value{
 An HTML document in the working directory or if filename is a path,
