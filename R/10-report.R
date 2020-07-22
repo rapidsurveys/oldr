@@ -1184,7 +1184,7 @@ report_op_pdf <- function(estimates,
                           title = "RAM-OP Report",
                           view = FALSE) {
   ## Check if TinyTex is installed and install if not
-  tinytex::install_tinytex()
+  #tinytex::install_tinytex()
 
   ## Create Rmd report file
   withr::with_options(
@@ -1209,7 +1209,7 @@ report_op_pdf <- function(estimates,
           cat("  - \\usepackage{threeparttablex}\n")
           cat("  - \\usepackage[normalem]{ulem}\n")
           cat("  - \\usepackage{makecell}\n")
-          cat("  - \\usepackage{graphicx}\n")
+          #cat("  - \\usepackage{graphicx}\n")
           cat("output:\n")
           cat("  pdf_document:\n")
           cat("    toc: true\n")
