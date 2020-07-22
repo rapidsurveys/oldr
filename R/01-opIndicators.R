@@ -13,10 +13,10 @@
 #'   \item{\code{resp4}}{Respondent is OTHER}
 #'   \item{\code{age}}{Age of respondent (years)}
 #'   \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
-#'   \item{\code{ageGrp2}}{Age of respondent is between 50 and 59 years}
-#'   \item{\code{ageGrp3}}{Age of respondent is between 50 and 59 years}
-#'   \item{\code{ageGrp4}}{Age of respondent is between 50 and 59 years}
-#'   \item{\code{ageGrp5}}{Age of respondent is between 50 and 59 years}
+#'   \item{\code{ageGrp2}}{Age of respondent is between 60 and 69 years}
+#'   \item{\code{ageGrp3}}{Age of respondent is between 70 and 79 years}
+#'   \item{\code{ageGrp4}}{Age of respondent is between 80 and 89 years}
+#'   \item{\code{ageGrp5}}{Age of respondent is between 90 years and older}
 #'   \item{\code{sex1}}{Male}
 #'   \item{\code{sex2}}{Female}
 #'   \item{\code{marital1}}{Marital status = SINGLE}
@@ -191,7 +191,7 @@ create_op_demo_females <- function(svy) {
 #'   \item{\code{vitBcomplex}}{Vitamin B1/B2/B3/B6/B12-rich foods}
 #' }
 #'
-#' @param svy A data.frame collected using the standard RAM-OP questionniare
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #'
 #' @return A dataframe of older people indicators on food intake
 #'
@@ -383,7 +383,7 @@ create_op_food_females <- function(svy) {
 #'
 #' @param svy A dataframe collected using the standard RAM-OP questionnaire
 #'
-#' @return A dataframe of older people indicators on housedhold hunger
+#' @return A dataframe of older people indicators on household hunger
 #'
 #' @author Mark Myatt
 #'
@@ -478,7 +478,7 @@ create_op_hunger_females <- function(svy) {
 
 ################################################################################
 #
-#' Create older people indicators dataframe on acitvities of daily living
+#' Create older people indicators dataframe on activities of daily living
 #' from survey data collected using the standard RAM-OP questionnaire
 #'
 #' @section Katz "Index of Independence in Activities of Daily Living" (ADL) score:

@@ -2,8 +2,8 @@
 #
 #' Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 #'
-#' @param x Indicators dataset produced by createOP with primary sampling unit
-#'   (PSU) in column named \code{PSU}
+#' @param x Indicators dataset produced by \link{create_op_all} with primary
+#'   sampling unit (PSU) in column named \code{PSU}
 #' @param w A data frame with primary sampling unit (PSU) in column named
 #'   \code{psu} and survey weight (i.e. PSU population) in column named
 #'   \code{pop}

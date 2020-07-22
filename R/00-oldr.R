@@ -263,7 +263,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{psu}}{Cluster (PSU) identifier}
 #'   \item{\code{resp1}}{Respondent is SUBJECT}
 #'   \item{\code{resp2}}{Respondent is FAMILY CARER}
-#'   \item{\code{resp3}}{Respondnet is OTHER CARER}
+#'   \item{\code{resp3}}{Respondent is OTHER CARER}
 #'   \item{\code{resp4}}{Respondent is OTHER}
 #'   \item{\code{age}}{Age of respondents (years)}
 #'   \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
@@ -380,7 +380,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{W2}}{Safe drinking water (improved source OR adequate
 #'     treatment)}
 #'   \item{\code{W3}}{Improved sanitation facility}
-#'   \item{\code{W4}}{Improved non-shared sanitation facilit}
+#'   \item{\code{W4}}{Improved non-shared sanitation facility}
 #'   \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
 #'   \item{\code{oedema}}{Presence of oedema}
 #'   \item{\code{screened}}{Screened with oedema check and MUAC measurement in
@@ -444,7 +444,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{psu}}{Cluster (PSU) identifier}
 #'   \item{\code{resp1}}{Respondent is SUBJECT}
 #'   \item{\code{resp2}}{Respondent is FAMILY CARER}
-#'   \item{\code{resp3}}{Respondnet is OTHER CARER}
+#'   \item{\code{resp3}}{Respondent is OTHER CARER}
 #'   \item{\code{resp4}}{Respondent is OTHER}
 #'   \item{\code{age}}{Age of respondents (years)}
 #'   \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
@@ -561,7 +561,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{W2}}{Safe drinking water (improved source OR adequate
 #'     treatment)}
 #'   \item{\code{W3}}{Improved sanitation facility}
-#'   \item{\code{W4}}{Improved non-shared sanitation facilit}
+#'   \item{\code{W4}}{Improved non-shared sanitation facility}
 #'   \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
 #'   \item{\code{oedema}}{Presence of oedema}
 #'   \item{\code{screened}}{Screened with oedema check and MUAC measurement in
@@ -625,7 +625,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{psu}}{Cluster (PSU) identifier}
 #'   \item{\code{resp1}}{Respondent is SUBJECT}
 #'   \item{\code{resp2}}{Respondent is FAMILY CARER}
-#'   \item{\code{resp3}}{Respondnet is OTHER CARER}
+#'   \item{\code{resp3}}{Respondent is OTHER CARER}
 #'   \item{\code{resp4}}{Respondent is OTHER}
 #'   \item{\code{age}}{Age of respondents (years)}
 #'   \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
@@ -742,7 +742,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables("originalOrder")
 #'   \item{\code{W2}}{Safe drinking water (improved source OR adequate
 #'     treatment)}
 #'   \item{\code{W3}}{Improved sanitation facility}
-#'   \item{\code{W4}}{Improved non-shared sanitation facilit}
+#'   \item{\code{W4}}{Improved non-shared sanitation facility}
 #'   \item{\code{MUAC}}{Mid-upper arm circumference (mm)}
 #'   \item{\code{oedema}}{Presence of oedema}
 #'   \item{\code{screened}}{Screened with oedema check and MUAC measurement in

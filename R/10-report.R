@@ -722,7 +722,7 @@ report_op_health <- function(format = "html") {
 #
 #' Create a report chunk for oedema
 #'
-#' @param format Either html or latext. Defaults to html.
+#' @param format Either html or latex. Defaults to html.
 #'
 #' @return A reporting chunk for oedema indicators
 #'
@@ -764,7 +764,7 @@ report_op_oedema <- function(format = "html") {
 #'
 #' @param format Either html or latex. Defaults to html.
 #'
-#' @return A reporting chunk for anhtropometric indicators
+#' @return A reporting chunk for anthropometric indicators
 #'
 #' @examples
 #'   report_op_anthro()
@@ -933,7 +933,7 @@ report_op_income <- function(format = "html") {
 #'
 #' @param format Either html or latex. Defaults to html.
 #'
-#' @return A reporting chunk for water, saniation and hygiene
+#' @return A reporting chunk for water, sanitation and hygiene
 #'
 #' @examples
 #'   report_op_wash()
