@@ -23,14 +23,14 @@ Imports:
     car,
     withr,
     tibble,
-    rmarkdown
+    rmarkdown,
+    tinytex
 Suggests: 
     testthat,
     covr,
     DiagrammeR,
     dplyr,
     magrittr,
-    tinytex,
     knitr,
     kableExtra
 Encoding: UTF-8
