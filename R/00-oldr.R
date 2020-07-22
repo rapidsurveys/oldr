@@ -44,8 +44,6 @@
 #' @importFrom withr with_par with_output_sink with_options
 #' @importFrom tibble tibble
 #' @importFrom rmarkdown render
-#' @importFrom knitr kable
-#' @importFrom kableExtra kable_styling add_header_above
 #'
 #
 ################################################################################
