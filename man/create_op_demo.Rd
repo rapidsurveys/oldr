@@ -28,10 +28,10 @@ survey data collected using the standard RAM-OP questionnaire
   \item{\code{resp4}}{Respondent is OTHER}
   \item{\code{age}}{Age of respondent (years)}
   \item{\code{ageGrp1}}{Age of respondent is between 50 and 59 years}
-  \item{\code{ageGrp2}}{Age of respondent is between 50 and 59 years}
-  \item{\code{ageGrp3}}{Age of respondent is between 50 and 59 years}
-  \item{\code{ageGrp4}}{Age of respondent is between 50 and 59 years}
-  \item{\code{ageGrp5}}{Age of respondent is between 50 and 59 years}
+  \item{\code{ageGrp2}}{Age of respondent is between 60 and 69 years}
+  \item{\code{ageGrp3}}{Age of respondent is between 70 and 79 years}
+  \item{\code{ageGrp4}}{Age of respondent is between 80 and 89 years}
+  \item{\code{ageGrp5}}{Age of respondent is between 90 years and older}
   \item{\code{sex1}}{Male}
   \item{\code{sex2}}{Female}
   \item{\code{marital1}}{Marital status = SINGLE}

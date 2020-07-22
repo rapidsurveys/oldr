@@ -2,7 +2,7 @@
 % Please edit documentation in R/01-opIndicators.R
 \name{create_op_adl}
 \alias{create_op_adl}
-\title{Create older people indicators dataframe on acitvities of daily living
+\title{Create older people indicators dataframe on activities of daily living
 from survey data collected using the standard RAM-OP questionnaire}
 \usage{
 create_op_adl(svy)
@@ -14,7 +14,7 @@ create_op_adl(svy)
 A dataframe of older people indicators on activities of daily living
 }
 \description{
-Create older people indicators dataframe on acitvities of daily living
+Create older people indicators dataframe on activities of daily living
 from survey data collected using the standard RAM-OP questionnaire
 }
 \section{Katz "Index of Independence in Activities of Daily Living" (ADL) score}{

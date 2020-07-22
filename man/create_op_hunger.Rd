@@ -11,7 +11,7 @@ create_op_hunger(svy)
 \item{svy}{A dataframe collected using the standard RAM-OP questionnaire}
 }
 \value{
-A dataframe of older people indicators on housedhold hunger
+A dataframe of older people indicators on household hunger
 }
 \description{
 Create older people indicators for severe food insecurity from survey data

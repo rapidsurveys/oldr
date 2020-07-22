@@ -10,7 +10,7 @@ report_op_wash(format = "html")
 \item{format}{Either html or latex. Defaults to html.}
 }
 \value{
-A reporting chunk for water, saniation and hygiene
+A reporting chunk for water, sanitation and hygiene
 }
 \description{
 Create a report chunk for water, sanitation and hygiene
