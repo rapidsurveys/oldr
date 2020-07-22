@@ -23,15 +23,15 @@ Imports:
     car,
     withr,
     tibble,
-    rmarkdown
-Suggests: 
+    rmarkdown,
     knitr,
+    kableExtra
+Suggests: 
     testthat,
     covr,
     DiagrammeR,
     dplyr,
     magrittr,
-    kableExtra,
     spelling
 Encoding: UTF-8
 LazyData: true
