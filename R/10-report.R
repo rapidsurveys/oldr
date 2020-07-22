@@ -1029,6 +1029,8 @@ report_op_misc <- function(format = "html") {
 #'   to a specified directory.
 #'
 #' @examples
+#'
+#' \dontrun{
 #'   #
 #'   classicResults <- estimate_classic(x = create_op_all(testSVY),
 #'                                      w = testPSU,
@@ -1044,6 +1046,7 @@ report_op_misc <- function(format = "html") {
 #'                  estimates = resultsDF,
 #'                  indicators = "mental",
 #'                  filename = paste(tempdir(), "report", sep = "/"))
+#' }
 #'
 #' @export
 #'
