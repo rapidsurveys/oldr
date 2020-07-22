@@ -34,6 +34,8 @@ An HTML document in the working directory or if filename is a path,
 Create an HTML report document containing RAM-OP survey results
 }
 \examples{
+
+\dontrun{
   #
   classicResults <- estimate_classic(x = create_op_all(testSVY),
                                      w = testPSU,
@@ -49,5 +51,6 @@ Create an HTML report document containing RAM-OP survey results
                  estimates = resultsDF,
                  indicators = "mental",
                  filename = paste(tempdir(), "report", sep = "/"))
+}
 
 }
