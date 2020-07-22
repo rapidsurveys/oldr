@@ -5,6 +5,10 @@ language: r
 warnings_are_errors: true
 cache: packages
 
+before_install:
+  - Rscript -e 'tinytex::install_tinytex()'
+  - Rscript -e 'tinytex::pdflatex(list.files(pattern = "\\.tex$")[1], bib_engine = "biber")'
+
 after_success:
   - Rscript -e 'covr::codecov()'
 
