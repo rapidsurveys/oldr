@@ -108,7 +108,7 @@ report_op_demo <- function(format = "html") {
   cat("\n")
   cat("## Age structure by sex\n")
   cat("```{r agePlot}\n")
-  cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r ageTable}\n")
@@ -194,7 +194,7 @@ report_op_food <- function(format = "html") {
   cat("## Meal frequency\n")
   cat("\n")
   cat("```{r mfPlot}\n")
-  cat("oldr::chart_mf(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_mf(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r mfTable}\n")
@@ -218,7 +218,7 @@ report_op_food <- function(format = "html") {
   cat("\n")
   cat("## Dietary diversity\n")
   cat("```{r ddsPlot}\n")
-  cat("oldr::chart_dds(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_dds(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r ddsTable}\n")
@@ -284,7 +284,7 @@ report_op_hunger <- function(format = "html") {
   cat("\n")
   cat("## Household hunger score\n")
   cat("```{r hhsPlot}\n")
-  cat("oldr::chart_hhs(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_hhs(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r hhsTable}\n")
@@ -331,7 +331,7 @@ report_op_disability <- function(format = "html") {
   cat("## Overall\n")
   cat("\n")
   cat("```{r wgPlot}\n")
-  cat("oldr::chart_wg(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_wg(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r wgTable}\n")
@@ -501,7 +501,7 @@ report_op_adl <- function(format = "html") {
   cat("\n")
   cat("# Activities of daily living\n")
   cat("```{r adlPlot}\n")
-  cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r adlTable}\n")
@@ -546,7 +546,7 @@ report_op_mental <- function(format = "html") {
   cat("# Mental health\n")
   cat("\n")
   cat("```{r k6Plot}\n")
-  cat("oldr::chart_k6(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_k6(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r k6Table}\n")
@@ -591,7 +591,7 @@ report_op_dementia <- function(format = "html") {
   cat("# Dementia\n")
   cat("\n")
   cat("```{r csidPlot}\n")
-  cat("oldr::chart_csid(x = oldr::create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_csid(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r csidTable}\n")
@@ -903,7 +903,7 @@ report_op_income <- function(format = "html") {
   cat("\n")
   cat("```{r incomePlot}\n")
   cat("oldr::chart_income(x.male = create_op_all(svy = svy, gender = 'm'),\n")
-  cat("  x.female = create_op_all(svy = svy, gender = 'f'), save.chart = FALSE)\n")
+  cat("  x.female = create_op_all(svy = svy, gender = 'f'), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r incomeTable}\n")
@@ -948,7 +948,7 @@ report_op_wash <- function(format = "html") {
   cat("## Water, sanitation and hygiene\n")
   cat("\n")
   cat("```{r washPlot}\n")
-  cat("oldr::chart_wash(x = create_op_all(svy = svy), save.chart = FALSE)\n")
+  cat("oldr::chart_wash(x = create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r washTable}\n")
@@ -1024,6 +1024,7 @@ report_op_misc <- function(format = "html") {
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document
 #' @param title Title of report
+#' @param view Logical. Open report in current browser? Default is FALSE.
 #'
 #' @return An HTML document in the working directory or if filename is a path,
 #'   to a specified directory.
@@ -1061,7 +1062,8 @@ report_op_html <- function(estimates,
                                           "wash", "anthro", "oedema",
                                           "screening", "visual", "misc"),
                            filename = "ramOPreport",
-                           title = "RAM-OP Report") {
+                           title = "RAM-OP Report",
+                           view = FALSE) {
   ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
@@ -1124,8 +1126,11 @@ report_op_html <- function(estimates,
   rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
                     output_format = "html_document")
 
-  ## Open HTML
-  utils::browseURL(url = paste(filename, ".html", sep = ""))
+  ## Check if report is to be viewed
+  if(view) {
+    ## Open HTML
+    utils::browseURL(url = paste(filename, ".html", sep = ""))
+  }
 }
 
 
@@ -1140,6 +1145,7 @@ report_op_html <- function(estimates,
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document
 #' @param title Title of report
+#' @param view Logical. Open report in current PDF reader? Default is FALSE.
 #'
 #' @return A PDF document in the working directory or if filename is a path,
 #'   to a specified directory.
@@ -1175,7 +1181,8 @@ report_op_pdf <- function(estimates,
                                          "wash", "anthro", "oedema",
                                          "screening", "visual", "misc"),
                           filename = "ramOPreport",
-                          title = "RAM-OP Report") {
+                          title = "RAM-OP Report",
+                          view = FALSE) {
   ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
@@ -1251,6 +1258,9 @@ report_op_pdf <- function(estimates,
   rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
                     output_format = "pdf_document")
 
-  ## Open PDF
-  system(paste("open '", paste(filename, ".pdf", sep = ""), "'", sep = ""))
+  ## Check if report is to be viewed
+  if(view) {
+    ## Open PDF
+    system(paste("open '", paste(filename, ".pdf", sep = ""), "'", sep = ""))
+  }
 }

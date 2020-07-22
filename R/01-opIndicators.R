@@ -2199,9 +2199,9 @@ create_op_all <- function(svy,
   ## Check if gender is specified as male
   if(length(gender) == 1) {
     if(gender == "m") {
-      indicators <- indicators.ALL[with(indicators.ALL, sex1 == 1), ]
+      indicators <- indicators[with(indicators, sex1 == 1), ]
     } else {
-      indicators <- indicators.ALL[with(indicators.ALL, sex2 == 1), ]
+      indicators <- indicators[with(indicators, sex2 == 1), ]
     }
   }
 

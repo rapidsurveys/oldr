@@ -6,10 +6,10 @@
 #' sex pyramid plot
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
 #'     directory or in a specified directory if \code{filename} is a path unless
@@ -27,7 +27,7 @@
 ################################################################################
 
 chart_age <- function(x,
-                      save.chart = TRUE,
+                      save_chart = TRUE,
                       filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -38,7 +38,7 @@ chart_age <- function(x,
   plotFileName <- paste(filename, ".AgeBySex.png", sep = "")
 
   ## Check whether to save chart
-  if(save.chart) {
+  if(save_chart) {
 
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
@@ -80,14 +80,14 @@ chart_age <- function(x,
 #' Distribution of MUAC (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Histogram of MUAC distribution in PNG format and saved in the current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save.chart} is FALSE in which case chart is
+#'     path unless when \code{save_chart} is FALSE in which case chart is
 #'     shown on current graphics device.
 #'
 #' @examples
@@ -101,7 +101,7 @@ chart_age <- function(x,
 ################################################################################
 
 chart_muac <- function(x,
-                       save.chart = TRUE,
+                       save_chart = TRUE,
                        filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -110,7 +110,7 @@ chart_muac <- function(x,
   plotFileName <- paste(filename, ".MUAC.png", sep = "")
 
   ## Check whether to save chart
-  if(save.chart) {
+  if(save_chart) {
 
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
@@ -166,14 +166,14 @@ chart_muac <- function(x,
 #' Distribution of meal frequency (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Barplot of meal frequency in PNG format saved in current working
 #'     directory or in a specified directory if \code{filename} is a path unless
-#'     when \code{save.chart} is FALSE in which case chart is shown in current
+#'     when \code{save_chart} is FALSE in which case chart is shown in current
 #'     graphics device.
 #'
 #' @examples
@@ -187,7 +187,7 @@ chart_muac <- function(x,
 ################################################################################
 
 chart_mf <- function(x,
-                     save.chart = TRUE,
+                     save_chart = TRUE,
                      filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -195,8 +195,8 @@ chart_mf <- function(x,
   ## Create filename
   plotFileName <- paste(filename, ".MF.png", sep = "")
 
-  ## Check if save.chart
-  if(save.chart){
+  ## Check if save_chart
+  if(save_chart){
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
                    width = 6, height = 3.5, units = "in",
@@ -257,14 +257,14 @@ chart_mf <- function(x,
 #' Distribution of DDS (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Barplot of dietary diversity score in PNG format saved in current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save.chart} is FALSE in which case chart is shown
+#'     path unless when \code{save_chart} is FALSE in which case chart is shown
 #'     in current graphic device.
 #'
 #' @examples
@@ -278,7 +278,7 @@ chart_mf <- function(x,
 ################################################################################
 
 chart_dds <- function(x,
-                      save.chart = TRUE,
+                      save_chart = TRUE,
                       filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -286,8 +286,8 @@ chart_dds <- function(x,
   ## Create filename
   plotFileName <- paste(filename, ".DDS.png", sep = "")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
 
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
@@ -351,14 +351,14 @@ chart_dds <- function(x,
 #' Distribution of K6 (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Histogram of K6 score in PNG format saved in current
 #'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save.chart} is FALSE in which case chart is shown
+#'     path unless when \code{save_chart} is FALSE in which case chart is shown
 #'     in current graphics device.
 #'
 #' @examples
@@ -372,7 +372,7 @@ chart_dds <- function(x,
 ################################################################################
 
 chart_k6 <- function(x,
-                     save.chart = TRUE,
+                     save_chart = TRUE,
                      filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -380,8 +380,8 @@ chart_k6 <- function(x,
   ## Create filename
   plotFileName <- paste(filename, ".K6.png", sep = "")
 
-  ## Check whether save.chart
-  if(save.chart) {
+  ## Check whether save_chart
+  if(save_chart) {
 
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
@@ -435,14 +435,14 @@ chart_k6 <- function(x,
 #' Distribution of ADL (overall and by sex)
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
 #'   or in a specified directory if \code{filename} is a path unless when
-#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   \code{save_chart} is FALSE in which case chart is shown in current
 #'   graphic device.
 #'
 #' @examples
@@ -456,7 +456,7 @@ chart_k6 <- function(x,
 ################################################################################
 
 chart_adl <- function(x,
-                      save.chart = TRUE,
+                      save_chart = TRUE,
                       filename = NULL) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
@@ -464,8 +464,8 @@ chart_adl <- function(x,
   ## Create filename
   plotFileName <- paste(filename, ".ADL.png", sep = "")
 
-  ## Check whether save.chart
-  if(save.chart) {
+  ## Check whether save_chart
+  if(save_chart) {
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
                    width = 6, height = 3.5,
@@ -527,14 +527,14 @@ chart_adl <- function(x,
 #' Chart WASH indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
 #'   or in a specified directory if \code{filename} is a path unless when
-#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   \code{save_chart} is FALSE in which case chart is shown in current
 #'   graphic device
 #'
 #' @examples
@@ -548,7 +548,7 @@ chart_adl <- function(x,
 ################################################################################
 
 chart_wash <- function(x,
-                       save.chart = TRUE,
+                       save_chart = TRUE,
                        filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".WASH.png", sep = "")
@@ -574,8 +574,8 @@ chart_wash <- function(x,
             "Improved sanitation facility",
             "Improved and non-shared\nsanitation facility")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
                    width = 6, height = 6,
@@ -619,14 +619,14 @@ chart_wash <- function(x,
 #' Chart dementia screen (CSID) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of CSID in PNG format saved in current working directory
 #'   or in a specified directory if \code{filename} is a path unless when
-#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   \code{save_chart} is FALSE in which case chart is shown in current
 #'   graphic device.
 #'
 #' @examples
@@ -640,7 +640,7 @@ chart_wash <- function(x,
 ################################################################################
 
 chart_csid <- function(x,
-                       save.chart = TRUE,
+                       save_chart = TRUE,
                        filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".dementia.png", sep = "")
@@ -649,8 +649,8 @@ chart_csid <- function(x,
   tab <- table(x$DS)
   names(tab) <- c("Normal", "Probable dementia")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
                    width = 6, height = 6,
@@ -674,14 +674,14 @@ chart_csid <- function(x,
 #' Chart disability (Washington Group - WG) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of Disability Score in PNG format saved in current working
 #'     directory or in a specified directory if \code{filename} is a path
-#'     unless when \code{save.chart} is FALSE in which case chart is shown in
+#'     unless when \code{save_chart} is FALSE in which case chart is shown in
 #'     current graphic device.
 #'
 #' @examples
@@ -695,7 +695,7 @@ chart_csid <- function(x,
 ################################################################################
 
 chart_wg <- function(x,
-                     save.chart = TRUE,
+                     save_chart = TRUE,
                      filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".disability.png", sep = "")
@@ -710,8 +710,8 @@ chart_wg <- function(x,
   names(tab) <- c("\nP0 : None ", "\nP1 : Any", "P2 : Moderate\nor severe",
                   "\nP3 : Severe", "\nPM : Multiple")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
                    width = 6, height = 6,
@@ -737,14 +737,14 @@ chart_wg <- function(x,
 #' Chart household hunger scale (HHS) indicators
 #'
 #' @param x Indicators dataset produced by \link{create_op_all}
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of HHS in PNG format saved in current working directory
 #'   or in a specified directory if \code{filename} is a path unless when
-#'   \code{save.chart} is FALSE in which case chart is shown in current
+#'   \code{save_chart} is FALSE in which case chart is shown in current
 #'   graphic device.
 #'
 #' @examples
@@ -758,7 +758,7 @@ chart_wg <- function(x,
 ################################################################################
 
 chart_hhs <- function(x,
-                      save.chart = TRUE,
+                      save_chart = TRUE,
                       filename = NULL) {
   ## Create filename
   plotFileName <- paste(filename, ".HHS.png", sep = "")
@@ -770,8 +770,8 @@ chart_hhs <- function(x,
   tab <- as.table(c(H0, H1, H2))
   names(tab) <- c("Little or none", "Moderate", "Severe")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
 
     ## Open PNG graphics device
     grDevices::png(filename = plotFileName,
@@ -799,14 +799,14 @@ chart_hhs <- function(x,
 #'
 #' @param x.male Male subset of indicator dataset
 #' @param x.female Female subset of indicator dataset
-#' @param save.chart Logical. Should chart be saved? Default is TRUE.
+#' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Ignored if
-#'   \code{save.chart} is FALSE.
+#'   \code{save_chart} is FALSE.
 #'
 #' @return Bar chart of sources of income by sex in PNG format saved in current
 #'   working directory or in a specified directory if \code{filename} is a path
-#'   unless when \code{save.chart} is FALSE in which case chart is shown in
+#'   unless when \code{save_chart} is FALSE in which case chart is shown in
 #'   current graphics device.
 #'
 #' @examples
@@ -823,7 +823,7 @@ chart_hhs <- function(x,
 
 chart_income <- function(x.male,
                          x.female,
-                         save.chart = TRUE,
+                         save_chart = TRUE,
                          filename = NULL) {
 
   ## Sources of income (by sex)
@@ -875,8 +875,8 @@ chart_income <- function(x.male,
   ## Plot income sources by sex
   plotFileName <- paste(filename, ".Incomes.png", sep = "")
 
-  ## Check if save.chart
-  if(save.chart) {
+  ## Check if save_chart
+  if(save_chart) {
 
     ## Open graphics device
     grDevices::png(filename = plotFileName, width = 6, height = 6,
