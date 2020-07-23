@@ -157,7 +157,8 @@
   <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"demo"</span>, <span class='st'>"food"</span>, <span class='st'>"hunger"</span>, <span class='st'>"disability"</span>, <span class='st'>"adl"</span>, <span class='st'>"mental"</span>, <span class='st'>"dementia"</span>,
     <span class='st'>"health"</span>, <span class='st'>"income"</span>, <span class='st'>"wash"</span>, <span class='st'>"anthro"</span>, <span class='st'>"oedema"</span>, <span class='st'>"screening"</span>, <span class='st'>"visual"</span>, <span class='st'>"misc"</span>),
   <span class='kw'>filename</span> <span class='kw'>=</span> <span class='st'>"ramOPreport"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"RAM-OP Report"</span>
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"RAM-OP Report"</span>,
+  <span class='kw'>view</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -185,6 +186,10 @@ specific directory where to output report document</p></td>
       <th>title</th>
       <td><p>Title of report</p></td>
     </tr>
+    <tr>
+      <th>view</th>
+      <td><p>Logical. Open report in current browser? Default is FALSE.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -193,7 +198,9 @@ specific directory where to output report document</p></td>
   to a specified directory.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='co'>#</span>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+  <span class='co'>#</span>
   <span class='no'>classicResults</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='estimate_classic.html'>estimate_classic</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='create_op_all.html'>create_op_all</a></span>(<span class='no'>testSVY</span>),
                                      <span class='kw'>w</span> <span class='kw'>=</span> <span class='no'>testPSU</span>,
                                      <span class='kw'>replicates</span> <span class='kw'>=</span> <span class='fl'>9</span>)
@@ -207,31 +214,8 @@ specific directory where to output report document</p></td>
   <span class='fu'>report_op_html</span>(<span class='kw'>svy</span> <span class='kw'>=</span> <span class='no'>testSVY</span>,
                  <span class='kw'>estimates</span> <span class='kw'>=</span> <span class='no'>resultsDF</span>,
                  <span class='kw'>indicators</span> <span class='kw'>=</span> <span class='st'>"mental"</span>,
-                 <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>processing file: report.Rmd</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |..........                                                            |  14%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |....................                                                  |  29%
-#&gt; label: setup (with options) 
-#&gt; List of 1
-#&gt;  $ include: logi FALSE
-#&gt; 
-#&gt;   |                                                                              |..............................                                        |  43%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |........................................                              |  57%
-#&gt; label: k6Plot</div><div class='output co'>#&gt;   |                                                                              |..................................................                    |  71%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt;   |                                                                              |............................................................          |  86%
-#&gt; label: k6Table
-#&gt;   |                                                                              |......................................................................| 100%
-#&gt;   ordinary text without R code
-#&gt; 
-#&gt; </div><div class='output co'>#&gt; <span class='message'>output file: report.knit.md</span></div><div class='output co'>#&gt; /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS report.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output report.html --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 2 --template /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --variable 'theme:bootstrap' --include-in-header /var/folders/fk/s0yv8hhn2cs_nfsmzhm4dmhc0000gn/T//RtmpvtHlrQ/rmarkdown-str3caf6058e2cb.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rmarkdown/rmd/lua/latex-div.lua </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Output created: report.html</span></div><div class='input'>
-</div></pre>
+                 <span class='kw'>filename</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"report"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"/"</span>))
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
