@@ -44,7 +44,6 @@
 #' @importFrom withr with_par with_output_sink with_options
 #' @importFrom tibble tibble
 #' @importFrom rmarkdown render
-#' @importFrom tinytex install_tinytex
 #'
 #
 ################################################################################
