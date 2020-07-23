@@ -133,6 +133,10 @@ DiagrammeR::grViz("
 )
 ```
 
+```{r workflow, echo = FALSE, eval = TRUE, out.width = "80%"}
+knitr::include_graphics("../man/figures/ramOPworkflow.png")
+```
+
 The `oldr` package provides functions to use for all steps after data collection. These functions were developed specifically for the data structure created by the [EpiData](https://www.dropbox.com/s/2kudlxjqcqn8wph/RAMOP%20data%20entry%20files%20%28English%29.zip?dl=0) or the [Open Data Kit](https://ona.io/helpage/75817/368135/form.xls) collection tools. The data structure produced by these collection tools is shown by the dataset `testSVY` included in the `oldr` package.
 
 ```{r data, echo = TRUE, eval = TRUE}
@@ -332,9 +336,9 @@ list.files(path = tempdir())
 and will look something like this:
 
 ```{r showChart, echo = FALSE, eval = TRUE, out.width = "85%", fig.align = "center"}
-#knitr::include_graphics(path = "../man/figures/test.ADL.png")
-chart_adl(x = create_op_all(testSVY), 
-          save_chart = FALSE)
+knitr::include_graphics(path = paste(tempdir(), "test.ADL.png", sep = "/"))
+#chart_adl(x = create_op_all(testSVY), 
+#          save_chart = FALSE)
 ```
 
 ## Reporting estimates
