@@ -9,8 +9,10 @@
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
+[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
+[![cran
+checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![Travis](https://img.shields.io/travis/rapidsurveys/oldr.svg?branch=master)](https://travis-ci.org/rapidsurveys/oldr)
 [![AppVeyor Build
