@@ -17,6 +17,7 @@ Description: An implementation of the Rapid Assessment Method for Older People
     data collection, data entry, and data analysis), and at considerably lower 
     cost than other methods.
 License: GPL-3
+SystemRequirements: (PDF)LaTeX, pandoc
 Depends: R (>= 3.0.1)
 Imports: 
     bbw,
