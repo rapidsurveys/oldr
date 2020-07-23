@@ -17,15 +17,13 @@ Description: An implementation of the Rapid Assessment Method for Older People
     data collection, data entry, and data analysis), and at considerably lower 
     cost than other methods.
 License: GPL-3
-SystemRequirements: (PDF)LaTeX, pandoc
 Depends: R (>= 3.0.1)
 Imports: 
     bbw,
     car,
     withr,
     tibble,
-    rmarkdown,
-    tinytex
+    rmarkdown
 Suggests: 
     testthat,
     covr,
@@ -33,11 +31,12 @@ Suggests:
     dplyr,
     magrittr,
     knitr,
-    kableExtra
+    kableExtra,
+    tinytex
 Encoding: UTF-8
 LazyData: true
 Language: en-gb
 RoxygenNote: 7.1.1
+VignetteBuilder: knitr
 URL: https://github.com/rapidsurveys/oldr, https://rapidsurveys.io/oldr
 BugReports: https://github.com/rapidsurveys/oldr/issues
-VignetteBuilder: knitr
