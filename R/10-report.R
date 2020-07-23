@@ -1183,9 +1183,6 @@ report_op_pdf <- function(estimates,
                           filename = "ramOPreport",
                           title = "RAM-OP Report",
                           view = FALSE) {
-  ## Check if TinyTex is installed and install if not
-  #tinytex::install_tinytex()
-
   ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
@@ -1195,21 +1192,20 @@ report_op_pdf <- function(estimates,
         code = {
           cat("---\n")
           cat("title: ", title, "\n", sep = "")
-          cat("header-includes:\n")
-          cat("  - \\usepackage{booktabs}\n")
-          cat("  - \\usepackage{longtable}\n")
-          cat("  - \\usepackage{array}\n")
-          cat("  - \\usepackage{multirow}\n")
-          cat("  - \\usepackage{wrapfig}\n")
-          cat("  - \\usepackage{float}\n")
-          cat("  - \\usepackage{colortbl}\n")
-          cat("  - \\usepackage{pdflscape}\n")
-          cat("  - \\usepackage{tabu}\n")
-          cat("  - \\usepackage{threeparttable}\n")
-          cat("  - \\usepackage{threeparttablex}\n")
-          cat("  - \\usepackage[normalem]{ulem}\n")
-          cat("  - \\usepackage{makecell}\n")
-          #cat("  - \\usepackage{graphicx}\n")
+          #cat("header-includes:\n")
+          #cat("  - \\usepackage{booktabs}\n")
+          #cat("  - \\usepackage{longtable}\n")
+          #cat("  - \\usepackage{array}\n")
+          #cat("  - \\usepackage{multirow}\n")
+          #cat("  - \\usepackage{wrapfig}\n")
+          #cat("  - \\usepackage{float}\n")
+          #cat("  - \\usepackage{colortbl}\n")
+          #cat("  - \\usepackage{pdflscape}\n")
+          #cat("  - \\usepackage{tabu}\n")
+          #cat("  - \\usepackage{threeparttable}\n")
+          #cat("  - \\usepackage{threeparttablex}\n")
+          #cat("  - \\usepackage[normalem]{ulem}\n")
+          #cat("  - \\usepackage{makecell}\n")
           cat("output:\n")
           cat("  pdf_document:\n")
           cat("    toc: true\n")
