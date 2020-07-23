@@ -5,21 +5,6 @@ language: r
 warnings_are_errors: true
 cache: packages
 
-before_install:
-  - tlmgr install booktabs
-  - tlmgr install longtable
-  - tlmgr install array
-  - tlmgr install multirow
-  - tlmgr install wrapfig
-  - tlmgr install float
-  - tlmgr install colortbl
-  - tlmgr install pdflscape
-  - tlmgr install tabu
-  - tlmgr install threeparttable
-  - tlmgr install threeparttablex
-  - tlmgr install ulem
-  - tlmgr install makecell
-
 #script:
 #  - Rscript -e 'tinytex::install_tinytex()'
 
