@@ -151,7 +151,7 @@
     <p>Distribution of MUAC (overall and by sex)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chart_muac</span>(<span class='no'>x</span>, <span class='kw'>save.chart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filename</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>chart_muac</span>(<span class='no'>x</span>, <span class='kw'>save_chart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filename</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,14 +161,14 @@
       <td><p>Indicators dataset produced by <a href='create_op_all.html'>create_op_all</a></p></td>
     </tr>
     <tr>
-      <th>save.chart</th>
+      <th>save_chart</th>
       <td><p>Logical. Should chart be saved? Default is TRUE.</p></td>
     </tr>
     <tr>
       <th>filename</th>
       <td><p>Prefix to add to output chart filename or a directory
 path to save output to instead of working directory. Ignored if
-<code>save.chart</code> is FALSE.</p></td>
+<code>save_chart</code> is FALSE.</p></td>
     </tr>
     </table>
 
@@ -176,7 +176,7 @@ path to save output to instead of working directory. Ignored if
 
     <p>Histogram of MUAC distribution in PNG format and saved in the current
     working directory or in a specified directory if <code>filename</code> is a
-    path unless when <code>save.chart</code> is FALSE in which case chart is
+    path unless when <code>save_chart</code> is FALSE in which case chart is
     shown on current graphics device.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
