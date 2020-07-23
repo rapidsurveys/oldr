@@ -736,7 +736,7 @@ report_op_health <- function(format = "html") {
 
 report_op_oedema <- function(format = "html") {
   cat("\n")
-  cat("## Oedema\n")
+  cat("# Oedema\n")
   cat("\n")
   cat("```{r otherTable}\n")
   cat("knitr::kable(x = resultsDF[131, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
@@ -776,7 +776,7 @@ report_op_oedema <- function(format = "html") {
 
 report_op_anthro <- function(format = "html") {
   cat("\n")
-  cat("## Anthropometry\n")
+  cat("# Anthropometry\n")
   cat("\n")
   cat("```{r anthroTable}\n")
   cat("knitr::kable(x = resultsDF[137:139, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
@@ -817,7 +817,7 @@ report_op_anthro <- function(format = "html") {
 
 report_op_screen <- function(format = "html") {
   cat("\n")
-  cat("## Screening\n")
+  cat("# Screening\n")
   cat("\n")
   cat("```{r screenTable}\n")
   cat("knitr::kable(x = resultsDF[132, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
@@ -858,7 +858,7 @@ report_op_screen <- function(format = "html") {
 
 report_op_visual <- function(format = "html") {
   cat("\n")
-  cat("## Visual acuity\n")
+  cat("# Visual acuity\n")
   cat("\n")
   cat("```{r visualTable}\n")
   cat("knitr::kable(x = resultsDF[133, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
@@ -899,7 +899,7 @@ report_op_visual <- function(format = "html") {
 
 report_op_income <- function(format = "html") {
   cat("\n")
-  cat("## Income\n")
+  cat("# Income\n")
   cat("\n")
   cat("```{r incomePlot}\n")
   cat("oldr::chart_income(x.male = create_op_all(svy = svy, gender = 'm'),\n")
@@ -945,7 +945,7 @@ report_op_income <- function(format = "html") {
 
 report_op_wash <- function(format = "html") {
   cat("\n")
-  cat("## Water, sanitation and hygiene\n")
+  cat("# Water, sanitation and hygiene\n")
   cat("\n")
   cat("```{r washPlot}\n")
   cat("oldr::chart_wash(x = create_op_all(svy = svy), save_chart = FALSE)\n")
@@ -990,7 +990,7 @@ report_op_wash <- function(format = "html") {
 
 report_op_misc <- function(format = "html") {
   cat("\n")
-  cat("## Miscellaneous indicators\n")
+  cat("# Miscellaneous indicators\n")
   cat("\n")
   cat("```{r miscTable}\n")
   cat("knitr::kable(x = resultsDF[134:136, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
@@ -1192,20 +1192,20 @@ report_op_pdf <- function(estimates,
         code = {
           cat("---\n")
           cat("title: ", title, "\n", sep = "")
-          cat("header-includes:\n")
-          cat("  - \\usepackage{booktabs}\n")
-          cat("  - \\usepackage{longtable}\n")
-          cat("  - \\usepackage{array}\n")
-          cat("  - \\usepackage{multirow}\n")
-          cat("  - \\usepackage{wrapfig}\n")
-          cat("  - \\usepackage{float}\n")
-          cat("  - \\usepackage{colortbl}\n")
-          cat("  - \\usepackage{pdflscape}\n")
-          cat("  - \\usepackage{tabu}\n")
-          cat("  - \\usepackage{threeparttable}\n")
-          cat("  - \\usepackage{threeparttablex}\n")
-          cat("  - \\usepackage[normalem]{ulem}\n")
-          cat("  - \\usepackage{makecell}\n")
+          #cat("header-includes:\n")
+          #cat("  - \\usepackage{booktabs}\n")
+          #cat("  - \\usepackage{longtable}\n")
+          #cat("  - \\usepackage{array}\n")
+          #cat("  - \\usepackage{multirow}\n")
+          #cat("  - \\usepackage{wrapfig}\n")
+          #cat("  - \\usepackage{float}\n")
+          #cat("  - \\usepackage{colortbl}\n")
+          #cat("  - \\usepackage{pdflscape}\n")
+          #cat("  - \\usepackage{tabu}\n")
+          #cat("  - \\usepackage{threeparttable}\n")
+          #cat("  - \\usepackage{threeparttablex}\n")
+          #cat("  - \\usepackage[normalem]{ulem}\n")
+          #cat("  - \\usepackage{makecell}\n")
           cat("output:\n")
           cat("  pdf_document:\n")
           cat("    toc: true\n")
@@ -1229,6 +1229,7 @@ report_op_pdf <- function(estimates,
           cat("  comment = '#>')\n")
           cat("\n")
           cat("library(magrittr)\n")
+          cat("library(kableExtra)\n")
           cat("resultsDF <- get(params$estimates)\n")
           cat("svy <- get(params$svy)\n")
           cat("```\n")
