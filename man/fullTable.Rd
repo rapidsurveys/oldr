@@ -25,3 +25,6 @@ Fill out a one-dimensional table to include a specified range of values
                       values = 1:5)
   xTable
 }
+\author{
+Mark Myatt
+}

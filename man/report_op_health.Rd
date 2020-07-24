@@ -19,3 +19,6 @@ Create a report chunk for health and health-seeking behaviour indicators
   report_op_health()
 
 }
+\author{
+Ernest Guevarra
+}

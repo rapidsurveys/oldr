@@ -28,3 +28,6 @@ Concatenate classic and PROBIT estimates into a single data.frame
   }
 
 }
+\author{
+Ernest Guevarra
+}

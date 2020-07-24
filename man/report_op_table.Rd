@@ -27,3 +27,6 @@ Create table of RAM-OP results
   }
 
 }
+\author{
+Mark Myatt
+}

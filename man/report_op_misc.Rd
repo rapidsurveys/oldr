@@ -19,3 +19,6 @@ Create a report chunk for miscellaneous indicators
   report_op_misc()
 
 }
+\author{
+Ernest Guevarra
+}

@@ -19,3 +19,6 @@ Create a report chunk for activities of food security indicators
   report_op_hunger()
 
 }
+\author{
+Ernest Guevarra
+}

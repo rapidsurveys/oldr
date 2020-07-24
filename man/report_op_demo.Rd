@@ -19,3 +19,6 @@ Create a report chunk for demography indicators
   report_op_demo()
 
 }
+\author{
+Ernest Guevarra
+}

@@ -19,3 +19,6 @@ Create a report chunk for activities of daily living indicators
   report_op_adl()
 
 }
+\author{
+Ernest Guevarra
+}

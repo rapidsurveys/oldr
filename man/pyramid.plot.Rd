@@ -35,3 +35,6 @@ Function to create a pyramid plot
 }
 
 }
+\author{
+Mark Myatt
+}

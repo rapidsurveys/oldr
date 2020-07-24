@@ -19,3 +19,6 @@ Create a report chunk for anthropometric indicators
   report_op_anthro()
 
 }
+\author{
+Ernest Guevarra
+}
