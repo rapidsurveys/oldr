@@ -97,7 +97,7 @@ report_op_demo <- function(format = "html") {
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
     cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   } else {
-    cat("kable(x = resultsDF[1:4, ], caption = 'Type of respondent', digits = 2)\n")
+    cat("knitr::kable(x = resultsDF[1:4, ], caption = 'Type of respondent', digits = 2)\n")
   }
   cat("```\n")
   cat("\n")
@@ -116,7 +116,7 @@ report_op_demo <- function(format = "html") {
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
     cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   } else {
-    cat("kable(x = resultsDF[5:10, ], caption = 'Respondent age group by sex', digits = 2)\n")
+    cat("knitr::kable(x = resultsDF[5:10, ], caption = 'Respondent age group by sex', digits = 2)\n")
   }
   cat("```\n")
   cat("\n")
@@ -131,7 +131,7 @@ report_op_demo <- function(format = "html") {
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
     cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   } else {
-    cat("kable(x = resultsDF[11:12, ], caption = 'Sex of respondents', digits = 2)\n")
+    cat("knitr::kable(x = resultsDF[11:12, ], caption = 'Sex of respondents', digits = 2)\n")
   }
   cat("```\n")
   cat("\n")
@@ -146,7 +146,7 @@ report_op_demo <- function(format = "html") {
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
     cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   } else {
-    cat("kable(x = resultsDF[13:19, ], caption = 'Marital status', digits = 2)\n")
+    cat("knitr::kable(x = resultsDF[13:19, ], caption = 'Marital status', digits = 2)\n")
   }
   cat("```\n")
 }
