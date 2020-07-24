@@ -31,8 +31,7 @@ Suggests:
     dplyr,
     magrittr,
     knitr,
-    kableExtra,
-    tinytex
+    kableExtra
 Encoding: UTF-8
 LazyData: true
 Language: en-gb
