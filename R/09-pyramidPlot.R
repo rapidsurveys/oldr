@@ -10,6 +10,8 @@
 #'
 #' @return Pyramid plot
 #'
+#' @author Mark Myatt
+#'
 #' @examples
 #' \dontrun{
 #'   pyramid.plot(x = testSVY, g = "sex")

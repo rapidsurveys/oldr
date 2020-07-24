@@ -9,6 +9,8 @@
 #'
 #' @return Data frame of combined classic and probit estimates
 #'
+#' @author Ernest Guevarra
+#'
 #' @examples
 #'   #
 #'   \dontrun{
