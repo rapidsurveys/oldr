@@ -229,6 +229,9 @@
     <loc>https://rapidsurveys.io/oldr/reference/report_op_disability.html</loc>
   </url>
   <url>
+    <loc>https://rapidsurveys.io/oldr/reference/report_op_docx.html</loc>
+  </url>
+  <url>
     <loc>https://rapidsurveys.io/oldr/reference/report_op_food.html</loc>
   </url>
   <url>
@@ -250,10 +253,10 @@
     <loc>https://rapidsurveys.io/oldr/reference/report_op_misc.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_oedema.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/report_op_odt.html</loc>
   </url>
   <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_pdf.html</loc>
+    <loc>https://rapidsurveys.io/oldr/reference/report_op_oedema.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/report_op_screen.html</loc>
