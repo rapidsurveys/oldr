@@ -58,7 +58,9 @@ estimate_op_all <- function(x, w,
   }
 
   ## Concatenate results and structure
-  resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+  resultsDF <- merge_estimates(x = classicResults,
+                               y = probitResults,
+                               prop2percent = TRUE)
 
   ## Convert to tibble
   resultsDF <- tibble::tibble(resultsDF)

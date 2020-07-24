@@ -7,7 +7,7 @@
 report_op_misc(format = "html")
 }
 \arguments{
-\item{format}{Either html or latex. Defaults to html.}
+\item{format}{Either html, docx or odt. Defaults to html.}
 }
 \value{
 A reporting chunk for miscellaneous indicators

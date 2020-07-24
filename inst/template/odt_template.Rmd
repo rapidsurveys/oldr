@@ -1,0 +1,41 @@
+---
+title: "OpenDocument Text Output Template"
+output: 
+  odt_document:
+    reference_odt: "odt_template.odt"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  echo = TRUE)
+```
+
+# Heading 1
+
+Text goes here
+
+## Heading 2
+
+More text here.
+
+### Heading 3
+
+And even more text here.
+
+# Output a table
+
+```{r exTable, echo = FALSE}
+library(oldr)
+library(magrittr)
+library(dplyr)
+library(knitr)
+
+testSVY %>%
+  create_op_all() %>%
+  estimate_op_all(w = testPSU, indicators = "demo", replicates = 19) %>%
+  select(LABEL:UCL.ALL) %>%
+  kable()
+```
