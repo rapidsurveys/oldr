@@ -70,7 +70,7 @@ report_op_table <- function(estimates, filename) {
 #
 #' Create a report chunk for demography indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx or odt. Defaults to html.
 #'
 #' @return A reporting chunk for demographic indicators
 #'
@@ -88,22 +88,17 @@ report_op_demo <- function(format = "html") {
   cat("\n")
   cat("## Type of respondents\n")
   cat("```{r respondentTable}\n")
-  cat("knitr::kable(x = resultsDF[1:4, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Type of respondent',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[1:4, ],\n")
+    cat("  caption = 'Type of respondent',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("kable(x = resultsDF[1:4, ], caption = 'Type of respondent', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Age structure by sex\n")
@@ -112,62 +107,47 @@ report_op_demo <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r ageTable}\n")
-  cat("knitr::kable(x = resultsDF[6:10, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Respondent age group by sex',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[5:10, ],\n")
+    cat("  caption = 'Respondent age group by sex',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("kable(x = resultsDF[5:10, ], caption = 'Respondent age group by sex', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Respondents by sex\n")
   cat("```{r sexTable}\n")
-  cat("knitr::kable(x = resultsDF[11:12, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Sex of respondents',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[11:12, ],\n")
+    cat("  caption = 'Sex of respondents',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("kable(x = resultsDF[11:12, ], caption = 'Sex of respondents', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Marital status of respondents\n")
   cat("```{r marriedTable}\n")
-  cat("knitr::kable(x = resultsDF[13:19, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Marital status',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[13:19, ],\n")
+    cat("  caption = 'Marital status',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("kable(x = resultsDF[13:19, ], caption = 'Marital status', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -176,7 +156,7 @@ report_op_demo <- function(format = "html") {
 #
 #' Create a report chunk for food indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for food indicators
 #'
@@ -198,22 +178,17 @@ report_op_food <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r mfTable}\n")
-  cat("knitr::kable(x = resultsDF[20, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Meal frequency',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[20, ],\n")
+    cat("  caption = 'Meal frequency',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[20, ], caption = 'Meal frequency', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Dietary diversity\n")
@@ -222,22 +197,17 @@ report_op_food <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r ddsTable}\n")
-  cat("knitr::kable(x = resultsDF[21:32, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Dietary diversity',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[21:32, ],\n")
+    cat("  caption = 'Dietary diversity',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[21:32, ], caption = 'Dietary diversity', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Nutrient intake\n")
@@ -1096,7 +1066,8 @@ report_op_html <- function(estimates,
           cat("  comment = '#>')\n")
           cat("\n")
           cat("library(magrittr)\n")
-          cat("resultsDF <- get(params$estimates)\n")
+          cat("resultsDF <- get(params$estimates) %>%\n")
+          cat("  dplyr::select(LABEL:UCL.FEMALES)\n")
           cat("svy <- get(params$svy)\n")
           cat("```\n")
           cat("\n")
@@ -1136,6 +1107,244 @@ report_op_html <- function(estimates,
 
 ################################################################################
 #
+#' Create a DOCX report document containing RAM-OP survey results
+#'
+#' @param estimates A data.frame of RAM-OP results produced by
+#'   \link{merge_estimates} function.
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
+#' @param filename Filename for output document. Can be specified as a path to a
+#'   specific directory where to output report document
+#' @param title Title of report
+#' @param view Logical. Open report in current environment? Default is FALSE.
+#'
+#' @return An DOCX in the working directory or if filename is a path,
+#'   to a specified directory.
+#'
+#' @examples
+#'
+#' \dontrun{
+#'   #
+#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'                                      w = testPSU,
+#'                                      replicates = 9)
+#'
+#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'                                    w = testPSU,
+#'                                    replicates = 9)
+#'
+#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'
+#'   report_op_docx(svy = testSVY,
+#'                  estimates = resultsDF,
+#'                  indicators = "mental",
+#'                  filename = paste(tempdir(), "report", sep = "/"))
+#' }
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_docx <- function(estimates,
+                           svy,
+                           indicators = c("demo", "food", "hunger",
+                                          "disability", "adl", "mental",
+                                          "dementia", "health", "income",
+                                          "wash", "anthro", "oedema",
+                                          "screening", "visual", "misc"),
+                           filename = "ramOPreport",
+                           title = "RAM-OP Report",
+                           view = FALSE) {
+  ## Create Rmd report file
+  withr::with_options(
+    new = list(width = 80),
+    code = {
+      withr::with_output_sink(
+        new = paste(filename, ".Rmd", sep = ""),
+        code = {
+          cat("---\n")
+          cat("title: ", title, "\n", sep = "")
+          cat("output:\n")
+          cat("  word_document:\n")
+          cat("    reference_docx: ", system.file('template', 'word_template.docx', package = 'oldr'), "\n")
+          cat("params:\n")
+          cat("  estimates: 'estimates'\n")
+          cat("  svy: 'svy'\n")
+          cat("---\n")
+          cat("\n")
+          cat("```{r setup, include = FALSE}\n")
+          cat("knitr::opts_chunk$set(\n")
+          cat("  message = FALSE,\n")
+          cat("  warning = FALSE,\n")
+          cat("  error = FALSE,\n")
+          cat("  echo = FALSE,\n")
+          cat("  collapse = TRUE,\n")
+          cat("  out.width = '80%',\n")
+          cat("  comment = '#>')\n")
+          cat("\n")
+          cat("library(magrittr)\n")
+          cat("resultsDF <- get(params$estimates) %>%\n")
+          cat("  dplyr::select(LABEL:UCL.FEMALES)\n")
+          cat("svy <- get(params$svy)\n")
+          cat("```\n")
+          cat("\n")
+          cat("<hr>\n")
+          if("demo" %in% indicators) report_op_demo(format = "docx")
+          if("food" %in% indicators) report_op_food(format = "docx")
+          if("hunger" %in% indicators) report_op_hunger(format = "docx")
+          if("disability" %in% indicators) report_op_disability(format = "docx")
+          if("adl" %in% indicators) report_op_adl(format = "docx")
+          if("mental" %in% indicators) report_op_mental(format = "docx")
+          if("dementia" %in% indicators) report_op_dementia(format = "docx")
+          if("health" %in% indicators) report_op_health(format = "docx")
+          if("visual" %in% indicators) report_op_visual(format = "docx")
+          if("oedema" %in% indicators) report_op_oedema(format = "docx")
+          if("anthro" %in% indicators) report_op_anthro(format = "docx")
+          if("screening" %in% indicators) report_op_screen(format = "docx")
+          if("income" %in% indicators) report_op_income(format = "docx")
+          if("wash" %in% indicators) report_op_wash(format = "docx")
+          if("misc" %in% indicators) report_op_misc(format = "docx")
+          cat("\n")
+        }
+      )
+    }
+  )
+
+  ## Render document in HTML format
+  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
+                    output_format = "word_document")
+
+  ## Check if report is to be viewed
+  if(view) {
+    ## Open DOCX
+    system(paste("open '", paste(filename, ".docx", sep = ""), "'", sep = ""))
+  }
+}
+
+
+################################################################################
+#
+#' Create a ODT report document containing RAM-OP survey results
+#'
+#' @param estimates A data.frame of RAM-OP results produced by
+#'   \link{merge_estimates} function.
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
+#' @param filename Filename for output document. Can be specified as a path to a
+#'   specific directory where to output report document
+#' @param title Title of report
+#' @param view Logical. Open report in current environment? Default is FALSE.
+#'
+#' @return An ODT in the working directory or if filename is a path,
+#'   to a specified directory.
+#'
+#' @examples
+#'
+#' \dontrun{
+#'   #
+#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'                                      w = testPSU,
+#'                                      replicates = 9)
+#'
+#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'                                    w = testPSU,
+#'                                    replicates = 9)
+#'
+#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'
+#'   report_op_docx(svy = testSVY,
+#'                  estimates = resultsDF,
+#'                  indicators = "mental",
+#'                  filename = paste(tempdir(), "report", sep = "/"))
+#' }
+#'
+#' @export
+#'
+#
+################################################################################
+
+report_op_odt <- function(estimates,
+                          svy,
+                          indicators = c("demo", "food", "hunger",
+                                         "disability", "adl", "mental",
+                                         "dementia", "health", "income",
+                                         "wash", "anthro", "oedema",
+                                         "screening", "visual", "misc"),
+                          filename = "ramOPreport",
+                          title = "RAM-OP Report",
+                          view = FALSE) {
+  ## Create Rmd report file
+  withr::with_options(
+    new = list(width = 80),
+    code = {
+      withr::with_output_sink(
+        new = paste(filename, ".Rmd", sep = ""),
+        code = {
+          cat("---\n")
+          cat("title: ", title, "\n", sep = "")
+          cat("output:\n")
+          cat("  word_document:\n")
+          cat("    reference_odt: ", system.file('template', 'odt_template.odt', package = 'oldr'), "\n")
+          cat("params:\n")
+          cat("  estimates: 'estimates'\n")
+          cat("  svy: 'svy'\n")
+          cat("---\n")
+          cat("\n")
+          cat("```{r setup, include = FALSE}\n")
+          cat("knitr::opts_chunk$set(\n")
+          cat("  message = FALSE,\n")
+          cat("  warning = FALSE,\n")
+          cat("  error = FALSE,\n")
+          cat("  echo = FALSE,\n")
+          cat("  collapse = TRUE,\n")
+          cat("  out.width = '80%',\n")
+          cat("  comment = '#>')\n")
+          cat("\n")
+          cat("library(magrittr)\n")
+          cat("resultsDF <- get(params$estimates) %>%\n")
+          cat("  dplyr::select(LABEL:UCL.FEMALES)\n")
+          cat("svy <- get(params$svy)\n")
+          cat("```\n")
+          cat("\n")
+          cat("<hr>\n")
+          if("demo" %in% indicators) report_op_demo(format = "odt")
+          if("food" %in% indicators) report_op_food(format = "odt")
+          if("hunger" %in% indicators) report_op_hunger(format = "odt")
+          if("disability" %in% indicators) report_op_disability(format = "odt")
+          if("adl" %in% indicators) report_op_adl(format = "odt")
+          if("mental" %in% indicators) report_op_mental(format = "odt")
+          if("dementia" %in% indicators) report_op_dementia(format = "odt")
+          if("health" %in% indicators) report_op_health(format = "odt")
+          if("visual" %in% indicators) report_op_visual(format = "odt")
+          if("oedema" %in% indicators) report_op_oedema(format = "odt")
+          if("anthro" %in% indicators) report_op_anthro(format = "odt")
+          if("screening" %in% indicators) report_op_screen(format = "odt")
+          if("income" %in% indicators) report_op_income(format = "odt")
+          if("wash" %in% indicators) report_op_wash(format = "odt")
+          if("misc" %in% indicators) report_op_misc(format = "odt")
+          cat("\n")
+        }
+      )
+    }
+  )
+
+  ## Render document in HTML format
+  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
+                    output_format = "odt_document")
+
+  ## Check if report is to be viewed
+  if(view) {
+    ## Open ODT
+    system(paste("open '", paste(filename, ".odt", sep = ""), "'", sep = ""))
+  }
+}
+
+
+
+
+################################################################################
+#
 #' Create a PDF report document containing RAM-OP survey results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by
@@ -1168,7 +1377,6 @@ report_op_html <- function(estimates,
 #'                   filename = paste(tempdir(), "report", sep = "/"))
 #'   }
 #'
-#' @export
 #'
 #
 ################################################################################
@@ -1192,20 +1400,20 @@ report_op_pdf <- function(estimates,
         code = {
           cat("---\n")
           cat("title: ", title, "\n", sep = "")
-          #cat("header-includes:\n")
-          #cat("  - \\usepackage{booktabs}\n")
-          #cat("  - \\usepackage{longtable}\n")
-          #cat("  - \\usepackage{array}\n")
-          #cat("  - \\usepackage{multirow}\n")
-          #cat("  - \\usepackage{wrapfig}\n")
-          #cat("  - \\usepackage{float}\n")
-          #cat("  - \\usepackage{colortbl}\n")
-          #cat("  - \\usepackage{pdflscape}\n")
-          #cat("  - \\usepackage{tabu}\n")
-          #cat("  - \\usepackage{threeparttable}\n")
-          #cat("  - \\usepackage{threeparttablex}\n")
-          #cat("  - \\usepackage[normalem]{ulem}\n")
-          #cat("  - \\usepackage{makecell}\n")
+          cat("header-includes:\n")
+          cat("  - \\usepackage{booktabs}\n")
+          cat("  - \\usepackage{longtable}\n")
+          cat("  - \\usepackage{array}\n")
+          cat("  - \\usepackage{multirow}\n")
+          cat("  - \\usepackage{wrapfig}\n")
+          cat("  - \\usepackage{float}\n")
+          cat("  - \\usepackage{colortbl}\n")
+          cat("  - \\usepackage{pdflscape}\n")
+          cat("  - \\usepackage{tabu}\n")
+          cat("  - \\usepackage{threeparttable}\n")
+          cat("  - \\usepackage{threeparttablex}\n")
+          cat("  - \\usepackage[normalem]{ulem}\n")
+          cat("  - \\usepackage{makecell}\n")
           cat("output:\n")
           cat("  pdf_document:\n")
           cat("    toc: true\n")
