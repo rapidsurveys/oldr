@@ -19,3 +19,6 @@ Create a report chunk for dementia indicators
   report_op_dementia()
 
 }
+\author{
+Ernest Guevarra
+}

@@ -19,3 +19,6 @@ Create a report chunk for mental health indicators
   report_op_mental()
 
 }
+\author{
+Ernest Guevarra
+}

@@ -158,7 +158,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>format</th>
-      <td><p>Either html or latex. Defaults to html.</p></td>
+      <td><p>Either html, docx, or odt. Defaults to html.</p></td>
     </tr>
     </table>
 
@@ -175,8 +175,7 @@
 #&gt; ```
 #&gt; 
 #&gt; ```{r k6Table}
-#&gt; knitr::kable(x = resultsDF[92:93, seq(from = 3, to = ncol(resultsDF), by = 1)],
-#&gt;   format = 'html',
+#&gt; knitr::kable(x = resultsDF[92:93, ],
 #&gt;   caption = 'Psychological distress',
 #&gt;   booktabs = TRUE,
 #&gt;   digits = 2,

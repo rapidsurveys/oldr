@@ -19,3 +19,6 @@ Create a report chunk for food indicators
   report_op_food()
 
 }
+\author{
+Ernest Guevarra
+}

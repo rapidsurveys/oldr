@@ -4,7 +4,11 @@
 #'
 #' @param x A vector to tabulate
 #' @param values A vector of values to be included in a table
+#'
 #' @return A one-dimensional table with specified values
+#'
+#' @author Mark Myatt
+#'
 #' @examples
 #'
 #'   xTable <- fullTable(x = sample(x = 5,

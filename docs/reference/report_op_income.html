@@ -158,7 +158,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>format</th>
-      <td><p>Either html or latex. Defaults to html.</p></td>
+      <td><p>Either html, docx, or odt. Defaults to html.</p></td>
     </tr>
     </table>
 
@@ -168,7 +168,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='fu'>report_op_income</span>()</div><div class='output co'>#&gt; 
-#&gt; ## Income
+#&gt; # Income
 #&gt; 
 #&gt; ```{r incomePlot}
 #&gt; oldr::chart_income(x.male = create_op_all(svy = svy, gender = 'm'),
@@ -176,8 +176,7 @@
 #&gt; ```
 #&gt; 
 #&gt; ```{r incomeTable}
-#&gt; knitr::kable(x = resultsDF[117:126, seq(from = 3, to = ncol(resultsDF), by = 1)],
-#&gt;   format = 'html',
+#&gt; knitr::kable(x = resultsDF[117:126, ],
 #&gt;   caption = 'Income',
 #&gt;   booktabs = TRUE,
 #&gt;   digits = 2,

@@ -19,3 +19,6 @@ Create a report chunk for oedema
   report_op_oedema()
 
 }
+\author{
+Ernest Guevarra
+}

@@ -19,3 +19,6 @@ Create a report chunk for visual acuity
   report_op_visual()
 
 }
+\author{
+Ernest Guevarra
+}

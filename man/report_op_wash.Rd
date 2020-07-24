@@ -19,3 +19,6 @@ Create a report chunk for water, sanitation and hygiene
   report_op_wash()
 
 }
+\author{
+Ernest Guevarra
+}

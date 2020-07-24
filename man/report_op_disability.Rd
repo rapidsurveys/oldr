@@ -19,3 +19,6 @@ Create a report chunk for disability indicators
   report_op_disability()
 
 }
+\author{
+Ernest Guevarra
+}

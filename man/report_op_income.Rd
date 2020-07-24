@@ -19,3 +19,6 @@ Create a report chunk for income
   report_op_income()
 
 }
+\author{
+Ernest Guevarra
+}
