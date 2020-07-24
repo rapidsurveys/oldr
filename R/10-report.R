@@ -212,22 +212,17 @@ report_op_food <- function(format = "html") {
   cat("\n")
   cat("## Nutrient intake\n")
   cat("```{r nutrientTable}\n")
-  cat("knitr::kable(x = resultsDF[33:47, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Nutrient intake',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[33:47, ],\n")
+    cat("  caption = 'Nutrient intake',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[33:47, ], caption = 'Nutrient intake', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -236,7 +231,7 @@ report_op_food <- function(format = "html") {
 #
 #' Create a report chunk for activities of food security indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for food security indicators
 #'
@@ -258,22 +253,17 @@ report_op_hunger <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r hhsTable}\n")
-  cat("knitr::kable(x = resultsDF[48:50, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
   if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Household hunger score',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+    cat("knitr::kable(x = resultsDF[48:50, ],\n")
+    cat("  caption = 'Household hunger score',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[48:50, ], caption = 'Household hunger score', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -282,7 +272,7 @@ report_op_hunger <- function(format = "html") {
 #
 #' Create a report chunk for disability indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for disability indicators
 #'
@@ -305,148 +295,113 @@ report_op_disability <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r wgTable}\n")
-  cat("knitr::kable(x = resultsDF[75:79, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Overall disability',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[75:79, ],\n")
+    cat("  caption = 'Overall disability',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[75:79, ], caption = 'Overall disability', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Vision\n")
   cat("\n")
   cat("```{r visionTable}\n")
-  cat("knitr::kable(x = resultsDF[51:54, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to vision',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[51:54, ],\n")
+    cat("  caption = 'Disability related to vision',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[51:54, ], caption = 'Disability related to vision', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Hearing\n")
   cat("\n")
   cat("```{r hearingTable}\n")
-  cat("knitr::kable(x = resultsDF[55:58, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to hearing',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[55:58, ],\n")
+    cat("  caption = 'Disability related to hearing',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[55:58, ], caption = 'Disability related to hearing', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Mobility\n")
   cat("\n")
   cat("```{r mobilityTable}\n")
-  cat("knitr::kable(x = resultsDF[59:62, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
   if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to mobility',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+    cat("knitr::kable(x = resultsDF[59:62, ],\n")
+    cat("  caption = 'Disability related to mobility',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[59:62, ], caption = 'Disability related to mobility', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Remembering\n")
   cat("\n")
   cat("```{r rememberingTable}\n")
-  cat("knitr::kable(x = resultsDF[63:66, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to remembering',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[63:66, ],\n")
+    cat("  caption = 'Disability related to remembering',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[63:66, ], caption = 'Disability related to remembering', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Self-care\n")
   cat("\n")
   cat("```{r selfCareTable}\n")
-  cat("knitr::kable(x = resultsDF[67:70, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to self-care',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[67:70, ],\n")
+    cat("  caption = 'Disability related to self-care',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[67:70, ], caption = 'Disability related to self-care', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Communicating\n")
   cat("\n")
   cat("```{r communicatingTable}\n")
-  cat("knitr::kable(x = resultsDF[71:74, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Disability related to communicating',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[71:74, ],\n")
+    cat("  caption = 'Disability related to communicating',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[71:74, ], caption = 'Disability related to communicating', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -455,7 +410,7 @@ report_op_disability <- function(format = "html") {
 #
 #' Create a report chunk for activities of daily living indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for ADL indicators
 #'
@@ -475,22 +430,17 @@ report_op_adl <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r adlTable}\n")
-  cat("knitr::kable(x = resultsDF[80:91, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Activities of daily living',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[80:91, ],\n")
+    cat("  caption = 'Activities of daily living',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[80:91, ], caption = 'Activities of daily living', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -499,7 +449,7 @@ report_op_adl <- function(format = "html") {
 #
 #' Create a report chunk for mental health indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for mental health indicators
 #'
@@ -520,22 +470,17 @@ report_op_mental <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r k6Table}\n")
-  cat("knitr::kable(x = resultsDF[92:93, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Psychological distress',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[92:93, ],\n")
+    cat("  caption = 'Psychological distress',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[92:93, ], caption = 'Psychological distress', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -544,7 +489,7 @@ report_op_mental <- function(format = "html") {
 #
 #' Create a report chunk for dementia indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for dementia indicators
 #'
@@ -565,22 +510,17 @@ report_op_dementia <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r csidTable}\n")
-  cat("knitr::kable(x = resultsDF[94, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Dementia',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[94, ],\n")
+    cat("  caption = 'Dementia',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[94, ], caption = 'Dementia', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -589,7 +529,7 @@ report_op_dementia <- function(format = "html") {
 #
 #' Create a report chunk for health and health-seeking behaviour indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for health and health-seeking behaviour indicators
 #'
@@ -608,83 +548,63 @@ report_op_health <- function(format = "html") {
   cat("## Chronic illness\n")
   cat("\n")
   cat("```{r chronicTable}\n")
-  cat("knitr::kable(x = resultsDF[95:96, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Prevalence of chronic illness',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[95:96, ],\n")
+    cat("  caption = 'Prevalence of chronic illness',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[95:96, ], caption = 'Prevalence of chronic illness', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("### Reasons for not taking drugs for long term disease\n")
   cat("\n")
   cat("```{r reasonsChronicTable}\n")
-  cat("knitr::kable(x = resultsDF[97:105, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Reasons for not taking drugs for long term disease',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[97:105, ],\n")
+    cat("  caption = 'Reasons for not taking drugs for long term disease',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[97:105, ], caption = 'Reasons for not taking drugs for long term disease', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("\n")
   cat("## Recent illness\n")
   cat("\n")
   cat("```{r recentTable}\n")
-  cat("knitr::kable(x = resultsDF[106:107, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Prevalence of recent illness',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[106:107, ],\n")
+    cat("  caption = 'Prevalence of recent illness',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[106:107, ], caption = 'Prevalence of recent illness', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
   cat("### Reasons for not taking drugs for recent illness\n")
   cat("\n")
   cat("```{r reasonsRecentTable}\n")
-  cat("knitr::kable(x = resultsDF[108:116, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Reasons for not taking drugs for recent illness',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[108:116, ],\n")
+    cat("  caption = 'Reasons for not taking drugs for recent illness',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[108:116, ], caption = 'Reasons for not taking drugs for recent illness', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -692,7 +612,7 @@ report_op_health <- function(format = "html") {
 #
 #' Create a report chunk for oedema
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for oedema indicators
 #'
@@ -709,22 +629,17 @@ report_op_oedema <- function(format = "html") {
   cat("# Oedema\n")
   cat("\n")
   cat("```{r otherTable}\n")
-  cat("knitr::kable(x = resultsDF[131, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Prevalence of oedema',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[131, ],\n")
+    cat("  caption = 'Prevalence of oedema',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[131, ], caption = 'Prevalence of oedema', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -732,7 +647,7 @@ report_op_oedema <- function(format = "html") {
 #
 #' Create a report chunk for anthropometric indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for anthropometric indicators
 #'
@@ -749,22 +664,17 @@ report_op_anthro <- function(format = "html") {
   cat("# Anthropometry\n")
   cat("\n")
   cat("```{r anthroTable}\n")
-  cat("knitr::kable(x = resultsDF[137:139, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Prevalence of acute malnutrition',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[137:139, ],\n")
+    cat("  caption = 'Prevalence of acute malnutrition',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[137:139, ], caption = 'Prevalence of acute malnutrition', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -773,7 +683,7 @@ report_op_anthro <- function(format = "html") {
 #
 #' Create a report chunk for screening indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for screening indicators
 #'
@@ -790,22 +700,17 @@ report_op_screen <- function(format = "html") {
   cat("# Screening\n")
   cat("\n")
   cat("```{r screenTable}\n")
-  cat("knitr::kable(x = resultsDF[132, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'MUAC and oedema screening',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[132, ],\n")
+    cat("  caption = 'MUAC and oedema screening',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[132, ], caption = 'MUAC and oedema screening', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -814,7 +719,7 @@ report_op_screen <- function(format = "html") {
 #
 #' Create a report chunk for visual acuity
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for visual acuity
 #'
@@ -831,22 +736,17 @@ report_op_visual <- function(format = "html") {
   cat("# Visual acuity\n")
   cat("\n")
   cat("```{r visualTable}\n")
-  cat("knitr::kable(x = resultsDF[133, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Visual impairment',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[133, ],\n")
+    cat("  caption = 'Visual impairment',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[133, ], caption = 'Visual impairment', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -855,7 +755,7 @@ report_op_visual <- function(format = "html") {
 #
 #' Create a report chunk for income
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for income
 #'
@@ -877,22 +777,17 @@ report_op_income <- function(format = "html") {
   cat("```\n")
   cat("\n")
   cat("```{r incomeTable}\n")
-  cat("knitr::kable(x = resultsDF[117:126, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Income',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[117:126, ],\n")
+    cat("  caption = 'Income',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[117:126, ], caption = 'Income', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -901,7 +796,7 @@ report_op_income <- function(format = "html") {
 #
 #' Create a report chunk for water, sanitation and hygiene
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx, or odt. Defaults to html.
 #'
 #' @return A reporting chunk for water, sanitation and hygiene
 #'
@@ -915,29 +810,24 @@ report_op_income <- function(format = "html") {
 
 report_op_wash <- function(format = "html") {
   cat("\n")
-  cat("# Water, sanitation and hygiene\n")
+  cat("# Water, sanitation, and hygiene\n")
   cat("\n")
   cat("```{r washPlot}\n")
   cat("oldr::chart_wash(x = create_op_all(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r washTable}\n")
-  cat("knitr::kable(x = resultsDF[127:130, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Water, sanitation and hygiene',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[127:130, ],\n")
+    cat("  caption = 'Water, sanitation, and hygiene',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[127:130, ], caption = 'Water, sanitation, and hygiene', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -946,7 +836,7 @@ report_op_wash <- function(format = "html") {
 #
 #' Create a report chunk for miscellaneous indicators
 #'
-#' @param format Either html or latex. Defaults to html.
+#' @param format Either html, docx or odt. Defaults to html.
 #'
 #' @return A reporting chunk for miscellaneous indicators
 #'
@@ -963,22 +853,17 @@ report_op_misc <- function(format = "html") {
   cat("# Miscellaneous indicators\n")
   cat("\n")
   cat("```{r miscTable}\n")
-  cat("knitr::kable(x = resultsDF[134:136, seq(from = 3, to = ncol(resultsDF), by = 1)],\n")
-  if(format == "latex") {
-    cat("  format = 'latex',\n")
-  } else {
-    cat("  format = 'html',\n")
-  }
-  cat("  caption = 'Miscellaneous indicators',\n")
-  cat("  booktabs = TRUE,\n")
-  cat("  digits = 2,\n")
-  cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
-  if(format == "latex") {
-    cat("  kableExtra::kable_styling(latex_options = c('striped', 'HOLD_position', 'scale_down')) %>%\n")
-  } else {
+  if(format == "html") {
+    cat("knitr::kable(x = resultsDF[134:136, ],\n")
+    cat("  caption = 'Miscellaneous indicators',\n")
+    cat("  booktabs = TRUE,\n")
+    cat("  digits = 2,\n")
+    cat("  col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %>%\n")
     cat("  kableExtra::kable_styling(bootstrap_options = c('striped')) %>%\n")
+    cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
+  } else {
+    cat("knitr::kable(x = resultsDF[134:136, ], caption = 'Miscellaneous indicators', digits = 2)\n")
   }
-  cat("  kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))\n")
   cat("```\n")
 }
 
@@ -1253,10 +1138,10 @@ report_op_docx <- function(estimates,
 #'
 #'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 #'
-#'   report_op_docx(svy = testSVY,
-#'                  estimates = resultsDF,
-#'                  indicators = "mental",
-#'                  filename = paste(tempdir(), "report", sep = "/"))
+#'   report_op_odt(svy = testSVY,
+#'                 estimates = resultsDF,
+#'                 indicators = "mental",
+#'                 filename = paste(tempdir(), "report", sep = "/"))
 #' }
 #'
 #' @export
