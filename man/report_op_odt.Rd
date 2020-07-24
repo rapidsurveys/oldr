@@ -50,10 +50,10 @@ Create a ODT report document containing RAM-OP survey results
 
   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
 
-  report_op_docx(svy = testSVY,
-                 estimates = resultsDF,
-                 indicators = "mental",
-                 filename = paste(tempdir(), "report", sep = "/"))
+  report_op_odt(svy = testSVY,
+                estimates = resultsDF,
+                indicators = "mental",
+                filename = paste(tempdir(), "report", sep = "/"))
 }
 
 }
