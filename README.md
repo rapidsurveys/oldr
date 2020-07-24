@@ -11,8 +11,6 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
-[![cran
-checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![Travis](https://img.shields.io/travis/rapidsurveys/oldr.svg?branch=master)](https://travis-ci.org/rapidsurveys/oldr)
 [![AppVeyor Build
@@ -22,6 +20,8 @@ status](https://github.com/rapidsurveys/oldr/workflows/R-CMD-check/badge.svg)](h
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/master/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
 <!-- Badges end here-->
+
+<!-- [![cran checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html) -->
 
 [HelpAge International](http://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton

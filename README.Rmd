@@ -22,7 +22,6 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
-[![cran checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![Travis](https://img.shields.io/travis/rapidsurveys/oldr.svg?branch=master)](https://travis-ci.org/rapidsurveys/oldr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/rapidsurveys/oldr?branch=master&svg=true)](https://ci.appveyor.com/project/rapidsurveys/oldr)
@@ -31,6 +30,7 @@ knitr::opts_chunk$set(
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
 <!-- Badges end here-->
 
+<!-- [![cran checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html) -->
 
 [HelpAge International](http://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
 
