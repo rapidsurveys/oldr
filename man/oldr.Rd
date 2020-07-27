@@ -34,7 +34,7 @@ The \strong{RAM-OP} method is based on the following principles:
     a small sample size.
 }
 
-See the README at \href{GitHub}{https://github.com/rapidsurveys/oldr#readme}
+See the README at \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
 for further details
 }
 \seealso{

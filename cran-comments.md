@@ -1,7 +1,19 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* I have corrected the erring entry on my package documentation. I made a
+  mistake in my \href{}{} specification by putting the referrant inside the 
+  first curly brackets and the url inside the second curly bracket for one of
+  the links. This is now corrected as follows:
+  
+  \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
+
+I performed all checks again with the following results:
+
 ## Test environments
 * macOS latest (local R installation, R 4.0.2)
 * ubuntu 16.04 (on travis-ci), R 4.0.2
-* win-builder (devel, oldrelease)
+* win-builder (release, oldrelease)
 * windows latest (on github actions, release)
 * macOS latest (on github actions, release)
 * ubuntu 16.04 (on github actions, release)
