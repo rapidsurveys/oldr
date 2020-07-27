@@ -13,7 +13,7 @@ I performed all checks again with the following results:
 ## Test environments
 * macOS latest (local R installation, R 4.0.2)
 * ubuntu 16.04 (on travis-ci), R 4.0.2
-* win-builder (devel, oldrelease)
+* win-builder (release, oldrelease)
 * windows latest (on github actions, release)
 * macOS latest (on github actions, release)
 * ubuntu 16.04 (on github actions, release)
