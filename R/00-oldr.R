@@ -29,7 +29,7 @@
 #'     a small sample size.
 #' }
 #'
-#' See the README at \href{GitHub}{https://github.com/rapidsurveys/oldr#readme}
+#' See the README at \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
 #' for further details
 #'
 #' @docType package
