@@ -1,5 +1,5 @@
 Package: oldr
-Title: An Implementation of Rapid Assessment Method for Older People in R
+Title: An Implementation of Rapid Assessment Method for Older People
 Version: 0.1.0
 Authors@R: c(
     person("Mark", "Myatt", comment = c(ORCID = "0000-0003-1119-1474"),

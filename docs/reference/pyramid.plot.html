@@ -189,9 +189,12 @@
     <p>Pyramid plot</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-  <span class='fu'>pyramid.plot</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>testSVY</span>, <span class='kw'>g</span> <span class='kw'>=</span> <span class='st'>"sex"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'>  <span class='co'>##</span>
+  <span class='fu'>pyramid.plot</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span>(<span class='no'>testSVY</span>$<span class='no'>d2</span>,
+                       <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>105</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>5</span>),
+                       <span class='kw'>include.lowest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
+               <span class='kw'>g</span> <span class='kw'>=</span> <span class='no'>testSVY</span>$<span class='no'>d3</span>)</div><div class='img'><img src='pyramid.plot-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

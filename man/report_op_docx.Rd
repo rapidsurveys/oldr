@@ -9,7 +9,7 @@ report_op_docx(
   svy,
   indicators = c("demo", "food", "hunger", "disability", "adl", "mental", "dementia",
     "health", "income", "wash", "anthro", "oedema", "screening", "visual", "misc"),
-  filename = "ramOPreport",
+  filename = paste(tempdir(), "ramOPreport", sep = "/"),
   title = "RAM-OP Report",
   view = FALSE
 )
@@ -23,7 +23,8 @@ report_op_docx(
 \item{indicators}{A character vector of indicator names}
 
 \item{filename}{Filename for output document. Can be specified as a path to a
-specific directory where to output report document}
+specific directory where to output report document. Defaults to a path to
+a temporary directory and a filename \code{ramOPreport}.}
 
 \item{title}{Title of report}
 
@@ -37,8 +38,6 @@ An DOCX in the working directory or if filename is a path,
 Create a DOCX report document containing RAM-OP survey results
 }
 \examples{
-
-\dontrun{
   #
   classicResults <- estimate_classic(x = create_op_all(testSVY),
                                      w = testPSU,
@@ -54,7 +53,6 @@ Create a DOCX report document containing RAM-OP survey results
                  estimates = resultsDF,
                  indicators = "mental",
                  filename = paste(tempdir(), "report", sep = "/"))
-}
 
 }
 \author{

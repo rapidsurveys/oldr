@@ -117,7 +117,7 @@ test <- chart_income(x.male = indicators.MALES,
 test
 
 test_that("output chart is present", {
-  expect_true(file.exists(paste(tempdir(), "TEST.Incomes.png", sep = "/")))
+  expect_true(file.exists(paste(tempdir(), "TEST.incomes.png", sep = "/")))
 })
 
 test_that("is integer", {

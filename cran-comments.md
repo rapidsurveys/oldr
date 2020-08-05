@@ -1,12 +1,18 @@
 ## Resubmission
-This is a resubmission. In this version I have:
+This is a resubmission. In have corrected the following issues as per CRAN
+comments:
 
-* I have corrected the erring entry on my package documentation. I made a
-  mistake in my \href{}{} specification by putting the referrant inside the 
-  first curly brackets and the url inside the second curly bracket for one of
-  the links. This is now corrected as follows:
-  
-  \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
+* Checked all examples to ensure they can run less than 5 seconds
+
+* Checked all examples that I previously put within \dontrun{} and ensured
+that they can run during package build and test and that they run for less than
+5 seconds
+
+* Re-worked functions that previously wrote into user's home filespace such
+that they now write into `tempdir()` by default
+
+* Removed redundant language in the title. The title now reads "An Implementation
+of Rapid Assessment Method for Older People"
 
 I performed all checks again with the following results:
 
@@ -28,6 +34,8 @@ I performed all checks again with the following results:
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+* All checks ran for less than 10 minutes
 
 ## Reverse dependencies
 

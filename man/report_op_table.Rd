@@ -4,14 +4,16 @@
 \alias{report_op_table}
 \title{Create table of RAM-OP results}
 \usage{
-report_op_table(estimates, filename)
+report_op_table(estimates, filename = paste(tempdir(), "ramOP", sep = "/"))
 }
 \arguments{
 \item{estimates}{A data.frame of RAM-OP results produced by
 \link{merge_estimates} function.}
 
 \item{filename}{Prefix to append to report output filename. Can be specified
-as a path to a specific directory where to output tabular results CSV file}
+as a path to a specific directory where to output tabular results CSV file.
+Defaults to a path to a temporary directory with a filename starting with
+\code{ramOP}.}
 }
 \value{
 Report of tabulated estimated results saved in CSV format in current
@@ -21,10 +23,15 @@ Report of tabulated estimated results saved in CSV format in current
 Create table of RAM-OP results
 }
 \examples{
-  #
-  \dontrun{
-    report_op_table("TEST")
-  }
+  ##
+  x <- estimate_classic(x = create_op_all(testSVY),
+                        w = testPSU,
+                        replicates = 9)
+  y <- estimate_probit(x = create_op_all(testSVY),
+                       w = testPSU,
+                       replicates = 9)
+  z <- merge_estimates(x, y, prop2percent = TRUE)
+  report_op_table(z)
 
 }
 \author{

@@ -5,7 +5,9 @@
 #' @param estimates A data.frame of RAM-OP results produced by
 #'   \link{merge_estimates} function.
 #' @param filename Prefix to append to report output filename. Can be specified
-#'   as a path to a specific directory where to output tabular results CSV file
+#'   as a path to a specific directory where to output tabular results CSV file.
+#'   Defaults to a path to a temporary directory with a filename starting with
+#'   \code{ramOP}.
 #'
 #' @return Report of tabulated estimated results saved in CSV format in current
 #'     working directory or in the specified path
@@ -13,17 +15,23 @@
 #' @author Mark Myatt
 #'
 #' @examples
-#'   #
-#'   \dontrun{
-#'     report_op_table("TEST")
-#'   }
+#'   ##
+#'   x <- estimate_classic(x = create_op_all(testSVY),
+#'                         w = testPSU,
+#'                         replicates = 9)
+#'   y <- estimate_probit(x = create_op_all(testSVY),
+#'                        w = testPSU,
+#'                        replicates = 9)
+#'   z <- merge_estimates(x, y, prop2percent = TRUE)
+#'   report_op_table(z)
 #'
 #' @export
 #'
 #
 ################################################################################
 
-report_op_table <- function(estimates, filename) {
+report_op_table <- function(estimates,
+                            filename = paste(tempdir(), "ramOP", sep = "/")) {
 
   ## Create report filename
   reportFilename <- paste(filename, ".report.csv", sep="")
@@ -909,7 +917,8 @@ report_op_misc <- function(format = "html") {
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
-#'   specific directory where to output report document
+#'   specific directory where to output report document. Defaults to a path to
+#'   a temporary directory and a filename \code{ramOPreport}.
 #' @param title Title of report
 #' @param view Logical. Open report in current browser? Default is FALSE.
 #'
@@ -919,8 +928,6 @@ report_op_misc <- function(format = "html") {
 #' @author Ernest Guevarra
 #'
 #' @examples
-#'
-#' \dontrun{
 #'   #
 #'   classicResults <- estimate_classic(x = create_op_all(testSVY),
 #'                                      w = testPSU,
@@ -936,7 +943,6 @@ report_op_misc <- function(format = "html") {
 #'                  estimates = resultsDF,
 #'                  indicators = "mental",
 #'                  filename = paste(tempdir(), "report", sep = "/"))
-#' }
 #'
 #' @export
 #'
@@ -950,7 +956,7 @@ report_op_html <- function(estimates,
                                           "dementia", "health", "income",
                                           "wash", "anthro", "oedema",
                                           "screening", "visual", "misc"),
-                           filename = "ramOPreport",
+                           filename = paste(tempdir(), "ramOPreport", sep = "/"),
                            title = "RAM-OP Report",
                            view = FALSE) {
   ## Create Rmd report file
@@ -1033,7 +1039,8 @@ report_op_html <- function(estimates,
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
-#'   specific directory where to output report document
+#'   specific directory where to output report document. Defaults to a path to
+#'   a temporary directory and a filename \code{ramOPreport}.
 #' @param title Title of report
 #' @param view Logical. Open report in current environment? Default is FALSE.
 #'
@@ -1043,8 +1050,6 @@ report_op_html <- function(estimates,
 #' @author Ernest Guevarra
 #'
 #' @examples
-#'
-#' \dontrun{
 #'   #
 #'   classicResults <- estimate_classic(x = create_op_all(testSVY),
 #'                                      w = testPSU,
@@ -1060,7 +1065,6 @@ report_op_html <- function(estimates,
 #'                  estimates = resultsDF,
 #'                  indicators = "mental",
 #'                  filename = paste(tempdir(), "report", sep = "/"))
-#' }
 #'
 #' @export
 #'
@@ -1074,7 +1078,7 @@ report_op_docx <- function(estimates,
                                           "dementia", "health", "income",
                                           "wash", "anthro", "oedema",
                                           "screening", "visual", "misc"),
-                           filename = "ramOPreport",
+                           filename = paste(tempdir(), "ramOPreport", sep = "/"),
                            title = "RAM-OP Report",
                            view = FALSE) {
   ## Create Rmd report file
@@ -1153,7 +1157,8 @@ report_op_docx <- function(estimates,
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
-#'   specific directory where to output report document
+#'   specific directory where to output report document. Defaults to a path to
+#'   a temporary directory and a filename \code{ramOPreport}.
 #' @param title Title of report
 #' @param view Logical. Open report in current environment? Default is FALSE.
 #'
@@ -1163,8 +1168,6 @@ report_op_docx <- function(estimates,
 #' @author Ernest Guevarra
 #'
 #' @examples
-#'
-#' \dontrun{
 #'   #
 #'   classicResults <- estimate_classic(x = create_op_all(testSVY),
 #'                                      w = testPSU,
@@ -1180,7 +1183,6 @@ report_op_docx <- function(estimates,
 #'                 estimates = resultsDF,
 #'                 indicators = "mental",
 #'                 filename = paste(tempdir(), "report", sep = "/"))
-#' }
 #'
 #' @export
 #'
@@ -1194,7 +1196,7 @@ report_op_odt <- function(estimates,
                                          "dementia", "health", "income",
                                          "wash", "anthro", "oedema",
                                          "screening", "visual", "misc"),
-                          filename = "ramOPreport",
+                          filename = paste(tempdir(), "ramOPreport", sep = "/"),
                           title = "RAM-OP Report",
                           view = FALSE) {
   ## Create Rmd report file
