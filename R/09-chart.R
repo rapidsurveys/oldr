@@ -8,8 +8,9 @@
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   path to save output to instead of working directory. Default is a path to
+#'   a temporary directory and a filename starting with
+#'   \code{populationPyramid}. Ignored if \code{save_chart} is FALSE.
 #'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
 #'     directory or in a specified directory if \code{filename} is a path unless
@@ -18,8 +19,7 @@
 #'
 #' @examples
 #'   # Create age by sex pyramid plot using indicators.ALL dataset
-#'   chart_age(x = indicators.ALL,
-#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_age(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -28,7 +28,9 @@
 
 chart_age <- function(x,
                       save_chart = TRUE,
-                      filename = NULL) {
+                      filename = paste(tempdir(),
+                                       "populationPyramid",
+                                       sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
   ageGroup <- bbw::recode(var = x$age,
@@ -82,8 +84,9 @@ chart_age <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   path to save output to instead of working directory. Default is a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored
+#'   if \code{save_chart} is FALSE.
 #'
 #' @return Histogram of MUAC distribution in PNG format and saved in the current
 #'     working directory or in a specified directory if \code{filename} is a
@@ -92,8 +95,7 @@ chart_age <- function(x,
 #'
 #' @examples
 #'   # Create MUAC histogram using indicators.ALL dataset
-#'   chart_muac(x = indicators.ALL,
-#'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_muac(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -102,7 +104,7 @@ chart_age <- function(x,
 
 chart_muac <- function(x,
                        save_chart = TRUE,
-                       filename = NULL) {
+                       filename = paste(tempdir(), "chart", sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -168,8 +170,9 @@ chart_muac <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   path to save output to instead of working directory. Default is a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored
+#'   if \code{save_chart} is FALSE.
 #'
 #' @return Barplot of meal frequency in PNG format saved in current working
 #'     directory or in a specified directory if \code{filename} is a path unless
@@ -178,8 +181,7 @@ chart_muac <- function(x,
 #'
 #' @examples
 #'   # Create meal frequency chart using indicators.ALL dataset
-#'   chart_mf(x = indicators.ALL,
-#'            filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_mf(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -188,7 +190,7 @@ chart_muac <- function(x,
 
 chart_mf <- function(x,
                      save_chart = TRUE,
-                     filename = NULL) {
+                     filename = paste(tempdir(), "chart", sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -259,7 +261,8 @@ chart_mf <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Default is a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Barplot of dietary diversity score in PNG format saved in current
@@ -269,8 +272,7 @@ chart_mf <- function(x,
 #'
 #' @examples
 #'   # Create DDS chart using indicators.ALL dataset
-#'   chart_dds(x = indicators.ALL,
-#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_dds(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -279,7 +281,7 @@ chart_mf <- function(x,
 
 chart_dds <- function(x,
                       save_chart = TRUE,
-                      filename = NULL) {
+                      filename = paste(tempdir(), "chart", sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -353,7 +355,8 @@ chart_dds <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Histogram of K6 score in PNG format saved in current
@@ -363,8 +366,7 @@ chart_dds <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_k6(x = indicators.ALL,
-#'            filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_k6(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -373,7 +375,7 @@ chart_dds <- function(x,
 
 chart_k6 <- function(x,
                      save_chart = TRUE,
-                     filename = NULL) {
+                     filename = paste(tempdir(), "chart", sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -437,7 +439,8 @@ chart_k6 <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
@@ -447,8 +450,7 @@ chart_k6 <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_adl(x = indicators.ALL,
-#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_adl(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -457,7 +459,7 @@ chart_k6 <- function(x,
 
 chart_adl <- function(x,
                       save_chart = TRUE,
-                      filename = NULL) {
+                      filename = paste(tempdir(), "chart", sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
 
@@ -529,7 +531,8 @@ chart_adl <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
@@ -539,8 +542,7 @@ chart_adl <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_wash(x = indicators.ALL,
-#'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_wash(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -549,7 +551,7 @@ chart_adl <- function(x,
 
 chart_wash <- function(x,
                        save_chart = TRUE,
-                       filename = NULL) {
+                       filename = paste(tempdir(), "chart", sep = "/")) {
   ## Create filename
   plotFileName <- paste(filename, ".WASH.png", sep = "")
 
@@ -621,7 +623,8 @@ chart_wash <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of CSID in PNG format saved in current working directory
@@ -631,8 +634,7 @@ chart_wash <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_csid(x = indicators.ALL,
-#'              filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_csid(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -641,7 +643,7 @@ chart_wash <- function(x,
 
 chart_csid <- function(x,
                        save_chart = TRUE,
-                       filename = NULL) {
+                       filename = paste(tempdir(), "chart", sep = "/")) {
   ## Create filename
   plotFileName <- paste(filename, ".dementia.png", sep = "")
 
@@ -676,7 +678,8 @@ chart_csid <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a working directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of Disability Score in PNG format saved in current working
@@ -686,8 +689,7 @@ chart_csid <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_wg(x = indicators.ALL,
-#'            filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_wg(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -696,7 +698,7 @@ chart_csid <- function(x,
 
 chart_wg <- function(x,
                      save_chart = TRUE,
-                     filename = NULL) {
+                     filename = paste(tempdir(), "chart", sep = "/")) {
   ## Create filename
   plotFileName <- paste(filename, ".disability.png", sep = "")
 
@@ -739,7 +741,8 @@ chart_wg <- function(x,
 #' @param x Indicators dataset produced by \link{create_op_all}
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar plot of HHS in PNG format saved in current working directory
@@ -749,8 +752,7 @@ chart_wg <- function(x,
 #'
 #' @examples
 #'   # Create chart using indicators.ALL dataset
-#'   chart_hhs(x = indicators.ALL,
-#'             filename = paste(tempdir(), "TEST", sep = "/"))
+#'   chart_hhs(x = indicators.ALL)
 #'
 #' @export
 #'
@@ -759,7 +761,7 @@ chart_wg <- function(x,
 
 chart_hhs <- function(x,
                       save_chart = TRUE,
-                      filename = NULL) {
+                      filename = paste(tempdir(), "chart", sep = "/")) {
   ## Create filename
   plotFileName <- paste(filename, ".HHS.png", sep = "")
 
@@ -801,7 +803,8 @@ chart_hhs <- function(x,
 #' @param x.female Female subset of indicator dataset
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
-#'   path to save output to instead of working directory. Ignored if
+#'   path to save output to instead of working directory. Defaults to a path to
+#'   a temporary directory and a filename starting with \code{chart}. Ignored if
 #'   \code{save_chart} is FALSE.
 #'
 #' @return Bar chart of sources of income by sex in PNG format saved in current
@@ -813,8 +816,7 @@ chart_hhs <- function(x,
 #'   # Create chart using indicators.FEMALES and indicators.MALES
 #'   # dataset
 #'   chart_income(x.male = indicators.MALES,
-#'                x.female = indicators.FEMALES,
-#'                filename = paste(tempdir(), "TEST", sep = "/"))
+#'                x.female = indicators.FEMALES)
 #'
 #' @export
 #'
@@ -824,7 +826,7 @@ chart_hhs <- function(x,
 chart_income <- function(x.male,
                          x.female,
                          save_chart = TRUE,
-                         filename = NULL) {
+                         filename = paste(tempdir(), "chart", sep = "/")) {
 
   ## Sources of income (by sex)
   tabM <- NULL
@@ -873,7 +875,7 @@ chart_income <- function(x.male,
   tab <- as.table(as.matrix(tab[ ,1:2]))
 
   ## Plot income sources by sex
-  plotFileName <- paste(filename, ".Incomes.png", sep = "")
+  plotFileName <- paste(filename, ".incomes.png", sep = "")
 
   ## Check if save_chart
   if(save_chart) {
