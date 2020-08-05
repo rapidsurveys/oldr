@@ -30,9 +30,11 @@ Pyramid plot
 Function to create a pyramid plot
 }
 \examples{
-\dontrun{
-  pyramid.plot(x = testSVY, g = "sex")
-}
+  ##
+  pyramid.plot(x = cut(testSVY$d2,
+                       breaks = seq(from = 60, to = 105, by = 5),
+                       include.lowest = TRUE),
+               g = testSVY$d3)
 
 }
 \author{

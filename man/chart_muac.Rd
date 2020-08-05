@@ -4,7 +4,11 @@
 \alias{chart_muac}
 \title{Distribution of MUAC (overall and by sex)}
 \usage{
-chart_muac(x, save_chart = TRUE, filename = NULL)
+chart_muac(
+  x,
+  save_chart = TRUE,
+  filename = paste(tempdir(), "chart", sep = "/")
+)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
@@ -12,8 +16,9 @@ chart_muac(x, save_chart = TRUE, filename = NULL)
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory. Ignored if
-\code{save_chart} is FALSE.}
+path to save output to instead of working directory. Default is a path to
+a temporary directory and a filename starting with \code{chart}. Ignored
+if \code{save_chart} is FALSE.}
 }
 \value{
 Histogram of MUAC distribution in PNG format and saved in the current
@@ -26,7 +31,6 @@ Distribution of MUAC (overall and by sex)
 }
 \examples{
   # Create MUAC histogram using indicators.ALL dataset
-  chart_muac(x = indicators.ALL,
-             filename = paste(tempdir(), "TEST", sep = "/"))
+  chart_muac(x = indicators.ALL)
 
 }

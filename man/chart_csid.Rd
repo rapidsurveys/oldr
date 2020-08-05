@@ -4,7 +4,11 @@
 \alias{chart_csid}
 \title{Chart dementia screen (CSID) indicators}
 \usage{
-chart_csid(x, save_chart = TRUE, filename = NULL)
+chart_csid(
+  x,
+  save_chart = TRUE,
+  filename = paste(tempdir(), "chart", sep = "/")
+)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
@@ -12,7 +16,8 @@ chart_csid(x, save_chart = TRUE, filename = NULL)
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory. Ignored if
+path to save output to instead of working directory. Defaults to a path to
+a temporary directory and a filename starting with \code{chart}. Ignored if
 \code{save_chart} is FALSE.}
 }
 \value{
@@ -26,7 +31,6 @@ Chart dementia screen (CSID) indicators
 }
 \examples{
   # Create chart using indicators.ALL dataset
-  chart_csid(x = indicators.ALL,
-             filename = paste(tempdir(), "TEST", sep = "/"))
+  chart_csid(x = indicators.ALL)
 
 }

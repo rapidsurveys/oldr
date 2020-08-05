@@ -4,7 +4,12 @@
 \alias{chart_income}
 \title{Chart income indicators}
 \usage{
-chart_income(x.male, x.female, save_chart = TRUE, filename = NULL)
+chart_income(
+  x.male,
+  x.female,
+  save_chart = TRUE,
+  filename = paste(tempdir(), "chart", sep = "/")
+)
 }
 \arguments{
 \item{x.male}{Male subset of indicator dataset}
@@ -14,7 +19,8 @@ chart_income(x.male, x.female, save_chart = TRUE, filename = NULL)
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory. Ignored if
+path to save output to instead of working directory. Defaults to a path to
+a temporary directory and a filename starting with \code{chart}. Ignored if
 \code{save_chart} is FALSE.}
 }
 \value{
@@ -30,7 +36,6 @@ Chart income indicators
   # Create chart using indicators.FEMALES and indicators.MALES
   # dataset
   chart_income(x.male = indicators.MALES,
-               x.female = indicators.FEMALES,
-               filename = paste(tempdir(), "TEST", sep = "/"))
+               x.female = indicators.FEMALES)
 
 }

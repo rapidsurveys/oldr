@@ -4,7 +4,11 @@
 \alias{chart_age}
 \title{Age by sex (pyramid plot)}
 \usage{
-chart_age(x, save_chart = TRUE, filename = NULL)
+chart_age(
+  x,
+  save_chart = TRUE,
+  filename = paste(tempdir(), "populationPyramid", sep = "/")
+)
 }
 \arguments{
 \item{x}{Indicators dataset produced by \link{create_op_all}}
@@ -12,8 +16,9 @@ chart_age(x, save_chart = TRUE, filename = NULL)
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
 \item{filename}{Prefix to add to output chart filename or a directory
-path to save output to instead of working directory. Ignored if
-\code{save_chart} is FALSE.}
+path to save output to instead of working directory. Default is a path to
+a temporary directory and a filename starting with
+\code{populationPyramid}. Ignored if \code{save_chart} is FALSE.}
 }
 \value{
 Age by sex pyramid plot in PNG format saved in the current working
@@ -27,7 +32,6 @@ sex pyramid plot
 }
 \examples{
   # Create age by sex pyramid plot using indicators.ALL dataset
-  chart_age(x = indicators.ALL,
-            filename = paste(tempdir(), "TEST", sep = "/"))
+  chart_age(x = indicators.ALL)
 
 }
