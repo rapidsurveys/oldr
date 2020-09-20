@@ -12,7 +12,7 @@ create_op_health(svy)
 }
 \value{
 A tibble of older people indicators on health and health-seeking
-    behaviour
+behaviour
 }
 \description{
 Create older people indicators dataframe for health and health-seeking
@@ -22,28 +22,28 @@ behaviours from survey data collected using the standard RAM-OP questionnaire.
 
 
 \describe{
-  \item{\code{H1}}{Chronic condition}
-  \item{\code{H2}}{Takes drugs regularly for chronic condition}
-  \item{\code{H31}}{No drugs available}
-  \item{\code{H32}}{Too expensive / no money}
-  \item{\code{H33}}{Too old to look for care}
-  \item{\code{H34}}{Use traditional medicine}
-  \item{\code{H35}}{Drugs don't help}
-  \item{\code{H36}}{No-one to help me}
-  \item{\code{H37}}{No need}
-  \item{\code{H38}}{Other}
-  \item{\code{H39}}{No reason given}
-  \item{\code{H4}}{Recent disease episode}
-  \item{\code{H5}}{Accessed care for recent disease episode}
-  \item{\code{H61}}{No drugs available}
-  \item{\code{H62}}{Too expensive / no money}
-  \item{\code{H63}}{Too old to look for care}
-  \item{\code{H64}}{Use traditional medicine}
-  \item{\code{H65}}{Drugs don't help}
-  \item{\code{H66}}{No-one to help me}
-  \item{\code{H67}}{No need}
-  \item{\code{H68}}{Other}
-  \item{\code{H69}}{No reason given}
+\item{\code{H1}}{Chronic condition}
+\item{\code{H2}}{Takes drugs regularly for chronic condition}
+\item{\code{H31}}{No drugs available}
+\item{\code{H32}}{Too expensive / no money}
+\item{\code{H33}}{Too old to look for care}
+\item{\code{H34}}{Use traditional medicine}
+\item{\code{H35}}{Drugs don't help}
+\item{\code{H36}}{No-one to help me}
+\item{\code{H37}}{No need}
+\item{\code{H38}}{Other}
+\item{\code{H39}}{No reason given}
+\item{\code{H4}}{Recent disease episode}
+\item{\code{H5}}{Accessed care for recent disease episode}
+\item{\code{H61}}{No drugs available}
+\item{\code{H62}}{Too expensive / no money}
+\item{\code{H63}}{Too old to look for care}
+\item{\code{H64}}{Use traditional medicine}
+\item{\code{H65}}{Drugs don't help}
+\item{\code{H66}}{No-one to help me}
+\item{\code{H67}}{No need}
+\item{\code{H68}}{Other}
+\item{\code{H69}}{No reason given}
 }
 }
 

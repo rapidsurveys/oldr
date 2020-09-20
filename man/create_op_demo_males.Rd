@@ -11,7 +11,7 @@ create_op_demo_males(svy)
 }
 \value{
 A dataframe of male older people indicators on demography and
-    situation
+situation
 }
 \description{
 Create male older people indicators dataframe for demography and situation

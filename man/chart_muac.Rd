@@ -22,9 +22,9 @@ if \code{save_chart} is FALSE.}
 }
 \value{
 Histogram of MUAC distribution in PNG format and saved in the current
-    working directory or in a specified directory if \code{filename} is a
-    path unless when \code{save_chart} is FALSE in which case chart is
-    shown on current graphics device.
+working directory or in a specified directory if \code{filename} is a
+path unless when \code{save_chart} is FALSE in which case chart is
+shown on current graphics device.
 }
 \description{
 Distribution of MUAC (overall and by sex)

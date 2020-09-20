@@ -12,7 +12,7 @@ create_op_health_males(svy)
 }
 \value{
 A tibble of male older people indicators on health and
-    health-seeking behaviours
+health-seeking behaviours
 }
 \description{
 Create male older people indicators dataframe for health and health-seeking

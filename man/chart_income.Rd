@@ -25,9 +25,9 @@ a temporary directory and a filename starting with \code{chart}. Ignored if
 }
 \value{
 Bar chart of sources of income by sex in PNG format saved in current
-  working directory or in a specified directory if \code{filename} is a path
-  unless when \code{save_chart} is FALSE in which case chart is shown in
-  current graphics device.
+working directory or in a specified directory if \code{filename} is a path
+unless when \code{save_chart} is FALSE in which case chart is shown in
+current graphics device.
 }
 \description{
 Chart income indicators

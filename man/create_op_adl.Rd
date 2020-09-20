@@ -36,18 +36,18 @@ mobility and instrumental activities of daily living. JAGS, 31(12),
 721-726 \doi{10.1111/j.1532-5415.1983.tb03391.x}}
 
 \describe{
-  \item{\code{ADL01}}{Bathing}
-  \item{\code{ADL02}}{Dressing}
-  \item{\code{ADL03}}{Toileting}
-  \item{\code{ADL04}}{Transferring (mobility)}
-  \item{\code{ADL05}}{Continence}
-  \item{\code{ADL06}}{Feeding}
-  \item{\code{scoreADL}}{ADL Score}
-  \item{\code{classADL1}}{Severity of dependence 1}
-  \item{\code{classADL2}}{Severity of dependence 2}
-  \item{\code{classADL3}}{Severity of dependence 3}
-  \item{\code{hasHelp}}{Have someone to help with everyday activities}
-  \item{\code{unmetNeed}}{Need help but has no helper}
+\item{\code{ADL01}}{Bathing}
+\item{\code{ADL02}}{Dressing}
+\item{\code{ADL03}}{Toileting}
+\item{\code{ADL04}}{Transferring (mobility)}
+\item{\code{ADL05}}{Continence}
+\item{\code{ADL06}}{Feeding}
+\item{\code{scoreADL}}{ADL Score}
+\item{\code{classADL1}}{Severity of dependence 1}
+\item{\code{classADL2}}{Severity of dependence 2}
+\item{\code{classADL3}}{Severity of dependence 3}
+\item{\code{hasHelp}}{Have someone to help with everyday activities}
+\item{\code{unmetNeed}}{Need help but has no helper}
 }
 }
 

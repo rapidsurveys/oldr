@@ -22,41 +22,41 @@ collected using the standard RAM-OP questionnaire
 
 See:
 
-  \url{http://www.washingtongroup-disability.com}
-  \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
+\url{http://www.washingtongroup-disability.com}
+\url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
 
 for details.
 
 \describe{
-  \item{\code{wgVisionD0}}{Vision domain 0}
-  \item{\code{wgVisionD1}}{Vision domain 1}
-  \item{\code{wgVisionD2}}{Vision domain 2}
-  \item{\code{wgVisionD3}}{Vision domain 3}
-  \item{\code{wgHearingD0}}{Hearing domain 0}
-  \item{\code{wgHearingD1}}{Hearing domain 1}
-  \item{\code{wgHearingD2}}{Hearing domain 2}
-  \item{\code{wgHearingD3}}{Hearing domain 3}
-  \item{\code{wgMobilityD0}}{Mobility domain 0}
-  \item{\code{wgMobilityD1}}{Mobility domain 1}
-  \item{\code{wgMobilityD2}}{Mobility domain 2}
-  \item{\code{wgMobilityD3}}{Mobility domain 3}
-  \item{\code{wgRememberingD0}}{Remembering domain 0}
-  \item{\code{wgRememberingD1}}{Remembering domain 1}
-  \item{\code{wgRememberingD2}}{Remembering domain 2}
-  \item{\code{wgRememberingD3}}{Remembering domain 3}
-  \item{\code{wgSelfCareD0}}{Self-care domain 0}
-  \item{\code{wgSelfCareD1}}{Self-care domain 1}
-  \item{\code{wgSelfCareD2}}{Self-care domain 2}
-  \item{\code{wgSelfCareD3}}{Self-care domain 3}
-  \item{\code{wgCommunicatingD0}}{Communication domain 0}
-  \item{\code{wgCommunicatingD1}}{Communication domain 1}
-  \item{\code{wgCommunicatingD2}}{Communication domain 2}
-  \item{\code{wgCommunicatingD3}}{Communication domain 3}
-  \item{\code{wgP0}}{Overall 0}
-  \item{\code{wgP1}}{Overall 1}
-  \item{\code{wgP2}}{Overall 2}
-  \item{\code{wgP3}}{Overall 3}
-  \item{\code{wgPM}}{Any disability}
+\item{\code{wgVisionD0}}{Vision domain 0}
+\item{\code{wgVisionD1}}{Vision domain 1}
+\item{\code{wgVisionD2}}{Vision domain 2}
+\item{\code{wgVisionD3}}{Vision domain 3}
+\item{\code{wgHearingD0}}{Hearing domain 0}
+\item{\code{wgHearingD1}}{Hearing domain 1}
+\item{\code{wgHearingD2}}{Hearing domain 2}
+\item{\code{wgHearingD3}}{Hearing domain 3}
+\item{\code{wgMobilityD0}}{Mobility domain 0}
+\item{\code{wgMobilityD1}}{Mobility domain 1}
+\item{\code{wgMobilityD2}}{Mobility domain 2}
+\item{\code{wgMobilityD3}}{Mobility domain 3}
+\item{\code{wgRememberingD0}}{Remembering domain 0}
+\item{\code{wgRememberingD1}}{Remembering domain 1}
+\item{\code{wgRememberingD2}}{Remembering domain 2}
+\item{\code{wgRememberingD3}}{Remembering domain 3}
+\item{\code{wgSelfCareD0}}{Self-care domain 0}
+\item{\code{wgSelfCareD1}}{Self-care domain 1}
+\item{\code{wgSelfCareD2}}{Self-care domain 2}
+\item{\code{wgSelfCareD3}}{Self-care domain 3}
+\item{\code{wgCommunicatingD0}}{Communication domain 0}
+\item{\code{wgCommunicatingD1}}{Communication domain 1}
+\item{\code{wgCommunicatingD2}}{Communication domain 2}
+\item{\code{wgCommunicatingD3}}{Communication domain 3}
+\item{\code{wgP0}}{Overall 0}
+\item{\code{wgP1}}{Overall 1}
+\item{\code{wgP2}}{Overall 2}
+\item{\code{wgP3}}{Overall 3}
+\item{\code{wgPM}}{Any disability}
 }
 }
 

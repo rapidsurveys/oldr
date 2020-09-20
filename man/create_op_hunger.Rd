@@ -28,9 +28,9 @@ FANTA-2 Bridge, FHI 360
 \url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}}
 
 \describe{
-  \item{\code{HHS1}}{Little or no hunger in household}
-  \item{\code{HHS2}}{Moderate hunger in household}
-  \item{\code{HHS3}}{Severe hunger in household}
+\item{\code{HHS1}}{Little or no hunger in household}
+\item{\code{HHS2}}{Moderate hunger in household}
+\item{\code{HHS3}}{Severe hunger in household}
 }
 }
 

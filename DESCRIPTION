@@ -31,11 +31,13 @@ Suggests:
     dplyr,
     magrittr,
     knitr,
-    kableExtra
+    kableExtra,
+    spelling
 Encoding: UTF-8
 LazyData: true
-Language: en-gb
+Language: en-GB
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
-URL: https://github.com/rapidsurveys/oldr, https://rapidsurveys.io/oldr
+URL: https://github.com/rapidsurveys/oldr
 BugReports: https://github.com/rapidsurveys/oldr/issues

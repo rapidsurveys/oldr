@@ -1,5 +1,5 @@
 
-test <- estimate_classic(x = indicators.ALL, w = testPSU, replicates = 19)
+test <- estimate_classic(x = indicators.ALL, w = testPSU, replicates = 9)
 
 test_that("output has 136 rows", {
   expect_equal(nrow(test), 136)

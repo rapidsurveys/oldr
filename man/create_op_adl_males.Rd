@@ -12,7 +12,7 @@ create_op_adl_males(svy)
 }
 \value{
 A dataframe of male older people indicators on activities of daily
-    living
+living
 }
 \description{
 Create male older people indicators dataframe for activities of daily

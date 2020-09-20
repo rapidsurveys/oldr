@@ -28,8 +28,8 @@ and trends in non-specific psychological distress. Psychological
 Medicine, 32(6), 959–976 \doi{10.1017/S0033291702006074}}
 
 \describe{
-  \item{\code{K6}}{K6 score}
-  \item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
+\item{\code{K6}}{K6 score}
+\item{\code{K6Case}}{K6 score > 12  (in serious psychological distress)}
 }
 }
 

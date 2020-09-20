@@ -29,7 +29,7 @@ for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 899–907 \doi{10.1002/gps.2622}}
 
 \describe{
-  \item{\code{DS}}{Probable dementia by CSID screen}
+\item{\code{DS}}{Probable dementia by CSID screen}
 }
 }
 

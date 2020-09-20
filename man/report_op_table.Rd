@@ -17,7 +17,7 @@ Defaults to a path to a temporary directory with a filename starting with
 }
 \value{
 Report of tabulated estimated results saved in CSV format in current
-    working directory or in the specified path
+working directory or in the specified path
 }
 \description{
 Create table of RAM-OP results

@@ -32,7 +32,7 @@ a temporary directory and a filename \code{ramOPreport}.}
 }
 \value{
 An ODT in the working directory or if filename is a path,
-  to a specified directory.
+to a specified directory.
 }
 \description{
 Create a ODT report document containing RAM-OP survey results
