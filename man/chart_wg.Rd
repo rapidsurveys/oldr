@@ -18,9 +18,9 @@ a working directory and a filename starting with \code{chart}. Ignored if
 }
 \value{
 Bar plot of Disability Score in PNG format saved in current working
-    directory or in a specified directory if \code{filename} is a path
-    unless when \code{save_chart} is FALSE in which case chart is shown in
-    current graphic device.
+directory or in a specified directory if \code{filename} is a path
+unless when \code{save_chart} is FALSE in which case chart is shown in
+current graphic device.
 }
 \description{
 Chart disability (Washington Group - WG) indicators

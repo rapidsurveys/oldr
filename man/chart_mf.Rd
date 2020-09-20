@@ -18,9 +18,9 @@ if \code{save_chart} is FALSE.}
 }
 \value{
 Barplot of meal frequency in PNG format saved in current working
-    directory or in a specified directory if \code{filename} is a path unless
-    when \code{save_chart} is FALSE in which case chart is shown in current
-    graphics device.
+directory or in a specified directory if \code{filename} is a path unless
+when \code{save_chart} is FALSE in which case chart is shown in current
+graphics device.
 }
 \description{
 Distribution of meal frequency (overall and by sex)

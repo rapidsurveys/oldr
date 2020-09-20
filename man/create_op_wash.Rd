@@ -12,7 +12,7 @@ create_op_wash(svy)
 }
 \value{
 A tibble of older people indicators on water, sanitation and
-    hygiene
+hygiene
 }
 \description{
 Create older people indicators dataframe for water, sanitation and hygiene

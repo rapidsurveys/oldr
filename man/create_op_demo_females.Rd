@@ -12,7 +12,7 @@ create_op_demo_females(svy)
 }
 \value{
 A dataframe of female older people indicators on demography and
-    situation
+situation
 }
 \description{
 Create female older people indicators dataframe for demography and situation

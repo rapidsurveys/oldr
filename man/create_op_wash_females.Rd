@@ -12,7 +12,7 @@ create_op_wash_females(svy)
 }
 \value{
 A tibble of female older people indicators on water, sanitation
-    and hygiene
+and hygiene
 }
 \description{
 Create female older people indicators dataframe for water, sanitation and

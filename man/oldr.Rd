@@ -21,17 +21,17 @@ and at considerably lower cost than other methods.
 The \strong{RAM-OP} method is based on the following principles:
 
 \enumerate{
-  \item Use of a familiar *“household survey”* design employing a two-stage
-    cluster sample design optimised to allow the use of a small primary sample
-    (\eqn{m \geq 16} clusters) and a small overall (\eqn{n \geq 192}) sample.
+\item Use of a familiar \emph{“household survey”} design employing a two-stage
+cluster sample design optimised to allow the use of a small primary sample
+(\eqn{m \geq 16} clusters) and a small overall (\eqn{n \geq 192}) sample.
 
-  \item Assessment of multiple dimensions of need in older people (including
-    prevalence of global, moderate and severe acute malnutrition) using,
-    whenever possible, standard and well-tested indicators and question sets.
+\item Assessment of multiple dimensions of need in older people (including
+prevalence of global, moderate and severe acute malnutrition) using,
+whenever possible, standard and well-tested indicators and question sets.
 
-  \item Data analysis performed using modern computer-intensive methods to
-    allow estimates of indicator levels to be made with useful precision using
-    a small sample size.
+\item Data analysis performed using modern computer-intensive methods to
+allow estimates of indicator levels to be made with useful precision using
+a small sample size.
 }
 
 See the README at \href{https://github.com/rapidsurveys/oldr#readme}{GitHub}
@@ -41,7 +41,6 @@ for further details
 Useful links:
 \itemize{
   \item \url{https://github.com/rapidsurveys/oldr}
-  \item \url{https://rapidsurveys.io/oldr}
   \item Report bugs at \url{https://github.com/rapidsurveys/oldr/issues}
 }
 
