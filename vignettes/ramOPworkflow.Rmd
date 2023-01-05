@@ -336,9 +336,8 @@ list.files(path = tempdir())
 and will look something like this:
 
 ```{r showChart, echo = FALSE, eval = TRUE, out.width = "85%", fig.align = "center"}
-knitr::include_graphics(path = paste(tempdir(), "test.ADL.png", sep = "/"))
-#chart_adl(x = create_op_all(testSVY), 
-#          save_chart = FALSE)
+#knitr::include_graphics(path = "man/figures/test.ADL.png")
+chart_adl(x = create_op_all(testSVY), save_chart = FALSE)
 ```
 
 ## Reporting estimates

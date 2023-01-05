@@ -40,6 +40,7 @@ for further details
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://rapidsurveys.io/oldr/}
   \item \url{https://github.com/rapidsurveys/oldr}
   \item Report bugs at \url{https://github.com/rapidsurveys/oldr/issues}
 }

@@ -3,19 +3,25 @@ title: oldr
 url: https://rapidsurveys.io/oldr
 
 template:
-  params:
-    bootswatch: sandstone
-    ganalytics: UA-155093086-2
+  bootstrap: 5
+  bootswatch: united
+  theme: haddock
+  ganalytics: UA-155093086-2
 
 navbar:
+  bg: primary
+  type: light
   structure:
-    left: [home, intro, reference, articles, news]
-    right: [twitter, github]
+    left:  [home, intro, reference, articles, news]
+    right: [twitter, linkedin, github]
 
   components:
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: http://twitter.com/katilingban
+    linkedin:
+      icon: "fab fa-linkedin fa-lg"
+      href: https://www.linkedin.com/company/katilingban
 
 home:
   links:
@@ -32,10 +38,6 @@ home:
     href: https://rapidsurveys.io/
 
 reference:
-  - title: Description
-    contents:
-    - oldr
-
   - title: Create indicators
     contents:
     - create_op_all
