@@ -17,9 +17,8 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
+[![DOI](https://zenodo.org/badge/105472081.svg)](https://zenodo.org/badge/latestdoi/105472081)
 <!-- Badges end here-->
-
-<!-- [![cran checks](https://cranchecks.info/badges/summary/oldr)](https://cran.r-project.org/web/checks/check_results_oldr.html) -->
 
 [HelpAge International](http://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton
@@ -95,7 +94,7 @@ citation("oldr")
 #> 
 #>   Ernest Guevarra (2023). oldr: An Implementation of Rapid Assessment
 #>   Method for Older People R package version 0.1.0.9000 URL
-#>   https://rapidsurveys.io/oldr/
+#>   https://rapidsurveys.io/oldr/ DOI 10.5281/zenodo.7505731
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -105,6 +104,7 @@ citation("oldr")
 #>     year = {2023},
 #>     note = {R package version 0.1.0.9000},
 #>     url = {https://rapidsurveys.io/oldr/},
+#>     doi = {10.5281/zenodo.7505731},
 #>   }
 ```
 

@@ -7,10 +7,12 @@ citEntry(
   year     = "2023",
   note     = "R package version 0.1.0.9000",
   url      = "https://rapidsurveys.io/oldr/",
+  doi      = "10.5281/zenodo.7505731",
   textVersion = paste(
     "Ernest Guevarra (2023).",
     "oldr: An Implementation of Rapid Assessment Method for Older People",
     "R package version 0.1.0.9000",
-    "URL https://rapidsurveys.io/oldr/"
+    "URL https://rapidsurveys.io/oldr/",
+    "DOI 10.5281/zenodo.7505731"
   )
 )
