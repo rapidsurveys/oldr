@@ -17,3 +17,5 @@
 ^cran-comments\.md$
 ^\.github$
 ^CRAN-RELEASE$
+^pkgdown$
+^CODE_OF_CONDUCT\.md$

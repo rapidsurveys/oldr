@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rapidsurveys.io/oldr/404.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/articles/oldr.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/articles/ramOPworkflow.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/authors.html</loc>
+  </url>
+  <url>
     <loc>https://rapidsurveys.io/oldr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartADL.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartAge.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartCSID.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartDDS.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartHHS.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartIncome.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartK6.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartMF.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartMUAC.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartWASH.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/chartWG.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/chart_adl.html</loc>
@@ -175,6 +235,12 @@
     <loc>https://rapidsurveys.io/oldr/reference/create_op_wash_males.html</loc>
   </url>
   <url>
+    <loc>https://rapidsurveys.io/oldr/reference/estimateClassic.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/estimateProbit.html</loc>
+  </url>
+  <url>
     <loc>https://rapidsurveys.io/oldr/reference/estimate_classic.html</loc>
   </url>
   <url>
@@ -190,6 +256,9 @@
     <loc>https://rapidsurveys.io/oldr/reference/get_variables.html</loc>
   </url>
   <url>
+    <loc>https://rapidsurveys.io/oldr/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://rapidsurveys.io/oldr/reference/indicators.ALL.html</loc>
   </url>
   <url>
@@ -197,6 +266,9 @@
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/indicators.MALES.html</loc>
+  </url>
+  <url>
+    <loc>https://rapidsurveys.io/oldr/reference/mergeEstimates.html</loc>
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/merge_estimates.html</loc>
@@ -259,6 +331,9 @@
     <loc>https://rapidsurveys.io/oldr/reference/report_op_oedema.html</loc>
   </url>
   <url>
+    <loc>https://rapidsurveys.io/oldr/reference/report_op_pdf.html</loc>
+  </url>
+  <url>
     <loc>https://rapidsurveys.io/oldr/reference/report_op_screen.html</loc>
   </url>
   <url>
@@ -275,11 +350,5 @@
   </url>
   <url>
     <loc>https://rapidsurveys.io/oldr/reference/testSVY.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/articles/oldr.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/articles/ramOPworkflow.html</loc>
   </url>
 </urlset>
