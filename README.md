@@ -47,11 +47,17 @@ based on the following principles:
 
 ## Installation
 
+<!---
 You can install `oldr` from [CRAN](https://cran.r-project.org) with:
 
-``` r
+
+```r
 install.packages("oldr")
 ```
+--->
+
+The `oldr` package is still in active development and not yet available
+on [CRAN](https://cran.r-project.org/).
 
 You can install the development version of `oldr` from
 [GitHub](https://github.com/rapidsurveys/oldr) with:
