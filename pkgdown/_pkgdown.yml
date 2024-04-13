@@ -1,6 +1,9 @@
 title: oldr
 
-url: https://rapidsurveys.io/oldr
+url: https://rapidsurveys.io/oldr/
+
+development:
+  mode: auto
 
 template:
   bootstrap: 5
@@ -9,19 +12,26 @@ template:
   ganalytics: UA-155093086-2
 
 navbar:
-  bg: primary
+  bg: danger
   type: light
   structure:
     left:  [home, intro, reference, articles, news]
-    right: [twitter, linkedin, github]
-
+    right: [mastodon, linkedin, github]
   components:
-    twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/katilingban
+    articles:
+      text: Articles
+      menu:
+      - text: "The RAM-OP Workflow"
+        href: articles/ram_op_workflow.html
+    mastodon:
+      icon: "fab fa-mastodon fa-lg"
+      href: https://fosstodon.org/@katilingban
     linkedin:
       icon: "fab fa-linkedin fa-lg"
       href: https://www.linkedin.com/company/katilingban
+    github:
+      icon: "fab fa-github fa-lg"
+      href: https://github.com/katilingban
 
 home:
   links:
