@@ -7,12 +7,9 @@
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
-[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
-[![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![R-CMD-check](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml)
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
@@ -47,17 +44,11 @@ based on the following principles:
 
 ## Installation
 
-<!---
 You can install `oldr` from [CRAN](https://cran.r-project.org) with:
 
-
-```r
+``` r
 install.packages("oldr")
 ```
---->
-
-The `oldr` package is still in active development and not yet available
-on [CRAN](https://cran.r-project.org/).
 
 You can install the development version of `oldr` from
 [GitHub](https://github.com/rapidsurveys/oldr) with:
@@ -89,19 +80,20 @@ citation provided by a call to the `citation` function as follows:
 
 ``` r
 citation("oldr")
-#> 
 #> To cite oldr in publications use:
 #> 
-#>   Ernest Guevarra (2023). oldr: An Implementation of Rapid Assessment
-#>   Method for Older People R package version 0.1.0.9000 URL
-#>   https://rapidsurveys.io/oldr/ DOI 10.5281/zenodo.7505731
+#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2024).
+#>   _oldr: An Implementation of Rapid Assessment Method for Older
+#>   People_. doi:10.5281/zenodo.7505731
+#>   <https://doi.org/10.5281/zenodo.7505731>, R package version
+#>   0.1.0.9000, <https://rapidsurveys.io/oldr/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {oldr: An Implementation of Rapid Assessment Method for Older People},
 #>     author = {{Mark Myatt} and {Ernest Guevarra} and {Pascale Fritsch} and {Katja Siling}},
-#>     year = {2023},
+#>     year = {2024},
 #>     note = {R package version 0.1.0.9000},
 #>     url = {https://rapidsurveys.io/oldr/},
 #>     doi = {10.5281/zenodo.7505731},
@@ -116,5 +108,5 @@ would like to contribute to the package, please see our [contributing
 guidelines](https://rapidsurveys.io/oldr/CONTRIBUTING.html).
 
 This project is released with a [Contributor Code of
-Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+Conduct](https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.

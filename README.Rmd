@@ -18,11 +18,8 @@ knitr::opts_chunk$set(
 # oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- Badges start here-->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
-[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
-[![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![R-CMD-check](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml)
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
@@ -40,15 +37,11 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-<!---
 You can install `oldr` from [CRAN](https://cran.r-project.org) with:
 
 ```{r install-cran, echo = TRUE, eval = FALSE}
 install.packages("oldr")
 ```
---->
-
-The `oldr` package is still in active development and not yet available on [CRAN](https://cran.r-project.org/).
 
 You can install the development version of `oldr` from [GitHub](https://github.com/rapidsurveys/oldr) with:
 
@@ -187,4 +180,4 @@ citation("oldr")
 
 Feedback, bug reports, and feature requests are welcome; file issues or seek support [here](https://github.com/rapidsurveys/oldr/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://rapidsurveys.io/oldr/CONTRIBUTING.html).
 
-This project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+This project is released with a [Contributor Code of Conduct](https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
