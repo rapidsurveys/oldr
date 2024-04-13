@@ -2,8 +2,8 @@
 % Please edit documentation in R/00-oldr.R
 \docType{package}
 \name{oldr}
-\alias{oldr}
 \alias{oldr-package}
+\alias{oldr}
 \title{An Implementation of Rapid Assessment Method for Older People (RAM-OP)}
 \description{
 \href{http://www.helpage.org}{HelpAge International},
