@@ -25,7 +25,7 @@ Imports:
     tibble,
     rmarkdown
 Suggests: 
-    testthat,
+    testthat (>= 3.0.0),
     covr,
     DiagrammeR,
     dplyr,
@@ -41,3 +41,4 @@ RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 URL: https://rapidsurveys.io/oldr/, https://github.com/rapidsurveys/oldr
 BugReports: https://github.com/rapidsurveys/oldr/issues
+Config/testthat/edition: 3
