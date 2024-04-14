@@ -1,0 +1,11 @@
+pandoc: 3.1.11
+pkgdown: 2.0.8
+pkgdown_sha: ~
+articles:
+  oldr: oldr.html
+  ram_op_workflow: ram_op_workflow.html
+last_built: 2024-04-14T05:51Z
+urls:
+  reference: https://rapidsurveys.io/oldr/reference
+  article: https://rapidsurveys.io/oldr/articles
+
