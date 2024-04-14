@@ -6,7 +6,7 @@
 \alias{oldr}
 \title{An Implementation of Rapid Assessment Method for Older People (RAM-OP)}
 \description{
-\href{http://www.helpage.org}{HelpAge International},
+\href{https://www.helpage.org/}{HelpAge International},
 \href{http://www.validinternational.org}{VALID International}, and
 \href{http://www.brixtonhealth.com}{Brixton Health}, with financial
 assistance from the

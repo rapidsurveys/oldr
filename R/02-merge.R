@@ -64,5 +64,5 @@ merge_estimates <- function(x, y, prop2percent = FALSE) {
   estimates <- tibble::tibble(estimates)
 
   ## Return
-  return(estimates)
+  estimates
 }

@@ -162,5 +162,5 @@ estimate_probit <- function(x,
   probitEstimates <- tibble::tibble(probitEstimates)
 
   ## Return probitEstimates
-  return(probitEstimates)
+  probitEstimates
 }

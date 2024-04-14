@@ -115,5 +115,5 @@ estimate_classic  <- function(x,
   classicEstimates <- tibble::tibble(classicEstimates)
 
   ## Return results
-  return(classicEstimates)
+  classicEstimates
 }

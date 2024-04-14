@@ -28,5 +28,5 @@ fullTable <- function(x, values) {
   }
   tab[is.na(tab)] <- 0
   names(tab) <- as.character(values)
-  return(tab)
+  tab
 }

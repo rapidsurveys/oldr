@@ -48,7 +48,7 @@ probit_gam <- function(x, params, threshold = 210) {
   x <- stats::pnorm(q = threshold, mean = m, sd = s)
 
   ## Return x
-  return(x)
+  x
 }
 
 
@@ -102,5 +102,5 @@ probit_sam <- function(x, params, threshold = 185) {
   x <- stats::pnorm(q = threshold, mean = m, sd = s)
 
   ## Return x
-  return(x)
+  x
 }

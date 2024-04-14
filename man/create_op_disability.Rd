@@ -22,7 +22,7 @@ collected using the standard RAM-OP questionnaire
 
 See:
 
-\url{http://www.washingtongroup-disability.com}
+\url{https://www.washingtongroup-disability.com}
 \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
 
 for details.

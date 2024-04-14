@@ -81,7 +81,7 @@ create_op_demo <- function(svy) {
   demo.indicators.ALL <- tibble::tibble(demo.indicators.ALL)
 
   ## Return results
-  return(demo.indicators.ALL)
+  demo.indicators.ALL
 }
 
 
@@ -111,7 +111,7 @@ create_op_demo <- function(svy) {
 create_op_demo_males <- function(svy) {
   x <- create_op_demo(svy = svy)
   demo.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(demo.indicators.MALES)
+  demo.indicators.MALES
 }
 
 
@@ -139,7 +139,7 @@ create_op_demo_males <- function(svy) {
 create_op_demo_females <- function(svy) {
   x <- create_op_demo(svy = svy)
   demo.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(demo.indicators.FEMALES)
+  demo.indicators.FEMALES
 }
 
 
@@ -155,7 +155,7 @@ create_op_demo_females <- function(svy) {
 #'
 #' \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
 #' and Individual Dietary Diversity. Rome, FAO
-#' \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+#' \url{https://www.fao.org/3/i1983e/i1983e00.htm}}
 #'
 #' and extended to include indicators of probable adequate intake of a number of
 #' nutrients / micronutrients.
@@ -303,7 +303,7 @@ create_op_food <- function(svy) {
   food.indicators.ALL <- tibble::tibble(food.indicators.ALL)
 
   ## Return results
-  return(food.indicators.ALL)
+  food.indicators.ALL
 }
 
 
@@ -330,7 +330,7 @@ create_op_food <- function(svy) {
 create_op_food_males <- function(svy) {
   x <- create_op_food(svy = svy)
   food.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(food.indicators.MALES)
+  food.indicators.MALES
 }
 
 
@@ -357,7 +357,7 @@ create_op_food_males <- function(svy) {
 create_op_food_females <- function(svy) {
   x <- create_op_food(svy = svy)
   food.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(food.indicators.FEMALES)
+  food.indicators.FEMALES
 }
 
 
@@ -418,7 +418,7 @@ create_op_hunger <- function(svy) {
   hunger.indicators.ALL <- tibble::tibble(hunger.indicators.ALL)
 
   ## Return results
-  return(hunger.indicators.ALL)
+  hunger.indicators.ALL
 }
 
 
@@ -445,7 +445,7 @@ create_op_hunger <- function(svy) {
 create_op_hunger_males <- function(svy) {
   x <- create_op_hunger(svy = svy)
   food.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(food.indicators.MALES)
+  food.indicators.MALES
 }
 
 
@@ -472,7 +472,7 @@ create_op_hunger_males <- function(svy) {
 create_op_hunger_females <- function(svy) {
   x <- create_op_hunger(svy = svy)
   food.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(food.indicators.FEMALES)
+  food.indicators.FEMALES
 }
 
 
@@ -576,7 +576,7 @@ create_op_adl <- function(svy) {
   adl.indicators.ALL <- tibble::tibble(adl.indicators.ALL)
 
   ## Return results
-  return(adl.indicators.ALL)
+  adl.indicators.ALL
 }
 
 
@@ -604,7 +604,7 @@ create_op_adl <- function(svy) {
 create_op_adl_males <- function(svy) {
   x <- create_op_adl(svy = svy)
   adl.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(adl.indicators.MALES)
+  adl.indicators.MALES
 }
 
 
@@ -632,7 +632,7 @@ create_op_adl_males <- function(svy) {
 create_op_adl_females <- function(svy) {
   x <- create_op_adl(svy = svy)
   adl.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(adl.indicators.FEMALES)
+  adl.indicators.FEMALES
 }
 
 
@@ -645,7 +645,7 @@ create_op_adl_females <- function(svy) {
 #'
 #' See:
 #'
-#'   \url{http://www.washingtongroup-disability.com}
+#'   \url{https://www.washingtongroup-disability.com}
 #'   \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
 #'
 #' for details.
@@ -783,7 +783,7 @@ create_op_disability <- function(svy) {
   disability.indicators.ALL <- tibble::tibble(disability.indicators.ALL)
 
   # Return results
-  return(disability.indicators.ALL)
+  disability.indicators.ALL
 }
 
 
@@ -810,7 +810,7 @@ create_op_disability <- function(svy) {
 create_op_disability_males <- function(svy) {
   x <- create_op_disability(svy = svy)
   disability.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(disability.indicators.MALES)
+  disability.indicators.MALES
 }
 
 
@@ -837,7 +837,7 @@ create_op_disability_males <- function(svy) {
 create_op_disability_females <- function(svy) {
   x <- create_op_disability(svy = svy)
   disability.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(disability.indicators.FEMALES)
+  disability.indicators.FEMALES
 }
 
 
@@ -913,7 +913,7 @@ create_op_mental <- function(svy) {
   mental.indicators.ALL <- tibble::tibble(mental.indicators.ALL)
 
   ## Return results
-  return(mental.indicators.ALL)
+  mental.indicators.ALL
 }
 
 
@@ -940,7 +940,7 @@ create_op_mental <- function(svy) {
 create_op_mental_males <- function(svy) {
   x <- create_op_mental(svy = svy)
   mental.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(mental.indicators.MALES)
+  mental.indicators.MALES
 }
 
 
@@ -967,7 +967,7 @@ create_op_mental_males <- function(svy) {
 create_op_mental_females <- function(svy) {
   x <- create_op_mental(svy = svy)
   mental.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(mental.indicators.FEMALES)
+  mental.indicators.FEMALES
 }
 
 
@@ -1038,7 +1038,7 @@ create_op_dementia <- function(svy) {
   dementia.indicators.ALL <- tibble::tibble(dementia.indicators.ALL)
 
   ## Return results
-  return(dementia.indicators.ALL)
+  dementia.indicators.ALL
 }
 
 
@@ -1065,7 +1065,7 @@ create_op_dementia <- function(svy) {
 create_op_dementia_males <- function(svy) {
   x <- create_op_dementia(svy = svy)
   dementia.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(dementia.indicators.MALES)
+  dementia.indicators.MALES
 }
 
 
@@ -1092,7 +1092,7 @@ create_op_dementia_males <- function(svy) {
 create_op_dementia_females <- function(svy) {
   x <- create_op_dementia(svy = svy)
   dementia.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(dementia.indicators.FEMALES)
+  dementia.indicators.FEMALES
 }
 
 
@@ -1197,7 +1197,7 @@ create_op_health <- function(svy) {
   health.indicators.ALL <- tibble::tibble(health.indicators.ALL)
 
   # Return results
-  return(health.indicators.ALL)
+  health.indicators.ALL
 }
 
 
@@ -1225,7 +1225,7 @@ create_op_health <- function(svy) {
 create_op_health_males <- function(svy) {
   x <- create_op_health(svy = svy)
   health.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(health.indicators.MALES)
+  health.indicators.MALES
 }
 
 
@@ -1253,7 +1253,7 @@ create_op_health_males <- function(svy) {
 create_op_health_females <- function(svy) {
   x <- create_op_health(svy = svy)
   health.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(health.indicators.FEMALES)
+  health.indicators.FEMALES
 }
 
 
@@ -1327,7 +1327,7 @@ create_op_income <- function(svy) {
   income.indicators.ALL <- tibble::tibble(income.indicators.ALL)
 
   ## Return results
-  return(income.indicators.ALL)
+  income.indicators.ALL
 }
 
 
@@ -1354,7 +1354,7 @@ create_op_income <- function(svy) {
 create_op_income_males <- function(svy) {
   x <- create_op_income(svy = svy)
   income.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(income.indicators.MALES)
+  income.indicators.MALES
 }
 
 
@@ -1381,7 +1381,7 @@ create_op_income_males <- function(svy) {
 create_op_income_females <- function(svy) {
   x <- create_op_income(svy = svy)
   income.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(income.indicators.FEMALES)
+  income.indicators.FEMALES
 }
 
 
@@ -1393,10 +1393,8 @@ create_op_income_females <- function(svy) {
 #' @section Water, sanitation and hygiene (WASH) indicators:
 #'
 #' These are a (core) subset of indicators from:
+#' <https://washdata.org/monitoring/methods/core-questions>
 #'
-#' \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
-#' for Household Surveys. Geneva, WHO / UNICEF
-#' \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
 #'
 #' \describe{
 #' \item{\code{W1}}{Improved source of drinking water}
@@ -1453,7 +1451,7 @@ create_op_wash <- function(svy) {
   wash.indicators.ALL <- tibble::tibble(wash.indicators.ALL)
 
   ## Return results
-  return(wash.indicators.ALL)
+  wash.indicators.ALL
 }
 
 
@@ -1481,7 +1479,7 @@ create_op_wash <- function(svy) {
 create_op_wash_males <- function(svy) {
   x <- create_op_wash(svy = svy)
   wash.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(wash.indicators.MALES)
+  wash.indicators.MALES
 }
 
 
@@ -1509,7 +1507,7 @@ create_op_wash_males <- function(svy) {
 create_op_wash_females <- function(svy) {
   x <- create_op_wash(svy = svy)
   wash.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(wash.indicators.FEMALES)
+  wash.indicators.FEMALES
 }
 
 
@@ -1561,7 +1559,7 @@ create_op_anthro <- function(svy) {
   anthro.indicators.ALL <- tibble::tibble(anthro.indicators.ALL)
 
   ## Return results
-  return(anthro.indicators.ALL)
+  anthro.indicators.ALL
 }
 
 
@@ -1588,7 +1586,7 @@ create_op_anthro <- function(svy) {
 create_op_anthro_males <- function(svy) {
   x <- create_op_anthro(svy = svy)
   anthro.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(anthro.indicators.MALES)
+  anthro.indicators.MALES
 }
 
 
@@ -1615,7 +1613,7 @@ create_op_anthro_males <- function(svy) {
 create_op_anthro_females <- function(svy) {
   x <- create_op_anthro(svy = svy)
   anthro.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(anthro.indicators.FEMALES)
+  anthro.indicators.FEMALES
 }
 
 
@@ -1667,7 +1665,7 @@ create_op_oedema <- function(svy) {
   oedema.indicators.ALL <- tibble::tibble(oedema.indicators.ALL)
 
   ## Return results
-  return(oedema.indicators.ALL)
+  oedema.indicators.ALL
 }
 
 
@@ -1694,7 +1692,7 @@ create_op_oedema <- function(svy) {
 create_op_oedema_males <- function(svy) {
   x <- create_op_oedema(svy = svy)
   oedema.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(oedema.indicators.MALES)
+  oedema.indicators.MALES
 }
 
 
@@ -1721,7 +1719,7 @@ create_op_oedema_males <- function(svy) {
 create_op_oedema_females <- function(svy) {
   x <- create_op_oedema(svy = svy)
   oedema.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(oedema.indicators.FEMALES)
+  oedema.indicators.FEMALES
 }
 
 
@@ -1771,7 +1769,7 @@ create_op_screening <- function(svy) {
   screening.indicators.ALL <- tibble::tibble(screening.indicators.ALL)
 
   # Return results
-  return(screening.indicators.ALL)
+  screening.indicators.ALL
 }
 
 
@@ -1798,7 +1796,7 @@ create_op_screening <- function(svy) {
 create_op_screening_males <- function(svy) {
   x <- create_op_screening(svy = svy)
   screening.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(screening.indicators.MALES)
+  screening.indicators.MALES
 }
 
 
@@ -1825,7 +1823,7 @@ create_op_screening_males <- function(svy) {
 create_op_screening_females <- function(svy) {
   x <- create_op_screening(svy = svy)
   screening.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(screening.indicators.FEMALES)
+  screening.indicators.FEMALES
 }
 
 
@@ -1887,7 +1885,7 @@ create_op_visual <- function(svy) {
   visual.indicators.ALL <- tibble::tibble(visual.indicators.ALL)
 
   ## Return results
-  return(visual.indicators.ALL)
+  visual.indicators.ALL
 }
 
 
@@ -1914,7 +1912,7 @@ create_op_visual <- function(svy) {
 create_op_visual_males <- function(svy) {
   x <- create_op_visual(svy = svy)
   visual.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(visual.indicators.MALES)
+  visual.indicators.MALES
 }
 
 
@@ -1941,7 +1939,7 @@ create_op_visual_males <- function(svy) {
 create_op_visual_females <- function(svy) {
   x <- create_op_visual(svy = svy)
   visual.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(visual.indicators.FEMALES)
+  visual.indicators.FEMALES
 }
 
 
@@ -1995,7 +1993,7 @@ create_op_misc <- function(svy) {
   misc.indicators.ALL <- tibble::tibble(misc.indicators.ALL)
 
   ## Return results
-  return(misc.indicators.ALL)
+  misc.indicators.ALL
 }
 
 
@@ -2022,7 +2020,7 @@ create_op_misc <- function(svy) {
 create_op_misc_males <- function(svy) {
   x <- create_op_misc(svy = svy)
   misc.indicators.MALES <- subset(x, x$sex1 == 1)
-  return(misc.indicators.MALES)
+  misc.indicators.MALES
 }
 
 
@@ -2049,7 +2047,7 @@ create_op_misc_males <- function(svy) {
 create_op_misc_females <- function(svy) {
   x <- create_op_misc(svy = svy)
   misc.indicators.FEMALES <- subset(x, x$sex2 == 1)
-  return(misc.indicators.FEMALES)
+  misc.indicators.FEMALES
 }
 
 
@@ -2206,7 +2204,7 @@ create_op_all <- function(svy,
   }
 
   ## Return indicators
-  return(indicators)
+  indicators
 }
 
 
@@ -2959,8 +2957,7 @@ createOP <- function(svy) {
     wgSelfCareD0, wgSelfCareD1, wgSelfCareD2, wgSelfCareD3,
     wgCommunicatingD0, wgCommunicatingD1, wgCommunicatingD2, wgCommunicatingD3,
     wgP0, wgP1, wgP2, wgP3, wgPM)
-  #
-  #
-  #
-  return(indicators.ALL)
+
+  ## Return indicators.ALL
+  indicators.ALL
 }
