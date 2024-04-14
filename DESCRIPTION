@@ -9,7 +9,7 @@ Authors@R: c(
     person("Pascale", "Fritsch", role = "aut"),
     person("Katja", "Siling", role = "aut"))
 Description: An implementation of the Rapid Assessment Method for Older People
-    or RAM-OP <https://www.helpage.org/what-we-do/emergencies/ramop-rapid-assessment-method-for-older-people/>. 
+    or RAM-OP <https://www.helpage.org/resource/rapid-assessment-method-for-older-people-ramop-manual/>. 
     It provides various functions that allow the user to design and plan the 
     assessment and analyse the collected data. RAM-OP provides accurate and 
     reliable estimates of the needs of older people. The method uses simple 

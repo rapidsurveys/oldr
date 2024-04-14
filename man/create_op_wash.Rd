@@ -22,10 +22,7 @@ from survey data collected using the standard RAM-OP questionnaire.
 
 
 These are a (core) subset of indicators from:
-
-\cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
-for Household Surveys. Geneva, WHO / UNICEF
-\url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
+\url{https://washdata.org/monitoring/methods/core-questions}
 
 \describe{
 \item{\code{W1}}{Improved source of drinking water}

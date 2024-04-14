@@ -25,7 +25,7 @@ the basic approach used is described in:
 
 \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
 and Individual Dietary Diversity. Rome, FAO
-\url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+\url{https://www.fao.org/3/i1983e/i1983e00.htm}}
 
 and extended to include indicators of probable adequate intake of a number of
 nutrients / micronutrients.

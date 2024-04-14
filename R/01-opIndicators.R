@@ -155,7 +155,7 @@ create_op_demo_females <- function(svy) {
 #'
 #' \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring Household
 #' and Individual Dietary Diversity. Rome, FAO
-#' \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+#' \url{https://www.fao.org/3/i1983e/i1983e00.htm}}
 #'
 #' and extended to include indicators of probable adequate intake of a number of
 #' nutrients / micronutrients.
@@ -645,7 +645,7 @@ create_op_adl_females <- function(svy) {
 #'
 #' See:
 #'
-#'   \url{http://www.washingtongroup-disability.com}
+#'   \url{https://www.washingtongroup-disability.com}
 #'   \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
 #'
 #' for details.
@@ -1393,10 +1393,8 @@ create_op_income_females <- function(svy) {
 #' @section Water, sanitation and hygiene (WASH) indicators:
 #'
 #' These are a (core) subset of indicators from:
+#' <https://washdata.org/monitoring/methods/core-questions>
 #'
-#' \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
-#' for Household Surveys. Geneva, WHO / UNICEF
-#' \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
 #'
 #' \describe{
 #' \item{\code{W1}}{Improved source of drinking water}
