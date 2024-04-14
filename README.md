@@ -3,7 +3,7 @@
 
 # oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP) <img src="man/figures/logo.png" width="200" align="right" />
 
-<!-- Badges start here-->
+<!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -11,11 +11,12 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml)
+[![R-hub](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml)
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
 [![DOI](https://zenodo.org/badge/105472081.svg)](https://zenodo.org/badge/latestdoi/105472081)
-<!-- Badges end here-->
+<!-- badges: end -->
 
 [HelpAge International](http://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton
