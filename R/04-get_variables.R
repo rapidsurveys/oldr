@@ -106,5 +106,5 @@ get_variables <- function(indicators = c("demo", "food", "hunger", "adl",
     vars <- c(vars, "chew", "food", "NFRI")
   }
   ##
-  return(vars)
+  vars
 }

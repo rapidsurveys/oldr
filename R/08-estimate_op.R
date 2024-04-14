@@ -66,5 +66,5 @@ estimate_op_all <- function(x, w,
   resultsDF <- tibble::tibble(resultsDF)
 
   ## Return resultsDF
-  return(resultsDF)
+  resultsDF
 }
