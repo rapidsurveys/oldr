@@ -402,5 +402,5 @@ testSVY %>%
 which results in an HTML file saved in the specified output directory that looks something like this:
 
 ```{r estimateReport2, echo = FALSE, eval = TRUE}
-knitr::include_graphics("../man/figures/htmlReport.png")
+knitr::include_graphics("figures/htmlReport.png")
 ```
