@@ -1,4 +1,4 @@
-# oldr 0.1.0.9000
+# oldr 0.1.1
 
 * Created full suite of estimator functions
 
