@@ -133,7 +133,7 @@ DiagrammeR::grViz("
 )
 ```
 
-```{r workflow, echo = FALSE, eval = TRUE, out.width = "80%"}
+```{r workflow, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP workflow", out.width = "80%"}
 knitr::include_graphics("figures/ramOPworkflow.png")
 ```
 
@@ -203,7 +203,7 @@ The `oldr` package uses **blocked weighted bootstrap** estimation approach:
 
 A total of `m` PSUs are sampled with-replacement from the survey dataset where `m` is the number of PSUs in the survey sample. Individual records within each PSU are then sampled with-replacement. A total of `n` records are sampled with-replacement from each of the selected PSUs where `n` is the number of individual records in a selected PSU. The resulting collection of records replicates the original survey in terms of both sample design and sample size. A large number of replicate surveys are taken (the standard RAM-OP software uses $r = 399$ replicate surveys but this can be changed). The required statistic (e.g. the mean of an indicator value) is applied to each replicate survey. The reported estimate consists of the 50th (point estimate), 2.5th (lower 95% confidence limit), and the 97.5th (upper 95% confidence limit) percentiles of the distribution of the statistic observed across all replicate surveys. The blocked weighted bootstrap procedure is outlined in the figure below.
 
-```{r bbw, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "85%"}
+```{r bbw, echo = FALSE, eval = TRUE, fig.alt = "Blocked weighted bootstrap", fig.align = "center", out.width = "85%"}
 knitr::include_graphics(path = "https://rapidsurveys.io/ramOPmanual/figures/bbw.png")
 ```
 
@@ -228,11 +228,12 @@ The prevalence of GAM, MAM, and SAM are estimated using a **PROBIT estimator**. 
 An estimate of GAM prevalence can be made using a classic estimator:
 
 $$ \text{prevalence} ~ = ~ \frac{\text{Number of respondents with MUAC < 210}}{\text{Total number of respondents}} $$
+
 On the other hand, the estimate of GAM prevalence made from the RAM-OP survey data is made using a **PROBIT estimator**. The PROBIT function is also known as the *inverse cumulative distribution* function. This function converts parameters of the distribution of an indicator (e.g. the mean and standard deviation of a normally distributed variable) into cumulative percentiles. This means that it is possible to use the normal PROBIT function with estimates of the mean and standard deviation of indicator values in a survey sample to predict (or estimate) the proportion of the population falling below a given threshold. For example, for data with a mean MUAC of 256 mm and a standard deviation of 28 mm the output of the normal PROBIT function for a threshold of 210 mm is 0.0502 meaning that 5.02% of the population are predicted (or estimated) to fall below the 210 mm threshold.
 
 Both the classic and the PROBIT methods can be thought of as estimating area:
 
-```{r probit, echo = FALSE, eval = TRUE, out.width = "100%", fig.align = "center"}
+```{r probit, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP estimators", out.width = "100%", fig.align = "center"}
 knitr::include_graphics(path = "https://rapidsurveys.io/ramOPmanual/figures/indicators26.png")
 ```
 
@@ -335,7 +336,7 @@ list.files(path = tempdir())
 
 and will look something like this:
 
-```{r showChart, echo = FALSE, eval = TRUE, out.width = "85%", fig.align = "center"}
+```{r showChart, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP chart showing information on activities of daily living", out.width = "85%", fig.align = "center"}
 #knitr::include_graphics(path = "man/figures/test.ADL.png")
 chart_adl(x = create_op_all(testSVY), save_chart = FALSE)
 ```
@@ -364,7 +365,7 @@ read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"),
 
 ## The RAM-OP workflow in R using pipe operators
 
-The package `magrittr` provides functions that facilitate piped operations in R. The `oldr` package functions were designed in such a way that they can be used piped to each other to provide the desired output.
+The package `magrittr` provides functions that facilitate piped operations in R. The `oldr` package functions were designed in such a way that they can be piped to each other to provide the desired output.
 
 ### Piped operation to get output estimates table
 
@@ -401,6 +402,6 @@ testSVY %>%
 
 which results in an HTML file saved in the specified output directory that looks something like this:
 
-```{r estimateReport2, echo = FALSE, eval = TRUE}
+```{r estimateReport2, echo = FALSE, eval = TRUE, fig.alt = "Example of a RAM-OP HTML report"}
 knitr::include_graphics("figures/htmlReport.png")
 ```
