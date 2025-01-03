@@ -38,16 +38,16 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install `oldr` from [CRAN](https://cran.r-project.org) with:
+You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 
 ```{r install-cran, echo = TRUE, eval = FALSE}
 install.packages("oldr")
 ```
 
-You can install the development version of `oldr` from [GitHub](https://github.com/rapidsurveys/oldr) with:
+You can install the development version of `{oldr}` from [GitHub](https://github.com/rapidsurveys/oldr) with:
 
 ```{r install, eval = FALSE}
-if(!require(remotes)) install.packages("remotes")
+if(!require(pak)) install.packages("pak")
 remotes::install_github("rapidsurveys/oldr")
 ```
 
@@ -55,7 +55,7 @@ remotes::install_github("rapidsurveys/oldr")
 
 This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire.
 
-The figure below illustrates the RAM-OP workflow and indicates which functions in the `oldr` package support which particular step in the process.
+The figure below illustrates the RAM-OP workflow and indicates which functions in the `{oldr}` package support which particular step in the process.
 
 ```{r ramOPworkflow, echo = FALSE, eval = FALSE, fig.width = 8, fig.height = 10, fig.align = "center"}
 DiagrammeR::grViz("
@@ -163,7 +163,7 @@ DiagrammeR::grViz("
 )
 ```
 
-```{r workflow, echo = FALSE, eval = TRUE, fig.align = "center", out.width = "80%"}
+```{r workflow, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP workflow", fig.align = "center", out.width = "80%"}
 knitr::include_graphics("man/figures/ramOPworkflow.png")
 ```
 
@@ -171,7 +171,7 @@ For a more detailed description of the RAM-OP survey, read the [RAM-OP manual](h
 
 ## Citation
 
-If you find the `oldr` package useful, please cite using the suggested citation provided by a call to the `citation` function as follows:
+If you use the `{oldr}` package in your work, please cite using the suggested citation provided by a call to the `citation` function as follows:
 
 ```{r cite}
 citation("oldr")
