@@ -1,309 +1,105 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://rapidsurveys.io/oldr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/articles/oldr.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/articles/ram_op_workflow.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_adl.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_age.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_csid.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_dds.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_hhs.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_income.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_k6.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_mf.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_muac.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_wash.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/chart_wg.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_adl.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_adl_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_adl_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_all.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_anthro.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_anthro_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_anthro_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_dementia.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_dementia_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_dementia_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_demo.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_demo_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_demo_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_disability.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_disability_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_disability_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_food.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_food_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_food_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_health.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_health_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_health_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_hunger.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_hunger_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_hunger_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_income.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_income_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_income_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_mental.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_mental_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_mental_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_misc.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_misc_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_misc_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_oedema.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_oedema_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_oedema_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_screening.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_screening_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_screening_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_visual.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_visual_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_visual_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_wash.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_wash_females.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/create_op_wash_males.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/estimate_classic.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/estimate_op_all.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/estimate_probit.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/fullTable.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/get_variables.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/indicators.ALL.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/indicators.FEMALES.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/indicators.MALES.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/merge_estimates.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/oldr.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/probit_gam.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/probit_sam.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/pyramid.plot.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_adl.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_anthro.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_dementia.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_demo.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_disability.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_docx.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_food.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_health.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_html.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_hunger.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_income.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_mental.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_misc.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_odt.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_oedema.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_screen.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_table.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_visual.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/report_op_wash.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/testPSU.html</loc>
-  </url>
-  <url>
-    <loc>https://rapidsurveys.io/oldr/reference/testSVY.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://rapidsurveys.io/oldr/404.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/CONTRIBUTING.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/LICENSE.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/articles/index.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/articles/oldr.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/articles/ram_op_workflow.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/authors.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/index.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/news/index.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_adl.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_age.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_csid.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_dds.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_hhs.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_income.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_k6.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_mf.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_muac.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_wash.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/chart_wg.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_adl.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_adl_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_adl_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_all.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_anthro.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_anthro_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_anthro_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_dementia.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_dementia_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_dementia_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_demo.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_demo_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_demo_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_disability.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_disability_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_disability_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_food.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_food_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_food_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_health.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_health_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_health_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_hunger.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_hunger_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_hunger_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_income.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_income_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_income_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_mental.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_mental_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_mental_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_misc.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_misc_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_misc_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_oedema.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_oedema_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_oedema_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_screening.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_screening_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_screening_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_visual.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_visual_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_visual_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_wash.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_wash_females.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/create_op_wash_males.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/estimate_classic.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/estimate_op_all.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/estimate_probit.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/fullTable.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/get_variables.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/index.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/indicators.ALL.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/indicators.FEMALES.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/indicators.MALES.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/merge_estimates.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/oldr.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/probit_gam.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/probit_sam.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/pyramid.plot.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_adl.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_anthro.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_dementia.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_demo.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_disability.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_docx.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_food.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_health.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_html.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_hunger.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_income.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_mental.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_misc.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_odt.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_oedema.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_screen.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_table.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_visual.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/report_op_wash.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/testPSU.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/reference/testSVY.html</loc></url>
 </urlset>
+
