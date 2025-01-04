@@ -1,38 +1,30 @@
-################################################################################
-#
-#' Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
+#' 
+#' Apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 #'
-#' @param x Indicators dataset produced by \link{create_op_all} with primary
-#'   sampling unit (PSU) in column named \code{PSU}
+#' @param x Indicators dataset produced by [create_op()] with primary sampling
+#'   unit (PSU) in column named `PSU`
 #' @param w A data frame with primary sampling unit (PSU) in column named
-#'   \code{psu} and survey weight (i.e. PSU population) in column named
-#'   \code{pop}
-#' @param gam.stat A function operating on data in \code{x} to estimate
-#'   GAM prevalence for older people. Fixed to \code{probit_gam}
-#' @param sam.stat A function operating on data in \code{x} to estimate
-#'   SAM prevalence for older people. Fixed to \code{probit_sam}
-#' @param params Parameters (named columns in \code{x}) passed to the function
-#'   specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
+#'   `psu` and survey weight (i.e. PSU population) in column named `pop`.
+#' @param gam.stat A function operating on data in `x` to estimate GAM 
+#'   prevalence for older people. Fixed to `probit_gam`
+#' @param sam.stat A function operating on data in `x` to estimate
+#'   SAM prevalence for older people. Fixed to `probit_sam`
+#' @param params Parameters (named columns in `x`) passed to the function
+#'   specified in `statistic`; fixed to `MUAC` as indicator amenable
 #'   to probit estimation
 #' @param outputColumns Names of columns in output data frame; fixed to
-#'   \code{MUAC}
-#' @param replicates Number of bootstrap replicate
-#'   case and non-case
+#'   `MUAC`
+#' @param replicates Number of bootstrap replicate case and non-case
 #'
-#' @return Dataframe of boot estimates using bootPROBIT function
+#' @return A tibble of boot estimates using bootPROBIT function
 #'
 #' @examples
-#'   #
-#'   test <- estimate_probit(x = indicators.ALL,
-#'                           w = testPSU,
-#'                           replicates = 3)
+#'   test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
 #'
 #'   test
 #'
 #' @export
 #'
-#
-################################################################################
 
 estimate_probit <- function(x,
                             w,

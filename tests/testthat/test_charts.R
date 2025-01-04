@@ -1,6 +1,3 @@
-library(oldr)
-context("Tests for charts")
-
 test <- chart_age(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 

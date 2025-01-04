@@ -2,7 +2,7 @@
 % Please edit documentation in R/06-probitBoot.R
 \name{estimate_probit}
 \alias{estimate_probit}
-\title{Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.}
+\title{Apply bootstrap to RAM-OP indicators using a PROBIT estimator.}
 \usage{
 estimate_probit(
   x,
@@ -15,15 +15,14 @@ estimate_probit(
 )
 }
 \arguments{
-\item{x}{Indicators dataset produced by \link{create_op_all} with primary
-sampling unit (PSU) in column named \code{PSU}}
+\item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}} with primary sampling
+unit (PSU) in column named \code{PSU}}
 
 \item{w}{A data frame with primary sampling unit (PSU) in column named
-\code{psu} and survey weight (i.e. PSU population) in column named
-\code{pop}}
+\code{psu} and survey weight (i.e. PSU population) in column named \code{pop}.}
 
-\item{gam.stat}{A function operating on data in \code{x} to estimate
-GAM prevalence for older people. Fixed to \code{probit_gam}}
+\item{gam.stat}{A function operating on data in \code{x} to estimate GAM
+prevalence for older people. Fixed to \code{probit_gam}}
 
 \item{sam.stat}{A function operating on data in \code{x} to estimate
 SAM prevalence for older people. Fixed to \code{probit_sam}}
@@ -35,20 +34,16 @@ to probit estimation}
 \item{outputColumns}{Names of columns in output data frame; fixed to
 \code{MUAC}}
 
-\item{replicates}{Number of bootstrap replicate
-case and non-case}
+\item{replicates}{Number of bootstrap replicate case and non-case}
 }
 \value{
-Dataframe of boot estimates using bootPROBIT function
+A tibble of boot estimates using bootPROBIT function
 }
 \description{
-Function to apply bootstrap to RAM-OP indicators using a PROBIT estimator.
+Apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 }
 \examples{
-  #
-  test <- estimate_probit(x = indicators.ALL,
-                          w = testPSU,
-                          replicates = 3)
+  test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
 
   test
 

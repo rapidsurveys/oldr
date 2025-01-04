@@ -44,16 +44,24 @@ You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 install.packages("oldr")
 ```
 
-You can install the development version of `{oldr}` from [GitHub](https://github.com/rapidsurveys/oldr) with:
+You can install the latest development version of `{oldr}` from the RapidSurveys R Universe with:
 
-```{r install, eval = FALSE}
-if(!require(pak)) install.packages("pak")
-remotes::install_github("rapidsurveys/oldr")
+```{r install-r-universe, eval = FALSE}
+install.packages(
+  "oldr", repos = c("https://rapidsurveys.r-universe.dev")
+)
+```
+
+or from [GitHub](https://github.com/rapidsurveys/oldr) with:
+
+```{r install-github, eval = FALSE}
+if (!require("pak")) install.packages("pak")
+pak::pak("rapidsurveys/oldr")
 ```
 
 ## Usage
 
-This package contains functions that support in the data processing, analysis and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire.
+This package contains functions that support in the data processing, analysis, and visualisation of RAM-OP survey datasets collected using the standard RAM-OP survey questionnaire.
 
 The figure below illustrates the RAM-OP workflow and indicates which functions in the `{oldr}` package support which particular step in the process.
 

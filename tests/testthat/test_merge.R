@@ -1,11 +1,8 @@
-library(oldr)
-context("Merge")
-
-x <- estimate_classic(x = create_op_all(testSVY),
+x <- estimate_classic(x = create_op(testSVY),
                       w = testPSU,
                       replicates = 19)
 
-y <- estimate_probit(x = create_op_all(testSVY),
+y <- estimate_probit(x = create_op(testSVY),
                      w = testPSU,
                      replicates = 19)
 

@@ -1,5 +1,4 @@
-################################################################################
-#
+#' 
 #' Create table of RAM-OP results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by
@@ -16,10 +15,10 @@
 #'
 #' @examples
 #'   ##
-#'   x <- estimate_classic(x = create_op_all(testSVY),
+#'   x <- estimate_classic(x = create_op(testSVY),
 #'                         w = testPSU,
 #'                         replicates = 9)
-#'   y <- estimate_probit(x = create_op_all(testSVY),
+#'   y <- estimate_probit(x = create_op(testSVY),
 #'                        w = testPSU,
 #'                        replicates = 9)
 #'   z <- merge_estimates(x, y, prop2percent = TRUE)
@@ -27,8 +26,6 @@
 #'
 #' @export
 #'
-#
-################################################################################
 
 report_op_table <- function(estimates,
                             filename = paste(tempdir(), "ramOP", sep = "/")) {
@@ -115,7 +112,7 @@ report_op_demo <- function(format = "html") {
   cat("\n")
   cat("## Age structure by sex\n")
   cat("```{r agePlot}\n")
-  cat("oldr::chart_age(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_age(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r ageTable}\n")
@@ -188,7 +185,7 @@ report_op_food <- function(format = "html") {
   cat("## Meal frequency\n")
   cat("\n")
   cat("```{r mfPlot}\n")
-  cat("oldr::chart_mf(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_mf(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r mfTable}\n")
@@ -207,7 +204,7 @@ report_op_food <- function(format = "html") {
   cat("\n")
   cat("## Dietary diversity\n")
   cat("```{r ddsPlot}\n")
-  cat("oldr::chart_dds(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_dds(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r ddsTable}\n")
@@ -265,7 +262,7 @@ report_op_hunger <- function(format = "html") {
   cat("\n")
   cat("## Household hunger score\n")
   cat("```{r hhsPlot}\n")
-  cat("oldr::chart_hhs(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_hhs(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r hhsTable}\n")
@@ -309,7 +306,7 @@ report_op_disability <- function(format = "html") {
   cat("## Overall\n")
   cat("\n")
   cat("```{r wgPlot}\n")
-  cat("oldr::chart_wg(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_wg(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r wgTable}\n")
@@ -446,7 +443,7 @@ report_op_adl <- function(format = "html") {
   cat("\n")
   cat("# Activities of daily living\n")
   cat("```{r adlPlot}\n")
-  cat("oldr::chart_adl(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_adl(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r adlTable}\n")
@@ -488,7 +485,7 @@ report_op_mental <- function(format = "html") {
   cat("# Mental health\n")
   cat("\n")
   cat("```{r k6Plot}\n")
-  cat("oldr::chart_k6(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_k6(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r k6Table}\n")
@@ -530,7 +527,7 @@ report_op_dementia <- function(format = "html") {
   cat("# Dementia\n")
   cat("\n")
   cat("```{r csidPlot}\n")
-  cat("oldr::chart_csid(x = oldr::create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_csid(x = oldr::create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r csidTable}\n")
@@ -808,8 +805,8 @@ report_op_income <- function(format = "html") {
   cat("# Income\n")
   cat("\n")
   cat("```{r incomePlot}\n")
-  cat("oldr::chart_income(x.male = create_op_all(svy = svy, gender = 'm'),\n")
-  cat("  x.female = create_op_all(svy = svy, gender = 'f'), save_chart = FALSE)\n")
+  cat("oldr::chart_income(x.male = create_op(svy = svy, sex = 'm'),\n")
+  cat("  x.female = create_op(svy = svy, sex = 'f'), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r incomeTable}\n")
@@ -851,7 +848,7 @@ report_op_wash <- function(format = "html") {
   cat("# Water, sanitation, and hygiene\n")
   cat("\n")
   cat("```{r washPlot}\n")
-  cat("oldr::chart_wash(x = create_op_all(svy = svy), save_chart = FALSE)\n")
+  cat("oldr::chart_wash(x = create_op(svy = svy), save_chart = FALSE)\n")
   cat("```\n")
   cat("\n")
   cat("```{r washTable}\n")
@@ -929,11 +926,11 @@ report_op_misc <- function(format = "html") {
 #'
 #' @examples
 #'   #
-#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'   classicResults <- estimate_classic(x = create_op(testSVY),
 #'                                      w = testPSU,
 #'                                      replicates = 9)
 #'
-#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'   probitResults <- estimate_probit(x = create_op(testSVY),
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
@@ -1051,11 +1048,11 @@ report_op_html <- function(estimates,
 #'
 #' @examples
 #'   #
-#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'   classicResults <- estimate_classic(x = create_op(testSVY),
 #'                                      w = testPSU,
 #'                                      replicates = 9)
 #'
-#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'   probitResults <- estimate_probit(x = create_op(testSVY),
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
@@ -1169,11 +1166,11 @@ report_op_docx <- function(estimates,
 #'
 #' @examples
 #'   #
-#'   classicResults <- estimate_classic(x = create_op_all(testSVY),
+#'   classicResults <- estimate_classic(x = create_op(testSVY),
 #'                                      w = testPSU,
 #'                                      replicates = 9)
 #'
-#'   probitResults <- estimate_probit(x = create_op_all(testSVY),
+#'   probitResults <- estimate_probit(x = create_op(testSVY),
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
@@ -1286,11 +1283,11 @@ report_op_odt <- function(estimates,
 #
 # @examples
 #   \dontrun{
-#     classicResults <- estimate_classic(x = create_op_all(testSVY),
+#     classicResults <- estimate_classic(x = create_op(testSVY),
 #                                        w = testPSU,
 #                                        replicates = 9)
 #
-#     probitResults <- estimate_probit(x = create_op_all(testSVY),
+#     probitResults <- estimate_probit(x = create_op(testSVY),
 #                                      w = testPSU,
 #                                      replicates = 9)
 #

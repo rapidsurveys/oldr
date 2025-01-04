@@ -1,5 +1,3 @@
-###############################################################################
-#
 #' Function to create a pyramid plot
 #'
 #' @param x A vector (numeric, factor, character) holding age-groups
@@ -21,8 +19,6 @@
 #'
 #' @export
 #'
-#
-################################################################################
 
 pyramid.plot <- function(x,
                          g,
