@@ -319,12 +319,12 @@ resultsDF
 
 ## Creating charts
 
-Once indicators has been estimated, the outputs can then be used to create relevant charts to visualise the results. A set of functions that start with the verb `chart_` is provided followed by the indicator identifier to specify the type of indicator to visualise. The output of the function is a PNG file saved in the specified filename appended to the indicator identifier within the current working directory or saved in the specified filename appended to the indicator identifier in the specified directory path.
+Once indicators has been estimated, the outputs can then be used to create relevant charts to visualise the results. A set of functions that start with the verb `chart_op_` is provided followed by the indicator identifier to specify the type of indicator to visualise. The output of the function is a PNG file saved in the specified filename appended to the indicator identifier within the current working directory or saved in the specified filename appended to the indicator identifier in the specified directory path.
 
 The following shows how to produce the chart for ADLs saved with filename **test** appended at the start inside a temporary directory:
 
 ```{r chartADL, echo = TRUE, eval = TRUE}
-chart_adl(x = create_op(testSVY), 
+chart_op_adl(x = create_op(testSVY), 
           filename = paste(tempdir(), "test", sep = "/"))
 ```
 
@@ -338,7 +338,7 @@ and will look something like this:
 
 ```{r showChart, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP chart showing information on activities of daily living", out.width = "85%", fig.align = "center"}
 #knitr::include_graphics(path = "man/figures/test.ADL.png")
-chart_adl(x = create_op(testSVY), save_chart = FALSE)
+chart_op_adl(x = create_op(testSVY), save_chart = FALSE)
 ```
 
 ## Reporting estimates

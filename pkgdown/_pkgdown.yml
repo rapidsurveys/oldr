@@ -56,8 +56,8 @@ reference:
 
   - title: Create charts
     contents:
-    - matches("chart")
-    - pyramid.plot
+    - starts_with("chart_op")
+    - pyramid_plot
 
   - title: Create report
     contents:

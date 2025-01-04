@@ -1,7 +1,7 @@
 x <- create_op(testSVY)
 
 test_that("x is a data.frame", {
-  expect_is(x, "data.frame")
+  expect_s3_class(x, "data.frame")
 })
 
 test_that("x has 192 variables", {
@@ -23,7 +23,7 @@ test_that("class of x vectors are class indicators.ALL vectors", {
 x <- create_op(testSVY, sex = "m")
 
 test_that("x is a data.frame", {
-  expect_is(x, "data.frame")
+  expect_s3_class(x, "data.frame")
 })
 
 test_that("x has 192 variables", {
@@ -46,8 +46,8 @@ x <- create_op_demo(testSVY, sex = "m")
 y <- create_op_demo(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 192 variables", {
@@ -84,8 +84,8 @@ x <- create_op_food(testSVY, sex = "m")
 y <- create_op_food(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 192 variables", {
@@ -122,8 +122,8 @@ x <- create_op_hunger(testSVY, sex = "m")
 y <- create_op_hunger(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 192 variables", {
@@ -159,8 +159,8 @@ x <- create_op_adl(testSVY, sex = "m")
 y <- create_op_adl(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 15 variables", {
@@ -197,8 +197,8 @@ x <- create_op_disability(testSVY, sex = "m")
 y <- create_op_disability(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 32 variables", {
@@ -235,8 +235,8 @@ x <- create_op_mental(testSVY, sex = "m")
 y <- create_op_mental(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 5 variables", {
@@ -273,8 +273,8 @@ x <- create_op_dementia(testSVY, sex = "m")
 y <- create_op_dementia(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 4 variables", {
@@ -311,8 +311,8 @@ x <- create_op_health(testSVY, sex = "m")
 y <- create_op_health(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 25 variables", {
@@ -349,8 +349,8 @@ x <- create_op_income(testSVY, sex = "m")
 y <- create_op_income(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 13 variables", {
@@ -387,8 +387,8 @@ x <- create_op_wash(testSVY, sex = "m")
 y <- create_op_wash(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 7 variables", {
@@ -425,8 +425,8 @@ x <- create_op_anthro(testSVY, sex = "m")
 y <- create_op_anthro(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 4 variables", {
@@ -463,8 +463,8 @@ x <- create_op_oedema(testSVY, sex = "m")
 y <- create_op_oedema(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 4 variables", {
@@ -501,8 +501,8 @@ x <- create_op_screening(testSVY, sex = "m")
 y <- create_op_screening(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 4 variables", {
@@ -539,8 +539,8 @@ x <- create_op_visual(testSVY, sex = "m")
 y <- create_op_visual(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 4 variables", {
@@ -577,8 +577,8 @@ x <- create_op_misc(testSVY, sex = "m")
 y <- create_op_misc(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
-  expect_is(x, "data.frame")
-  expect_is(y, "data.frame")
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(y, "data.frame")
 })
 
 test_that("x and y have 6 variables", {
