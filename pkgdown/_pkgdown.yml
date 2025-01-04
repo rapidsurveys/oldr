@@ -57,7 +57,7 @@ reference:
   - title: Create charts
     contents:
     - starts_with("chart_op")
-    - pyramid.plot
+    - pyramid_plot
 
   - title: Create report
     contents:
