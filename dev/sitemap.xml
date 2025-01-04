@@ -8,17 +8,7 @@
 <url><loc>https://rapidsurveys.io/oldr/dev/authors.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/index.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/news/index.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_adl.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_age.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_csid.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_dds.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_hhs.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_income.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_k6.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_mf.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_muac.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_wash.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_wg.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/dev/reference/chart_op.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/check_indicators.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/create_op.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/create_op_indicators.html</loc></url>
@@ -34,7 +24,7 @@
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/merge_estimates.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/oldr.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/probit.html</loc></url>
-<url><loc>https://rapidsurveys.io/oldr/dev/reference/pyramid.plot.html</loc></url>
+<url><loc>https://rapidsurveys.io/oldr/dev/reference/pyramid_plot.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/report_op_adl.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/report_op_anthro.html</loc></url>
 <url><loc>https://rapidsurveys.io/oldr/dev/reference/report_op_dementia.html</loc></url>
