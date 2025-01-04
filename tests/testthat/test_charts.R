@@ -20,6 +20,12 @@ test_that("is integer", {
   expect_type(test, "integer")
 })
 
+test_that("output shows on console", {
+  expect_snapshot_output(
+    chart_op_muac(x = indicators.ALL, save_chart = FALSE)
+  )
+})
+
 test <- chart_op_mf(x = indicators.ALL, filename = paste(tempdir(), "TEST", sep = "/"))
 test
 
