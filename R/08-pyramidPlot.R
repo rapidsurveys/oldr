@@ -11,16 +11,19 @@
 #' @author Mark Myatt
 #'
 #' @examples
-#'   ##
-#'   pyramid.plot(x = cut(testSVY$d2,
-#'                        breaks = seq(from = 60, to = 105, by = 5),
-#'                        include.lowest = TRUE),
-#'                g = testSVY$d3)
+#' pyramid_plot(
+#'   x = cut(
+#'     testSVY$d2, 
+#'     breaks = seq(from = 60, to = 105, by = 5),
+#'     include.lowest = TRUE
+#'   ),
+#'   g = testSVY$d3
+#' )
 #'
 #' @export
 #'
 
-pyramid.plot <- function(x,
+pyramid_plot <- function(x,
                          g,
                          main = paste("Pyramid plot of",
                                       deparse(substitute(x)), "by",

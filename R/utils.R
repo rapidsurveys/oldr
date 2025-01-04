@@ -1,4 +1,28 @@
 #' 
+#' Fill out a one-dimensional table to include a specified range of values
+#'
+#' @param x A vector to tabulate
+#' @param values A vector of values to be included in a table
+#'
+#' @return A one-dimensional table with specified values
+#'
+#' @author Mark Myatt
+#' 
+#' @keywords internal
+#'
+
+fullTable <- function(x, values) {
+  tab <- NULL
+  for(i in values) {
+    tab <-c(tab, table(x)[as.character(i)])
+  }
+  tab[is.na(tab)] <- 0
+  names(tab) <- as.character(values)
+  tab
+}
+
+
+#' 
 #' Get appropriate RAM-OP indicator variable names given a specified indicator
 #' set
 #'
@@ -9,11 +33,7 @@
 #'
 #' @return A vector of variable names
 #'
-#' @examples
-#'
-#' get_variables(indicators = c("demo", "food"))
-#'
-#' @export
+#' @keywords internal
 #'
 
 get_variables <- function(indicators = c("demo", "food", "hunger", "adl",

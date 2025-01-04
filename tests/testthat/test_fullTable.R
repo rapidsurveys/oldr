@@ -4,7 +4,7 @@ xTable <- fullTable(x = sample(x = 5,
                     values = 1:5)
 
 test_that("xTable is numeric", {
-  expect_is(xTable, "numeric")
+  expect_type(xTable, "double")
 })
 
 test_that("xTable length is x", {
