@@ -48,22 +48,7 @@ home:
 reference:
   - title: Create indicators
     contents:
-    - create_op_all
-    - matches("create_op_adl")
-    - matches("create_op_anthro")
-    - matches("create_op_dementia")
-    - matches("create_op_demo")
-    - matches("create_op_disability")
-    - matches("create_op_food")
-    - matches("create_op_health")
-    - matches("create_op_hunger")
-    - matches("create_op_income")
-    - matches("create_op_mental")
-    - matches("create_op_oedema")
-    - matches("create_op_screening")
-    - matches("create_op_visual")
-    - matches("create_op_wash")
-    - matches("create_op_misc")
+    - starts_with("create_op")
 
   - title: Estimate indicators
     contents:

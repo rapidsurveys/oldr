@@ -1,6 +1,3 @@
-library(oldr)
-context("Full Table")
-
 xTable <- fullTable(x = sample(x = 5,
                                size = 100,
                                replace = TRUE),

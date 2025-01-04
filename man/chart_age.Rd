@@ -11,7 +11,7 @@ chart_age(
 )
 }
 \arguments{
-\item{x}{Indicators dataset produced by \link{create_op_all}}
+\item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}}}
 
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 
@@ -23,11 +23,11 @@ a temporary directory and a filename starting with
 \value{
 Age by sex pyramid plot in PNG format saved in the current working
 directory or in a specified directory if \code{filename} is a path unless
-when \code{save.plot} is FALSE in which case the plot is shown on current
+when \code{save_chart} is FALSE in which case the plot is shown on current
 graphics device
 }
 \description{
-A wrapper function to the \link{pyramid.plot} function to create an age by
+A wrapper function to the \code{\link[=pyramid.plot]{pyramid.plot()}} function to create an age by
 sex pyramid plot
 }
 \examples{

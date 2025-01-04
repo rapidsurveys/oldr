@@ -7,7 +7,7 @@
 chart_k6(x, save_chart = TRUE, filename = paste(tempdir(), "chart", sep = "/"))
 }
 \arguments{
-\item{x}{Indicators dataset produced by \link{create_op_all}}
+\item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}}}
 
 \item{save_chart}{Logical. Should chart be saved? Default is TRUE.}
 

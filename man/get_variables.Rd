@@ -2,8 +2,8 @@
 % Please edit documentation in R/04-get_variables.R
 \name{get_variables}
 \alias{get_variables}
-\title{Function to get appropriate RAM-OP indicator variable names given a
-specified indicator set}
+\title{Get appropriate RAM-OP indicator variable names given a specified indicator
+set}
 \usage{
 get_variables(
   indicators = c("demo", "food", "hunger", "adl", "disability", "mental", "dementia",
@@ -12,17 +12,16 @@ get_variables(
 }
 \arguments{
 \item{indicators}{A character vector of indicator set names. Indicator set
-names are \code{demo}, \code{food}, \code{hunger}, \code{disability},
-\code{adl}, \code{mental}, \code{dementia}, \code{health}, \code{income},
-\code{wash}, \code{anthro}, \code{screening}, \code{visual}, and \code{misc}.
-Default is all indicator sets.}
+names are \emph{"demo"}, \emph{"food"}, \emph{"hunger"}, \emph{"disability"}, \emph{"adl"},
+\emph{"mental"}, \emph{"dementia"}, \emph{"health"}, \emph{"income"}, \emph{"wash"}, \emph{"anthro"},
+\emph{"screening"}, \emph{"visual"}, and \emph{"misc"}. Default is all indicator sets.}
 }
 \value{
 A vector of variable names
 }
 \description{
-Function to get appropriate RAM-OP indicator variable names given a
-specified indicator set
+Get appropriate RAM-OP indicator variable names given a specified indicator
+set
 }
 \examples{
 

@@ -165,20 +165,20 @@ Anthropometry and anthropometric screening coverage | `create_op_anthro`; `creat
 Visual impairment | `create_op_visual`; `create_op_visual_males`; `create_op_visual_females`
 Miscellaneous | `create_op_misc`; `create_op_misc_males`; `create_op_misc_females`
 
-A final function in the processing and recoding set -  `create_op_all` - is provided to perform the processing and recoding of all indicators or indicator sets. This function allows for the specification of which indicators or indicator sets to process and recode which is useful for cases where not all the indicators or indicator sets have been collected or if only specific indicators or indicator sets need to be analysed or reported. This function also specifies whether a specific gender subset of the data is needed.
+A final function in the processing and recoding set -  `create_op` - is provided to perform the processing and recoding of all indicators or indicator sets. This function allows for the specification of which indicators or indicator sets to process and recode which is useful for cases where not all the indicators or indicator sets have been collected or if only specific indicators or indicator sets need to be analysed or reported. This function also specifies whether a specific gender subset of the data is needed.
 
 For a standard RAM-OP implementation, this step is performed in R as follows:
 
 ```{r step1, echo = TRUE, eval = FALSE}
 ## Process and recode all standard RAM-OP indicators in the testSVY dataset
-create_op_all(svy = testSVY)
+create_op(svy = testSVY)
 ```
 
 which results in the following output:
 
 ```{r step1a, echo = FALSE, eval = TRUE}
 ## Process and recode all standard RAM-OP indicators in the testSVY dataset
-create_op_all(svy = testSVY)
+create_op(svy = testSVY)
 ```
 
 ## Estimating indicators
@@ -253,7 +253,7 @@ The `estimateClassic` function is used for all the standard RAM-OP indicators ex
 
 ```{r classicEstimator, echo = TRUE, eval = FALSE}
 ## Process and recode RAM-OP data (testSVY)
-df <- create_op_all(svy = testSVY)
+df <- create_op(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
 classicDF <- estimate_classic(x = df, w = testPSU)
@@ -263,7 +263,7 @@ This results in (using limited replicates to reduce computing time):
 
 ```{r classicEstimatorX, echo = FALSE, eval = TRUE}
 ## Process and recode RAM-OP data (testSVY)
-df <- create_op_all(svy = testSVY)
+df <- create_op(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
 classicDF <- estimate_classic(x = df, w = testPSU, replicates = 9)
@@ -280,7 +280,7 @@ The `estimateProbit` function is used for only the anthropometric indicators. Th
 
 ```{r probitEstimator, echo = TRUE, eval = FALSE}
 ## Process and recode RAM-OP data (testSVY)
-df <- create_op_all(svy = testSVY)
+df <- create_op(svy = testSVY)
 
 ## Perform probit estimation on recoded data using appropriate weights provided by testPSU
 probitDF <- estimate_probit(x = df, w = testPSU)
@@ -290,7 +290,7 @@ This results in (using limited replicates to reduce computing time):
 
 ```{r probitEstimatorX, echo = FALSE, eval = TRUE}
 ## Process and recode RAM-OP data (testSVY)
-df <- create_op_all(svy = testSVY)
+df <- create_op(svy = testSVY)
 
 ## Perform classic estimation on recoded data using appropriate weights provided by testPSU
 probitDF <- estimate_probit(x = df, w = testPSU, replicates = 9)
@@ -324,7 +324,7 @@ Once indicators has been estimated, the outputs can then be used to create relev
 The following shows how to produce the chart for ADLs saved with filename **test** appended at the start inside a temporary directory:
 
 ```{r chartADL, echo = TRUE, eval = TRUE}
-chart_adl(x = create_op_all(testSVY), 
+chart_adl(x = create_op(testSVY), 
           filename = paste(tempdir(), "test", sep = "/"))
 ```
 
@@ -338,7 +338,7 @@ and will look something like this:
 
 ```{r showChart, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP chart showing information on activities of daily living", out.width = "85%", fig.align = "center"}
 #knitr::include_graphics(path = "man/figures/test.ADL.png")
-chart_adl(x = create_op_all(testSVY), save_chart = FALSE)
+chart_adl(x = create_op(testSVY), save_chart = FALSE)
 ```
 
 ## Reporting estimates
@@ -371,7 +371,7 @@ The package `magrittr` provides functions that facilitate piped operations in R.
 
 ```{r estimatePipe1, echo = TRUE, eval = TRUE}
 testSVY %>%
-  create_op_all() %>%
+  create_op() %>%
   estimate_op_all(w = testPSU, replicates = 9) %>%
   report_op_table(filename = paste(tempdir(), "TEST", sep = "/"))
 ```
@@ -395,7 +395,7 @@ If the preferred output is a report with combined charts and tables of results, 
 
 ```{r estimateReport1, echo = TRUE, eval = FALSE}
 testSVY %>%
-  create_op_all() %>%
+  create_op() %>%
   estimate_op_all(w = testPSU, replicates = 9) %>%
   report_op_html(svy = testSVY, filename = paste(tempdir(), "ramOPreport", sep = "/"))
 ```

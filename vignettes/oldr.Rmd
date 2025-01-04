@@ -1,6 +1,6 @@
 ---
 title: "Rapid Assessment Method for Older People (RAM-OP)"
-author: "Pascale Fritsch, Katja Siling, Ernest Guevarra and Mark Myatt"
+author: "Pascale Fritsch, Katja Siling, Ernest Guevarra, and Mark Myatt"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Rapid Assessment Method for Older People (RAM-OP)}

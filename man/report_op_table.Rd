@@ -24,10 +24,10 @@ Create table of RAM-OP results
 }
 \examples{
   ##
-  x <- estimate_classic(x = create_op_all(testSVY),
+  x <- estimate_classic(x = create_op(testSVY),
                         w = testPSU,
                         replicates = 9)
-  y <- estimate_probit(x = create_op_all(testSVY),
+  y <- estimate_probit(x = create_op(testSVY),
                        w = testPSU,
                        replicates = 9)
   z <- merge_estimates(x, y, prop2percent = TRUE)

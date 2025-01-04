@@ -1,6 +1,6 @@
 Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People
-Version: 0.1.1
+Version: 0.2.0.9000
 Authors@R: c(
     person("Mark", "Myatt", comment = c(ORCID = "0000-0003-1119-1474"),
            email = "mark@brixtonhealth.com", role = "aut"),
@@ -23,7 +23,8 @@ Imports:
     car,
     withr,
     tibble,
-    rmarkdown
+    rmarkdown,
+    cli
 Suggests: 
     testthat (>= 3.0.0),
     covr,

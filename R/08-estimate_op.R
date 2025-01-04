@@ -1,31 +1,23 @@
-################################################################################
-#
 #'
 #' Estimate all standard RAM-OP indicators
 #'
-#' @param x Indicators dataset produced by \link{create_op_all} with primary
-#'     sampling unit (PSU) in column named \code{PSU}
+#' @param x Indicators dataset produced by [create_op()] with primary sampling
+#'   unit (PSU) in column named `PSU`
 #' @param w A data frame with primary sampling unit (PSU) in column named
-#'     \code{psu} and survey weight (i.e. PSU population) in column named
-#'     \code{pop}
+#'   `psu` and survey weight (i.e. PSU population) in column named `pop`
 #' @param indicators A character vector of indicator set names to estimate.
-#'     Indicator set names are \code{demo}, \code{anthro}, \code{food},
-#'     \code{hunger}, \code{disability}, \code{adl}, \code{mental},
-#'     \code{dementia}, \code{health}, \code{income}, \code{wash},
-#'     \code{visual}, and \code{misc}. Default is all indicator sets.
+#'   Indicator set names are *"demo"*, *"anthro"*, *"food"*, *"hunger"*,
+#'   *"disability"*, *"adl"*, *"mental"*, *"dementia"*, *"health"*, *"income"*, 
+#'   *"wash"*, *"visual"*, and *"misc"*. Default is all indicator sets.
 #' @param replicates Number of bootstrap replicates. Default is 399.
 #'
 #' @return Tibble of boot estimates for all specified standard RAM-OP indicators
 #'
 #' @examples
-#' estimate_op_all(x = create_op_all(testSVY),
-#'                 w = testPSU,
-#'                 replicates = 9)
+#' estimate_op_all(x = create_op(testSVY), w = testPSU, replicates = 9)
 #'
 #' @export
 #'
-#
-################################################################################
 
 estimate_op_all <- function(x, w,
                             indicators = c("demo", "anthro", "food", "hunger",

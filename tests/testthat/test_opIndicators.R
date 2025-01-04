@@ -1,7 +1,4 @@
-library(oldr)
-context("Create Older People Indicators")
-
-x <- create_op_all(testSVY)
+x <- create_op(testSVY)
 
 test_that("x is a data.frame", {
   expect_is(x, "data.frame")
@@ -23,7 +20,7 @@ test_that("class of x vectors are class indicators.ALL vectors", {
 })
 
 ## Test gender
-x <- create_op_all(testSVY, gender = "m")
+x <- create_op(testSVY, sex = "m")
 
 test_that("x is a data.frame", {
   expect_is(x, "data.frame")
@@ -45,8 +42,8 @@ test_that("class of x vectors are class indicators.ALL vectors", {
 })
 
 ## Demography
-x <- create_op_demo_males(testSVY)
-y <- create_op_demo_females(testSVY)
+x <- create_op_demo(testSVY, sex = "m")
+y <- create_op_demo(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -83,8 +80,8 @@ test_that("sex is correct", {
 
 
 ## Diets
-x <- create_op_food_males(testSVY)
-y <- create_op_food_females(testSVY)
+x <- create_op_food(testSVY, sex = "m")
+y <- create_op_food(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -121,8 +118,8 @@ test_that("sex is correct", {
 
 
 ## HHS
-x <- create_op_hunger_males(testSVY)
-y <- create_op_hunger_females(testSVY)
+x <- create_op_hunger(testSVY, sex = "m")
+y <- create_op_hunger(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -158,8 +155,8 @@ test_that("sex is correct", {
 })
 
 ## ADL
-x <- create_op_adl_males(testSVY)
-y <- create_op_adl_females(testSVY)
+x <- create_op_adl(testSVY, sex = "m")
+y <- create_op_adl(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -196,8 +193,8 @@ test_that("sex is correct", {
 
 
 ## Disability
-x <- create_op_disability_males(testSVY)
-y <- create_op_disability_females(testSVY)
+x <- create_op_disability(testSVY, sex = "m")
+y <- create_op_disability(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -234,8 +231,8 @@ test_that("sex is correct", {
 
 
 ## Mental health
-x <- create_op_mental_males(testSVY)
-y <- create_op_mental_females(testSVY)
+x <- create_op_mental(testSVY, sex = "m")
+y <- create_op_mental(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -272,8 +269,8 @@ test_that("sex is correct", {
 
 
 ## Dementia
-x <- create_op_dementia_males(testSVY)
-y <- create_op_dementia_females(testSVY)
+x <- create_op_dementia(testSVY, sex = "m")
+y <- create_op_dementia(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -310,8 +307,8 @@ test_that("sex is correct", {
 
 
 ## Health
-x <- create_op_health_males(testSVY)
-y <- create_op_health_females(testSVY)
+x <- create_op_health(testSVY, sex = "m")
+y <- create_op_health(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -348,8 +345,8 @@ test_that("sex is correct", {
 
 
 ## Income
-x <- create_op_income_males(testSVY)
-y <- create_op_income_females(testSVY)
+x <- create_op_income(testSVY, sex = "m")
+y <- create_op_income(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -386,8 +383,8 @@ test_that("sex is correct", {
 
 
 ## WASH
-x <- create_op_wash_males(testSVY)
-y <- create_op_wash_females(testSVY)
+x <- create_op_wash(testSVY, sex = "m")
+y <- create_op_wash(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -424,8 +421,8 @@ test_that("sex is correct", {
 
 
 ## Anthro
-x <- create_op_anthro_males(testSVY)
-y <- create_op_anthro_females(testSVY)
+x <- create_op_anthro(testSVY, sex = "m")
+y <- create_op_anthro(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -462,8 +459,8 @@ test_that("sex is correct", {
 
 
 ## Oedema
-x <- create_op_oedema_males(testSVY)
-y <- create_op_oedema_females(testSVY)
+x <- create_op_oedema(testSVY, sex = "m")
+y <- create_op_oedema(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -500,8 +497,8 @@ test_that("sex is correct", {
 
 
 ## Screening
-x <- create_op_screening_males(testSVY)
-y <- create_op_screening_females(testSVY)
+x <- create_op_screening(testSVY, sex = "m")
+y <- create_op_screening(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -538,8 +535,8 @@ test_that("sex is correct", {
 
 
 ## Visual acuity
-x <- create_op_visual_males(testSVY)
-y <- create_op_visual_females(testSVY)
+x <- create_op_visual(testSVY, sex = "m")
+y <- create_op_visual(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")
@@ -576,8 +573,8 @@ test_that("sex is correct", {
 
 
 ## Miscellaneous
-x <- create_op_misc_males(testSVY)
-y <- create_op_misc_females(testSVY)
+x <- create_op_misc(testSVY, sex = "m")
+y <- create_op_misc(testSVY, sex = "f")
 
 test_that("x and y are data.frame", {
   expect_is(x, "data.frame")

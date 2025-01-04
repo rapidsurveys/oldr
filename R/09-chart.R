@@ -1,20 +1,19 @@
-################################################################################
-#
+#' 
 #' Age by sex (pyramid plot)
 #'
-#' A wrapper function to the \link{pyramid.plot} function to create an age by
+#' A wrapper function to the [pyramid.plot()] function to create an age by
 #' sex pyramid plot
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Default is a path to
 #'   a temporary directory and a filename starting with
-#'   \code{populationPyramid}. Ignored if \code{save_chart} is FALSE.
+#'   `populationPyramid`. Ignored if `save_chart` is FALSE.
 #'
 #' @return Age by sex pyramid plot in PNG format saved in the current working
-#'     directory or in a specified directory if \code{filename} is a path unless
-#'     when \code{save.plot} is FALSE in which case the plot is shown on current
+#'     directory or in a specified directory if `filename` is a path unless
+#'     when `save_chart` is FALSE in which case the plot is shown on current
 #'     graphics device
 #'
 #' @examples
@@ -23,8 +22,6 @@
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_age <- function(x,
                       save_chart = TRUE,
@@ -33,8 +30,10 @@ chart_age <- function(x,
                                        sep = "/")) {
   ## Temporary variables
   sexText <- ifelse(x$sex1 == 1, "Male", "Female")
-  ageGroup <- bbw::recode(var = x$age,
-    recodes = "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA")
+  ageGroup <- bbw::recode(
+    var = x$age,
+    recodes = "50:59='50:59'; 60:69='60:69'; 70:79='70:79'; 80:89='80:89'; 90:hi='90+'; else=NA"
+  )
 
   ## Age BY sex (pyramid plot)
   plotFileName <- paste(filename, ".AgeBySex.png", sep = "")
@@ -47,7 +46,7 @@ chart_age <- function(x,
                    width = 6, height = 6, units = "in",
                    res = 600, pointsize = 12)
 
-    ## Set graphical parameers
+    ## Set graphical parameters
     withr::with_par(
       list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
 
@@ -62,7 +61,7 @@ chart_age <- function(x,
     ## Close graphics device
     grDevices::dev.off()
   } else {
-    ## Set graphical parameers
+    ## Set graphical parameters
     withr::with_par(
       list(pty = "m", mar = c(5, 4, 2, 2) + 0.1),
 
@@ -77,20 +76,20 @@ chart_age <- function(x,
 }
 
 
-################################################################################
-#
+
+#' 
 #' Distribution of MUAC (overall and by sex)
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Default is a path to
-#'   a temporary directory and a filename starting with \code{chart}. Ignored
-#'   if \code{save_chart} is FALSE.
+#'   a temporary directory and a filename starting with `chart`. Ignored
+#'   if `save_chart` is FALSE.
 #'
 #' @return Histogram of MUAC distribution in PNG format and saved in the current
-#'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save_chart} is FALSE in which case chart is
+#'     working directory or in a specified directory if `filename` is a
+#'     path unless when `save_chart` is FALSE in which case chart is
 #'     shown on current graphics device.
 #'
 #' @examples
@@ -99,8 +98,6 @@ chart_age <- function(x,
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_muac <- function(x,
                        save_chart = TRUE,
@@ -152,7 +149,8 @@ chart_muac <- function(x,
         ## Create MUAC histogram by sex
         hist(x$MUAC, breaks = 20,
              xlim = c(160, max(x$MUAC, na.rm = TRUE)),
-             main = "", xlab = "MUAC (mm)", ylab = "Frequency", col = "lightgray")
+             main = "", xlab = "MUAC (mm)", 
+             ylab = "Frequency", col = "lightgray")
 
         ## Create boxplot of MUAC by sex
         boxplot(x$MUAC ~ sexText,
@@ -163,20 +161,19 @@ chart_muac <- function(x,
 }
 
 
-################################################################################
-#
+#' 
 #' Distribution of meal frequency (overall and by sex)
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Default is a path to
-#'   a temporary directory and a filename starting with \code{chart}. Ignored
-#'   if \code{save_chart} is FALSE.
+#'   a temporary directory and a filename starting with `chart`. Ignored
+#'   if `save_chart` is FALSE.
 #'
 #' @return Barplot of meal frequency in PNG format saved in current working
-#'     directory or in a specified directory if \code{filename} is a path unless
-#'     when \code{save_chart} is FALSE in which case chart is shown in current
+#'     directory or in a specified directory if `filename` is a path unless
+#'     when `save_chart` is FALSE in which case chart is shown in current
 #'     graphics device.
 #'
 #' @examples
@@ -185,8 +182,6 @@ chart_muac <- function(x,
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_mf <- function(x,
                      save_chart = TRUE,
@@ -254,21 +249,20 @@ chart_mf <- function(x,
 }
 
 
-################################################################################
-#
+#' 
 #' Distribution of DDS (overall and by sex)
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Default is a path to
-#'   a temporary directory and a filename starting with \code{chart}. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   a temporary directory and a filename starting with `chart`. Ignored if
+#'   `save_chart` is FALSE.
 #'
-#' @return Barplot of dietary diversity score in PNG format saved in current
-#'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save_chart} is FALSE in which case chart is shown
-#'     in current graphic device.
+#' @returns Barplot of dietary diversity score in PNG format saved in current
+#'   working directory or in a specified directory if `filename` is a
+#'   path unless when `save_chart` is FALSE in which case chart is shown
+#'   in current graphic device.
 #'
 #' @examples
 #'   # Create DDS chart using indicators.ALL dataset
@@ -276,8 +270,6 @@ chart_mf <- function(x,
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_dds <- function(x,
                       save_chart = TRUE,
@@ -313,9 +305,12 @@ chart_dds <- function(x,
                 col = "lightgray")
 
         ## Create boxplot
-        boxplot(x$DDS ~ sexText,
-                main = "",
-                xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+        boxplot(
+          x$DDS ~ sexText,
+          main = "",
+          xlab = "Sex", ylab = "Dietary diversity score", 
+          frame.plot = FALSE
+        )
       }
     )
 
@@ -339,29 +334,33 @@ chart_dds <- function(x,
                 col = "lightgray")
 
         ## Create boxplot
-        boxplot(x$DDS ~ sexText,
-                main = "",
-                xlab = "Sex", ylab = "Dietary diversity score", frame.plot = FALSE)
+        boxplot(
+          x$DDS ~ sexText,
+          main = "",
+          xlab = "Sex", 
+          ylab = "Dietary diversity score", 
+          frame.plot = FALSE
+        )
       }
     )
   }
 }
 
 
-################################################################################
-#
+
+#' 
 #' Distribution of K6 (overall and by sex)
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to
-#'   a temporary directory and a filename starting with \code{chart}. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   a temporary directory and a filename starting with `chart`. Ignored if
+#'   `save_chart` is FALSE.
 #'
 #' @return Histogram of K6 score in PNG format saved in current
-#'     working directory or in a specified directory if \code{filename} is a
-#'     path unless when \code{save_chart} is FALSE in which case chart is shown
+#'     working directory or in a specified directory if `filename` is a
+#'     path unless when `save_chart` is FALSE in which case chart is shown
 #'     in current graphics device.
 #'
 #' @examples
@@ -400,7 +399,9 @@ chart_k6 <- function(x,
 
       {
         ## Create histogram
-        hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
+        hist(
+          x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray"
+        )
 
         ## Create boxplot
         boxplot(x$K6 ~ sexText, main = "",
@@ -420,7 +421,9 @@ chart_k6 <- function(x,
 
       {
         ## Create histogram
-        hist(x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray")
+        hist(
+          x$K6, main = "", xlab = "K6", ylab = "Frequency", col = "lightgray"
+        )
 
         ## Create boxplot
         boxplot(x$K6 ~ sexText, main = "",
@@ -432,20 +435,19 @@ chart_k6 <- function(x,
 }
 
 
-################################################################################
-#
+#' 
 #' Distribution of ADL (overall and by sex)
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to
-#'   a temporary directory and a filename starting with \code{chart}. Ignored if
-#'   \code{save_chart} is FALSE.
+#'   a temporary directory and a filename starting with `chart`. Ignored if
+#'   `save_chart` is FALSE.
 #'
 #' @return Bar plot of ADL in PNG format saved in current working directory
-#'   or in a specified directory if \code{filename} is a path unless when
-#'   \code{save_chart} is FALSE in which case chart is shown in current
+#'   or in a specified directory if `filename` is a path unless when
+#'   `save_chart` is FALSE in which case chart is shown in current
 #'   graphic device.
 #'
 #' @examples
@@ -454,8 +456,6 @@ chart_k6 <- function(x,
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_adl <- function(x,
                       save_chart = TRUE,
@@ -524,11 +524,10 @@ chart_adl <- function(x,
 }
 
 
-################################################################################
-#
+#' 
 #' Chart WASH indicators
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to
@@ -546,8 +545,6 @@ chart_adl <- function(x,
 #'
 #' @export
 #'
-#
-################################################################################
 
 chart_wash <- function(x,
                        save_chart = TRUE,
@@ -620,7 +617,7 @@ chart_wash <- function(x,
 #
 #' Chart dementia screen (CSID) indicators
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to
@@ -675,7 +672,7 @@ chart_csid <- function(x,
 #
 #' Chart disability (Washington Group - WG) indicators
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to
@@ -738,7 +735,7 @@ chart_wg <- function(x,
 #
 #' Chart household hunger scale (HHS) indicators
 #'
-#' @param x Indicators dataset produced by \link{create_op_all}
+#' @param x Indicators dataset produced by [create_op()]
 #' @param save_chart Logical. Should chart be saved? Default is TRUE.
 #' @param filename Prefix to add to output chart filename or a directory
 #'   path to save output to instead of working directory. Defaults to a path to

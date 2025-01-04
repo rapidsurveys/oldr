@@ -2,7 +2,7 @@
 % Please edit documentation in R/05-classicBoot.R
 \name{estimate_classic}
 \alias{estimate_classic}
-\title{Function to apply bootstrap to RAM-OP indicators using a classical estimator.}
+\title{Apply bootstrap to RAM-OP indicators using a classical estimator.}
 \usage{
 estimate_classic(
   x,
@@ -16,40 +16,37 @@ estimate_classic(
 )
 }
 \arguments{
-\item{x}{Indicators dataset produced by \link{create_op_all} with primary
-sampling unit (PSU) in column named \code{PSU}}
+\item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}} with primary sampling
+unit (PSU) in column named \code{psu}}
 
-\item{w}{A data frame with primary sampling unit (PSU) in column named
-\code{psu} and survey weight (i.e. PSU population) in column named
-\code{pop}}
+\item{w}{A data frame with primary sampling unit (PSU) in column named \code{psu}
+and survey weight (i.e. PSU population) in column named \code{pop}}
 
-\item{statistic}{A function operating on data in \code{x}; fixed to
-\link{bootClassic} function for means}
+\item{statistic}{A function operating on data in \code{x}. Fixed to \code{bootClassic()}
+function for means}
 
 \item{indicators}{A character vector of indicator set names to estimate.
-Indicator set names are \code{demo}, \code{food}, \code{hunger},
-\code{disability}, \code{adl}, \code{mental}, \code{dementia},
-\code{health}, \code{income}, \code{wash}, \code{visual}, and \code{misc}.
-Default is all indicator sets.}
+Indicator set names are \emph{"demo"}, \emph{"food"}, \emph{"hunger"}, \emph{"disability"},
+\emph{"adl"}, \emph{"mental"}, \emph{"dementia"}, \emph{"health"}, \emph{"income"}, \emph{"wash"},
+\emph{"visual"}, and \emph{"misc"}. Default is all indicator sets.}
 
 \item{params}{Parameters (named columns in \code{x}) passed to the function
-specified in \code{statistic}. This is equivalent to variables
-corresponding to the indicator sets specified in \code{indicators}. The
-function \link{get_variables} is used to specify these variables.}
+specified in \code{statistic}. This is equivalent to variables corresponding to
+the indicator sets specified in \code{indicators}. The function
+\code{\link[=get_variables]{get_variables()}} is used to specify these variables.}
 
 \item{outputColumns}{Names of columns in output data frame. This defaults to
-values specified in \code{params}}
+values specified in \code{params}.}
 
 \item{replicates}{Number of bootstrap replicates}
 }
 \value{
-Tibble of boot estimates using bootClassic mean function
+A tibble of boot estimates using bootClassic mean function
 }
 \description{
-Function to apply bootstrap to RAM-OP indicators using a classical estimator.
+Apply bootstrap to RAM-OP indicators using a classical estimator.
 }
 \examples{
-  #
   test <- estimate_classic(x = indicators.ALL,
                            w = testPSU,
                            replicates = 9)

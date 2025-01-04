@@ -39,11 +39,11 @@ Create a DOCX report document containing RAM-OP survey results
 }
 \examples{
   #
-  classicResults <- estimate_classic(x = create_op_all(testSVY),
+  classicResults <- estimate_classic(x = create_op(testSVY),
                                      w = testPSU,
                                      replicates = 9)
 
-  probitResults <- estimate_probit(x = create_op_all(testSVY),
+  probitResults <- estimate_probit(x = create_op(testSVY),
                                    w = testPSU,
                                    replicates = 9)
 
