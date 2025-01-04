@@ -29,8 +29,6 @@ Suggests:
     testthat (>= 3.0.0),
     covr,
     DiagrammeR,
-    dplyr,
-    magrittr,
     knitr,
     kableExtra,
     spelling

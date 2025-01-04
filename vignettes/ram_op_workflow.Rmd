@@ -21,8 +21,6 @@ knitr::opts_chunk$set(
 ```{r setup, echo = FALSE, eval = TRUE}
 library(oldr)
 library(DiagrammeR)
-library(dplyr)
-library(magrittr)
 ```
 
 The RAM-OP Workflow is summarised in the diagram below.
@@ -324,14 +322,13 @@ Once indicators has been estimated, the outputs can then be used to create relev
 The following shows how to produce the chart for ADLs saved with filename **test** appended at the start inside a temporary directory:
 
 ```{r chartADL, echo = TRUE, eval = TRUE}
-chart_op_adl(x = create_op(testSVY), 
-          filename = paste(tempdir(), "test", sep = "/"))
+chart_op_adl(x = create_op(testSVY), filename = file.path(tempdir(), "test"))
 ```
 
 The resulting PNG file can be found in the temporary directory
 
 ```{r checkChart, echo = TRUE, eval = TRUE}
-list.files(path = tempdir())
+file.exists(path = file.path(tempdir(), "test.png"))
 ```
 
 and will look something like this:
@@ -346,47 +343,50 @@ chart_op_adl(x = create_op(testSVY), save_chart = FALSE)
 Finally, estimates can be reported through report tables. The `report_op_table` function facilitates this through the following syntax:
 
 ```{r report, echo = TRUE, eval = TRUE}
-report_op_table(estimates = resultsDF, 
-                filename = paste(tempdir(), "TEST", sep = "/"))
+report_op_table(estimates = resultsDF, filename = file.path(tempdir(), "TEST"))
 ```
 
 The resulting CSV file is found in the temporary directory
 
 ```{r checkTable, echo = TRUE, eval = TRUE}
-list.files(path = tempdir())
+file.exists(path = file.path(tempdir(), "TEST.csv"))
 ```
 
 and will look something like this:
 
 ```{r showTable, echo = FALSE, eval = TRUE}
-read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"),
-         stringsAsFactors = FALSE)
+read.csv(
+  file = paste(tempdir(), "TEST.report.csv", sep = "/"),
+  stringsAsFactors = FALSE
+)
 ```
 
 ## The RAM-OP workflow in R using pipe operators
 
-The package `magrittr` provides functions that facilitate piped operations in R. The `oldr` package functions were designed in such a way that they can be piped to each other to provide the desired output.
+The `oldr` package functions were designed in such a way that they can be piped to each other to provide the desired output. Below we use the base R pipe operator `|>`.
 
 ### Piped operation to get output estimates table
 
 ```{r estimatePipe1, echo = TRUE, eval = TRUE}
-testSVY %>%
-  create_op() %>%
-  estimate_op_all(w = testPSU, replicates = 9) %>%
-  report_op_table(filename = paste(tempdir(), "TEST", sep = "/"))
+testSVY |>
+  create_op() |>
+  estimate_op_all(w = testPSU, replicates = 9) |>
+  report_op_table(filename = file.path(tempdir(), "TEST"))
 ```
 
 This results in a CSV file `TEST.report.csv` in the temporary directory
 
 ```{r estimatePipe2, echo = TRUE, eval = TRUE}
-file.exists(paste(tempdir(), "TEST.report.csv", sep = "/"))
+file.exists(file.path(tempdir(), "TEST.report.csv"))
 ```
 
 with the following structure:
 
 ```{r estimatePipe3, echo = FALSE, eval = TRUE}
-read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"), 
-         stringsAsFactors = FALSE)
+read.csv(
+  file = paste(tempdir(), "TEST.report.csv", sep = "/"), 
+  stringsAsFactors = FALSE
+)
 ```
 
 ### Piped operation to get output an HTML report
@@ -394,10 +394,12 @@ read.csv(file = paste(tempdir(), "TEST.report.csv", sep = "/"),
 If the preferred output is a report with combined charts and tables of results, the following piped operations can be performed:
 
 ```{r estimateReport1, echo = TRUE, eval = FALSE}
-testSVY %>%
-  create_op() %>%
-  estimate_op_all(w = testPSU, replicates = 9) %>%
-  report_op_html(svy = testSVY, filename = paste(tempdir(), "ramOPreport", sep = "/"))
+testSVY |>
+  create_op() |>
+  estimate_op_all(w = testPSU, replicates = 9) |>
+  report_op_html(
+    svy = testSVY, filename = file.path(tempdir(), "ramOPreport")
+  )
 ```
 
 which results in an HTML file saved in the specified output directory that looks something like this:
