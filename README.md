@@ -51,19 +51,27 @@ You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 install.packages("oldr")
 ```
 
-You can install the development version of `{oldr}` from
-[GitHub](https://github.com/rapidsurveys/oldr) with:
+You can install the latest development version of `{oldr}` from the
+RapidSurveys R Universe with:
 
 ``` r
-if(!require(pak)) install.packages("pak")
-remotes::install_github("rapidsurveys/oldr")
+install.packages(
+  "oldr", repos = c("https://rapidsurveys.r-universe.dev")
+)
+```
+
+or from [GitHub](https://github.com/rapidsurveys/oldr) with:
+
+``` r
+if (!require("pak")) install.packages("pak")
+pak::pak("rapidsurveys/oldr")
 ```
 
 ## Usage
 
 This package contains functions that support in the data processing,
-analysis and visualisation of RAM-OP survey datasets collected using the
-standard RAM-OP survey questionnaire.
+analysis, and visualisation of RAM-OP survey datasets collected using
+the standard RAM-OP survey questionnaire.
 
 The figure below illustrates the RAM-OP workflow and indicates which
 functions in the `{oldr}` package support which particular step in the
@@ -89,7 +97,7 @@ citation("oldr")
 #>   Assessment Method for Older People_.
 #>   doi:10.5281/zenodo.7505731
 #>   <https://doi.org/10.5281/zenodo.7505731>, R package
-#>   version 0.1.1, <https://rapidsurveys.io/oldr/>.
+#>   version 0.2.0, <https://rapidsurveys.io/oldr/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -97,7 +105,7 @@ citation("oldr")
 #>     title = {oldr: An Implementation of Rapid Assessment Method for Older People},
 #>     author = {{Mark Myatt} and {Ernest Guevarra} and {Pascale Fritsch} and {Katja Siling}},
 #>     year = {2024},
-#>     note = {R package version 0.1.1},
+#>     note = {R package version 0.2.0},
 #>     url = {https://rapidsurveys.io/oldr/},
 #>     doi = {10.5281/zenodo.7505731},
 #>   }
