@@ -14,27 +14,27 @@
 #' @return Tibble of boot estimates for all specified standard RAM-OP indicators
 #'
 #' @examples
-#' estimate_op_all(x = create_op(testSVY), w = testPSU, replicates = 9)
+#' estimate_op(x = create_op(testSVY), w = testPSU, replicates = 9)
 #'
 #' @export
 #'
 
-estimate_op_all <- function(x, w,
-                            indicators = c("demo", "anthro", "food", "hunger",
-                                           "adl", "disability", "mental",
-                                           "dementia", "health", "oedema",
-                                           "screening", "income", "wash",
-                                           "visual", "misc"),
-                            replicates = 399) {
+estimate_op <- function(x, w,
+                        indicators = c("demo", "anthro", "food", 
+                                       "hunger", "adl", "disability",
+                                       "mental", "dementia", "health",
+                                       "oedema", "screening", "income",
+                                       "wash", "visual", "misc"),
+                        replicates = 399) {
   ## Classic boot estimator
   classicIndicators <- indicators[indicators != "anthro"]
 
   ## Check if indicators more than anthro
   if(length(classicIndicators) != 0) {
     ## Bootstrap classic
-    classicResults <- estimate_classic(x = x, w = w,
-                                      indicators = classicIndicators,
-                                      replicates = replicates)
+    classicResults <- estimate_classic(
+      x = x, w = w, indicators = classicIndicators, replicates = replicates
+    )
   } else {
     ## Assign as NULL
     classicResults <- NULL
@@ -50,9 +50,9 @@ estimate_op_all <- function(x, w,
   }
 
   ## Concatenate results and structure
-  resultsDF <- merge_estimates(x = classicResults,
-                               y = probitResults,
-                               prop2percent = TRUE)
+  resultsDF <- merge_estimates(
+    x = classicResults, y = probitResults, prop2percent = TRUE
+  )
 
   ## Convert to tibble
   resultsDF <- tibble::tibble(resultsDF)

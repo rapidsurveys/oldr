@@ -356,7 +356,7 @@ and will look something like this:
 
 ```{r showTable, echo = FALSE, eval = TRUE}
 read.csv(
-  file = paste(tempdir(), "TEST.report.csv", sep = "/"),
+  file = file.path(tempdir(), "TEST.report.csv"),
   stringsAsFactors = FALSE
 )
 ```
@@ -370,7 +370,7 @@ The `oldr` package functions were designed in such a way that they can be piped 
 ```{r estimatePipe1, echo = TRUE, eval = TRUE}
 testSVY |>
   create_op() |>
-  estimate_op_all(w = testPSU, replicates = 9) |>
+  estimate_op(w = testPSU, replicates = 9) |>
   report_op_table(filename = file.path(tempdir(), "TEST"))
 ```
 
@@ -396,7 +396,7 @@ If the preferred output is a report with combined charts and tables of results, 
 ```{r estimateReport1, echo = TRUE, eval = FALSE}
 testSVY |>
   create_op() |>
-  estimate_op_all(w = testPSU, replicates = 9) |>
+  estimate_op(w = testPSU, replicates = 9) |>
   report_op_html(
     svy = testSVY, filename = file.path(tempdir(), "ramOPreport")
   )

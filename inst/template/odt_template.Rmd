@@ -35,7 +35,7 @@ library(knitr)
 
 testSVY %>%
   create_op() %>%
-  estimate_op_all(w = testPSU, indicators = "demo", replicates = 19) %>%
+  estimate_op(w = testPSU, indicators = "demo", replicates = 19) %>%
   select(LABEL:UCL.ALL) %>%
   kable()
 ```
