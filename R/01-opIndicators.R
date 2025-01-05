@@ -1,14 +1,30 @@
 #' 
 #' Create older people indicators dataset from survey data collected using the
-#' standard RAM-OP questionnaire. The indicator sets covered by the standard
-#' RAM-OP survey are:
+#' standard RAM-OP questionnaire.
+#' 
+#' @description
+#' The indicator sets covered by the standard RAM-OP survey are:
+#' 
+#' * Demographic indicators
+#' * Dietary intake indicators
+#' * Household hunger scale
+#' * Katz Index of Independence in Activities of Daily Living score
+#' * K6 Short form psychological distress score
+#' * Brief Community Screening Instrument for Dementia (CSID)
+#' * Health and health-seeking indicators
+#' * Income and income sources
+#' * Water, sanitation and hygiene (WASH) indicators
+#' * Anthropometry and screening
+#' * Visual impairment by "Tumbling E" method
+#' * Miscellaneous indicators
+#' * Washington Group on Disability
 #' 
 #' @section Demographic indicators:
 #' 
 #' **Variable** | **Description**
 #' :--- | :---
-#' `psu`` | Primary sampling unit
-#' `resp1`` | Respondent is SUBJECT
+#' `psu` | Primary sampling unit
+#' `resp1` | Respondent is SUBJECT
 #' `resp2` | Respondent is FAMILY CARER
 #' `resp3` | Respondent is OTHER CARER
 #' `resp4` | Respondent is OTHER
@@ -42,9 +58,9 @@
 #' 
 #' **Variable** | **Description**
 #' :--- | :---
-#' `MF`` | Meal frequency
-#' `DDS`` | Dietary Diversity Score (count of 11 groups)
-#' `FG01`` | Cereals
+#' `MF` | Meal frequency
+#' `DDS` | Dietary Diversity Score (count of 11 groups)
+#' `FG01` | Cereals
 #' `FG02` | Roots and tubers
 #' `FG03` | Fruits and vegetables
 #' `FG04` | All meat
@@ -105,18 +121,18 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' ADL01 | Bathing
-#' ADL02 | Dressing
-#' ADL03 | Toileting
-#' ADL04 | Transferring (mobility)
-#' ADL05 | Continence
-#' ADL06 | Feeding
-#' scoreADL | ADL Score
-#' classADL1 | Severity of dependence 1
-#' classADL2 | Severity of dependence 2
-#' classADL3 | Severity of dependence 3
-#' hasHelp | Have someone to help with everyday activities
-#' unmetNeed | Need help but has no helper
+#' `ADL01` | Bathing
+#' `ADL02` | Dressing
+#' `ADL03` | Toileting
+#' `ADL04` | Transferring (mobility)
+#' `ADL05` | Continence
+#' `ADL06` | Feeding
+#' `scoreADL` | ADL Score
+#' `classADL1` | Severity of dependence 1
+#' `classADL2` | Severity of dependence 2
+#' `classADL3` | Severity of dependence 3
+#' `hasHelp` | Have someone to help with everyday activities
+#' `unmetNeed` | Need help but has no helper
 #'
 #' @section K6 Short form psychological distress score:
 #'
@@ -129,8 +145,8 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' K6 | K6 score
-#' K6Case | K6 score > 12  (in serious psychological distress)
+#' `K6` | K6 score
+#' `K6Case` | K6 score > 12  (in serious psychological distress)
 #'
 #' @section Brief Community Screening Instrument for Dementia (CSID):
 #'
@@ -144,49 +160,49 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' DS | Probable dementia by CSID screen
+#' `DS` | Probable dementia by CSID screen
 #'
 #' @section Health and health-seeking indicators:
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' H1 | Chronic condition
-#' H2 | Takes drugs regularly for chronic condition
-#' H31 | No drugs available
-#' H32 | Too expensive / no money
-#' H33 | Too old to look for care
-#' H34 | Use traditional medicine
-#' H35 | Drugs don't help
-#' H36 | No-one to help me
-#' H37 | No need
-#' H38 | Other
-#' H39 | No reason given
-#' H4 | Recent disease episode
-#' H5 | Accessed care for recent disease episode
-#' H61 | No drugs available
-#' H62 | Too expensive / no money
-#' H63 | Too old to look for care
-#' H64 | Use traditional medicine
-#' H65 | Drugs don't help
-#' H66 | No-one to help me
-#' H67 | No need
-#' H68 | Other
-#' H69 | No reason given
+#' `H1` | Chronic condition
+#' `H2` | Takes drugs regularly for chronic condition
+#' `H31` | No drugs available
+#' `H32` | Too expensive / no money
+#' `H33` | Too old to look for care
+#' `H34` | Use traditional medicine
+#' `H35` | Drugs don't help
+#' `H36` | No-one to help me
+#' `H37` | No need
+#' `H38` | Other
+#' `H39` | No reason given
+#' `H4` | Recent disease episode
+#' `H5` | Accessed care for recent disease episode
+#' `H61` | No drugs available
+#' `H62` | Too expensive / no money
+#' `H63` | Too old to look for care
+#' `H64` | Use traditional medicine
+#' `H65` | Drugs don't help
+#' `H66` | No-one to help me
+#' `H67` | No need
+#' `H68` | Other
+#' `H69` | No reason given
 #'
 #' @section Income and income sources:
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' M1 | Has a personal income
-#' M2A | Agriculture / fishing / livestock
-#' M2B | Wages / salary
-#' M2C | Sale of charcoal / bricks / etc.
-#' M2D | Trading (e.g. market or shop)
-#' M2E | Investments
-#' M2F | Spending savings / sale of assets
-#' M2G | Charity
-#' M2H | Cash transfer / Social security
-#' M2I | Other
+#' `M1` | Has a personal income
+#' `M2A` | Agriculture / fishing / livestock
+#' `M2B` | Wages / salary
+#' `M2C` | Sale of charcoal / bricks / etc.
+#' `M2D` | Trading (e.g. market or shop)
+#' `M2E` | Investments
+#' `M2F` | Spending savings / sale of assets
+#' `M2G` | Charity
+#' `M2H` | Cash transfer / Social security
+#' `M2I` | Other
 #'
 #' @section Water, sanitation and hygiene (WASH) indicators:
 #'
@@ -198,18 +214,18 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' W1 | Improved source of drinking water
-#' W2 | Safe drinking water (improved source OR adequate treatment)
-#' W3 | Improved sanitation facility
-#' W4 | Improved non-shared sanitation facility
+#' `W1` | Improved source of drinking water
+#' `W2` | Safe drinking water (improved source OR adequate treatment)
+#' `W3` | Improved sanitation facility
+#' `W4` | Improved non-shared sanitation facility
 #'
 #' @section Anthropometry and screening:
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' MUAC | Mid-upper arm circumference (mm)
-#' oedema | Bilateral pitting oedema (may not be nutritional)
-#' screened | Either MUAC or oedema checked previously
+#' `MUAC` | Mid-upper arm circumference (mm)
+#' `oedema` | Bilateral pitting oedema (may not be nutritional)
+#' `screened` | Either MUAC or oedema checked previously
 #'
 #' @section Visual impairment by "Tumbling E" method:
 #'
@@ -226,9 +242,9 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' chew | Problems chewing food
-#' food | Anyone in HH receives a ration
-#' NFRI | Anyone in HH received non-food relief item/s (NFRI) in previous month
+#' `chew` | Problems chewing food
+#' `food` | Anyone in HH receives a ration
+#' `NFRI` | Anyone in HH received non-food relief item/s (NFRI) in previous month
 #'
 #' @section Washington Group on Disability:
 #'
@@ -241,35 +257,35 @@
 #'
 #' **Variable** | **Description**
 #' :--- | :---
-#' wgVisionD0 | Vision domain 0
-#' wgVisionD1 | Vision domain 1
-#' wgVisionD2 | Vision domain 2
-#' wgVisionD3 | Vision domain 3
-#' wgHearingD0 | Hearing domain 0
-#' wgHearingD1 | Hearing domain 1
-#' wgHearingD2 | Hearing domain 2
-#' wgHearingD3 | Hearing domain 3
-#' wgMobilityD0 | Mobility domain 0
-#' wgMobilityD1 | Mobility domain 1
-#' wgMobilityD2 | Mobility domain 2
-#' wgMobilityD3 | Mobility domain 3
-#' wgRememberingD0 | Remembering domain 0
-#' wgRememberingD1 | Remembering domain 1
-#' wgRememberingD2 | Remembering domain 2
-#' wgRememberingD3 | Remembering domain 3
-#' wgSelfCareD0 | Self-care domain 0
-#' wgSelfCareD1 | Self-care domain 1
-#' wgSelfCareD2 | Self-care domain 2
-#' wgSelfCareD3 | Self-care domain 3
-#' wgCommunicatingD0 | Communication domain 0
-#' wgCommunicatingD1 | Communication domain 1
-#' wgCommunicatingD2 | Communication domain 2
-#' wgCommunicatingD3 | Communication domain 3
-#' wgP0 | Overall 0
-#' wgP1 | Overall 1
-#' wgP2 | Overall 2
-#' wgP3 | Overall 3
-#' wgPM | Any disability
+#' `wgVisionD0` | Vision domain 0
+#' `wgVisionD1` | Vision domain 1
+#' `wgVisionD2` | Vision domain 2
+#' `wgVisionD3` | Vision domain 3
+#' `wgHearingD0` | Hearing domain 0
+#' `wgHearingD1` | Hearing domain 1
+#' `wgHearingD2` | Hearing domain 2
+#' `wgHearingD3` | Hearing domain 3
+#' `wgMobilityD0` | Mobility domain 0
+#' `wgMobilityD1` | Mobility domain 1
+#' `wgMobilityD2` | Mobility domain 2
+#' `wgMobilityD3` | Mobility domain 3
+#' `wgRememberingD0` | Remembering domain 0
+#' `wgRememberingD1` | Remembering domain 1
+#' `wgRememberingD2` | Remembering domain 2
+#' `wgRememberingD3` | Remembering domain 3
+#' `wgSelfCareD0` | Self-care domain 0
+#' `wgSelfCareD1` | Self-care domain 1
+#' `wgSelfCareD2` | Self-care domain 2
+#' `wgSelfCareD3` | Self-care domain 3
+#' `wgCommunicatingD0` | Communication domain 0
+#' `wgCommunicatingD1` | Communication domain 1
+#' `wgCommunicatingD2` | Communication domain 2
+#' `wgCommunicatingD3` | Communication domain 3
+#' `wgP0` | Overall 0
+#' `wgP1` | Overall 1
+#' `wgP2` | Overall 2
+#' `wgP3` | Overall 3
+#' `wgPM` | Any disability
 #'
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator set names. The vector may
@@ -287,15 +303,18 @@
 #' # Create indicators dataset from RAM-OP survey data collected from
 #' # Addis Ababa, Ethiopia
 #' create_op(testSVY)
+#' create_op(testSVY, indicators = "demo")
+#' create_op(testSVY, indicators = "hunger", sex = "m")
 #' 
 #' @export
 #' @rdname create_op
 #' 
 
 create_op <- function(svy,
-                      indicators = c("demo", "food", "hunger", "disability", 
-                                     "adl", "mental", "dementia", "health", 
-                                     "income", "wash", "anthro", "oedema",
+                      indicators = c("demo", "food", "hunger", 
+                                     "disability", "adl", "mental", 
+                                     "dementia", "health", "income", 
+                                     "wash", "anthro", "oedema",
                                      "screening", "visual", "misc"),
                       sex = c("mf", "m", "f")) {
   ## Check specified indicators ----
@@ -310,68 +329,6 @@ create_op <- function(svy,
     sex2 = bbw::recode(svy$d3, "1=0; 2=1; else=NA")
   ) |>
     subset_by_sex(sex = sex)
-
-
-  ## demographic indicators ----
-  #demo       <- create_op_demo(svy = svy)
-
-  ## Dietary intake indicators ----
-  #food       <- create_op_food(svy = svy)
-
-  ## Household Hunger Scale ----
-  #hunger     <- create_op_hunger(svy = svy)
-
-  ##  Katz "Index of Independence in Activities of Daily Living" (ADL) score
-  #adl        <- create_op_adl(svy = svy)
-
-  ##  K6: Short form psychological distress score ----
-  #mental     <- create_op_mental(svy = svy)
-
-  ## CISD
-  #dementia   <- create_op_dementia(svy = svy)
-
-  ##  Health indicators : CHRONIC CONDITIONS
-  #health     <- create_op_health(svy = svy)
-
-  ##  Income and income sources ----
-  #income     <- create_op_income(svy = svy)
-
-  ##  Water, Sanitation, and Hygiene (WASH) indicators ----
-  #wash       <- create_op_wash(svy = svy)
-
-  ##  Anthropometry and screening ----
-  #anthro     <- create_op_anthro(svy = svy)
-  #oedema     <- create_op_oedema(svy = svy)
-  #screening  <- create_op_screening(svy = svy)
-
-  ##  Visual impairment by "Tumbling E" method ----
-  #visual     <- create_op_visual(svy = svy)
-
-  ##  Miscellaneous indicators ----
-  #misc       <- create_op_misc(svy = svy)
-
-  ## Washington Group (WG) short set of question designed to identify ----
-  ## people with a disability in a census or survey format.
-  #disability <- create_op_disability(svy = svy)
-
-  ##  Make summary data.frame for ALL respondents ----
-  # indicators <- tibble::tibble(
-  #   demo,
-  #   subset(food, select = c(-psu, -sex1, -sex2)),
-  #   subset(hunger, select = c(-psu, -sex1, -sex2)),
-  #   subset(disability, select = c(-psu, -sex1, -sex2)),
-  #   subset(adl, select = c(-psu, -sex1, -sex2)),
-  #   subset(mental, select = c(-psu, -sex1, -sex2)),
-  #   subset(dementia, select = c(-psu, -sex1, -sex2)),
-  #   subset(health, select = c(-psu, -sex1, -sex2)),
-  #   subset(income, select = c(-psu, -sex1, -sex2)),
-  #   subset(wash, select = c(-psu, -sex1, -sex2)),
-  #   subset(anthro, select = c(-psu, -sex1, -sex2)),
-  #   subset(oedema, select = c(-psu, -sex1, -sex2)),
-  #   subset(screening, select = c(-psu, -sex1, -sex2)),
-  #   subset(visual, select = c(-psu, -sex1, -sex2)),
-  #   subset(misc, select = c(-psu, -sex1, -sex2))
-  # )
 
   indicators <- lapply(
     X = indicators, FUN = create_op_indicators, svy = svy, sex = sex

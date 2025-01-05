@@ -83,11 +83,9 @@ reference:
 
   - title: Utility/support functions
     contents:
-    - fullTable
-    - get_variables
-    - merge_estimates
     - probit_gam
     - probit_sam
+    - merge_estimates
 
   - title: Datasets
     contents:

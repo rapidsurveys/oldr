@@ -18,8 +18,7 @@
 \alias{create_op_visual}
 \alias{create_op_misc}
 \title{Create older people indicators dataset from survey data collected using the
-standard RAM-OP questionnaire. The indicator sets covered by the standard
-RAM-OP survey are:}
+standard RAM-OP questionnaire.}
 \usage{
 create_op(
   svy,
@@ -75,15 +74,28 @@ Default is \emph{"mf"} for both sexes.}
 A tibble of older people indicators
 }
 \description{
-Create older people indicators dataset from survey data collected using the
-standard RAM-OP questionnaire. The indicator sets covered by the standard
-RAM-OP survey are:
+The indicator sets covered by the standard RAM-OP survey are:
+\itemize{
+\item Demographic indicators
+\item Dietary intake indicators
+\item Household hunger scale
+\item Katz Index of Independence in Activities of Daily Living score
+\item K6 Short form psychological distress score
+\item Brief Community Screening Instrument for Dementia (CSID)
+\item Health and health-seeking indicators
+\item Income and income sources
+\item Water, sanitation and hygiene (WASH) indicators
+\item Anthropometry and screening
+\item Visual impairment by "Tumbling E" method
+\item Miscellaneous indicators
+\item Washington Group on Disability
+}
 }
 \section{Demographic indicators}{
 \tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   `psu`` \tab Primary sampling unit \cr
-   `resp1`` \tab Respondent is SUBJECT \cr
+   \code{psu} \tab Primary sampling unit \cr
+   \code{resp1} \tab Respondent is SUBJECT \cr
    \code{resp2} \tab Respondent is FAMILY CARER \cr
    \code{resp3} \tab Respondent is OTHER CARER \cr
    \code{resp4} \tab Respondent is OTHER \cr
@@ -118,9 +130,9 @@ Household and Individual Dietary Diversity. Rome, FAO
 and extended to include indicators of probable adequate intake of a number of
 nutrients / micronutrients.\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   `MF`` \tab Meal frequency \cr
-   `DDS`` \tab Dietary Diversity Score (count of 11 groups) \cr
-   `FG01`` \tab Cereals \cr
+   \code{MF} \tab Meal frequency \cr
+   \code{DDS} \tab Dietary Diversity Score (count of 11 groups) \cr
+   \code{FG01} \tab Cereals \cr
    \code{FG02} \tab Roots and tubers \cr
    \code{FG03} \tab Fruits and vegetables \cr
    \code{FG04} \tab All meat \cr
@@ -183,18 +195,18 @@ of the index of ADL. The Gerontologist, 10(1), 20-30
 mobility and instrumental activities of daily living. JAGS, 31(12),
 721-726 \doi{10.1111/j.1532-5415.1983.tb03391.x}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   ADL01 \tab Bathing \cr
-   ADL02 \tab Dressing \cr
-   ADL03 \tab Toileting \cr
-   ADL04 \tab Transferring (mobility) \cr
-   ADL05 \tab Continence \cr
-   ADL06 \tab Feeding \cr
-   scoreADL \tab ADL Score \cr
-   classADL1 \tab Severity of dependence 1 \cr
-   classADL2 \tab Severity of dependence 2 \cr
-   classADL3 \tab Severity of dependence 3 \cr
-   hasHelp \tab Have someone to help with everyday activities \cr
-   unmetNeed \tab Need help but has no helper \cr
+   \code{ADL01} \tab Bathing \cr
+   \code{ADL02} \tab Dressing \cr
+   \code{ADL03} \tab Toileting \cr
+   \code{ADL04} \tab Transferring (mobility) \cr
+   \code{ADL05} \tab Continence \cr
+   \code{ADL06} \tab Feeding \cr
+   \code{scoreADL} \tab ADL Score \cr
+   \code{classADL1} \tab Severity of dependence 1 \cr
+   \code{classADL2} \tab Severity of dependence 2 \cr
+   \code{classADL3} \tab Severity of dependence 3 \cr
+   \code{hasHelp} \tab Have someone to help with everyday activities \cr
+   \code{unmetNeed} \tab Need help but has no helper \cr
 }
 }
 
@@ -208,8 +220,8 @@ et al. (2002). Short screening scales to monitor population prevalences
 and trends in non-specific psychological distress. Psychological
 Medicine, 32(6), 959–976 \doi{10.1017/S0033291702006074}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   K6 \tab K6 score \cr
-   K6Case \tab K6 score > 12  (in serious psychological distress) \cr
+   \code{K6} \tab K6 score \cr
+   \code{K6Case} \tab K6 score > 12  (in serious psychological distress) \cr
 }
 }
 
@@ -224,51 +236,51 @@ derivation and validation of the brief Community Screening Instrument
 for Dementia. International Journal of Geriatric Psychiatry, 26(9),
 899–907 \doi{10.1002/gps.2622}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   DS \tab Probable dementia by CSID screen \cr
+   \code{DS} \tab Probable dementia by CSID screen \cr
 }
 }
 
 \section{Health and health-seeking indicators}{
 \tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   H1 \tab Chronic condition \cr
-   H2 \tab Takes drugs regularly for chronic condition \cr
-   H31 \tab No drugs available \cr
-   H32 \tab Too expensive / no money \cr
-   H33 \tab Too old to look for care \cr
-   H34 \tab Use traditional medicine \cr
-   H35 \tab Drugs don't help \cr
-   H36 \tab No-one to help me \cr
-   H37 \tab No need \cr
-   H38 \tab Other \cr
-   H39 \tab No reason given \cr
-   H4 \tab Recent disease episode \cr
-   H5 \tab Accessed care for recent disease episode \cr
-   H61 \tab No drugs available \cr
-   H62 \tab Too expensive / no money \cr
-   H63 \tab Too old to look for care \cr
-   H64 \tab Use traditional medicine \cr
-   H65 \tab Drugs don't help \cr
-   H66 \tab No-one to help me \cr
-   H67 \tab No need \cr
-   H68 \tab Other \cr
-   H69 \tab No reason given \cr
+   \code{H1} \tab Chronic condition \cr
+   \code{H2} \tab Takes drugs regularly for chronic condition \cr
+   \code{H31} \tab No drugs available \cr
+   \code{H32} \tab Too expensive / no money \cr
+   \code{H33} \tab Too old to look for care \cr
+   \code{H34} \tab Use traditional medicine \cr
+   \code{H35} \tab Drugs don't help \cr
+   \code{H36} \tab No-one to help me \cr
+   \code{H37} \tab No need \cr
+   \code{H38} \tab Other \cr
+   \code{H39} \tab No reason given \cr
+   \code{H4} \tab Recent disease episode \cr
+   \code{H5} \tab Accessed care for recent disease episode \cr
+   \code{H61} \tab No drugs available \cr
+   \code{H62} \tab Too expensive / no money \cr
+   \code{H63} \tab Too old to look for care \cr
+   \code{H64} \tab Use traditional medicine \cr
+   \code{H65} \tab Drugs don't help \cr
+   \code{H66} \tab No-one to help me \cr
+   \code{H67} \tab No need \cr
+   \code{H68} \tab Other \cr
+   \code{H69} \tab No reason given \cr
 }
 }
 
 \section{Income and income sources}{
 \tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   M1 \tab Has a personal income \cr
-   M2A \tab Agriculture / fishing / livestock \cr
-   M2B \tab Wages / salary \cr
-   M2C \tab Sale of charcoal / bricks / etc. \cr
-   M2D \tab Trading (e.g. market or shop) \cr
-   M2E \tab Investments \cr
-   M2F \tab Spending savings / sale of assets \cr
-   M2G \tab Charity \cr
-   M2H \tab Cash transfer / Social security \cr
-   M2I \tab Other \cr
+   \code{M1} \tab Has a personal income \cr
+   \code{M2A} \tab Agriculture / fishing / livestock \cr
+   \code{M2B} \tab Wages / salary \cr
+   \code{M2C} \tab Sale of charcoal / bricks / etc. \cr
+   \code{M2D} \tab Trading (e.g. market or shop) \cr
+   \code{M2E} \tab Investments \cr
+   \code{M2F} \tab Spending savings / sale of assets \cr
+   \code{M2G} \tab Charity \cr
+   \code{M2H} \tab Cash transfer / Social security \cr
+   \code{M2I} \tab Other \cr
 }
 }
 
@@ -281,19 +293,19 @@ These are a (core) subset of indicators from:
 for Household Surveys. Geneva, WHO / UNICEF
 \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   W1 \tab Improved source of drinking water \cr
-   W2 \tab Safe drinking water (improved source OR adequate treatment) \cr
-   W3 \tab Improved sanitation facility \cr
-   W4 \tab Improved non-shared sanitation facility \cr
+   \code{W1} \tab Improved source of drinking water \cr
+   \code{W2} \tab Safe drinking water (improved source OR adequate treatment) \cr
+   \code{W3} \tab Improved sanitation facility \cr
+   \code{W4} \tab Improved non-shared sanitation facility \cr
 }
 }
 
 \section{Anthropometry and screening}{
 \tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   MUAC \tab Mid-upper arm circumference (mm) \cr
-   oedema \tab Bilateral pitting oedema (may not be nutritional) \cr
-   screened \tab Either MUAC or oedema checked previously \cr
+   \code{MUAC} \tab Mid-upper arm circumference (mm) \cr
+   \code{oedema} \tab Bilateral pitting oedema (may not be nutritional) \cr
+   \code{screened} \tab Either MUAC or oedema checked previously \cr
 }
 }
 
@@ -312,9 +324,9 @@ an illiterate E Chart. Am J Optom & Physiol Optics 55:348}\tabular{ll}{
 \section{Miscellaneous indicators}{
 \tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   chew \tab Problems chewing food \cr
-   food \tab Anyone in HH receives a ration \cr
-   NFRI \tab Anyone in HH received non-food relief item/s (NFRI) in previous month \cr
+   \code{chew} \tab Problems chewing food \cr
+   \code{food} \tab Anyone in HH receives a ration \cr
+   \code{NFRI} \tab Anyone in HH received non-food relief item/s (NFRI) in previous month \cr
 }
 }
 
@@ -328,35 +340,35 @@ See:
 
 for details.\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   wgVisionD0 \tab Vision domain 0 \cr
-   wgVisionD1 \tab Vision domain 1 \cr
-   wgVisionD2 \tab Vision domain 2 \cr
-   wgVisionD3 \tab Vision domain 3 \cr
-   wgHearingD0 \tab Hearing domain 0 \cr
-   wgHearingD1 \tab Hearing domain 1 \cr
-   wgHearingD2 \tab Hearing domain 2 \cr
-   wgHearingD3 \tab Hearing domain 3 \cr
-   wgMobilityD0 \tab Mobility domain 0 \cr
-   wgMobilityD1 \tab Mobility domain 1 \cr
-   wgMobilityD2 \tab Mobility domain 2 \cr
-   wgMobilityD3 \tab Mobility domain 3 \cr
-   wgRememberingD0 \tab Remembering domain 0 \cr
-   wgRememberingD1 \tab Remembering domain 1 \cr
-   wgRememberingD2 \tab Remembering domain 2 \cr
-   wgRememberingD3 \tab Remembering domain 3 \cr
-   wgSelfCareD0 \tab Self-care domain 0 \cr
-   wgSelfCareD1 \tab Self-care domain 1 \cr
-   wgSelfCareD2 \tab Self-care domain 2 \cr
-   wgSelfCareD3 \tab Self-care domain 3 \cr
-   wgCommunicatingD0 \tab Communication domain 0 \cr
-   wgCommunicatingD1 \tab Communication domain 1 \cr
-   wgCommunicatingD2 \tab Communication domain 2 \cr
-   wgCommunicatingD3 \tab Communication domain 3 \cr
-   wgP0 \tab Overall 0 \cr
-   wgP1 \tab Overall 1 \cr
-   wgP2 \tab Overall 2 \cr
-   wgP3 \tab Overall 3 \cr
-   wgPM \tab Any disability \cr
+   \code{wgVisionD0} \tab Vision domain 0 \cr
+   \code{wgVisionD1} \tab Vision domain 1 \cr
+   \code{wgVisionD2} \tab Vision domain 2 \cr
+   \code{wgVisionD3} \tab Vision domain 3 \cr
+   \code{wgHearingD0} \tab Hearing domain 0 \cr
+   \code{wgHearingD1} \tab Hearing domain 1 \cr
+   \code{wgHearingD2} \tab Hearing domain 2 \cr
+   \code{wgHearingD3} \tab Hearing domain 3 \cr
+   \code{wgMobilityD0} \tab Mobility domain 0 \cr
+   \code{wgMobilityD1} \tab Mobility domain 1 \cr
+   \code{wgMobilityD2} \tab Mobility domain 2 \cr
+   \code{wgMobilityD3} \tab Mobility domain 3 \cr
+   \code{wgRememberingD0} \tab Remembering domain 0 \cr
+   \code{wgRememberingD1} \tab Remembering domain 1 \cr
+   \code{wgRememberingD2} \tab Remembering domain 2 \cr
+   \code{wgRememberingD3} \tab Remembering domain 3 \cr
+   \code{wgSelfCareD0} \tab Self-care domain 0 \cr
+   \code{wgSelfCareD1} \tab Self-care domain 1 \cr
+   \code{wgSelfCareD2} \tab Self-care domain 2 \cr
+   \code{wgSelfCareD3} \tab Self-care domain 3 \cr
+   \code{wgCommunicatingD0} \tab Communication domain 0 \cr
+   \code{wgCommunicatingD1} \tab Communication domain 1 \cr
+   \code{wgCommunicatingD2} \tab Communication domain 2 \cr
+   \code{wgCommunicatingD3} \tab Communication domain 3 \cr
+   \code{wgP0} \tab Overall 0 \cr
+   \code{wgP1} \tab Overall 1 \cr
+   \code{wgP2} \tab Overall 2 \cr
+   \code{wgP3} \tab Overall 3 \cr
+   \code{wgPM} \tab Any disability \cr
 }
 }
 
@@ -364,5 +376,7 @@ for details.\tabular{ll}{
 # Create indicators dataset from RAM-OP survey data collected from
 # Addis Ababa, Ethiopia
 create_op(testSVY)
+create_op(testSVY, indicators = "demo")
+create_op(testSVY, indicators = "hunger", sex = "m")
 
 }

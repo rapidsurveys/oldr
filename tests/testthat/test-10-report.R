@@ -1,12 +1,12 @@
 
-report_op_table(estimate_op_all(x = indicators.ALL, w = testPSU, replicates = 19),
+report_op_table(estimate_op(x = indicators.ALL, w = testPSU, replicates = 19),
                 filename = paste(tempdir(), "TEST", sep = "/"))
 
 test_that("output file exists", {
   expect_true(file.exists(paste(tempdir(), "TEST.report.csv", sep = "/")))
 })
 
-report_op_html(estimates = estimate_op_all(x = indicators.ALL,
+report_op_html(estimates = estimate_op(x = indicators.ALL,
                                            w = testPSU,
                                            replicates = 19),
                svy = testSVY,
@@ -18,7 +18,7 @@ test_that("output file exists", {
 })
 
 
-report_op_docx(estimates = estimate_op_all(x = indicators.ALL,
+report_op_docx(estimates = estimate_op(x = indicators.ALL,
                                            w = testPSU,
                                            replicates = 19),
                svy = testSVY,
@@ -30,7 +30,7 @@ test_that("output file exists", {
 })
 
 
-report_op_odt(estimates = estimate_op_all(x = indicators.ALL,
+report_op_odt(estimates = estimate_op(x = indicators.ALL,
                                           w = testPSU,
                                           replicates = 19),
                svy = testSVY,

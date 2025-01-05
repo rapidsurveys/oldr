@@ -1,7 +1,8 @@
 #' 
 #' Plot RAM-OP indicators
 #' 
-#' @section The plots include:
+#' @description
+#' The plots include:
 #' 
 #' * Age by sex (pyramid plot) - a wrapper function to the [pyramid_plot()]
 #' function to create an age by sex pyramid plot
@@ -679,8 +680,6 @@ chart_op_hhs <- function(x,
 #' @export
 #' @rdname chart_op
 #'
-#
-################################################################################
 
 chart_op_income <- function(x,
                             save_chart = TRUE,
