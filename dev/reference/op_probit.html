@@ -55,8 +55,8 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>A data frame with <code>primary sampling unit (PSU)</code> in column named
-<code>psu</code> and with data column/s containing the continuous variable/s of
+<dd><p>A data frame with primary sampling unit (PSU) in column named
+<em>"psu"</em> and with data column/s containing the continuous variable/s of
 interest with column names corresponding to <code>params</code> values</p></dd>
 
 
@@ -67,7 +67,8 @@ variables of interest contained in <code>x</code></p></dd>
 
 <dt id="arg-threshold">threshold<a class="anchor" aria-label="anchor" href="#arg-threshold"></a></dt>
 <dd><p>cut-off value for continuous variable to differentiate
-case and non-case. Default is set at 210.</p></dd>
+case and non-case. Default is set at 210 for <code>probit_gam()</code> and 185 for
+<code>probit_sam()</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

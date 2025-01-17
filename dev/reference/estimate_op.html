@@ -60,12 +60,12 @@
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>Indicators dataset produced by <code><a href="create_op.html">create_op()</a></code> with primary sampling
-unit (PSU) in column named <code>PSU</code></p></dd>
+unit (PSU) in column named <em>"psu"</em>`</p></dd>
 
 
 <dt id="arg-w">w<a class="anchor" aria-label="anchor" href="#arg-w"></a></dt>
 <dd><p>A data frame with primary sampling unit (PSU) in column named
-<code>psu</code> and survey weight (i.e. PSU population) in column named <code>pop</code></p></dd>
+<em>"psu"</em> and survey weight (i.e. PSU population) in column named <em>"pop"</em>.</p></dd>
 
 
 <dt id="arg-indicators">indicators<a class="anchor" aria-label="anchor" href="#arg-indicators"></a></dt>
@@ -81,7 +81,8 @@ Indicator set names are <em>"demo"</em>, <em>"anthro"</em>, <em>"food"</em>, <em
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Tibble of boot estimates for all specified standard RAM-OP indicators</p>
+    <p>A <code>tibble()</code> of boot estimates for all specified standard RAM-OP
+indicators</p>
     </div>
 
     <div class="section level2">
