@@ -92,10 +92,10 @@ follows:
 citation("oldr")
 #> To cite oldr in publications use:
 #> 
-#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2024).
+#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2025).
 #>   _oldr: An Implementation of Rapid Assessment Method for Older
 #>   People_. doi:10.5281/zenodo.7505731
-#>   <https://doi.org/10.5281/zenodo.7505731>, R package version 0.2.0,
+#>   <https://doi.org/10.5281/zenodo.7505731>, R package version 0.2.1,
 #>   <https://rapidsurveys.io/oldr/>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -103,8 +103,8 @@ citation("oldr")
 #>   @Manual{,
 #>     title = {oldr: An Implementation of Rapid Assessment Method for Older People},
 #>     author = {{Mark Myatt} and {Ernest Guevarra} and {Pascale Fritsch} and {Katja Siling}},
-#>     year = {2024},
-#>     note = {R package version 0.2.0},
+#>     year = {2025},
+#>     note = {R package version 0.2.1},
 #>     url = {https://rapidsurveys.io/oldr/},
 #>     doi = {10.5281/zenodo.7505731},
 #>   }

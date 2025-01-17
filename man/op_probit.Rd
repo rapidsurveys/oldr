@@ -23,7 +23,7 @@ case and non-case. Default is set at 210 for \code{\link[=probit_gam]{probit_gam
 }
 \value{
 A numeric vector of the PROBIT estimate of each continuous variable
-of interest with length equal to \code{length(params)}
+of interest with length equal to \code{length(params)}.
 }
 \description{
 PROBIT statistics function for bootstrap estimation of older people GAM

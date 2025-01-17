@@ -27,8 +27,8 @@ Indicator set names are \emph{"demo"}, \emph{"anthro"}, \emph{"food"}, \emph{"hu
 \item{replicates}{Number of bootstrap replicates. Default is 399.}
 }
 \value{
-A \code{\link[=tibble]{tibble()}} of boot estimates for all specified standard RAM-OP
-indicators
+A \code{\link[tibble:tibble]{tibble::tibble()}} of boot estimates for all specified standard
+RAM-OP indicators.
 }
 \description{
 Estimate all standard RAM-OP indicators

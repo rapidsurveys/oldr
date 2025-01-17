@@ -6,7 +6,7 @@
 #' @param w A data frame with primary sampling unit (PSU) in column named
 #'   *"psu"* and survey weight (i.e. PSU population) in column named *"pop"*.
 #' @param statistic A function operating on data in `x`. Fixed to
-#'   [bootClassic()] function for means.
+#'   [bbw::bootClassic()] function for means.
 #' @param indicators A character vector of indicator set names to estimate.
 #'   Indicator set names are *"demo"*, *"food"*, *"hunger"*, *"disability"*, 
 #'   *"adl"*, *"mental"*, *"dementia"*, *"health"*, *"income"*, *"wash"*, 
@@ -19,7 +19,8 @@
 #'   values specified in `params`.
 #' @param replicates Number of bootstrap replicates
 #'
-#' @return A tibble of boot estimates using bootClassic mean function
+#' @returns A [tibble::tibble()] of boot estimates using [bbw::bootClassic()]
+#'   mean function
 #'
 #' @examples
 #' test <- estimate_classic(

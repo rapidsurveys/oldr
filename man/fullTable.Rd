@@ -17,6 +17,11 @@ A one-dimensional table with specified values
 \description{
 Fill out a one-dimensional table to include a specified range of values
 }
+\examples{
+oldr:::fullTable(testSVY$d1, values = 1:4)
+
+
+}
 \author{
 Mark Myatt
 }

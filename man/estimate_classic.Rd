@@ -23,7 +23,7 @@ unit (PSU) in column named \emph{"psu"}.}
 \emph{"psu"} and survey weight (i.e. PSU population) in column named \emph{"pop"}.}
 
 \item{statistic}{A function operating on data in \code{x}. Fixed to
-\code{\link[=bootClassic]{bootClassic()}} function for means.}
+\code{\link[bbw:bootClassic]{bbw::bootClassic()}} function for means.}
 
 \item{indicators}{A character vector of indicator set names to estimate.
 Indicator set names are \emph{"demo"}, \emph{"food"}, \emph{"hunger"}, \emph{"disability"},
@@ -41,7 +41,8 @@ values specified in \code{params}.}
 \item{replicates}{Number of bootstrap replicates}
 }
 \value{
-A tibble of boot estimates using bootClassic mean function
+A \code{\link[tibble:tibble]{tibble::tibble()}} of boot estimates using \code{\link[bbw:bootClassic]{bbw::bootClassic()}}
+mean function
 }
 \description{
 Apply bootstrap to RAM-OP indicators using a classical estimator.

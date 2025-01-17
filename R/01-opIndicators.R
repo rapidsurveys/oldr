@@ -51,7 +51,7 @@
 #' 
 #' \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring
 #' Household and Individual Dietary Diversity. Rome, FAO
-#' \url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+#' \url{https://www.fao.org/4/i1983e/i1983e00.htm}}
 #' 
 #' and extended to include indicators of probable adequate intake of a number of
 #' nutrients / micronutrients.
@@ -210,8 +210,9 @@
 #'
 #' \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
 #' for Household Surveys. Geneva, WHO / UNICEF
-#' \url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}
+#' \url{https://www.who.int/publications/i/item/9241563265}}
 #'
+#' 
 #' **Variable** | **Description**
 #' :--- | :---
 #' `W1` | Improved source of drinking water
@@ -250,8 +251,7 @@
 #'
 #' See:
 #'
-#'   \url{http://www.washingtongroup-disability.com}
-#'   \url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
+#'   \url{https://www.washingtongroup-disability.com/}
 #'
 #' for details.
 #'
@@ -298,7 +298,7 @@
 #'   to report indicators for *males*, *females*, or *both* respectively.
 #'   Default is *"mf"* for both sexes.
 #'
-#' @return A [tibble()] of older people indicators.
+#' @returns A [tibble::tibble()] of older people indicators.
 #'
 #' @examples
 #' # Create indicators dataset from RAM-OP survey data collected from

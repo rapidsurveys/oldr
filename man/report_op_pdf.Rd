@@ -36,21 +36,21 @@ to a specified directory.
 Create a PDF report document containing RAM-OP survey results
 }
 \examples{
-  \dontrun{
-    classicResults <- estimate_classic(x = create_op(testSVY),
-                                       w = testPSU,
-                                       replicates = 9)
+if (FALSE) {
+  classicResults <- estimate_classic(
+    x = create_op(testSVY), w = testPSU, replicates = 9
+  )
 
-    probitResults <- estimate_probit(x = create_op(testSVY),
-                                     w = testPSU,
-                                     replicates = 9)
+  probitResults <- estimate_probit(
+    x = create_op(testSVY), w = testPSU, replicates = 9
+  )
 
-    resultsDF <- merge_op(x = classicResults, y = probitResults)
+  resultsDF <- merge_op(x = classicResults, y = probitResults)
 
-    report_op_pdf(svy = testSVY,
-                  estimates = resultsDF,
-                  indicators = "mental",
-                  filename = paste(tempdir(), "report", sep = "/"))
-  }
+  report_op_pdf(
+    svy = testSVY, estimates = resultsDF, indicators = "mental",
+    filename = paste(tempdir(), "report", sep = "/")
+  )
+}
 
 }
