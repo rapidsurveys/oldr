@@ -30,7 +30,6 @@ PROBIT statistics function for bootstrap estimation of older people GAM
 \examples{
 
 # Example call to bootBW function:
-
 probit_gam(x = indicators.ALL, params = "MUAC", threshold = 210)
 probit_sam(x = indicators.ALL, params = "MUAC", threshold = 185)
 

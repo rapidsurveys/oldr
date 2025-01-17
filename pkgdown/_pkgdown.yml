@@ -61,31 +61,17 @@ reference:
 
   - title: Create report
     contents:
-    - report_op_table
     - report_op_html
     - report_op_docx
     - report_op_odt
-    - report_op_adl
-    - report_op_anthro
-    - report_op_dementia
-    - report_op_demo
-    - report_op_disability
-    - report_op_food
-    - report_op_health
-    - report_op_hunger
-    - report_op_income
-    - report_op_mental
-    - report_op_misc
-    - report_op_oedema
-    - report_op_screen
-    - report_op_visual
-    - report_op_wash
+    - report_op_pdf
+    - starts_with("report_op")
 
   - title: Utility/support functions
     contents:
     - probit_gam
     - probit_sam
-    - merge_estimates
+    - merge_op
 
   - title: Datasets
     contents:

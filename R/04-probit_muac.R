@@ -15,12 +15,11 @@
 #' @examples
 #'
 #' # Example call to bootBW function:
-#'
 #' probit_gam(x = indicators.ALL, params = "MUAC", threshold = 210)
 #' probit_sam(x = indicators.ALL, params = "MUAC", threshold = 185)
 #'
 #' @export
-#' @rdname probit
+#' @rdname op_probit
 #'
 
 probit_gam <- function(x, params, threshold = 210) {
@@ -50,7 +49,7 @@ probit_gam <- function(x, params, threshold = 210) {
 
 #' 
 #' @export
-#' @rdname probit
+#' @rdname op_probit
 #'
 
 probit_sam <- function(x, params, threshold = 185) {

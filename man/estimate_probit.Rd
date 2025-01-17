@@ -43,8 +43,8 @@ A tibble of boot estimates using bootPROBIT function
 Apply bootstrap to RAM-OP indicators using a PROBIT estimator.
 }
 \examples{
-  test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
+test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
 
-  test
+test
 
 }

@@ -63,7 +63,7 @@ install.packages(
 or from [GitHub](https://github.com/rapidsurveys/oldr) with:
 
 ``` r
-if (!require("pak")) install.packages("pak")
+if (!require(pak)) install.packages("pak")
 pak::pak("rapidsurveys/oldr")
 ```
 
@@ -92,12 +92,11 @@ follows:
 citation("oldr")
 #> To cite oldr in publications use:
 #> 
-#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja
-#>   Siling (2024). _oldr: An Implementation of Rapid
-#>   Assessment Method for Older People_.
-#>   doi:10.5281/zenodo.7505731
-#>   <https://doi.org/10.5281/zenodo.7505731>, R package
-#>   version 0.2.0, <https://rapidsurveys.io/oldr/>.
+#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2024).
+#>   _oldr: An Implementation of Rapid Assessment Method for Older
+#>   People_. doi:10.5281/zenodo.7505731
+#>   <https://doi.org/10.5281/zenodo.7505731>, R package version 0.2.0,
+#>   <https://rapidsurveys.io/oldr/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
