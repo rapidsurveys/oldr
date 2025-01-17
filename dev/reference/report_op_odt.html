@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,8 +61,7 @@
 
 
 <dl><dt id="arg-estimates">estimates<a class="anchor" aria-label="anchor" href="#arg-estimates"></a></dt>
-<dd><p>A data.frame of RAM-OP results produced by
-<a href="merge_estimates.html">merge_estimates</a> function.</p></dd>
+<dd><p>A data.frame of RAM-OP results produced by <code><a href="merge_op.html">merge_op()</a></code>.</p></dd>
 
 
 <dt id="arg-svy">svy<a class="anchor" aria-label="anchor" href="#arg-svy"></a></dt>
@@ -76,7 +75,7 @@
 <dt id="arg-filename">filename<a class="anchor" aria-label="anchor" href="#arg-filename"></a></dt>
 <dd><p>Filename for output document. Can be specified as a path to a
 specific directory where to output report document. Defaults to a path to
-a temporary directory and a filename <code>ramOPreport</code>.</p></dd>
+a temporary directory and a filename `ramOPreport“.</p></dd>
 
 
 <dt id="arg-title">title<a class="anchor" aria-label="anchor" href="#arg-title"></a></dt>
@@ -105,14 +104,23 @@ to a specified directory.</p>
 <span class="r-in"><span>                                     replicates <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Checking if <span style="font-weight: bold;">demo, food, hunger, disability, adl, mental, dementia, health, income, wash, anthro, oedema, screening, visual, misc</span> are RAM-OP indicators</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> All of `indicators` are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">probitResults</span> <span class="op">&lt;-</span> <span class="fu"><a href="estimate_probit.html">estimate_probit</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                                   w <span class="op">=</span> <span class="va">testPSU</span>,</span></span>
 <span class="r-in"><span>                                   replicates <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Checking if <span style="font-weight: bold;">demo, food, hunger, disability, adl, mental, dementia, health, income, wash, anthro, oedema, screening, visual, misc</span> are RAM-OP indicators</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> All of `indicators` are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="va">resultsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_estimates.html">merge_estimates</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">classicResults</span>, y <span class="op">=</span> <span class="va">probitResults</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">resultsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_op.html">merge_op</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">classicResults</span>, y <span class="op">=</span> <span class="va">probitResults</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu">report_op_odt</span><span class="op">(</span>svy <span class="op">=</span> <span class="va">testSVY</span>,</span></span>
 <span class="r-in"><span>                estimates <span class="op">=</span> <span class="va">resultsDF</span>,</span></span>

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Estimate all standard RAM-OP indicators</h1>
-      <small class="dont-index">Source: <a href="https://github.com/rapidsurveys/oldr/blob/main/R/05-estimate_op.R" class="external-link"><code>R/05-estimate_op.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/rapidsurveys/oldr/blob/main/R/06-estimate_op.R" class="external-link"><code>R/06-estimate_op.R</code></a></small>
       <div class="d-none name"><code>estimate_op.Rd</code></div>
     </div>
 
@@ -89,6 +89,15 @@ Indicator set names are <em>"demo"</em>, <em>"anthro"</em>, <em>"food"</em>, <em
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">estimate_op</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>, w <span class="op">=</span> <span class="va">testPSU</span>, replicates <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Checking if <span style="font-weight: bold;">demo, food, hunger, disability, adl, mental, dementia, health, income, wash, anthro, oedema, screening, visual, misc</span> are RAM-OP indicators</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> All of `indicators` are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 139 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    INDICATOR GROUP       LABEL TYPE  EST.ALL LCL.ALL UCL.ALL EST.MALES LCL.MALES</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
