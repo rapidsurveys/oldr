@@ -1,30 +1,39 @@
 #' 
-#' Create table of RAM-OP results
+#' Create table and report chunk of RAM-OP results
 #'
-#' @param estimates A data.frame of RAM-OP results produced by
-#'   \link{merge_estimates} function.
+#' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
 #' @param filename Prefix to append to report output filename. Can be specified
 #'   as a path to a specific directory where to output tabular results CSV file.
 #'   Defaults to a path to a temporary directory with a filename starting with
-#'   \code{ramOP}.
+#'   *ramOP*.
+#' @param format Either *"html"*, *"docx"* or *"odt"*. Defaults to *"html"*.
 #'
-#' @return Report of tabulated estimated results saved in CSV format in current
-#'     working directory or in the specified path
+#' @returns Report of tabulated estimated results saved in CSV format in current
+#'   working directory or in the specified path or a reporting chunk for
+#'   specific indicators.
 #'
-#' @author Mark Myatt
+#' @author Mark Myatt and Ernest Guevarra
 #'
 #' @examples
-#'   ##
-#'   x <- estimate_classic(x = create_op(testSVY),
-#'                         w = testPSU,
-#'                         replicates = 9)
-#'   y <- estimate_probit(x = create_op(testSVY),
-#'                        w = testPSU,
-#'                        replicates = 9)
-#'   z <- merge_estimates(x, y, prop2percent = TRUE)
-#'   report_op_table(z)
+#' ##
+#' x <- estimate_classic(
+#'   x = create_op(testSVY), w = testPSU, replicates = 9
+#' )
+#' 
+#' y <- estimate_probit(
+#'   x = create_op(testSVY), w = testPSU, replicates = 9
+#' )
+#' 
+#' z <- merge_op(x, y, prop2percent = TRUE)
+#' report_op_table(z)
 #'
+#' report_op_demo()
+#' report_op_hunger()
+#' report_op_food()
+#' report_op_disability()
+#' 
 #' @export
+#' @rdname report_op
 #'
 
 report_op_table <- function(estimates,
@@ -72,24 +81,10 @@ report_op_table <- function(estimates,
   )
 }
 
-
-################################################################################
-#
-#' Create a report chunk for demography indicators
-#'
-#' @param format Either html, docx or odt. Defaults to html.
-#'
-#' @return A reporting chunk for demographic indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_demo()
 #'
 #' @export
-#'
-#
-################################################################################
+#' @rdname report_op
+#' 
 
 report_op_demo <- function(format = "html") {
   cat("\n")
@@ -161,23 +156,10 @@ report_op_demo <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for food indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for food indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_food()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_food <- function(format = "html") {
   cat("\n")
@@ -238,23 +220,10 @@ report_op_food <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for activities of food security indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for food security indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_hunger()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_hunger <- function(format = "html") {
   cat("\n")
@@ -281,23 +250,10 @@ report_op_hunger <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for disability indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for disability indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_disability()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_disability <- function(format = "html") {
   cat("\n")
@@ -421,23 +377,10 @@ report_op_disability <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for activities of daily living indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for ADL indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_adl()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_adl <- function(format = "html") {
   cat("\n")
@@ -462,23 +405,10 @@ report_op_adl <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for mental health indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for mental health indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_mental()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_mental <- function(format = "html") {
   cat("\n")
@@ -504,23 +434,10 @@ report_op_mental <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for dementia indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for dementia indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_dementia()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_dementia <- function(format = "html") {
   cat("\n")
@@ -546,23 +463,10 @@ report_op_dementia <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for health and health-seeking behaviour indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for health and health-seeking behaviour indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_health()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_health <- function(format = "html") {
   cat("\n")
@@ -631,23 +535,11 @@ report_op_health <- function(format = "html") {
   cat("```\n")
 }
 
-################################################################################
-#
-#' Create a report chunk for oedema
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for oedema indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_oedema()
+
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_oedema <- function(format = "html") {
   cat("\n")
@@ -668,23 +560,11 @@ report_op_oedema <- function(format = "html") {
   cat("```\n")
 }
 
-################################################################################
-#
-#' Create a report chunk for anthropometric indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for anthropometric indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_anthro()
+
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_anthro <- function(format = "html") {
   cat("\n")
@@ -706,23 +586,10 @@ report_op_anthro <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for screening indicators
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for screening indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_screen()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_screen <- function(format = "html") {
   cat("\n")
@@ -744,23 +611,10 @@ report_op_screen <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for visual acuity
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for visual acuity
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_visual()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_visual <- function(format = "html") {
   cat("\n")
@@ -782,23 +636,11 @@ report_op_visual <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for income
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for income
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_income()
+
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_income <- function(format = "html") {
   cat("\n")
@@ -825,23 +667,11 @@ report_op_income <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for water, sanitation and hygiene
-#'
-#' @param format Either html, docx, or odt. Defaults to html.
-#'
-#' @return A reporting chunk for water, sanitation and hygiene
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_wash()
+
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_wash <- function(format = "html") {
   cat("\n")
@@ -867,23 +697,10 @@ report_op_wash <- function(format = "html") {
 }
 
 
-################################################################################
-#
-#' Create a report chunk for miscellaneous indicators
-#'
-#' @param format Either html, docx or odt. Defaults to html.
-#'
-#' @return A reporting chunk for miscellaneous indicators
-#'
-#' @author Ernest Guevarra
-#'
-#' @examples
-#'   report_op_misc()
 #'
 #' @export
+#' @rdname report_op
 #'
-#
-################################################################################
 
 report_op_misc <- function(format = "html") {
   cat("\n")
@@ -905,17 +722,15 @@ report_op_misc <- function(format = "html") {
 }
 
 
-################################################################################
-#
+#' 
 #' Create an HTML report document containing RAM-OP survey results
 #'
-#' @param estimates A data.frame of RAM-OP results produced by
-#'   \link{merge_estimates} function.
+#' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document. Defaults to a path to
-#'   a temporary directory and a filename \code{ramOPreport}.
+#'   a temporary directory and a filename `ramOPreport``.
 #' @param title Title of report
 #' @param view Logical. Open report in current browser? Default is FALSE.
 #'
@@ -934,7 +749,7 @@ report_op_misc <- function(format = "html") {
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
-#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'   resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
 #'   report_op_html(svy = testSVY,
 #'                  estimates = resultsDF,
@@ -943,8 +758,6 @@ report_op_misc <- function(format = "html") {
 #'
 #' @export
 #'
-#
-################################################################################
 
 report_op_html <- function(estimates,
                            svy,
@@ -1027,17 +840,15 @@ report_op_html <- function(estimates,
 }
 
 
-################################################################################
-#
+#' 
 #' Create a DOCX report document containing RAM-OP survey results
 #'
-#' @param estimates A data.frame of RAM-OP results produced by
-#'   \link{merge_estimates} function.
+#' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document. Defaults to a path to
-#'   a temporary directory and a filename \code{ramOPreport}.
+#'   a temporary directory and a filename `ramOPreport``.
 #' @param title Title of report
 #' @param view Logical. Open report in current environment? Default is FALSE.
 #'
@@ -1056,7 +867,7 @@ report_op_html <- function(estimates,
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
-#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'   resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
 #'   report_op_docx(svy = testSVY,
 #'                  estimates = resultsDF,
@@ -1065,8 +876,6 @@ report_op_html <- function(estimates,
 #'
 #' @export
 #'
-#
-################################################################################
 
 report_op_docx <- function(estimates,
                            svy,
@@ -1145,21 +954,19 @@ report_op_docx <- function(estimates,
 }
 
 
-################################################################################
-#
+#' 
 #' Create a ODT report document containing RAM-OP survey results
 #'
-#' @param estimates A data.frame of RAM-OP results produced by
-#'   \link{merge_estimates} function.
+#' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
 #' @param svy A data.frame collected using the standard RAM-OP questionnaire
 #' @param indicators A character vector of indicator names
 #' @param filename Filename for output document. Can be specified as a path to a
 #'   specific directory where to output report document. Defaults to a path to
-#'   a temporary directory and a filename \code{ramOPreport}.
+#'   a temporary directory and a filename `ramOPreport``.
 #' @param title Title of report
 #' @param view Logical. Open report in current environment? Default is FALSE.
 #'
-#' @return An ODT in the working directory or if filename is a path,
+#' @returns An ODT in the working directory or if filename is a path,
 #'   to a specified directory.
 #'
 #' @author Ernest Guevarra
@@ -1174,7 +981,7 @@ report_op_docx <- function(estimates,
 #'                                    w = testPSU,
 #'                                    replicates = 9)
 #'
-#'   resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+#'   resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
 #'   report_op_odt(svy = testSVY,
 #'                 estimates = resultsDF,
@@ -1183,8 +990,6 @@ report_op_docx <- function(estimates,
 #'
 #' @export
 #'
-#
-################################################################################
 
 report_op_odt <- function(estimates,
                           svy,
@@ -1263,45 +1068,39 @@ report_op_odt <- function(estimates,
 }
 
 
-
-
-################################################################################
-#
-# Create a PDF report document containing RAM-OP survey results
-#
-# @param estimates A data.frame of RAM-OP results produced by
-#   \link{merge_estimates} function.
-# @param svy A data.frame collected using the standard RAM-OP questionnaire
-# @param indicators A character vector of indicator names
-# @param filename Filename for output document. Can be specified as a path to a
-#   specific directory where to output report document
-# @param title Title of report
-# @param view Logical. Open report in current PDF reader? Default is FALSE.
-#
-# @return A PDF document in the working directory or if filename is a path,
-#   to a specified directory.
-#
-# @examples
-#   \dontrun{
-#     classicResults <- estimate_classic(x = create_op(testSVY),
-#                                        w = testPSU,
-#                                        replicates = 9)
-#
-#     probitResults <- estimate_probit(x = create_op(testSVY),
-#                                      w = testPSU,
-#                                      replicates = 9)
-#
-#     resultsDF <- merge_estimates(x = classicResults, y = probitResults)
-#
-#     report_op_pdf(svy = testSVY,
-#                   estimates = resultsDF,
-#                   indicators = "mental",
-#                   filename = paste(tempdir(), "report", sep = "/"))
-#   }
-#
-#
-#
-################################################################################
+#' Create a PDF report document containing RAM-OP survey results
+#'
+#' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
+#' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param indicators A character vector of indicator names
+#' @param filename Filename for output document. Can be specified as a path to a
+#'   specific directory where to output report document
+#' @param title Title of report
+#' @param view Logical. Open report in current PDF reader? Default is FALSE.
+#'
+#' @returns A PDF document in the working directory or if filename is a path,
+#'   to a specified directory.
+#'
+#' @examples
+#'   \dontrun{
+#'     classicResults <- estimate_classic(x = create_op(testSVY),
+#'                                        w = testPSU,
+#'                                        replicates = 9)
+#'
+#'     probitResults <- estimate_probit(x = create_op(testSVY),
+#'                                      w = testPSU,
+#'                                      replicates = 9)
+#'
+#'     resultsDF <- merge_op(x = classicResults, y = probitResults)
+#'
+#'     report_op_pdf(svy = testSVY,
+#'                   estimates = resultsDF,
+#'                   indicators = "mental",
+#'                   filename = paste(tempdir(), "report", sep = "/"))
+#'   }
+#' 
+#' @export
+#'
 
 report_op_pdf <- function(estimates,
                           svy,

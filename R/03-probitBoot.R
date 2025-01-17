@@ -19,9 +19,9 @@
 #' @return A tibble of boot estimates using bootPROBIT function
 #'
 #' @examples
-#'   test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
+#' test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
 #'
-#'   test
+#' test
 #'
 #' @export
 #'
@@ -144,11 +144,14 @@ estimate_probit <- function(x,
                               "INDICATOR")
 
   ## Re-order columns
-  probitEstimates <- probitEstimates[ , c("INDICATOR",
-                                          "EST.ALL", "LCL.ALL", "UCL.ALL",
-                                          "EST.MALES", "LCL.MALES", "UCL.MALES",
-                                          "EST.FEMALES", "LCL.FEMALES",
-                                          "UCL.FEMALES")]
+  col_order <- c(
+    "INDICATOR", 
+    "EST.ALL", "LCL.ALL", "UCL.ALL",
+    "EST.MALES", "LCL.MALES", "UCL.MALES",
+    "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES"
+  )
+
+  probitEstimates <- probitEstimates[ , col_order]
 
   ## Convert to tibble
   probitEstimates <- tibble::tibble(probitEstimates)

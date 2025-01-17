@@ -15,8 +15,7 @@ report_op_docx(
 )
 }
 \arguments{
-\item{estimates}{A data.frame of RAM-OP results produced by
-\link{merge_estimates} function.}
+\item{estimates}{A data.frame of RAM-OP results produced by \code{\link[=merge_op]{merge_op()}}.}
 
 \item{svy}{A data.frame collected using the standard RAM-OP questionnaire}
 
@@ -24,7 +23,7 @@ report_op_docx(
 
 \item{filename}{Filename for output document. Can be specified as a path to a
 specific directory where to output report document. Defaults to a path to
-a temporary directory and a filename \code{ramOPreport}.}
+a temporary directory and a filename `ramOPreport``.}
 
 \item{title}{Title of report}
 
@@ -47,7 +46,7 @@ Create a DOCX report document containing RAM-OP survey results
                                    w = testPSU,
                                    replicates = 9)
 
-  resultsDF <- merge_estimates(x = classicResults, y = probitResults)
+  resultsDF <- merge_op(x = classicResults, y = probitResults)
 
   report_op_docx(svy = testSVY,
                  estimates = resultsDF,

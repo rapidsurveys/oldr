@@ -297,11 +297,11 @@ probitDF <- estimate_probit(x = df, w = testPSU, replicates = 9)
 probitDF
 ```
 
-The two sets of estimates are then merged using the `mergeEstimates` function as follows:
+The two sets of estimates are then merged using the `merge_op` function as follows:
 
 ```{r mergeResults, echo = TRUE, eval = FALSE}
 ## Merge classicDF and probitDF
-resultsDF <- merge_estimates(x = classicDF, y = probitDF)
+resultsDF <- merge_op(x = classicDF, y = probitDF)
 
 resultsDF
 ```
@@ -310,7 +310,7 @@ which results in:
 
 ```{r mergeResultsX, echo = FALSE, eval = TRUE}
 ## Merge classicDF and probitDF
-resultsDF <- merge_estimates(x = classicDF, y = probitDF)
+resultsDF <- merge_op(x = classicDF, y = probitDF)
 
 resultsDF
 ```

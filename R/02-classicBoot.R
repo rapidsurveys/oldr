@@ -22,11 +22,11 @@
 #' @return A tibble of boot estimates using bootClassic mean function
 #'
 #' @examples
-#'   test <- estimate_classic(x = indicators.ALL,
-#'                            w = testPSU,
-#'                            replicates = 9)
+#' test <- estimate_classic(
+#'   x = indicators.ALL, w = testPSU, replicates = 9
+#' )
 #'
-#'   test
+#' test
 #'
 #' @export
 #'
@@ -102,11 +102,14 @@ estimate_classic  <- function(x,
   )
 
   ## Re-order columns
-  classicEstimates <- classicEstimates[ , c("INDICATOR",
-                                            "EST.ALL", "LCL.ALL", "UCL.ALL",
-                                            "EST.MALES", "LCL.MALES", "UCL.MALES",
-                                            "EST.FEMALES", "LCL.FEMALES",
-                                            "UCL.FEMALES")]
+  col_order <- c(
+    "INDICATOR", 
+    "EST.ALL", "LCL.ALL", "UCL.ALL",
+    "EST.MALES", "LCL.MALES", "UCL.MALES",
+    "EST.FEMALES", "LCL.FEMALES", "UCL.FEMALES"
+  )
+  
+  classicEstimates <- classicEstimates[ , col_order]
 
   ## Convert to tibble
   classicEstimates <- tibble::tibble(classicEstimates)

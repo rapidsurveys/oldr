@@ -35,7 +35,7 @@
 #' @importFrom bbw bootBW bootClassic bootPROBIT
 #' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
-#' @importFrom tibble tibble
+#' @importFrom tibble tibble as_tibble
 #' @importFrom rmarkdown render
 #' @importFrom cli cli_abort cli_bullets
 #'

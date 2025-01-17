@@ -47,10 +47,10 @@ A tibble of boot estimates using bootClassic mean function
 Apply bootstrap to RAM-OP indicators using a classical estimator.
 }
 \examples{
-  test <- estimate_classic(x = indicators.ALL,
-                           w = testPSU,
-                           replicates = 9)
+test <- estimate_classic(
+  x = indicators.ALL, w = testPSU, replicates = 9
+)
 
-  test
+test
 
 }
