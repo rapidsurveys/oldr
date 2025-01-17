@@ -287,7 +287,8 @@
 #' `wgP3` | Overall 3
 #' `wgPM` | Any disability
 #'
-#' @param svy A data.frame collected using the standard RAM-OP questionnaire
+#' @param svy A [data.frame()] collected using the standard RAM-OP
+#'   questionnaire.
 #' @param indicators A character vector of indicator set names. The vector may
 #'   include one or more of the following: *"demo"*, *"food"*, *"hunger"*,
 #'   *"disability"*, *"adl"*, *"mental"*, *"dementia"*, *"health"*, *"income"*,
@@ -297,7 +298,7 @@
 #'   to report indicators for *males*, *females*, or *both* respectively.
 #'   Default is *"mf"* for both sexes.
 #'
-#' @return A tibble of older people indicators
+#' @return A [tibble()] of older people indicators.
 #'
 #' @examples
 #' # Create indicators dataset from RAM-OP survey data collected from

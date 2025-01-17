@@ -14,10 +14,10 @@ estimate_op(
 }
 \arguments{
 \item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}} with primary sampling
-unit (PSU) in column named \code{PSU}}
+unit (PSU) in column named \emph{"psu"}`}
 
 \item{w}{A data frame with primary sampling unit (PSU) in column named
-\code{psu} and survey weight (i.e. PSU population) in column named \code{pop}}
+\emph{"psu"} and survey weight (i.e. PSU population) in column named \emph{"pop"}.}
 
 \item{indicators}{A character vector of indicator set names to estimate.
 Indicator set names are \emph{"demo"}, \emph{"anthro"}, \emph{"food"}, \emph{"hunger"},
@@ -27,7 +27,8 @@ Indicator set names are \emph{"demo"}, \emph{"anthro"}, \emph{"food"}, \emph{"hu
 \item{replicates}{Number of bootstrap replicates. Default is 399.}
 }
 \value{
-Tibble of boot estimates for all specified standard RAM-OP indicators
+A \code{\link[=tibble]{tibble()}} of boot estimates for all specified standard RAM-OP
+indicators
 }
 \description{
 Estimate all standard RAM-OP indicators

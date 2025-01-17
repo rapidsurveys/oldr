@@ -10,34 +10,33 @@ estimate_probit(
   gam.stat = probit_gam,
   sam.stat = probit_sam,
   params = "MUAC",
-  outputColumns = "MUAC",
+  outputColumns = params,
   replicates = 399
 )
 }
 \arguments{
 \item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}} with primary sampling
-unit (PSU) in column named \code{PSU}}
+unit (PSU) in column named \emph{"psu"}.}
 
 \item{w}{A data frame with primary sampling unit (PSU) in column named
-\code{psu} and survey weight (i.e. PSU population) in column named \code{pop}.}
+\emph{"psu"} and survey weight (i.e. PSU population) in column named \emph{"pop"}.}
 
 \item{gam.stat}{A function operating on data in \code{x} to estimate GAM
-prevalence for older people. Fixed to \code{probit_gam}}
+prevalence for older people. Fixed to \code{\link[=probit_gam]{probit_gam()}}.}
 
 \item{sam.stat}{A function operating on data in \code{x} to estimate
-SAM prevalence for older people. Fixed to \code{probit_sam}}
+SAM prevalence for older people. Fixed to \code{\link[=probit_sam]{probit_sam()}}.}
 
 \item{params}{Parameters (named columns in \code{x}) passed to the function
-specified in \code{statistic}; fixed to \code{MUAC} as indicator amenable
-to probit estimation}
+specified in \code{statistic}; fixed to \emph{"MUAC"} as indicator amenable
+to probit estimation.}
 
-\item{outputColumns}{Names of columns in output data frame; fixed to
-\code{MUAC}}
+\item{outputColumns}{Names of columns in output data frame.}
 
-\item{replicates}{Number of bootstrap replicate case and non-case}
+\item{replicates}{Number of bootstrap replicate case and non-case.}
 }
 \value{
-A tibble of boot estimates using bootPROBIT function
+A \code{\link[=tibble]{tibble()}} of boot estimates using PROBIT.
 }
 \description{
 Apply bootstrap to RAM-OP indicators using a PROBIT estimator.
