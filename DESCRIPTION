@@ -26,7 +26,8 @@ Imports:
     withr,
     tibble,
     rmarkdown,
-    cli
+    cli,
+    tinytex
 Suggests: 
     testthat (>= 3.0.0),
     covr,
