@@ -2,11 +2,11 @@
 #' Apply bootstrap to RAM-OP indicators using a classical estimator.
 #'
 #' @param x Indicators dataset produced by [create_op()] with primary sampling 
-#'   unit (PSU) in column named `psu`
-#' @param w A data frame with primary sampling unit (PSU) in column named `psu`
-#'   and survey weight (i.e. PSU population) in column named `pop`
-#' @param statistic A function operating on data in `x`. Fixed to `bootClassic()`
-#'   function for means
+#'   unit (PSU) in column named *"psu"*.
+#' @param w A data frame with primary sampling unit (PSU) in column named
+#'   *"psu"* and survey weight (i.e. PSU population) in column named *"pop"*.
+#' @param statistic A function operating on data in `x`. Fixed to
+#'   [bootClassic()] function for means.
 #' @param indicators A character vector of indicator set names to estimate.
 #'   Indicator set names are *"demo"*, *"food"*, *"hunger"*, *"disability"*, 
 #'   *"adl"*, *"mental"*, *"dementia"*, *"health"*, *"income"*, *"wash"*, 

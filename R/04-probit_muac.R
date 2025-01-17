@@ -1,13 +1,14 @@
 #' 
 #' PROBIT statistics function for bootstrap estimation of older people GAM
 #'
-#' @param x A data frame with `primary sampling unit (PSU)` in column named
-#'   `psu` and with data column/s containing the continuous variable/s of
+#' @param x A data frame with primary sampling unit (PSU) in column named
+#'   *"psu"* and with data column/s containing the continuous variable/s of
 #'   interest with column names corresponding to `params` values
 #' @param params A vector of column names corresponding to the continuous
 #'   variables of interest contained in `x`
 #' @param threshold cut-off value for continuous variable to differentiate
-#'   case and non-case. Default is set at 210.
+#'   case and non-case. Default is set at 210 for [probit_gam()] and 185 for
+#'   [probit_sam()].
 #'
 #' @return A numeric vector of the PROBIT estimate of each continuous variable
 #'   of interest with length equal to `length(params)`

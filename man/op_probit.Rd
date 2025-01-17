@@ -10,15 +10,16 @@ probit_gam(x, params, threshold = 210)
 probit_sam(x, params, threshold = 185)
 }
 \arguments{
-\item{x}{A data frame with \verb{primary sampling unit (PSU)} in column named
-\code{psu} and with data column/s containing the continuous variable/s of
+\item{x}{A data frame with primary sampling unit (PSU) in column named
+\emph{"psu"} and with data column/s containing the continuous variable/s of
 interest with column names corresponding to \code{params} values}
 
 \item{params}{A vector of column names corresponding to the continuous
 variables of interest contained in \code{x}}
 
 \item{threshold}{cut-off value for continuous variable to differentiate
-case and non-case. Default is set at 210.}
+case and non-case. Default is set at 210 for \code{\link[=probit_gam]{probit_gam()}} and 185 for
+\code{\link[=probit_sam]{probit_sam()}}.}
 }
 \value{
 A numeric vector of the PROBIT estimate of each continuous variable

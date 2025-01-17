@@ -17,13 +17,13 @@ estimate_classic(
 }
 \arguments{
 \item{x}{Indicators dataset produced by \code{\link[=create_op]{create_op()}} with primary sampling
-unit (PSU) in column named \code{psu}}
+unit (PSU) in column named \emph{"psu"}.}
 
-\item{w}{A data frame with primary sampling unit (PSU) in column named \code{psu}
-and survey weight (i.e. PSU population) in column named \code{pop}}
+\item{w}{A data frame with primary sampling unit (PSU) in column named
+\emph{"psu"} and survey weight (i.e. PSU population) in column named \emph{"pop"}.}
 
-\item{statistic}{A function operating on data in \code{x}. Fixed to \code{bootClassic()}
-function for means}
+\item{statistic}{A function operating on data in \code{x}. Fixed to
+\code{\link[=bootClassic]{bootClassic()}} function for means.}
 
 \item{indicators}{A character vector of indicator set names to estimate.
 Indicator set names are \emph{"demo"}, \emph{"food"}, \emph{"hunger"}, \emph{"disability"},

@@ -58,7 +58,8 @@ create_op_visual(svy, sex = c("mf", "m", "f"))
 create_op_misc(svy, sex = c("mf", "m", "f"))
 }
 \arguments{
-\item{svy}{A data.frame collected using the standard RAM-OP questionnaire}
+\item{svy}{A \code{\link[=data.frame]{data.frame()}} collected using the standard RAM-OP
+questionnaire.}
 
 \item{indicators}{A character vector of indicator set names. The vector may
 include one or more of the following: \emph{"demo"}, \emph{"food"}, \emph{"hunger"},
@@ -71,7 +72,7 @@ to report indicators for \emph{males}, \emph{females}, or \emph{both} respective
 Default is \emph{"mf"} for both sexes.}
 }
 \value{
-A tibble of older people indicators
+A \code{\link[=tibble]{tibble()}} of older people indicators.
 }
 \description{
 The indicator sets covered by the standard RAM-OP survey are:
