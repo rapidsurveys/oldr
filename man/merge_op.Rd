@@ -15,7 +15,7 @@ merge_op(x, y, prop2percent = FALSE)
 to percentage? Default is FALSE.}
 }
 \value{
-Data frame of combined classic and probit estimates
+A \code{\link[=data.frame]{data.frame()}} of combined classic and probit estimates.
 }
 \description{
 Concatenate classic and PROBIT estimates into a single data.frame

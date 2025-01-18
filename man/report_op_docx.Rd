@@ -23,35 +23,34 @@ report_op_docx(
 
 \item{filename}{Filename for output document. Can be specified as a path to a
 specific directory where to output report document. Defaults to a path to
-a temporary directory and a filename `ramOPreport``.}
+a temporary directory and a filename \code{ramOPreport}.}
 
 \item{title}{Title of report}
 
 \item{view}{Logical. Open report in current environment? Default is FALSE.}
 }
 \value{
-An DOCX in the working directory or if filename is a path,
-to a specified directory.
+An DOCX in the working directory or if filename is a path, to a
+specified directory.
 }
 \description{
 Create a DOCX report document containing RAM-OP survey results
 }
 \examples{
-  #
-  classicResults <- estimate_classic(x = create_op(testSVY),
-                                     w = testPSU,
-                                     replicates = 9)
+classicResults <- estimate_classic(
+  x = create_op(testSVY), w = testPSU, replicates = 9
+)
 
-  probitResults <- estimate_probit(x = create_op(testSVY),
-                                   w = testPSU,
-                                   replicates = 9)
+probitResults <- estimate_probit(
+  x = create_op(testSVY), w = testPSU, replicates = 9
+)
 
-  resultsDF <- merge_op(x = classicResults, y = probitResults)
+resultsDF <- merge_op(x = classicResults, y = probitResults)
 
-  report_op_docx(svy = testSVY,
-                 estimates = resultsDF,
-                 indicators = "mental",
-                 filename = paste(tempdir(), "report", sep = "/"))
+report_op_docx(
+  svy = testSVY, estimates = resultsDF, indicators = "mental",
+  filename = paste(tempdir(), "report", sep = "/")
+)
 
 }
 \author{

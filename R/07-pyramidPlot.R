@@ -6,7 +6,7 @@
 #' @param xlab x-axis label
 #' @param ylab y-axis label
 #'
-#' @return Pyramid plot
+#' @returns Pyramid plot
 #'
 #' @author Mark Myatt
 #'

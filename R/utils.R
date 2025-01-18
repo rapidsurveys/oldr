@@ -4,9 +4,13 @@
 #' @param x A vector to tabulate
 #' @param values A vector of values to be included in a table
 #'
-#' @return A one-dimensional table with specified values
+#' @returns A one-dimensional table with specified values
 #'
 #' @author Mark Myatt
+#' 
+#' @examples
+#' oldr:::fullTable(testSVY$d1, values = 1:4)
+#' 
 #' 
 #' @keywords internal
 #'
@@ -31,8 +35,11 @@ fullTable <- function(x, values) {
 #'   *"mental"*, *"dementia"*, *"health"*, *"income"*, *"wash"*, *"anthro"*, 
 #'   *"screening"*, *"visual"*, and *"misc"*. Default is all indicator sets.
 #'
-#' @return A vector of variable names
-#'
+#' @returns A vector of variable names
+#' 
+#' @examples
+#' oldr:::get_variables()
+#' 
 #' @keywords internal
 #'
 

@@ -1,5 +1,6 @@
 # oldr 0.2.1
 
+This is the first CRAN release of `{oldr}`.
 
 
 # oldr 0.1.1

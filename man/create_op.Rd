@@ -72,7 +72,7 @@ to report indicators for \emph{males}, \emph{females}, or \emph{both} respective
 Default is \emph{"mf"} for both sexes.}
 }
 \value{
-A \code{\link[=tibble]{tibble()}} of older people indicators.
+A \code{\link[tibble:tibble]{tibble::tibble()}} of older people indicators.
 }
 \description{
 The indicator sets covered by the standard RAM-OP survey are:
@@ -126,7 +126,7 @@ the basic approach used is described in:
 
 \cite{Kennedy G, Ballard T, Dop M C (2011). Guidelines for Measuring
 Household and Individual Dietary Diversity. Rome, FAO
-\url{http://www.fao.org/docrep/014/i1983e/i1983e00.htm}}
+\url{https://www.fao.org/4/i1983e/i1983e00.htm}}
 
 and extended to include indicators of probable adequate intake of a number of
 nutrients / micronutrients.\tabular{ll}{
@@ -292,7 +292,7 @@ These are a (core) subset of indicators from:
 
 \cite{WHO / UNICEF (2006). Core Questions on Drinking-water and Sanitation
 for Household Surveys. Geneva, WHO / UNICEF
-\url{http://www.who.int/water_sanitation_health/monitoring/household_surveys/en/}}\tabular{ll}{
+\url{https://www.who.int/publications/i/item/9241563265}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
    \code{W1} \tab Improved source of drinking water \cr
    \code{W2} \tab Safe drinking water (improved source OR adequate treatment) \cr
@@ -336,8 +336,7 @@ an illiterate E Chart. Am J Optom & Physiol Optics 55:348}\tabular{ll}{
 
 See:
 
-\url{http://www.washingtongroup-disability.com}
-\url{https://www.cdc.gov/nchs/washington_group/wg_documents.htm}
+\url{https://www.washingtongroup-disability.com/}
 
 for details.\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr

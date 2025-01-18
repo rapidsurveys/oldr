@@ -10,8 +10,8 @@
 #'   case and non-case. Default is set at 210 for [probit_gam()] and 185 for
 #'   [probit_sam()].
 #'
-#' @return A numeric vector of the PROBIT estimate of each continuous variable
-#'   of interest with length equal to `length(params)`
+#' @returns A numeric vector of the PROBIT estimate of each continuous variable
+#'   of interest with length equal to `length(params)`.
 #'
 #' @examples
 #'

@@ -18,118 +18,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, echo = FALSE, eval = TRUE}
+```{r setup, echo = FALSE}
 library(oldr)
-library(DiagrammeR)
 ```
 
 The RAM-OP Workflow is summarised in the diagram below.
-
-```{r ramOPworkflow, echo = FALSE, eval = FALSE, fig.width = 8, fig.height = 10, fig.align = "center"}
-DiagrammeR::grViz("
-  digraph ramOP {
-
-    # a 'graph' statement
-    graph [overlap = false, fontsize = 14, fontname = Helvetica]
-
-    # Terminal nodes
-    node [shape = oval, width = 1.5, penwidth = 2, fontsize = 14]
-        
-    a [label = '@@1'; color = darkgreen; fontcolor = darkgreen];
-    n [label = '@@14'; color = crimson; fontcolor = crimson];
-
-    # Input/output nodes
-    node [shape = parallelogram, fixedsize = true, height = 1, width = 1.5, 
-          penwidth = 2, color = royalblue1, fontcolor = royalblue1]
-    
-    b [label = '@@2'];
-    l [label = '@@12']
-
-    # Process nodes
-    node [shape = rect]
-  
-    d [label = '@@4'];
-    g [label = '@@7'];
-    h [label = '@@8'];
-    j [label = '@@10'];
-
-    # Package nodes
-    node [shape = oval, fixedsize = TRUE, width = 2.5, penwidth = 2, 
-          fontsize = 14, fontname = Courier, color = darkviolet, 
-          fontcolor = darkviolet]
-    
-    c [label = '@@3';];
-    e [label = '@@5';];
-    f [label = '@@6'];
-    i [label = '@@9'];
-    k [label = '@@11'];
-    m [label = '@@13'];
-
-    edge [minlen = 2, arrowsize = 0.75, penwidth = 2, color = dimgray]
-    
-    a -> b
-    b -> d
-    d -> g
-    d -> h
-    g -> j
-    h -> j
-    j -> l
-    l -> n
-
-    edge [minlen = 3]
-
-    b -> c
-    c -> b
-    d -> e
-    e -> d
-    f -> g
-    g -> f
-    h -> i
-    i -> h
-    j -> k
-    k -> j
-    l -> m
-    m -> l
-
-    subgraph {
-      rank = same; b; c;
-    }
-
-    subgraph {
-      rank = same; d; e;
-    }
-
-    subgraph {
-      rank = same; f; g; h; i;
-    }
-    
-    subgraph {
-      rank = same; j; k
-    }
-    
-    subgraph {
-      rank = same; l; m;
-    }
-
-  }
-
-    [1]: 'START'
-    [2]: 'Collect\\ndata'
-    [3]: 'EpiData\\nor\\nOpen Data Kit'
-    [4]: 'Process\\nand\\nrecode\\ndata'
-    [5]: 'create_op_\\nfunctions'
-    [6]: 'estimateClassic'
-    [7]: 'Estimate\\nindicators'
-    [8]: 'Estimate\\nanthropometric\\nindicators'
-    [9]: 'estimateProbit'
-    [10]: 'Visualise\\nestimates'
-    [11]: 'chart\\nfunctions'
-    [12]: 'Report\\nestimates'
-    [13]: 'report_op_table'
-    [14]: 'END'
-"
-)
-```
 
 ```{r workflow, echo = FALSE, eval = TRUE, fig.alt = "RAM-OP workflow", out.width = "80%"}
 knitr::include_graphics("figures/ramOPworkflow.png")

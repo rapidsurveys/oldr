@@ -15,7 +15,7 @@
 #' @param outputColumns Names of columns in output data frame.
 #' @param replicates Number of bootstrap replicate case and non-case.
 #'
-#' @return A [tibble()] of boot estimates using PROBIT.
+#' @returns A [tibble::tibble()] of boot estimates using PROBIT.
 #'
 #' @examples
 #' test <- estimate_probit(x = indicators.ALL, w = testPSU, replicates = 3)
@@ -33,19 +33,19 @@ estimate_probit <- function(x,
                             outputColumns = params,
                             replicates = 399) {
   ## Blocking weighted bootstrap (GAM) - ALL
-  bootGAM.ALL <- bootBW(
+  bootGAM.ALL <- bbw::bootBW(
     x = x, w = w, statistic = gam.stat, params = params, 
     outputColumns = params, replicates = replicates
   )
 
   ## Blocking weighted bootstrap (GAM) - MALES
-  bootGAM.MALES <- bootBW(
+  bootGAM.MALES <- bbw::bootBW(
     x = x[x$sex1 == 1, ], w = w, statistic = gam.stat, params = params,
     outputColumns = params, replicates = replicates
   )
 
   ## Blocking weighted bootstrap (GAM) - FEMALES
-  bootGAM.FEMALES <- bootBW(
+  bootGAM.FEMALES <- bbw::bootBW(
     x = x[x$sex2 == 1, ], w = w, statistic = gam.stat, params = params,
     outputColumns = params, replicates = replicates
   )
@@ -54,19 +54,19 @@ estimate_probit <- function(x,
   names(bootGAM.ALL) <- names(bootGAM.MALES) <- names(bootGAM.FEMALES) <- "GAM"
 
   ## Blocking weighted bootstrap (SAM) - ALL
-  bootSAM.ALL <- bootBW(
+  bootSAM.ALL <- bbw::bootBW(
     x = x, w = w, statistic = sam.stat, params = params,
     outputColumns = params, replicates = replicates
   )
 
   ## Blocking weighted bootstrap (SAM) - MALES
-  bootSAM.MALES <- bootBW(
+  bootSAM.MALES <- bbw::bootBW(
     x = x[x$sex1 ==1, ], w = w, statistic = sam.stat, params = params,
     outputColumns = params, replicates = replicates
   )
 
   ## Blocking weighted bootstrap (SAM) - FEMALES
-  bootSAM.FEMALES <- bootBW(
+  bootSAM.FEMALES <- bbw::bootBW(
     x = x[x$sex2 ==1, ], w = w, statistic = sam.stat, params = params,
     outputColumns = params, replicates = replicates
   )

@@ -36,7 +36,7 @@ to probit estimation.}
 \item{replicates}{Number of bootstrap replicate case and non-case.}
 }
 \value{
-A \code{\link[=tibble]{tibble()}} of boot estimates using PROBIT.
+A \code{\link[tibble:tibble]{tibble::tibble()}} of boot estimates using PROBIT.
 }
 \description{
 Apply bootstrap to RAM-OP indicators using a PROBIT estimator.

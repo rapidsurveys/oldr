@@ -21,35 +21,35 @@
 \usage{
 report_op_table(estimates, filename = paste(tempdir(), "ramOP", sep = "/"))
 
-report_op_demo(format = "html")
+report_op_demo(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_food(format = "html")
+report_op_food(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_hunger(format = "html")
+report_op_hunger(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_disability(format = "html")
+report_op_disability(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_adl(format = "html")
+report_op_adl(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_mental(format = "html")
+report_op_mental(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_dementia(format = "html")
+report_op_dementia(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_health(format = "html")
+report_op_health(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_oedema(format = "html")
+report_op_oedema(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_anthro(format = "html")
+report_op_anthro(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_screen(format = "html")
+report_op_screen(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_visual(format = "html")
+report_op_visual(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_income(format = "html")
+report_op_income(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_wash(format = "html")
+report_op_wash(output_format = c("html", "docx", "odt", "pdf"))
 
-report_op_misc(format = "html")
+report_op_misc(output_format = c("html", "docx", "odt", "pdf"))
 }
 \arguments{
 \item{estimates}{A data.frame of RAM-OP results produced by \code{\link[=merge_op]{merge_op()}}.}
@@ -59,7 +59,8 @@ as a path to a specific directory where to output tabular results CSV file.
 Defaults to a path to a temporary directory with a filename starting with
 \emph{ramOP}.}
 
-\item{format}{Either \emph{"html"}, \emph{"docx"} or \emph{"odt"}. Defaults to \emph{"html"}.}
+\item{output_format}{Either \emph{"html"}, \emph{"docx"}, \emph{"odt"}, or \emph{"pdf"}. Defaults
+to \emph{"html"}.}
 }
 \value{
 Report of tabulated estimated results saved in CSV format in current

@@ -6,7 +6,7 @@
 #' @param prop2percent Logical. Should proportion type indicators be converted
 #'   to percentage? Default is FALSE.
 #'
-#' @return Data frame of combined classic and probit estimates
+#' @returns A [data.frame()] of combined classic and probit estimates.
 #'
 #' @author Ernest Guevarra
 #'

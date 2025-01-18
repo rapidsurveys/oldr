@@ -11,8 +11,8 @@
 #'   *"wash"*, *"visual"*, and *"misc"*. Default is all indicator sets.
 #' @param replicates Number of bootstrap replicates. Default is 399.
 #'
-#' @return A [tibble()] of boot estimates for all specified standard RAM-OP
-#'   indicators
+#' @returns A [tibble::tibble()] of boot estimates for all specified standard
+#'   RAM-OP indicators.
 #'
 #' @examples
 #' estimate_op(x = create_op(testSVY), w = testPSU, replicates = 9)

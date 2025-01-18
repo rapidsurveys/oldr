@@ -1,29 +1,14 @@
-## Resubmission
-This is a resubmission. In have corrected the following issues as per CRAN
-comments:
-
-* Checked all examples to ensure they can run less than 5 seconds
-
-* Checked all examples that I previously put within \dontrun{} and ensured
-that they can run during package build and test and that they run for less than
-5 seconds
-
-* Re-worked functions that previously wrote into user's home filespace such
-that they now write into `tempdir()` by default
-
-* Removed redundant language in the title. The title now reads "An Implementation
-of Rapid Assessment Method for Older People"
-
-I performed all checks again with the following results:
-
 ## Test environments
-* macOS latest (local R installation, R 4.0.2)
-* ubuntu 16.04 (on travis-ci), R 4.0.2
-* win-builder (release, oldrelease)
-* windows latest (on github actions, release)
-* macOS latest (on github actions, release)
-* ubuntu 16.04 (on github actions, release)
-* ubuntu 16.04, fedora, windows (on rhub, devel, release)
+* local OS X install, R 4.4.2
+* local ubuntu 22.04 install, R 4.4.2
+* win-builder (devel, release and old release)
+* github actions windows-latest, r: release
+* github actions macOS-latest, r: release
+* github actions ubuntu-20.04, r: release, devel, old release
+* rhub windows-latest r devel
+* rhub ubuntu 22.04 r devel
+* rhub macos r devel
+* rhub macos-arm64 r devel
 
 ## R CMD check results
 
