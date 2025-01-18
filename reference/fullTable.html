@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Fill out a one-dimensional table to include a specified range of values</h1>
-      <small class="dont-index">Source: <a href="https://github.com/rapidsurveys/oldr/blob/main/R/03-fullTable.R" class="external-link"><code>R/03-fullTable.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/rapidsurveys/oldr/blob/main/R/utils.R" class="external-link"><code>R/utils.R</code></a></small>
       <div class="d-none name"><code>fullTable.Rd</code></div>
     </div>
 
@@ -71,14 +71,11 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="va">xTable</span> <span class="op">&lt;-</span> <span class="fu">fullTable</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">5</span>,</span></span>
-<span class="r-in"><span>                                 size <span class="op">=</span> <span class="fl">100</span>,</span></span>
-<span class="r-in"><span>                                 replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                      values <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">xTable</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1  2  3  4  5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 16 18 21 26 </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">oldr</span><span class="fu">:::</span><span class="fu">fullTable</span><span class="op">(</span><span class="va">testSVY</span><span class="op">$</span><span class="va">d1</span>, values <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1   2   3   4 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162  21   7   2 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -86,7 +83,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling, Elrha.</p>
 </div>
 
 <div class="pkgdown-footer-right">
