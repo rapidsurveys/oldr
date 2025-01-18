@@ -44,14 +44,14 @@ test_that("output file exists", {
 })
 
 
-report_op_pdf(
-  estimates = estimate_op(
-    x = indicators.ALL, w = testPSU, replicates = 19),
-    svy = testSVY, filename = paste(tempdir(), "pdfReport", sep = "/"
-  )
-)
-
 test_that("output file exists", {
+  skip_on_cran()
+  report_op_pdf(
+    estimates = estimate_op(
+      x = indicators.ALL, w = testPSU, replicates = 19),
+      svy = testSVY, filename = paste(tempdir(), "pdfReport", sep = "/"
+    )
+  )
   expect_true(file.exists(paste(tempdir(), "pdfReport.pdf", sep = "/")))
   expect_true(file.exists(paste(tempdir(), "pdfReport.Rmd", sep = "/")))
 })

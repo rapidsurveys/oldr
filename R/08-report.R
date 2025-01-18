@@ -1138,9 +1138,6 @@ report_op_pdf <- function(estimates,
                           filename = "ramOPreport",
                           title = "RAM-OP Report",
                           view = FALSE) {
-  ## Check if tinytex installed ----
-  if (!tinytex::is_tinytex()) tinytex::install_tinytex()
-  
   ## Create Rmd report file
   withr::with_options(
     new = list(width = 80),
@@ -1214,8 +1211,10 @@ report_op_pdf <- function(estimates,
   )
 
   ## Render document in HTML format
-  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
-                    output_format = "pdf_document")
+  rmarkdown::render(
+    input = paste(filename, ".Rmd", sep = ""),
+    output_format = "pdf_document"
+  )
 
   ## Check if report is to be viewed
   if (view) {
