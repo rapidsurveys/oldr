@@ -23,8 +23,4 @@ A vector of variable names
 Get appropriate RAM-OP indicator variable names given a specified indicator
 set
 }
-\examples{
-oldr:::get_variables()
-
-}
 \keyword{internal}

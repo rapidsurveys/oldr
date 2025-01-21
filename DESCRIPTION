@@ -1,6 +1,6 @@
 Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
     person("Mark", "Myatt", comment = c(ORCID = "0000-0003-1119-1474"),
            email = "mark@brixtonhealth.com", role = c("aut", "cph")),
@@ -11,13 +11,10 @@ Authors@R: c(
     person("HelpAge International", role = "cph"),
     person("Elrha", role = "fnd"))
 Description: An implementation of the Rapid Assessment Method for Older People
-    or RAM-OP <https://www.helpage.org/resource/rapid-assessment-method-for-older-people-ramop-manual/>. 
-    It provides various functions that allow the user to design and plan the 
-    assessment and analyse the collected data. RAM-OP provides accurate and 
-    reliable estimates of the needs of older people. The method uses simple 
-    procedures, in a short time frame (i.e. about two weeks including training, 
-    data collection, data entry, and data analysis), and at considerably lower 
-    cost than other methods.
+    or RAM-OP <https://www.helpage.org/resource/rapid-assessment-method-for-older-people-ramop-manual/>.
+    It provides various functions that allow the user to design and plan the
+    assessment and analyse the collected data. RAM-OP provides accurate and
+    reliable estimates of the needs of older people.
 License: GPL-3
 Depends: R (>= 4.1.0)
 Imports: 

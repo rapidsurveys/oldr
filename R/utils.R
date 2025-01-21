@@ -6,11 +6,7 @@
 #'
 #' @returns A one-dimensional table with specified values
 #'
-#' @author Mark Myatt
-#' 
-#' @examples
-#' oldr:::fullTable(testSVY$d1, values = 1:4)
-#' 
+#' @author Mark Myatt 
 #' 
 #' @keywords internal
 #'
@@ -36,9 +32,6 @@ fullTable <- function(x, values) {
 #'   *"screening"*, *"visual"*, and *"misc"*. Default is all indicator sets.
 #'
 #' @returns A vector of variable names
-#' 
-#' @examples
-#' oldr:::get_variables()
 #' 
 #' @keywords internal
 #'

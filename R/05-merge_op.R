@@ -11,11 +11,25 @@
 #' @author Ernest Guevarra
 #'
 #' @examples
-#' \dontrun{
-#'   test <- merge_op(
-#'     x = classicEstimates, y = probitEstimates
-#'   )
-#' }
+#' indicators <- c(
+#'   "demo", "anthro", "food", "hunger", "adl", "disability",
+#'   "mental", "dementia", "health", "oedema", "screening", "income",
+#'   "wash", "visual", "misc"
+#' )
+#' 
+#' classicIndicators <- indicators[indicators != "anthro"]
+#' 
+#' ## Bootstrap classic
+#' classicEstimates <- estimate_classic(
+#'   x = indicators.ALL, w = testPSU, 
+#'   indicators = classicIndicators, replicates = 9
+#' )
+#' 
+#' probitEstimates <- estimate_probit(
+#'   x = indicators.ALL, w = testPSU, replicates = 9
+#' )
+#' 
+#' merge_op(x = classicEstimates, y = probitEstimates)
 #'
 #' @export
 #'
