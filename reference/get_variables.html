@@ -9,7 +9,7 @@ set"><meta property="og:image" content="https://rapidsurveys.io/oldr/logo.png"><
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,58 +70,6 @@ names are <em>"demo"</em>, <em>"food"</em>, <em>"hunger"</em>, <em>"disability"<
     <p>A vector of variable names</p>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">oldr</span><span class="fu">:::</span><span class="fu">get_variables</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "resp1"             "resp2"             "resp3"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "resp4"             "age"               "ageGrp1"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "ageGrp2"           "ageGrp3"           "ageGrp4"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "ageGrp5"           "sex1"              "sex2"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "marital1"          "marital2"          "marital3"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "marital4"          "marital5"          "marital6"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "alone"             "MF"                "DDS"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "FG01"              "FG02"              "FG03"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "FG04"              "FG05"              "FG06"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "FG07"              "FG08"              "FG09"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "FG10"              "FG11"              "proteinRich"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "pProtein"          "aProtein"          "pVitA"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "aVitA"             "xVitA"             "ironRich"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "caRich"            "znRich"            "vitB1"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "vitB2"             "vitB3"             "vitB6"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "vitB12"            "vitBcomplex"       "HHS1"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "HHS2"              "HHS3"              "ADL01"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "ADL02"             "ADL03"             "ADL04"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "ADL05"             "ADL06"             "scoreADL"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "classADL1"         "classADL2"         "classADL3"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "hasHelp"           "unmetNeed"         "wgVisionD0"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "wgVisionD1"        "wgVisionD2"        "wgVisionD3"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "wgHearingD0"       "wgHearingD1"       "wgHearingD2"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "wgHearingD3"       "wgMobilityD0"      "wgMobilityD1"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "wgMobilityD2"      "wgMobilityD3"      "wgRememberingD0"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "wgRememberingD1"   "wgRememberingD2"   "wgRememberingD3"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "wgSelfCareD0"      "wgSelfCareD1"      "wgSelfCareD2"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "wgSelfCareD3"      "wgCommunicatingD0" "wgCommunicatingD1"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "wgCommunicatingD2" "wgCommunicatingD3" "wgP0"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "wgP1"              "wgP2"              "wgP3"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "wgPM"              "K6"                "K6Case"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "DS"                "H1"                "H2"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "H31"               "H32"               "H33"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "H34"               "H35"               "H36"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "H37"               "H38"               "H39"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "H4"                "H5"                "H61"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "H62"               "H63"               "H64"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [112] "H65"               "H66"               "H67"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [115] "H68"               "H69"               "M1"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "M2A"               "M2B"               "M2C"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121] "M2D"               "M2E"               "M2F"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [124] "M2G"               "M2H"               "M2I"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "W1"                "W2"                "W3"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [130] "W4"                "MUAC"              "oedema"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [133] "screened"          "poorVA"            "chew"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "food"              "NFRI"             </span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
