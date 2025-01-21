@@ -4,7 +4,7 @@ bibentry(
   title    = "oldr: An Implementation of Rapid Assessment Method for Older People",
   author   = c(person("Mark Myatt"), person("Ernest Guevarra"), person("Pascale Fritsch"), person("Katja Siling")),
   year     = "2025",
-  note     = "R package version 0.2.1",
+  note     = "R package version 0.2.2",
   url      = "https://rapidsurveys.io/oldr/",
   doi      = "10.5281/zenodo.7505731"
 )
