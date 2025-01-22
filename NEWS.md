@@ -1,4 +1,4 @@
-# oldr 0.2.2
+# oldr 0.2.3
 
 This is the first CRAN release of `{oldr}`.
 
