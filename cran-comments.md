@@ -14,6 +14,10 @@ In this resubmission, I addressed the following comments from CRAN:
 
     - I removed `\dontrun{}` from the example for the `merge_op()` function.
 
+* `if (FALSE)` in examples should never be used
+
+    - I removed the `if (FALSE)` example in the `report_op_pdf()` function
+    documentation and added `donttest{}` as the example takes longer than 5s.
 
 ## Test environments
 * local OS X install, R 4.4.2

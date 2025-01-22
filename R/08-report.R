@@ -1083,8 +1083,10 @@ report_op_odt <- function(estimates,
   )
 
   ## Render document in HTML format
-  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
-                    output_format = "odt_document")
+  rmarkdown::render(
+    input = paste(filename, ".Rmd", sep = ""),
+    output_format = "odt_document"
+  )
 
   ## Check if report is to be viewed
   if (view) {
@@ -1094,6 +1096,7 @@ report_op_odt <- function(estimates,
 }
 
 
+#' 
 #' Create a PDF report document containing RAM-OP survey results
 #'
 #' @param estimates A data.frame of RAM-OP results produced by [merge_op()].
@@ -1108,17 +1111,17 @@ report_op_odt <- function(estimates,
 #'   to a specified directory.
 #'
 #' @examples
-#' if (FALSE) {
-#'   classicResults <- estimate_classic(
-#'     x = create_op(testSVY), w = testPSU, replicates = 9
-#'   )
+#' classicResults <- estimate_classic(
+#'   x = create_op(testSVY), w = testPSU, replicates = 3
+#' )
 #'
-#'   probitResults <- estimate_probit(
-#'     x = create_op(testSVY), w = testPSU, replicates = 9
-#'   )
+#' probitResults <- estimate_probit(
+#'   x = create_op(testSVY), w = testPSU, replicates = 3
+#' )
 #'
-#'   resultsDF <- merge_op(x = classicResults, y = probitResults)
+#' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
+#' \donttest{
 #'   report_op_pdf(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
