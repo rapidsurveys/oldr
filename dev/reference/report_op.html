@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,35 +47,35 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">report_op_table</span><span class="op">(</span><span class="va">estimates</span>, filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"ramOP"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_demo</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_demo</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_food</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_food</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_hunger</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_hunger</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_disability</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_disability</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_adl</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_adl</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_mental</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_mental</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_dementia</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_dementia</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_health</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_health</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_oedema</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_oedema</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_anthro</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_anthro</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_screen</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_screen</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_visual</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_visual</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_income</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_income</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_wash</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span>
+<span><span class="fu">report_op_wash</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">report_op_misc</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">report_op_misc</span><span class="op">(</span>output_format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"docx"</span>, <span class="st">"odt"</span>, <span class="st">"pdf"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -93,8 +93,9 @@ Defaults to a path to a temporary directory with a filename starting with
 <em>ramOP</em>.</p></dd>
 
 
-<dt id="arg-format">format<a class="anchor" aria-label="anchor" href="#arg-format"></a></dt>
-<dd><p>Either <em>"html"</em>, <em>"docx"</em> or <em>"odt"</em>. Defaults to <em>"html"</em>.</p></dd>
+<dt id="arg-output-format">output_format<a class="anchor" aria-label="anchor" href="#arg-output-format"></a></dt>
+<dd><p>Either <em>"html"</em>, <em>"docx"</em>, <em>"odt"</em>, or <em>"pdf"</em>. Defaults
+to <em>"html"</em>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -145,8 +146,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Type of respondent',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -160,8 +161,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Respondent age group by sex',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -171,8 +172,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Sex of respondents',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -182,8 +183,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Marital status',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-in"><span><span class="fu">report_op_hunger</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -196,7 +197,13 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```{r hhsTable}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> knitr::kable(x = resultsDF[48:50, ], caption = 'Household hunger score', digits = 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> knitr::kable(x = resultsDF[48:50, ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Household hunger score',</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-in"><span><span class="fu">report_op_food</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -212,8 +219,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Meal frequency',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -227,8 +234,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Dietary diversity',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -238,8 +245,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Nutrient intake',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-in"><span><span class="fu">report_op_disability</span><span class="op">(</span><span class="op">)</span></span></span>
@@ -257,8 +264,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Overall disability',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -269,8 +276,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to vision',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -281,15 +288,21 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to hearing',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ## Mobility</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```{r mobilityTable}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> knitr::kable(x = resultsDF[59:62, ], caption = 'Disability related to mobility', digits = 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> knitr::kable(x = resultsDF[59:62, ],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to mobility',</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ## Remembering</span>
@@ -299,8 +312,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to remembering',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -311,8 +324,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to self-care',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -323,8 +336,8 @@ specific indicators.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   caption = 'Disability related to communicating',</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   booktabs = TRUE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   digits = 2,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) %&gt;%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) %&gt;%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   col.names = c('Indicator', 'Type', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL', 'Est', '95% LCL', '95% UCL')) |&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::kable_styling(bootstrap_options = c('striped')) |&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   kableExtra::add_header_above(c(' ' = 2, 'ALL' = 3, 'MALES' = 3, 'FEMALES' = 3))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ```</span>
 <span class="r-in"><span></span></span>
@@ -335,7 +348,7 @@ specific indicators.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling, Elrha.</p>
 </div>
 
 <div class="pkgdown-footer-right">

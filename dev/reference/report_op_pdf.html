@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,22 +93,50 @@ to a specified directory.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span>    <span class="va">classicResults</span> <span class="op">&lt;-</span> <span class="fu"><a href="estimate_classic.html">estimate_classic</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                                       w <span class="op">=</span> <span class="va">testPSU</span>,</span></span>
-<span class="r-in"><span>                                       replicates <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">classicResults</span> <span class="op">&lt;-</span> <span class="fu"><a href="estimate_classic.html">estimate_classic</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>, w <span class="op">=</span> <span class="va">testPSU</span>, replicates <span class="op">=</span> <span class="fl">3</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Checking if <span style="font-weight: bold;">demo, food, hunger, disability, adl, mental, dementia, health, income, wash, anthro, oedema, screening, visual, misc</span> are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> All of `indicators` are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>    <span class="va">probitResults</span> <span class="op">&lt;-</span> <span class="fu"><a href="estimate_probit.html">estimate_probit</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                                     w <span class="op">=</span> <span class="va">testPSU</span>,</span></span>
-<span class="r-in"><span>                                     replicates <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">probitResults</span> <span class="op">&lt;-</span> <span class="fu"><a href="estimate_probit.html">estimate_probit</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="create_op.html">create_op</a></span><span class="op">(</span><span class="va">testSVY</span><span class="op">)</span>, w <span class="op">=</span> <span class="va">testPSU</span>, replicates <span class="op">=</span> <span class="fl">3</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Checking if <span style="font-weight: bold;">demo, food, hunger, disability, adl, mental, dementia, health, income, wash, anthro, oedema, screening, visual, misc</span> are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> All of `indicators` are RAM-OP indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="font-weight: bold;">x</span> has the appropriate/expected data structure</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>    <span class="va">resultsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_op.html">merge_op</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">classicResults</span>, y <span class="op">=</span> <span class="va">probitResults</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">resultsDF</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_op.html">merge_op</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">classicResults</span>, y <span class="op">=</span> <span class="va">probitResults</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>    <span class="fu">report_op_pdf</span><span class="op">(</span>svy <span class="op">=</span> <span class="va">testSVY</span>,</span></span>
-<span class="r-in"><span>                  estimates <span class="op">=</span> <span class="va">resultsDF</span>,</span></span>
-<span class="r-in"><span>                  indicators <span class="op">=</span> <span class="st">"mental"</span>,</span></span>
-<span class="r-in"><span>                  filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"report"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu">report_op_pdf</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    svy <span class="op">=</span> <span class="va">testSVY</span>, estimates <span class="op">=</span> <span class="va">resultsDF</span>, indicators <span class="op">=</span> <span class="st">"mental"</span>,</span></span>
+<span class="r-in"><span>    filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"report"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> processing file: report.Rmd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1/7          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2/7 [setup]  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3/7          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4/7 [k6Plot] </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5/7          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6/7 [k6Table]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7/7          </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> output file: report.knit.md</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc +RTS -K512m -RTS report.knit.md --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output report.tex --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/runner/work/_temp/Library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --table-of-contents --toc-depth 2 --number-sections --highlight-style tango --pdf-engine pdflatex --variable graphics --include-in-header /tmp/RtmpXutYgT/rmarkdown-str1ecf9302faa.html --variable 'geometry:margin=1in' </span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>error in running command</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ! sh: 1: pdflatex: not found</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> LaTeX failed to compile report.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See report.log for more info.</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -117,7 +145,7 @@ to a specified directory.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling.</p>
+  <p>Developed by Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling, Elrha.</p>
 </div>
 
 <div class="pkgdown-footer-right">
