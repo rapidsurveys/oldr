@@ -39,9 +39,10 @@
 
 report_op_table <- function(estimates,
                             filename = paste(tempdir(), "ramOP", sep = "/")) {
-
   ## Create report filename
   reportFilename <- paste(filename, ".report.csv", sep = "")
+
+  estimates$LABEL <- as.character(estimates$LABEL)
 
   ## Open file for output
   withr::with_options(
@@ -782,10 +783,12 @@ report_op_misc <- function(output_format = c("html", "docx", "odt", "pdf")) {
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' report_op_html(
-#'   svy = testSVY, estimates = resultsDF, indicators = "mental",
-#'   filename = paste(tempdir(), "report", sep = "/")
-#' )
+#' if (rmarkdown::pandoc_available("1.12.3")) {
+#'   report_op_html(
+#'     svy = testSVY, estimates = resultsDF, indicators = "mental",
+#'     filename = paste(tempdir(), "report", sep = "/")
+#'   )
+#' }
 #'
 #' @export
 #'
@@ -898,10 +901,12 @@ report_op_html <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' report_op_docx(
-#'   svy = testSVY, estimates = resultsDF, indicators = "mental",
-#'   filename = paste(tempdir(), "report", sep = "/")
-#' )
+#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#'   report_op_docx(
+#'     svy = testSVY, estimates = resultsDF, indicators = "mental",
+#'     filename = paste(tempdir(), "report", sep = "/")
+#'   )
+#' }
 #'
 #' @export
 #'
@@ -971,8 +976,10 @@ report_op_docx <- function(estimates,
   )
 
   ## Render document in HTML format
-  rmarkdown::render(input = paste(filename, ".Rmd", sep = ""),
-                    output_format = "word_document")
+  rmarkdown::render(
+    input = paste(filename, ".Rmd", sep = ""),
+    output_format = "word_document"
+  )
 
   ## Check if report is to be viewed
   if (view) {
@@ -1010,10 +1017,12 @@ report_op_docx <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' report_op_odt(
-#'   svy = testSVY, estimates = resultsDF, indicators = "mental",
-#'   filename = paste(tempdir(), "report", sep = "/")
-#' )
+#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#'   report_op_odt(
+#'     svy = testSVY, estimates = resultsDF, indicators = "mental",
+#'     filename = paste(tempdir(), "report", sep = "/")
+#'   )
+#' }
 #'
 #' @export
 #'
@@ -1122,10 +1131,12 @@ report_op_odt <- function(estimates,
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
 #' \donttest{
-#'   report_op_pdf(
-#'     svy = testSVY, estimates = resultsDF, indicators = "mental",
-#'     filename = paste(tempdir(), "report", sep = "/")
-#'   )
+#'   if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#'     report_op_pdf(
+#'       svy = testSVY, estimates = resultsDF, indicators = "mental",
+#'       filename = paste(tempdir(), "report", sep = "/")
+#'     )
+#'   }
 #' }
 #' 
 #' @export

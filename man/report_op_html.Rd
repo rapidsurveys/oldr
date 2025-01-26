@@ -47,10 +47,12 @@ probitResults <- estimate_probit(
 
 resultsDF <- merge_op(x = classicResults, y = probitResults)
 
-report_op_html(
-  svy = testSVY, estimates = resultsDF, indicators = "mental",
-  filename = paste(tempdir(), "report", sep = "/")
-)
+if (rmarkdown::pandoc_available("1.12.3")) {
+  report_op_html(
+    svy = testSVY, estimates = resultsDF, indicators = "mental",
+    filename = paste(tempdir(), "report", sep = "/")
+  )
+}
 
 }
 \author{

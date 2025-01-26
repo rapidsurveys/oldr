@@ -1,23 +1,31 @@
-## RESUBMISSION
+## Release summary
 
-In this resubmission, I addressed the following comments from CRAN:
+This is a patch release to address address a NOTE and an ERROR produced during
+CRAN check
 
-* It seems like you have too many spaces in your description field. Probably because linebreaks count as spaces too. Please remove unecassary ones.
+* NOTE on r-devel-windows-x86_64
 
-    - I removed spaces from previous line before a line break and then removed the last two sentences to avoid creating more line breaks
+```
+Missing dependency on R >= 4.2.0 because package code uses the pipe
+    placeholder syntax added in R 4.2.0.
+    File(s) using such syntax:
+      '01-opIndicators.R'
+```
 
-* You have examples for unexported functions. Please either omit these examples or export these functions.
+    - I have originally had dependency to R 4.1.0 thinking that this was the
+    version in which placeholder syntax was added. I have now increased this to
+    4.2.0.
 
-    - I removed all examples from unexported functions
+* ERROR on r-release-macos-x86_64 for exampls and tests
 
-* `\dontrun{}` should only be used if the example really cannot be executed
+```
+Error: pandoc version 1.12.3 or higher is required and was not found (see the help page ?rmarkdown::pandoc_available)
+```
 
-    - I removed `\dontrun{}` from the example for the `merge_op()` function.
+    - I have now added a conditionality in the examples for the `report_op_*()` set of functions such that it will only be evaluated if the PANDOC version is at least `1.12.3`
 
-* `if (FALSE)` in examples should never be used
+    - I have added `skip_on_cran()` for all tests for the `report_op_*()` set of functions
 
-    - I removed the `if (FALSE)` example in the `report_op_pdf()` function
-    documentation and added `donttest{}` as the example takes longer than 5s.
 
 ## Test environments
 * local OS X install, R 4.4.2

@@ -1,6 +1,6 @@
 Package: oldr
 Title: An Implementation of Rapid Assessment Method for Older People
-Version: 0.2.3.9000
+Version: 0.2.4
 Authors@R: c(
     person("Mark", "Myatt", comment = c(ORCID = "0000-0003-1119-1474"),
            email = "mark@brixtonhealth.com", role = c("aut", "cph")),
@@ -16,7 +16,7 @@ Description: An implementation of the Rapid Assessment Method for Older People
     assessment and analyse the collected data. RAM-OP provides accurate and
     reliable estimates of the needs of older people.
 License: GPL-3
-Depends: R (>= 4.1.0)
+Depends: R (>= 4.2.0)
 Imports: 
     bbw,
     car,
