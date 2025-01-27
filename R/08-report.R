@@ -1181,7 +1181,6 @@ report_op_pdf <- function(estimates,
           cat("    toc_depth: 2\n")
           cat("    number_sections: true\n")
           cat("    fig_caption: true\n")
-          cat("    latex_engine: 'pdflatex'\n")
           cat("params:\n")
           cat("  estimates: 'estimates'\n")
           cat("  svy: 'svy'\n")
@@ -1232,7 +1231,7 @@ report_op_pdf <- function(estimates,
   ## Render document in HTML format
   rmarkdown::render(
     input = paste(filename, ".Rmd", sep = ""),
-    output_format = "pdf_document"
+    output_format = rmarkdown::pdf_document(latex_engine = "pdflatex")
   )
 
   ## Check if report is to be viewed
