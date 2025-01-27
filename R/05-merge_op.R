@@ -1,12 +1,12 @@
 #' 
 #' Concatenate classic and PROBIT estimates into a single data.frame
 #'
-#' @param x Classic estimates data frame
-#' @param y Probit estimates data frame
+#' @param x Classic estimates [data.frame()]
+#' @param y Probit estimates [data.frame()]
 #' @param prop2percent Logical. Should proportion type indicators be converted
 #'   to percentage? Default is FALSE.
 #'
-#' @returns A [data.frame()] of combined classic and probit estimates.
+#' @returns A [tibble::tibble()] of combined classic and probit estimates.
 #'
 #' @author Ernest Guevarra
 #'
@@ -42,7 +42,10 @@ merge_op <- function(x, y, prop2percent = FALSE) {
   ## Merge 'estimates' data.frame and 'language' data.frame in preparation for
   ## reporting and maintaining the original row ordering of the 'language'
   ## data.frame ...
-  temp <- subset(language, subset = language$INDICATOR %in% estimates$INDICATOR)
+  temp <- subset(
+    language, 
+    subset = language$INDICATOR %in% estimates$INDICATOR
+  )
 
   temp$originalOrder <- seq_len(nrow(estimates))
 

@@ -7,15 +7,15 @@
 merge_op(x, y, prop2percent = FALSE)
 }
 \arguments{
-\item{x}{Classic estimates data frame}
+\item{x}{Classic estimates \code{\link[=data.frame]{data.frame()}}}
 
-\item{y}{Probit estimates data frame}
+\item{y}{Probit estimates \code{\link[=data.frame]{data.frame()}}}
 
 \item{prop2percent}{Logical. Should proportion type indicators be converted
 to percentage? Default is FALSE.}
 }
 \value{
-A \code{\link[=data.frame]{data.frame()}} of combined classic and probit estimates.
+A \code{\link[tibble:tibble]{tibble::tibble()}} of combined classic and probit estimates.
 }
 \description{
 Concatenate classic and PROBIT estimates into a single data.frame

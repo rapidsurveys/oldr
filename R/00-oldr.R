@@ -36,9 +36,9 @@
 #' @importFrom car powerTransform bcPower
 #' @importFrom withr with_par with_output_sink with_options
 #' @importFrom tibble tibble as_tibble
-#' @importFrom rmarkdown render
+#' @importFrom rmarkdown render pdf_document
 #' @importFrom cli cli_abort cli_bullets
-#' @importFrom tinytex is_tinytex install_tinytex
+#' @importFrom tinytex pdflatex
 #'
 "_PACKAGE"
 
