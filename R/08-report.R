@@ -783,9 +783,7 @@ report_op_misc <- function(output_format = c("html", "docx", "odt", "pdf")) {
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' library(rmarkdown)
-#' 
-#' if (pandoc_available("1.12.3")) {
+#' if (rmarkdown::pandoc_available("1.12.3")) {
 #'   report_op_html(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -903,9 +901,7 @@ report_op_html <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' library(rmarkdown)
-#' 
-#' if (pandoc_version() >= numeric_version("1.12.3")) {
+#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
 #'   report_op_docx(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -1021,9 +1017,7 @@ report_op_docx <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' library(rmarkdown)
-#' 
-#' if (pandoc_version() >= numeric_version("1.12.3")) {
+#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
 #'   report_op_odt(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -1136,12 +1130,7 @@ report_op_odt <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' 
 #' \donttest{
-#' #library(rmarkdown)
-#' #library(tinytex)
-#' #install_tinytex()
-#' 
 #'   if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
 #'     report_op_pdf(
 #'       svy = testSVY, estimates = resultsDF, indicators = "mental",
@@ -1192,6 +1181,7 @@ report_op_pdf <- function(estimates,
           cat("    toc_depth: 2\n")
           cat("    number_sections: true\n")
           cat("    fig_caption: true\n")
+          cat("    latex_engine: 'pdflatex'\n")
           cat("params:\n")
           cat("  estimates: 'estimates'\n")
           cat("  svy: 'svy'\n")
@@ -1235,10 +1225,14 @@ report_op_pdf <- function(estimates,
     }
   )
 
+  # if (!tinytex::is_tinytex()) {
+  #   tinytex::install_tinytex()
+  # }
+
   ## Render document in HTML format
   rmarkdown::render(
     input = paste(filename, ".Rmd", sep = ""),
-    output_format = rmarkdown::pdf_document()
+    output_format = "pdf_document"
   )
 
   ## Check if report is to be viewed

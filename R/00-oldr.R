@@ -38,7 +38,7 @@
 #' @importFrom tibble tibble as_tibble
 #' @importFrom rmarkdown render
 #' @importFrom cli cli_abort cli_bullets
-#' @importFrom tinytex is_tinytex install_tinytex
+#' @importFrom tinytex pdflatex
 #'
 "_PACKAGE"
 

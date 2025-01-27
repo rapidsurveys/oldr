@@ -47,9 +47,7 @@ probitResults <- estimate_probit(
 
 resultsDF <- merge_op(x = classicResults, y = probitResults)
 
-library(rmarkdown)
-
-if (pandoc_version() >= numeric_version("1.12.3")) {
+if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
   report_op_docx(
     svy = testSVY, estimates = resultsDF, indicators = "mental",
     filename = paste(tempdir(), "report", sep = "/")
