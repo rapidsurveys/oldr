@@ -783,7 +783,9 @@ report_op_misc <- function(output_format = c("html", "docx", "odt", "pdf")) {
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' if (rmarkdown::pandoc_available("1.12.3")) {
+#' library(rmarkdown)
+#' 
+#' if (pandoc_available("1.12.3")) {
 #'   report_op_html(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -901,7 +903,9 @@ report_op_html <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#' library(rmarkdown)
+#' 
+#' if (pandoc_version() >= numeric_version("1.12.3")) {
 #'   report_op_docx(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -1017,7 +1021,9 @@ report_op_docx <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#' library(rmarkdown)
+#' 
+#' if (pandoc_version() >= numeric_version("1.12.3")) {
 #'   report_op_odt(
 #'     svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'     filename = paste(tempdir(), "report", sep = "/")
@@ -1130,8 +1136,11 @@ report_op_odt <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
+#' library(rmarkdown)
+#' library(tinytex)
+#' 
 #' \donttest{
-#'   if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
+#'   if (pandoc_version() >= numeric_version("1.12.3")) {
 #'     report_op_pdf(
 #'       svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'       filename = paste(tempdir(), "report", sep = "/")
