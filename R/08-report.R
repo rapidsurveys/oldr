@@ -1136,11 +1136,13 @@ report_op_odt <- function(estimates,
 #'
 #' resultsDF <- merge_op(x = classicResults, y = probitResults)
 #'
-#' library(rmarkdown)
-#' library(tinytex)
 #' 
 #' \donttest{
-#'   if (pandoc_version() >= numeric_version("1.12.3")) {
+#' #library(rmarkdown)
+#' #library(tinytex)
+#' #install_tinytex()
+#' 
+#'   if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
 #'     report_op_pdf(
 #'       svy = testSVY, estimates = resultsDF, indicators = "mental",
 #'       filename = paste(tempdir(), "report", sep = "/")
@@ -1236,7 +1238,7 @@ report_op_pdf <- function(estimates,
   ## Render document in HTML format
   rmarkdown::render(
     input = paste(filename, ".Rmd", sep = ""),
-    output_format = "pdf_document"
+    output_format = rmarkdown::pdf_document()
   )
 
   ## Check if report is to be viewed
