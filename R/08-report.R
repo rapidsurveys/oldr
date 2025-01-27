@@ -1132,10 +1132,12 @@ report_op_odt <- function(estimates,
 #'
 #' \donttest{
 #'   if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
-#'     report_op_pdf(
-#'       svy = testSVY, estimates = resultsDF, indicators = "mental",
-#'       filename = paste(tempdir(), "report", sep = "/")
-#'     )
+#'     if (tinytex::is_tinytex()) {
+#'       report_op_pdf(
+#'         svy = testSVY, estimates = resultsDF, indicators = "mental",
+#'         filename = paste(tempdir(), "report", sep = "/")
+#'       )
+#'     }
 #'   }
 #' }
 #' 
@@ -1224,14 +1226,16 @@ report_op_pdf <- function(estimates,
     }
   )
 
-  # if (!tinytex::is_tinytex()) {
-  #   tinytex::install_tinytex()
-  # }
+  if (!tinytex::is_tinytex()) {
+    cli::cli_abort(
+      "Requires TinyTex to be installed. Install with `tinytex::install_tinytex()`."
+    )
+  }
 
   ## Render document in HTML format
   rmarkdown::render(
     input = paste(filename, ".Rmd", sep = ""),
-    output_format = rmarkdown::pdf_document(latex_engine = "pdflatex")
+    output_format = "pdf_document"
   )
 
   ## Check if report is to be viewed
