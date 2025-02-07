@@ -39,6 +39,7 @@ ORCID
 Optom
 PSU
 PSUs
+Pandoc
 Physiol
 Prudhon
 RC
@@ -49,7 +50,6 @@ TD
 WG
 adl
 anthro
-bootClassic
 cd
 ci
 codecov
@@ -62,5 +62,4 @@ psu
 ramOP
 ramOPreport
 th
-tibble
 widehat
