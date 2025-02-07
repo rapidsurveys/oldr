@@ -3,7 +3,7 @@
 This is a patch release to address address a NOTE and an ERROR produced during
 CRAN check
 
-* NOTE on r-devel-windows-x86_64
+* NOTE on r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-x86_64
 
 ```
 Missing dependency on R >= 4.2.0 because package code uses the pipe
