@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">oldr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.3.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.4.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +39,17 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="oldr-development-version">oldr (development version)<a class="anchor" aria-label="anchor" href="#oldr-development-version"></a></h2>
-</div>
+<h2 class="pkg-version" data-toc-text="0.2.4.9000" id="oldr-0249000">oldr 0.2.4.9000<a class="anchor" aria-label="anchor" href="#oldr-0249000"></a></h2>
+<p>This is a patch release of <a href="https://rapidsurveys.io/oldr/">oldr</a>. This fixes a NOTE and an ERROR on routine CRAN checks in preparation for an update CRAN release in the near future.</p>
+<ul><li>
+<p>NOTE on R version dependency</p>
+<ul><li>Since the package uses the base pipe (<code>|&gt;</code>) and uses the placeholder syntax, the R version dependency has been updated from 4.1.0 to 4.2.0</li>
+</ul></li>
+<li>
+<p>ERROR on minimum Pandoc version required</p>
+<ul><li>The release macOS flavour in CRAN checks most likely uses a version of Pandoc earlier than version <code>1.12.3</code> hence examples and tests for the <code>report_op_*()</code> function set is failing. A condition has now been added to the <code>report_op_*()</code> function set examples such that they will only be run/tested if the available Pandoc has version <code>1.12.3</code> or later. For tests, <code>report_op_*()</code> function set tests have been set to be skipped during CRAN checks.</li>
+</ul></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.3" id="oldr-023">oldr 0.2.3<a class="anchor" aria-label="anchor" href="#oldr-023"></a></h2><p class="text-muted">CRAN release: 2025-01-24</p>
 <p>This is the first CRAN release of <a href="https://rapidsurveys.io/oldr/">oldr</a>.</p>
