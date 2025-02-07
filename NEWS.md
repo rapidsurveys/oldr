@@ -1,6 +1,6 @@
-# oldr 0.2.4
+# oldr 0.2.4.9000
 
-This is a patch CRAN release of `{oldr}`. This fixes a NOTE and an ERROR on routine CRAN checks.
+This is a patch release of `{oldr}`. This fixes a NOTE and an ERROR on routine CRAN checks in preparation for an update CRAN release in the near future.
 
 * NOTE on R version dependency
 
