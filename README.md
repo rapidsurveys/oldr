@@ -36,7 +36,7 @@ alt="DOI" /></a> <!-- badges: end -->
 International](http://www.validinternational.org), and [Brixton
 Health](http://www.brixtonhealth.com), with financial assistance from
 the [Humanitarian Innovation Fund
-(HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid
+(HIF)](https://www.elrha.org/innovation), have developed a **Rapid
 Assessment Method for Older People (RAM-OP)** that provides accurate and
 reliable estimates of the needs of older people. The method uses simple
 procedures, in a short time frame (i.e. about two weeks including

@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 [![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.oldr-blue)](https://doi.org/10.32614/CRAN.package.oldr){.pkgdown-release}
 <!-- badges: end -->
 
-[HelpAge International](https://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
+[HelpAge International](https://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](https://www.elrha.org/innovation), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
 
 * Use of a familiar *“household survey”* design employing a two-stage cluster sample design optimised to allow the use of a small primary sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
 
