@@ -1,0 +1,211 @@
+# oldr: An Implementation of the Rapid Assessment Method for Older People (RAM-OP)
+
+[HelpAge International](https://www.helpage.org), [VALID
+International](http://www.validinternational.org), and [Brixton
+Health](http://www.brixtonhealth.com), with financial assistance from
+the [Humanitarian Innovation Fund
+(HIF)](https://www.elrha.org/innovation), have developed a **Rapid
+Assessment Method for Older People (RAM-OP)** that provides accurate and
+reliable estimates of the needs of older people. The method uses simple
+procedures, in a short time frame (i.e. about two weeks including
+training, data collection, data entry, and data analysis), and at
+considerably lower cost than other methods. The **RAM-OP** method is
+based on the following principles:
+
+- Use of a familiar *“household survey”* design employing a two-stage
+  cluster sample design optimised to allow the use of a small primary
+  sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
+
+- Assessment of multiple dimensions of need in older people (including
+  prevalence of global, moderate and severe acute malnutrition) using,
+  whenever possible, standard and well-tested indicators and question
+  sets.
+
+- Data analysis performed using modern computer-intensive methods to
+  allow estimates of indicator levels to be made with useful precision
+  using a small sample size.
+
+## Installation
+
+You can install the latest development version of
+[oldr](https://rapidsurveys.io/oldr/) from
+[GitHub](https://github.com/rapidsurveys/oldr) with:
+
+``` r
+if (!require(pak)) install.packages("pak")
+pak::pak("rapidsurveys/oldr")
+```
+
+You can also install [oldr](https://rapidsurveys.io/oldr/) through the
+[RapidSurveys R Universe](https://rapidsurveys.r-universe.dev) with:
+
+``` r
+install.packages(
+  "oldr", 
+  repos = c(
+    "https://rapidsurveys.r-universe.dev", "https://cloud.r-project.org"
+  )
+)
+```
+
+## Usage
+
+This package contains functions that support in the data processing,
+analysis, and visualisation of RAM-OP survey datasets collected using
+the standard RAM-OP survey questionnaire.
+
+The figure below illustrates the RAM-OP workflow and indicates which
+functions in the [oldr](https://rapidsurveys.io/oldr/) package support
+which particular step in the process.
+
+![RAM-OP workflow](reference/figures/ramOPworkflow.png)
+
+For a more detailed description of the RAM-OP survey, read the [RAM-OP
+manual](https://rapidsurveys.io/ramOPmanual/).
+
+## Citation
+
+If you use the [oldr](https://rapidsurveys.io/oldr/) package in your
+work, please cite using the suggested citation provided by a call to the
+`citation` function as follows:
+
+``` r
+citation("oldr")
+#> To cite oldr in publications use:
+#> 
+#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2026).
+#>   _oldr: An Implementation of Rapid Assessment Method for Older
+#>   People_. doi:10.5281/zenodo.7505731
+#>   <https://doi.org/10.5281/zenodo.7505731>, R package version 0.2.4,
+#>   <https://rapidsurveys.io/oldr/>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {oldr: An Implementation of Rapid Assessment Method for Older People},
+#>     author = {{Mark Myatt} and {Ernest Guevarra} and {Pascale Fritsch} and {Katja Siling}},
+#>     year = {2026},
+#>     note = {R package version 0.2.4},
+#>     url = {https://rapidsurveys.io/oldr/},
+#>     doi = {10.5281/zenodo.7505731},
+#>   }
+```
+
+## Community guidelines
+
+Feedback, bug reports, and feature requests are welcome; file issues or
+seek support [here](https://github.com/rapidsurveys/oldr/issues). If you
+would like to contribute to the package, please see our [contributing
+guidelines](https://rapidsurveys.io/oldr/CONTRIBUTING.html).
+
+This project is released with a [Contributor Code of
+Conduct](https://rapidsurveys.io/oldr/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
+
+# Package index
+
+## Create indicators
+
+- [`create_op()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_demo()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_food()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_hunger()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_adl()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_disability()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_mental()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_dementia()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_health()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_income()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_wash()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_anthro()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_oedema()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_screening()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_visual()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  [`create_op_misc()`](https://rapidsurveys.io/oldr/dev/reference/create_op.md)
+  : Create older people indicators dataset from survey data collected
+  using the standard RAM-OP questionnaire.
+
+## Estimate indicators
+
+- [`estimate_classic()`](https://rapidsurveys.io/oldr/dev/reference/estimate_classic.md)
+  : Apply bootstrap to RAM-OP indicators using a classical estimator.
+- [`estimate_op()`](https://rapidsurveys.io/oldr/dev/reference/estimate_op.md)
+  : Estimate all standard RAM-OP indicators
+- [`estimate_probit()`](https://rapidsurveys.io/oldr/dev/reference/estimate_probit.md)
+  : Apply bootstrap to RAM-OP indicators using a PROBIT estimator.
+
+## Create charts
+
+- [`chart_op_age()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_muac()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_mf()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_dds()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_k6()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_adl()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_wash()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_csid()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_wg()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_hhs()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  [`chart_op_income()`](https://rapidsurveys.io/oldr/dev/reference/chart_op.md)
+  : Plot RAM-OP indicators
+- [`pyramid_plot()`](https://rapidsurveys.io/oldr/dev/reference/pyramid_plot.md)
+  : Function to create a pyramid plot
+
+## Create report
+
+- [`report_op_html()`](https://rapidsurveys.io/oldr/dev/reference/report_op_html.md)
+  : Create an HTML report document containing RAM-OP survey results
+- [`report_op_docx()`](https://rapidsurveys.io/oldr/dev/reference/report_op_docx.md)
+  : Create a DOCX report document containing RAM-OP survey results
+- [`report_op_odt()`](https://rapidsurveys.io/oldr/dev/reference/report_op_odt.md)
+  : Create a ODT report document containing RAM-OP survey results
+- [`report_op_pdf()`](https://rapidsurveys.io/oldr/dev/reference/report_op_pdf.md)
+  : Create a PDF report document containing RAM-OP survey results
+- [`report_op_table()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_demo()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_food()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_hunger()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_disability()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_adl()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_mental()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_dementia()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_health()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_oedema()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_anthro()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_screen()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_visual()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_income()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_wash()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  [`report_op_misc()`](https://rapidsurveys.io/oldr/dev/reference/report_op.md)
+  : Create table and report chunk of RAM-OP results
+
+## Utility/support functions
+
+- [`probit_gam()`](https://rapidsurveys.io/oldr/dev/reference/op_probit.md)
+  [`probit_sam()`](https://rapidsurveys.io/oldr/dev/reference/op_probit.md)
+  : PROBIT statistics function for bootstrap estimation of older people
+  GAM
+- [`merge_op()`](https://rapidsurveys.io/oldr/dev/reference/merge_op.md)
+  : Concatenate classic and PROBIT estimates into a single data.frame
+
+## Datasets
+
+- [`testSVY`](https://rapidsurveys.io/oldr/dev/reference/testSVY.md) :
+  RAM-OP Survey Dataset
+- [`testPSU`](https://rapidsurveys.io/oldr/dev/reference/testPSU.md) :
+  RAM-OP Population Dataset
+- [`indicators.ALL`](https://rapidsurveys.io/oldr/dev/reference/indicators.ALL.md)
+  : RAM-OP Indicators Dataset - ALL
+- [`indicators.MALES`](https://rapidsurveys.io/oldr/dev/reference/indicators.MALES.md)
+  : RAM-OP Indicators Dataset - MALES
+- [`indicators.FEMALES`](https://rapidsurveys.io/oldr/dev/reference/indicators.FEMALES.md)
+  : RAM-OP Indicators Dataset - FEMALES
+
+# Articles
+
+### All vignettes
+
+- [Rapid Assessment Method for Older People
+  (RAM-OP)](https://rapidsurveys.io/oldr/dev/articles/oldr.md):
+- [The RAM-OP
+  Workflow](https://rapidsurveys.io/oldr/dev/articles/ram_op_workflow.md):
