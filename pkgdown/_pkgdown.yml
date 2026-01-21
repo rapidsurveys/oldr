@@ -8,31 +8,33 @@ development:
 template:
   bootstrap: 5
   theme: breeze-light
-  ganalytics: "G-0QDF0E2HPX"
   bslib:
     bootswatch: sandstone
     primary: "#A41034"
+  includes:
+    in_header: |
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QDF0E2HPX"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-0QDF0E2HPX');
+      </script>
 
 navbar:
   bg: primary
   type: light
   structure:
     left:  [home, intro, reference, articles, news]
-    right: [search, mastodon, linkedin, github]
+    right: [search, github]
   components:
     articles:
       text: Articles
       menu:
       - text: "The RAM-OP Workflow"
         href: articles/ram_op_workflow.html
-    mastodon:
-      icon: "fab fa-mastodon fa-lg"
-      aria-label: Mastodon
-      href: https://fosstodon.org/@katilingban
-    linkedin:
-      icon: "fab fa-linkedin fa-lg"
-      aria-label: LinkedIn
-      href: https://www.linkedin.com/company/katilingban
 
 home:
   links:

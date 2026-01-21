@@ -10,17 +10,27 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
+<a href="https://CRAN.R-project.org/package=oldr"
+class="pkgdown-release"><img
+src="https://www.r-pkg.org/badges/version/oldr" alt="CRAN status" /></a>
+[![cran
+checks](https://badges.cranchecks.info/worst/bbw.svg)](https://cran.r-project.org/web/checks/check_results_bbw.html)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](http://cranlogs.r-pkg.org/badges/grand-total/oldr)](https://CRAN.R-project.org/package=oldr)
 [![R-CMD-check](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml)
 [![R-hub](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml)
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
-[![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rapidsurveys/oldr)
+[![Codecov test
+coverage](https://codecov.io/gh/rapidsurveys/oldr/graph/badge.svg)](https://app.codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
-[![DOI](https://zenodo.org/badge/105472081.svg)](https://zenodo.org/badge/latestdoi/105472081)
-<!-- badges: end -->
+<a href="https://zenodo.org/badge/latestdoi/105472081"
+class="pkgdown-release"><img
+src="https://zenodo.org/badge/105472081.svg" alt="DOI" /></a>
+<a href="https://doi.org/10.32614/CRAN.package.oldr"
+class="pkgdown-release"><img
+src="https://img.shields.io/badge/DOI-10.32614/CRAN.package.oldr-blue"
+alt="DOI" /></a> <!-- badges: end -->
 
 [HelpAge International](https://www.helpage.org), [VALID
 International](http://www.validinternational.org), and [Brixton
@@ -34,20 +44,22 @@ training, data collection, data entry, and data analysis), and at
 considerably lower cost than other methods. The **RAM-OP** method is
 based on the following principles:
 
-  - Use of a familiar *“household survey”* design employing a two-stage
-    cluster sample design optimised to allow the use of a small primary
-    sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
+- Use of a familiar *“household survey”* design employing a two-stage
+  cluster sample design optimised to allow the use of a small primary
+  sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
 
-  - Assessment of multiple dimensions of need in older people (including
-    prevalence of global, moderate and severe acute malnutrition) using,
-    whenever possible, standard and well-tested indicators and question
-    sets.
+- Assessment of multiple dimensions of need in older people (including
+  prevalence of global, moderate and severe acute malnutrition) using,
+  whenever possible, standard and well-tested indicators and question
+  sets.
 
-  - Data analysis performed using modern computer-intensive methods to
-    allow estimates of indicator levels to be made with useful precision
-    using a small sample size.
+- Data analysis performed using modern computer-intensive methods to
+  allow estimates of indicator levels to be made with useful precision
+  using a small sample size.
 
 ## Installation
+
+<div class="pkgdown-release">
 
 You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 
@@ -55,21 +67,31 @@ You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 install.packages("oldr")
 ```
 
-You can install the latest development version of `{oldr}` from the
-RapidSurveys R Universe with:
+</div>
 
-``` r
-install.packages(
-  "oldr", repos = c("https://rapidsurveys.r-universe.dev")
-)
-```
+<div class="pkgdown-devel">
 
-or from [GitHub](https://github.com/rapidsurveys/oldr) with:
+You can install the latest development version of `{oldr}` from
+[GitHub](https://github.com/rapidsurveys/oldr) with:
 
 ``` r
 if (!require(pak)) install.packages("pak")
 pak::pak("rapidsurveys/oldr")
 ```
+
+You can also install `{oldr}` through the [RapidSurveys R
+Universe](https://rapidsurveys.r-universe.dev) with:
+
+``` r
+install.packages(
+  "oldr", 
+  repos = c(
+    "https://rapidsurveys.r-universe.dev", "https://cloud.r-project.org"
+  )
+)
+```
+
+</div>
 
 ## Usage
 
@@ -96,7 +118,7 @@ follows:
 citation("oldr")
 #> To cite oldr in publications use:
 #> 
-#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2025).
+#>   Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2026).
 #>   _oldr: An Implementation of Rapid Assessment Method for Older
 #>   People_. doi:10.5281/zenodo.7505731
 #>   <https://doi.org/10.5281/zenodo.7505731>, R package version 0.2.4,
@@ -107,7 +129,7 @@ citation("oldr")
 #>   @Manual{,
 #>     title = {oldr: An Implementation of Rapid Assessment Method for Older People},
 #>     author = {{Mark Myatt} and {Ernest Guevarra} and {Pascale Fritsch} and {Katja Siling}},
-#>     year = {2025},
+#>     year = {2026},
 #>     note = {R package version 0.2.4},
 #>     url = {https://rapidsurveys.io/oldr/},
 #>     doi = {10.5281/zenodo.7505731},

@@ -1,0 +1,301 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "oldr" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'oldr: An Implementation of Rapid Assessment Method for Older People'
+version: 0.2.4
+doi: 10.5281/zenodo.7505731
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.oldr
+abstract: An implementation of the Rapid Assessment Method for Older People or RAM-OP
+  <https://www.helpage.org/resource/rapid-assessment-method-for-older-people-ramop-manual/>.
+  It provides various functions that allow the user to design and plan the assessment
+  and analyse the collected data. RAM-OP provides accurate and reliable estimates
+  of the needs of older people.
+authors:
+- family-names: Myatt
+  given-names: Mark
+  email: mark@brixtonhealth.com
+  orcid: https://orcid.org/0000-0003-1119-1474
+- family-names: Guevarra
+  given-names: Ernest
+  email: ernest@guevarra.io
+  orcid: https://orcid.org/0000-0002-4887-4415
+- family-names: Fritsch
+  given-names: Pascale
+- family-names: Siling
+  given-names: Katja
+preferred-citation:
+  type: manual
+  title: 'oldr: An Implementation of Rapid Assessment Method for Older People'
+  authors:
+  - name: Mark Myatt
+  - name: Ernest Guevarra
+  - name: Pascale Fritsch
+  - name: Katja Siling
+  year: '2026'
+  notes: R package version 0.2.4
+  url: https://rapidsurveys.io/oldr/
+  doi: 10.5281/zenodo.7505731
+repository: https://CRAN.R-project.org/package=oldr
+repository-code: https://github.com/rapidsurveys/oldr
+url: https://rapidsurveys.io/oldr/
+contact:
+- family-names: Guevarra
+  given-names: Ernest
+  email: ernest@guevarra.io
+  orcid: https://orcid.org/0000-0002-4887-4415
+keywords:
+- assessment
+- data-analysis
+- odk
+- r
+- ram-op
+- rapid-assessment
+references:
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+  version: '>= 4.2.0'
+- type: software
+  title: bbw
+  abstract: 'bbw: Blocked Weighted Bootstrap'
+  notes: Imports
+  url: https://rapidsurveys.io/bbw/
+  repository: https://CRAN.R-project.org/package=bbw
+  authors:
+  - family-names: Myatt
+    given-names: Mark
+    email: mark@brixtonhealth.com
+  - family-names: Guevarra
+    given-names: Ernest
+    email: ernestgmd@gmail.com
+    orcid: https://orcid.org/0000-0002-4887-4415
+  year: '2026'
+  doi: 10.32614/CRAN.package.bbw
+- type: software
+  title: car
+  abstract: 'car: Companion to Applied Regression'
+  notes: Imports
+  url: https://CRAN.R-project.org/package=car
+  repository: https://CRAN.R-project.org/package=car
+  authors:
+  - family-names: Fox
+    given-names: John
+    email: jfox@mcmaster.ca
+  - family-names: Weisberg
+    given-names: Sanford
+    email: sandy@umn.edu
+  - family-names: Price
+    given-names: Brad
+    email: brad.price@mail.wvu.edu
+  year: '2026'
+  doi: 10.32614/CRAN.package.car
+- type: software
+  title: withr
+  abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
+  notes: Imports
+  url: https://withr.r-lib.org
+  repository: https://CRAN.R-project.org/package=withr
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevinushey@gmail.com
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Chang
+    given-names: Winston
+  year: '2026'
+  doi: 10.32614/CRAN.package.withr
+- type: software
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Imports
+  url: https://tibble.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=tibble
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2026'
+  doi: 10.32614/CRAN.package.tibble
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Imports
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2026'
+  doi: 10.32614/CRAN.package.rmarkdown
+- type: software
+  title: cli
+  abstract: 'cli: Helpers for Developing Command Line Interfaces'
+  notes: Imports
+  url: https://cli.r-lib.org
+  repository: https://CRAN.R-project.org/package=cli
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: gabor@posit.co
+  year: '2026'
+  doi: 10.32614/CRAN.package.cli
+- type: software
+  title: tinytex
+  abstract: 'tinytex: Helper Functions to Install and Maintain TeX Live, and Compile
+    LaTeX Documents'
+  notes: Imports
+  url: https://github.com/rstudio/tinytex
+  repository: https://CRAN.R-project.org/package=tinytex
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2026'
+  doi: 10.32614/CRAN.package.tinytex
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2026'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 3.0.0'
+- type: software
+  title: covr
+  abstract: 'covr: Test Coverage for Packages'
+  notes: Suggests
+  url: https://covr.r-lib.org
+  repository: https://CRAN.R-project.org/package=covr
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  year: '2026'
+  doi: 10.32614/CRAN.package.covr
+- type: software
+  title: DiagrammeR
+  abstract: 'DiagrammeR: Graph/Network Visualization'
+  notes: Suggests
+  url: https://rich-iannone.github.io/DiagrammeR/
+  repository: https://CRAN.R-project.org/package=DiagrammeR
+  authors:
+  - family-names: Iannone
+    given-names: Richard
+    email: riannone@me.com
+    orcid: https://orcid.org/0000-0003-3925-190X
+  - family-names: Roy
+    given-names: Olivier
+    email: olivierroy71@hotmail.com
+  year: '2026'
+  doi: 10.32614/CRAN.package.DiagrammeR
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2026'
+  doi: 10.32614/CRAN.package.knitr
+- type: software
+  title: kableExtra
+  abstract: 'kableExtra: Construct Complex Table with ''kable'' and Pipe Syntax'
+  notes: Suggests
+  url: http://haozhu233.github.io/kableExtra/
+  repository: https://CRAN.R-project.org/package=kableExtra
+  authors:
+  - family-names: Zhu
+    given-names: Hao
+    email: haozhu233@gmail.com
+    orcid: https://orcid.org/0000-0002-3386-6076
+  year: '2026'
+  doi: 10.32614/CRAN.package.kableExtra
+- type: software
+  title: spelling
+  abstract: 'spelling: Tools for Spell Checking in R'
+  notes: Suggests
+  url: https://ropensci.r-universe.dev/spelling
+  repository: https://CRAN.R-project.org/package=spelling
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  - family-names: Hester
+    given-names: Jim
+    email: james.hester@rstudio.com
+  year: '2026'
+  doi: 10.32614/CRAN.package.spelling
+
