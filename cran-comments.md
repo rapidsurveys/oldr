@@ -60,3 +60,7 @@ Both ORCID information are the same but formatted differently.
 ### macbuilder checks
 
 0 errors | 0 warnings | 0 notes
+
+## Reverse dependencies
+`oldr` doesn't have any downstream / reverse dependencies 
+(see https://github.com/rapidsurveys/oldr/tree/main/revdep/cran.md)

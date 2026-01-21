@@ -22,3 +22,4 @@
 ^README\.html$
 ^CRAN-SUBMISSION$
 ^CITATION\.cff$
+^revdep$
