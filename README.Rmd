@@ -20,19 +20,21 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN](https://img.shields.io/cran/v/oldr.svg)](https://cran.r-project.org/package=oldr)
+[![CRAN status](https://www.r-pkg.org/badges/version/oldr)](https://CRAN.R-project.org/package=oldr){.pkgdown-release}
+[![cran checks](https://badges.cranchecks.info/worst/bbw.svg)](https://cran.r-project.org/web/checks/check_results_bbw.html)
 [![CRAN](https://img.shields.io/cran/l/oldr.svg)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](http://cranlogs.r-pkg.org/badges/oldr)](https://CRAN.R-project.org/package=oldr)
 [![CRAN](http://cranlogs.r-pkg.org/badges/grand-total/oldr)](https://CRAN.R-project.org/package=oldr)
 [![R-CMD-check](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/R-CMD-check.yaml)
 [![R-hub](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/rhub.yaml)
 [![test-coverage](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/rapidsurveys/oldr/actions/workflows/test-coverage.yaml)
-[![codecov](https://codecov.io/gh/rapidsurveys/oldr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rapidsurveys/oldr)
+[![Codecov test coverage](https://codecov.io/gh/rapidsurveys/oldr/graph/badge.svg)](https://app.codecov.io/gh/rapidsurveys/oldr)
 [![CodeFactor](https://www.codefactor.io/repository/github/rapidsurveys/oldr/badge)](https://www.codefactor.io/repository/github/rapidsurveys/oldr)
-[![DOI](https://zenodo.org/badge/105472081.svg)](https://zenodo.org/badge/latestdoi/105472081)
+[![DOI](https://zenodo.org/badge/105472081.svg)](https://zenodo.org/badge/latestdoi/105472081){.pkgdown-release}
+[![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.oldr-blue)](https://doi.org/10.32614/CRAN.package.oldr){.pkgdown-release}
 <!-- badges: end -->
 
-[HelpAge International](https://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](http://www.elrha.org/hif/home/), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
+[HelpAge International](https://www.helpage.org), [VALID International](http://www.validinternational.org), and [Brixton Health](http://www.brixtonhealth.com), with financial assistance from the [Humanitarian Innovation Fund (HIF)](https://www.elrha.org/innovation), have developed a **Rapid Assessment Method for Older People (RAM-OP)** that provides accurate and reliable estimates of the needs of older people. The method uses simple procedures, in a short time frame (i.e. about two weeks including training, data collection, data entry, and data analysis), and at considerably lower cost than other methods. The **RAM-OP** method is based on the following principles:
 
 * Use of a familiar *“household survey”* design employing a two-stage cluster sample design optimised to allow the use of a small primary sample (*m ≥ 16 clusters*) and a small overall (*n ≥ 192*) sample.
 
@@ -42,26 +44,34 @@ knitr::opts_chunk$set(
 
 ## Installation
 
+::: {.pkgdown-release}
 You can install `{oldr}` from [CRAN](https://cran.r-project.org) with:
 
 ```{r install-cran, echo = TRUE, eval = FALSE}
 install.packages("oldr")
 ```
+:::
 
-You can install the latest development version of `{oldr}` from the RapidSurveys R Universe with:
+::: {.pkgdown-devel}
+You can install the latest development version of `{oldr}` from [GitHub](https://github.com/rapidsurveys/oldr) with:
 
-```{r install-r-universe, eval = FALSE}
-install.packages(
-  "oldr", repos = c("https://rapidsurveys.r-universe.dev")
-)
-```
 
-or from [GitHub](https://github.com/rapidsurveys/oldr) with:
-
-```{r install-github, eval = FALSE}
+```R
 if (!require(pak)) install.packages("pak")
 pak::pak("rapidsurveys/oldr")
 ```
+
+You can also install `{oldr}` through the [RapidSurveys R Universe](https://rapidsurveys.r-universe.dev) with:
+
+```R
+install.packages(
+  "oldr", 
+  repos = c(
+    "https://rapidsurveys.r-universe.dev", "https://cloud.r-project.org"
+  )
+)
+```
+:::
 
 ## Usage
 

@@ -170,7 +170,7 @@ The HHS is described in:
 \cite{Ballard T, Coates J, Swindale A, Deitchler M (2011). Household Hunger
 Scale: Indicator Definition and Measurement Guide. Washington DC,
 FANTA-2 Bridge, FHI 360
-\url{https://www.fantaproject.org/monitoring-and-evaluation/household-hunger-scale-hhs}}\tabular{ll}{
+\url{https://inddex.nutrition.tufts.edu/data4diets/indicator/household-hunger-scale-hhs}}\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
    \code{HHS1} \tab Little or no hunger in household \cr
    \code{HHS2} \tab Moderate hunger in household \cr

@@ -1,6 +1,6 @@
 ## Release summary
 
-This is a patch release to address address a NOTE and an ERROR produced during
+This is a patch release to address address a NOTE produced during
 CRAN check
 
 * NOTE on r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-x86_64
@@ -16,37 +16,51 @@ Missing dependency on R >= 4.2.0 because package code uses the pipe
     version in which placeholder syntax was added. I have now increased this to
     4.2.0.
 
-* ERROR on r-release-macos-x86_64 for exampls and tests
-
-```
-Error: pandoc version 1.12.3 or higher is required and was not found (see the help page ?rmarkdown::pandoc_available)
-```
-
-    - I have now added a conditionality in the examples for the `report_op_*()` set of functions such that it will only be evaluated if the PANDOC version is at least `1.12.3`
-
-    - I have added `skip_on_cran()` for all tests for the `report_op_*()` set of functions
-
-
 ## Test environments
-* local OS X install, R 4.4.2
-* local ubuntu 22.04 install, R 4.4.2
+* local OS X install, R 4.5.2
+* local ubuntu 22.04 install, R 4.5.2
 * win-builder (devel, release, and old release)
 * github actions windows-latest, r: release
 * github actions macOS-latest, r: release
-* github actions ubuntu-22.04, r: release, devel, old release
+* github actions ubuntu-24.04, r: release, devel, old release
 * rhub windows-latest r devel
-* rhub ubuntu 22.04 r devel
+* rhub ubuntu 24.04 r devel
 * rhub macos r devel
 * rhub macos-arm64 r devel
-
+* macbuilder (devel)
 
 ## R CMD check results
 
-### For all checks, the results showed:
+### Local checks
 
-  New submission
+0 errors | 0 warnings | 0 notes
+
+### win-builder checks - devel and release
+
+0 errors | 0 warnings | 0 notes
+
+### win-builder checks - old release
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+Author field differs from that derived from Authors@R
+  Author:    'Mark Myatt [aut, cph], Ernest Guevarra [aut, cre, cph] (ORCID: <https://orcid.org/0000-0002-4887-4415>)'
+  Authors@R: 'Mark Myatt [aut, cph], Ernest Guevarra [aut, cre, cph] (<https://orcid.org/0000-0002-4887-4415>)'
 
+Both ORCID information are the same but formatted differently.
+
+### GitHub Actions checks
+
+0 errors | 0 warnings | 0 notes
+
+### rhub checks
+
+0 errors | 0 warnings | 0 notes
+
+### macbuilder checks
+
+0 errors | 0 warnings | 0 notes
+
+## Reverse dependencies
+`oldr` doesn't have any downstream / reverse dependencies 
+(see https://github.com/rapidsurveys/oldr/tree/main/revdep/cran.md)

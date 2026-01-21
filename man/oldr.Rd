@@ -9,7 +9,7 @@
 \href{https://www.helpage.org/}{HelpAge International}, VALID International, and
 \href{http://www.brixtonhealth.com}{Brixton Health}, with financial
 assistance from the
-\href{http://www.elrha.org/hif/home/}{Humanitarian Innovation Fund (HIF)}, have
+\href{https://www.elrha.org/innovation}{Humanitarian Innovation Fund (HIF)}, have
 developed a \strong{Rapid Assessment Method for Older People (RAM-OP)} that
 provides accurate and reliable estimates of the needs of older people. The
 method uses simple procedures, in a short time frame (i.e. about two weeks
