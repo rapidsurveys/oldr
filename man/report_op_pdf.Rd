@@ -46,15 +46,11 @@ probitResults <- estimate_probit(
 
 resultsDF <- merge_op(x = classicResults, y = probitResults)
 
-\donttest{
-  if (rmarkdown::pandoc_version() >= numeric_version("1.12.3")) {
-    if (tinytex::is_tinytex()) {
-      report_op_pdf(
-        svy = testSVY, estimates = resultsDF, indicators = "mental",
-        filename = paste(tempdir(), "report", sep = "/")
-      )
-    }
-  }
+if (tinytex::is_tinytex()) {
+  report_op_pdf(
+    svy = testSVY, estimates = resultsDF, indicators = "mental",
+    filename = paste(tempdir(), "report", sep = "/")
+   )
 }
 
 }
