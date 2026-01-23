@@ -2,6 +2,8 @@
 
 ## oldr 0.2.4
 
+CRAN release: 2026-01-21
+
 This is a patch release of [oldr](https://rapidsurveys.io/oldr/). This
 fixes a NOTE on routine CRAN checks.
 

@@ -19,7 +19,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/rapidsurveys/oldr/blob/v0.2.4/inst/CITATION)
+[`inst/CITATION`](https://github.com/rapidsurveys/oldr/blob/main/inst/CITATION)
 
 Mark Myatt, Ernest Guevarra, Pascale Fritsch, Katja Siling (2026).
 *oldr: An Implementation of Rapid Assessment Method for Older People*.
